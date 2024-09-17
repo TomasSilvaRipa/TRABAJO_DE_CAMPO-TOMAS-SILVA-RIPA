@@ -58,6 +58,7 @@ namespace GUI
         {
             txtNombre.Text = ObtenerUsuarioSeleccionado().Nombre.Trim();
             txtSector.Text = ObtenerUsuarioSeleccionado().Sector.Trim();
+            txtMail.Text = ObtenerUsuarioSeleccionado().Mail.Trim();
         }
 
         #endregion
@@ -68,14 +69,14 @@ namespace GUI
             Bitacora_ bitacora;
             try
             {
-                if (!ManejoErrores.ValidarNombre(txtNombre.Text) || !ManejoErrores.ValidarClave(txtClave.Text) || !ManejoErrores.ValidarNombre(txtSector.Text))
+                if (!ManejoErrores.ValidarNombre(txtNombre.Text) || !ManejoErrores.ValidarClave(txtClave.Text) || !ManejoErrores.ValidarNombre(txtSector.Text) || !ManejoErrores.ValidarMail(txtMail.Text))
                 {
-                    bitacora = new Bitacora_(Bitacora_.BitacoraTipo.VALIDACION,Usuario,"Los datos ingresados no tienen el formato correcto.");
+                    bitacora = new Bitacora_(Bitacora_.BitacoraTipo.VALIDACION, Usuario, "Los datos ingresados no tienen el formato correcto.");
                     bitacorabll.Add(bitacora);
                     MessageBox.Show(bitacora.Mensaje);
                     return;
                 }
-                Usuario nuevoUsuario = new Usuario(txtNombre.Text, txtSector.Text);
+                Usuario nuevoUsuario = new Usuario(txtNombre.Text, txtSector.Text,txtMail.Text);
                 nuevoUsuario.Clave = Seguridad.Encriptar(txtClave.Text);
                 nuevoUsuario.DV = bllusuario.CalcularDigitoVerificadorHorizontal(nuevoUsuario);
                 if (bllusuario.AltaUsuario(nuevoUsuario, txtClave.Text))
@@ -86,7 +87,7 @@ namespace GUI
                 }
                 else
                 {
-                    bitacora = new Bitacora_(Bitacora_.BitacoraTipo.VALIDACION,Usuario, "Un usuario con el nombre " + nuevoUsuario.Nombre + " ya existe!");
+                    bitacora = new Bitacora_(Bitacora_.BitacoraTipo.VALIDACION,Usuario, "Un usuario con el nombre " + nuevoUsuario.Nombre + "o con el Mail: " + txtMail.Text + "ya existe!");
                     bitacorabll.Add(bitacora);
                     MessageBox.Show(bitacora.Mensaje);
                     return;
@@ -134,7 +135,7 @@ namespace GUI
             Bitacora_ bitacora;
             try
             {
-                if ( !ManejoErrores.ValidarNombre(txtSector.Text) || !ManejoErrores.ValidarClave(txtClave.Text))
+                if ( !ManejoErrores.ValidarNombre(txtSector.Text) || !ManejoErrores.ValidarClave(txtClave.Text) || !ManejoErrores.ValidarMail(txtMail.Text))
                 {
                     bitacora = new Bitacora_(Bitacora_.BitacoraTipo.VALIDACION,Usuario, "Los datos ingresados no tienen el formato correcto." );
                     bitacorabll.Add(bitacora);
@@ -144,6 +145,7 @@ namespace GUI
                 Usuario usuarioModificar = ObtenerUsuarioSeleccionado();
                 usuarioModificar.Sector = txtSector.Text;
                 usuarioModificar.Clave = Seguridad.Encriptar(txtClave.Text);
+                usuarioModificar.Mail = txtMail.Text;
                 usuarioModificar.DV = bllusuario.CalcularDigitoVerificadorHorizontal(usuarioModificar);
                 usuarioModificar.Clave = txtClave.Text;
                 if (bllusuario.ActualizarUsuario(usuarioModificar,0))

@@ -57,6 +57,7 @@ namespace MPP
                 new SqlParameter("@clave", ClaveEncriptada),
                 new SqlParameter("@sector", nuevoUsuario.Sector),
                 new SqlParameter("@DigitoVerificador",nuevoUsuario.DV),
+                new SqlParameter("@Mail",nuevoUsuario.Mail),
                 new SqlParameter("Fecha",fecha)
             };
             return acceso.Escribir("InsertarUsuario", parameters);
@@ -84,6 +85,7 @@ namespace MPP
                 new SqlParameter("@sector", usuario.Sector),
                 new SqlParameter("@clave", ClaveEncriptada),
                 new SqlParameter("@DigitoVerificador",usuario.DV),
+                new SqlParameter("@Mail",usuario.Mail),
                 new SqlParameter("Fecha",fecha)
                 };
                 return acceso.Escribir("UpdateUsuario", parameters);
@@ -96,6 +98,7 @@ namespace MPP
                 new SqlParameter("@sector", usuario.Sector),
                 new SqlParameter("@clave", usuario.Clave),
                 new SqlParameter("@DigitoVerificador",usuario.DV),
+                new SqlParameter("@Mail",usuario.Mail),
                 new SqlParameter("Fecha",fecha)
                 };
                 return acceso.Escribir("UpdateUsuario", parameters);
@@ -104,7 +107,7 @@ namespace MPP
 
         public bool ComprobarExistencia(string Nombre)
         {
-            return (acceso.Leer("ComprobarExistenciaUsuario", new List<SqlParameter> { new SqlParameter("@nombre", Nombre) })).Rows.Count>0;
+            return (acceso.Leer("ComprobarExistenciaUsuario", new List<SqlParameter> { new SqlParameter("@nombre", Nombre)})).Rows.Count>0;
         }
 
         public List<Usuario> LeerUsuarios()
@@ -116,7 +119,8 @@ namespace MPP
                 Nombre = Row[0].ToString().Trim(),
                 Clave = Row[1].ToString().Trim(),
                 Sector = Row[2].ToString().Trim(),
-                DV = Row[4].ToString()
+                DV = Row[4].ToString(),
+                Mail = Row[5].ToString().Trim()
             }).ToList();
         }
 
@@ -152,7 +156,10 @@ namespace MPP
             {
                 foreach(DataRow row in dt.Rows)
                 {
-                    DVV += row["DigitoVerificador"].ToString();
+                    if (Convert.ToBoolean(row["Activo"]) == true)
+                    {
+                        DVV += row["DigitoVerificador"].ToString();
+                    }
                 }
                 DVV = Servicios.Seguridad.Encriptar(DVV);
             }
@@ -176,6 +183,7 @@ namespace MPP
                     historico.Nombre = r["Nombre"].ToString();
                     historico.Clave = r["Clave"].ToString();
                     historico.Sector = r["Sector"].ToString();
+                    historico.Mail = r["Mail"].ToString();
                     historico.DigitoVerificador = r["DigitoVerificador"].ToString();
                     historico.Fecha = Convert.ToDateTime(r["Fecha"]);
                     listaHistorico.Add(historico);

@@ -15,8 +15,11 @@ namespace BE
         public string Sector { get; set; }
 
         [PropiedadVerificable]
-        public string Clave { get; set; } 
-        
+        public string Clave { get; set; }
+
+        [PropiedadVerificable]
+        public string Mail { get; set; }
+
         public string DV {  get; set; }
 
         public List<Permiso> Permisos = new List<Permiso>();
@@ -26,6 +29,13 @@ namespace BE
         {
             Nombre = nombre;
             Sector = sector;
+        }
+
+        public Usuario(string nombre, string sector, string mail)
+        {
+            Nombre = nombre;
+            Sector = sector;
+            Mail = mail;
         }
 
         public override string ToString()

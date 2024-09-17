@@ -125,8 +125,6 @@ namespace BLL
 
         public bool ValidadDigito(List<Usuario> usuarios)
         {
-
-
             try
             {
                 foreach(Usuario u in usuarios)

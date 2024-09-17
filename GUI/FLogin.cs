@@ -124,5 +124,13 @@ namespace GUI
         {
 
         }
+
+        private void btnRegistrase_Click(object sender, EventArgs e)
+        {
+            Registrarse registrase = new Registrarse();
+            registrase.Show();
+            
+        }
+
     }
 }
