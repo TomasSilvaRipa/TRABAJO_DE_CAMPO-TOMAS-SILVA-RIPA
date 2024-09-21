@@ -37,7 +37,7 @@ namespace GUI
         {
             Usuario usuario = (Usuario)comboBoxUsuarios.SelectedItem;
             dataGridViewHistoricoUsuario.DataSource = null;
-            dataGridViewHistoricoUsuario.DataSource = bllUsuarios.LeerHistoricoDeUsuario(usuario.Nombre);
+            dataGridViewHistoricoUsuario.DataSource = bllUsuarios.LeerHistoricoDeUsuario(usuario.NombreDeUsuario);
             dataGridViewHistoricoUsuario.ReadOnly = true;
             dataGridViewHistoricoUsuario.Columns["DigitoVerificador"].Visible = false;
             dataGridViewHistoricoUsuario.Columns["Clave"].Visible = false;
@@ -56,14 +56,14 @@ namespace GUI
                 {
                     GestorDeUsuario gc = (GestorDeUsuario)dataGridViewHistoricoUsuario.CurrentRow.DataBoundItem;
                     Usuario usuario = new Usuario();
-                    usuario.Nombre = gc.Nombre;
+                    usuario.NombreDeUsuario = gc.Nombre;
                     usuario.Clave = gc.Clave;
                     usuario.Sector = gc.Sector;
                     usuario.DV = bllUsuarios.CalcularDigitoVerificadorHorizontal(usuario);
                     if (bllUsuarios.ActualizarUsuario(usuario,1))
                     {
                         CargarHistoricoDeUsuario();
-                        MessageBox.Show("Instancia del usuario " + usuario.Nombre + " recuperado");
+                        MessageBox.Show("Instancia del usuario " + usuario.NombreDeUsuario + " recuperado");
                     }
                     else
                     {

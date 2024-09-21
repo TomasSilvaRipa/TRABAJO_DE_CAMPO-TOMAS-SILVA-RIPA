@@ -104,7 +104,7 @@ namespace GUI
 
         private void FMdi_Load(object sender, EventArgs e)
         {
-            txtUsuario.Text = Sesion.ObtenerSesion().ObtenerUsuario().Nombre;
+            txtUsuario.Text = Sesion.ObtenerSesion().ObtenerUsuario().NombreDeUsuario;
         }
         private void btnLogout_Click(object sender, EventArgs e)
         {

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Collections.Specialized.BitVector32;
 
 namespace GUI
 {
@@ -25,9 +26,16 @@ namespace GUI
             bitacorabll = new BitacoraBLL();
             bllusuario = new BLLUsuario();
             bllIdiomas = new BLLIdiomas();
+            cliente = new Cliente();
+            dueño = new Dueño();
+            closer = new Closer();
+
         }
         BitacoraBLL bitacorabll;
         BLLUsuario bllusuario;
+        Usuario cliente;
+        Dueño dueño;
+        Closer closer;
 
         public delegate void IniciarMdi();
         public IniciarMdi iniciarMdi;
@@ -51,6 +59,29 @@ namespace GUI
             cbxIdiomas.SelectedIndex = 0;
         }
 
+        public string ObtenerSector()
+        {
+            string sector = "";
+            if (rbCliente.Checked)
+            {
+                sector = "Cliente";
+                return sector;
+            }
+            else if (rbDueño.Checked)
+            {
+                sector = "Dueño";
+                return sector;
+            }
+            else if (rbCloser.Checked)
+            {
+                sector = "Closer";
+                return sector;
+            }
+            else
+            {
+                throw new Exception("Elija un tipo de cuenta para registrase");
+            }
+        }
 
         #endregion
 
@@ -68,40 +99,58 @@ namespace GUI
                 }
                 else
                 {
-                    string sector = "";
+                    Usuario nuevoUsuario = new Usuario(txtUsuario.Text, ObtenerSector(), txtMail.Text);
+                    nuevoUsuario.Clave = Seguridad.Encriptar(txtContra.Text);
+                    nuevoUsuario.DV = bllusuario.CalcularDigitoVerificadorHorizontal(nuevoUsuario);
                     if (rbCliente.Checked)
                     {
-                        sector = "Cliente";
+                        Cliente clienteCreate = new Cliente(nuevoUsuario,tbNombre.Text, tbApellido.Text, false, dateTimePickerFN.Value);
+                        //cliente = nuevoUsuario;
+                        //Cliente u = (Cliente)cliente;
+                        if (bllusuario.AltaUsuario(clienteCreate, txtContra.Text))
+                        {
+                            MessageBox.Show("Cliente: " + nuevoUsuario.NombreDeUsuario + "creado correctamente");
+                            Registrarse.ActiveForm.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Un usuario con el nombre " + nuevoUsuario.NombreDeUsuario + " ya existe!");
+                        }
                     }
                     else if (rbDueño.Checked)
                     {
-                        sector = "Dueño";
+                        dueño = new Dueño(tbNombre.Text, tbApellido.Text, tbResicencia.Text);
+                        dueño = (Dueño)nuevoUsuario;
+                        if (bllusuario.AltaUsuario(cliente, txtContra.Text))
+                        {
+                            MessageBox.Show("Dueño: " + nuevoUsuario.NombreDeUsuario + "creado correctamente");
+                            Registrarse.ActiveForm.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Un usuario con el nombre " + nuevoUsuario.NombreDeUsuario + " ya existe!");
+                            
+                        }
                     }
                     else if (rbCloser.Checked)
                     {
-                        sector = "Closer";
+                        closer = new Closer(tbNombre.Text, tbApellido.Text, "Beginner", 0);
+                        closer = (Closer)nuevoUsuario;
+                        if (bllusuario.AltaUsuario(cliente, txtContra.Text))
+                        {
+                            MessageBox.Show("Closer: " + nuevoUsuario.NombreDeUsuario + "creado correctamente");
+                            Registrarse.ActiveForm.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Un usuario con el nombre " + nuevoUsuario.NombreDeUsuario + " ya existe!");
+                        }
                     }
                     else
                     {
                         throw new Exception("Elija un tipo de cuenta para registrase");
                     }
-                    Usuario nuevoUsuario = new Usuario(txtUsuario.Text, sector,txtMail.Text);
-                    nuevoUsuario.Clave = Seguridad.Encriptar(txtContra.Text);
-                    nuevoUsuario.DV = bllusuario.CalcularDigitoVerificadorHorizontal(nuevoUsuario);
-                    if (bllusuario.AltaUsuario(nuevoUsuario, txtContra.Text))
-                    {
-                        bitacora = new Bitacora_(Bitacora_.BitacoraTipo.INFO, "sin ingresar", "El usuario " + nuevoUsuario.Nombre + " se creo correctamente.");
-                        bitacorabll.Add(bitacora);
-                        MessageBox.Show(bitacora.Mensaje);
-                        Registrarse.ActiveForm.Close();
-                    }
-                    else
-                    {
-                        bitacora = new Bitacora_(Bitacora_.BitacoraTipo.VALIDACION, "sin ingresar", "Un usuario con el nombre " + nuevoUsuario.Nombre + " ya existe!");
-                        bitacorabll.Add(bitacora);
-                        MessageBox.Show(bitacora.Mensaje);
-                        return;
-                    }
+                    //Registrarse.ActiveForm.Close();
                 }
             }
             catch (Exception ex)
@@ -115,6 +164,24 @@ namespace GUI
         private void Registrarse_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void rbCliente_CheckedChanged(object sender, EventArgs e)
+        {
+            rbCloser.Checked = false;
+            rbDueño.Checked = false;
+        }
+
+        private void rbDueño_CheckedChanged(object sender, EventArgs e)
+        {
+            rbCloser.Checked = false;
+            rbCliente.Checked = false;
+        }
+
+        private void rbCloser_CheckedChanged(object sender, EventArgs e)
+        {
+            rbCliente.Checked = false;
+            rbDueño.Checked = false;
         }
     }
 }

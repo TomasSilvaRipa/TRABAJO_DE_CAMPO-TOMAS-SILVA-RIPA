@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class Usuario: IVerificableEntidad
+    public class Usuario: Entidad,IVerificableEntidad
     {
         [PropiedadVerificable]
-        public string Nombre { get; set; }
+        public string NombreDeUsuario { get; set; }
 
         [PropiedadVerificable]
         public string Sector { get; set; }
@@ -27,20 +27,20 @@ namespace BE
 
         public Usuario(string nombre, string sector)
         {
-            Nombre = nombre;
+            NombreDeUsuario = nombre;
             Sector = sector;
         }
 
         public Usuario(string nombre, string sector, string mail)
         {
-            Nombre = nombre;
+            NombreDeUsuario = nombre;
             Sector = sector;
             Mail = mail;
         }
 
         public override string ToString()
         {
-            return Nombre;
+            return NombreDeUsuario;
         }
     }
 }

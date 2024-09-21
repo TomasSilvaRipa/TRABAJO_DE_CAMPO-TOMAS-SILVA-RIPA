@@ -56,7 +56,7 @@ namespace GUI
         }
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtNombre.Text = ObtenerUsuarioSeleccionado().Nombre.Trim();
+            txtNombre.Text = ObtenerUsuarioSeleccionado().NombreDeUsuario.Trim();
             txtSector.Text = ObtenerUsuarioSeleccionado().Sector.Trim();
             txtMail.Text = ObtenerUsuarioSeleccionado().Mail.Trim();
         }
@@ -81,13 +81,13 @@ namespace GUI
                 nuevoUsuario.DV = bllusuario.CalcularDigitoVerificadorHorizontal(nuevoUsuario);
                 if (bllusuario.AltaUsuario(nuevoUsuario, txtClave.Text))
                 {
-                    bitacora = new Bitacora_(Bitacora_.BitacoraTipo.INFO,Usuario,"El usuario " + nuevoUsuario.Nombre + " se creo correctamente.");
+                    bitacora = new Bitacora_(Bitacora_.BitacoraTipo.INFO,Usuario,"El usuario " + nuevoUsuario.NombreDeUsuario + " se creo correctamente.");
                     bitacorabll.Add(bitacora);
                     MessageBox.Show(bitacora.Mensaje);
                 }
                 else
                 {
-                    bitacora = new Bitacora_(Bitacora_.BitacoraTipo.VALIDACION,Usuario, "Un usuario con el nombre " + nuevoUsuario.Nombre + "o con el Mail: " + txtMail.Text + "ya existe!");
+                    bitacora = new Bitacora_(Bitacora_.BitacoraTipo.VALIDACION,Usuario, "Un usuario con el nombre " + nuevoUsuario.NombreDeUsuario + "o con el Mail: " + txtMail.Text + "ya existe!");
                     bitacorabll.Add(bitacora);
                     MessageBox.Show(bitacora.Mensaje);
                     return;
@@ -107,9 +107,9 @@ namespace GUI
             Bitacora_ bitacora;
             try
             {
-                if (bllusuario.BajaUsuario(ObtenerUsuarioSeleccionado().Nombre))
+                if (bllusuario.BajaUsuario(ObtenerUsuarioSeleccionado().NombreDeUsuario))
                 {
-                    bitacora = new Bitacora_(Bitacora_.BitacoraTipo.INFO, Usuario,"El usuario " + ObtenerUsuarioSeleccionado().Nombre.Trim() + " fue eliminado");
+                    bitacora = new Bitacora_(Bitacora_.BitacoraTipo.INFO, Usuario,"El usuario " + ObtenerUsuarioSeleccionado().NombreDeUsuario.Trim() + " fue eliminado");
                     bitacorabll.Add(bitacora);
                     MessageBox.Show(bitacora.Mensaje);
                 }

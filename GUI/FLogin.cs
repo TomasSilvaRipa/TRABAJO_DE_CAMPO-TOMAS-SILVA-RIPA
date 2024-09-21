@@ -74,19 +74,19 @@ namespace GUI
                 {
                     Usuario usuarioEntrante = new Usuario()
                     {
-                        Nombre = txtUsuario.Text,
+                        NombreDeUsuario = txtUsuario.Text,
                         Clave = txtContra.Text,
                     };
                     if (bllusuario.ObtenerUsuario(usuarioEntrante) != null)
                     {
                         Usuario usuarioIniciar = bllusuario.ObtenerUsuario(usuarioEntrante);
-                        usuarioIniciar.Permisos = bllPermisos.LeerPermisosXUsuario(usuarioIniciar.Nombre);
+                        usuarioIniciar.Permisos = bllPermisos.LeerPermisosXUsuario(usuarioIniciar.NombreDeUsuario);
                         Sesion.ObtenerSesion().IniciarUsuario(usuarioIniciar);
-                        bitacora = new Bitacora_(Bitacora_.BitacoraTipo.INFO, usuarioIniciar.Nombre, "Sesión Iniciada");
+                        bitacora = new Bitacora_(Bitacora_.BitacoraTipo.INFO, usuarioIniciar.NombreDeUsuario, "Sesión Iniciada");
                         bitacorabll.Add(bitacora);
                         DataTable tablaTraduccion = bllIdiomas.ObtenerTraducciones(Convert.ToInt32(tablaIdioma.Rows[cbxIdiomas.SelectedIndex][0]));
                         Sesion.ObtenerSesion().Traduccion = bllIdiomas.ObtenerDiccionario(Convert.ToInt32(tablaIdioma.Rows[cbxIdiomas.SelectedIndex][0]));
-                        FMdi fMdi = new FMdi(this, usuarioIniciar.Nombre);
+                        FMdi fMdi = new FMdi(this, usuarioIniciar.NombreDeUsuario);
                         fMdi.Show();
                         this.Hide();
                     }

@@ -37,13 +37,23 @@ namespace MPP
 
             if (salida.Rows.Count > 0)
             {
-                return new Usuario()
+                if (Convert.ToBoolean(salida.Rows[0][4]) == true)
                 {
-                    Nombre = nombre,
-                    Clave = salida.Rows[0][1].ToString().Trim(),
-                    Sector = salida.Rows[0][2].ToString().Trim(),
-                    DV = salida.Rows[0][4].ToString().Trim()
-                };
+                    return new Usuario()
+                    {
+                        ID = Convert.ToInt32(salida.Rows[0][0]),
+                        NombreDeUsuario = nombre,
+                        Clave = salida.Rows[0][2].ToString().Trim(),
+                        Sector = salida.Rows[0][3].ToString().Trim(),
+                        DV = salida.Rows[0][5].ToString().Trim(),
+                        Mail = salida.Rows[0][6].ToString().Trim()
+                    };
+                }
+                else
+                {
+                    return new Usuario();
+                }
+                
             } else return new Usuario();
         }
 
@@ -53,7 +63,7 @@ namespace MPP
             DateTime fecha = DateTime.Now;
             List<SqlParameter> parameters = new List<SqlParameter>()
             {
-                new SqlParameter("@usuario", nuevoUsuario.Nombre),
+                new SqlParameter("@usuario", nuevoUsuario.NombreDeUsuario),
                 new SqlParameter("@clave", ClaveEncriptada),
                 new SqlParameter("@sector", nuevoUsuario.Sector),
                 new SqlParameter("@DigitoVerificador",nuevoUsuario.DV),
@@ -81,7 +91,7 @@ namespace MPP
             {
                 List<SqlParameter> parameters = new List<SqlParameter>()
                 {
-                new SqlParameter("@nombre", usuario.Nombre),
+                new SqlParameter("@nombre", usuario.NombreDeUsuario),
                 new SqlParameter("@sector", usuario.Sector),
                 new SqlParameter("@clave", ClaveEncriptada),
                 new SqlParameter("@DigitoVerificador",usuario.DV),
@@ -94,7 +104,7 @@ namespace MPP
             {
                 List<SqlParameter> parameters = new List<SqlParameter>()
                 {
-                new SqlParameter("@nombre", usuario.Nombre),
+                new SqlParameter("@nombre", usuario.NombreDeUsuario),
                 new SqlParameter("@sector", usuario.Sector),
                 new SqlParameter("@clave", usuario.Clave),
                 new SqlParameter("@DigitoVerificador",usuario.DV),
@@ -113,14 +123,15 @@ namespace MPP
         public List<Usuario> LeerUsuarios()
         {
             DataTable tablaUsuarios = acceso.Leer("LeerUsuarios");
-            return (from Row in tablaUsuarios.AsEnumerable() where Convert.ToInt32(Row[3]) == 1
+            return (from Row in tablaUsuarios.AsEnumerable() where Convert.ToInt32(Row[4]) == 1
             select new Usuario
             {
-                Nombre = Row[0].ToString().Trim(),
-                Clave = Row[1].ToString().Trim(),
-                Sector = Row[2].ToString().Trim(),
-                DV = Row[4].ToString(),
-                Mail = Row[5].ToString().Trim()
+                ID = Convert.ToInt32(Row[0]),
+                NombreDeUsuario = Row[1].ToString().Trim(),
+                Clave = Row[2].ToString().Trim(),
+                Sector = Row[3].ToString().Trim(),
+                DV = Row[5].ToString(),
+                Mail = Row[6].ToString().Trim()
             }).ToList();
         }
 

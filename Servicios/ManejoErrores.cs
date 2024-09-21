@@ -11,7 +11,7 @@ namespace Servicios
     {
         public static bool ValidarNombre(string cadena)
         {
-            return (!string.IsNullOrEmpty(cadena) && Regex.IsMatch(cadena, @"^[a-zA-Z ]{1,30}$"));
+            return (!string.IsNullOrEmpty(cadena) && Regex.IsMatch(cadena, @"^[a-zA-ZñÑ ]{1,30}$"));
         }
 
         public static bool ValidarClave(string cadena)

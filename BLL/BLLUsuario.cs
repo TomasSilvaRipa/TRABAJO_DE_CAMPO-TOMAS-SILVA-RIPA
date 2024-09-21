@@ -16,15 +16,21 @@ namespace BLL
         public BLLUsuario()
         {
             mppusuario = new MPPUsuario();
+            mppCliente = new MPPCliente();
+            mppDueño = new MPPDueño();
+            mppCloser = new MPPCloser();
         }
         MPPUsuario mppusuario;
+        MPPCliente mppCliente;
+        MPPCloser mppCloser;
+        MPPDueño mppDueño;
         #endregion
 
         #region FUNCIONES
         public Usuario ObtenerUsuario(Usuario usuarioEntrante)
         {
             string claveEncriptada = Servicios.Seguridad.Encriptar(usuarioEntrante.Clave);
-            Usuario usuarioBD = mppusuario.BuscarUsuario(usuarioEntrante.Nombre);
+            Usuario usuarioBD = mppusuario.BuscarUsuario(usuarioEntrante.NombreDeUsuario);
             if (usuarioBD.Clave == claveEncriptada)
             {
                 return usuarioBD;
@@ -39,9 +45,39 @@ namespace BLL
             return mppusuario.LeerUsuarios();
         }
 
+        //Alta de Cliente(Inquilino), Dueño o Closer  
+        public bool AltaCDC(Usuario usuario,Cliente cliente = null,Dueño dueño = null,Closer closer = null)
+        {
+            Usuario pp = mppusuario.BuscarUsuario(usuario.NombreDeUsuario);
+            usuario.ID = pp.ID;
+
+            if(usuario is Cliente)
+            {
+                cliente = (Cliente)usuario;
+                return mppCliente.AltaCliente(cliente);
+            }
+            if(cliente != null)
+            {
+                return mppCliente.AltaCliente(cliente);
+            }
+            else if(dueño != null)
+            {
+                return mppDueño.AltaDueño(dueño,usuario);
+            }
+            else if(closer != null)
+            {
+                return mppCloser.AltaCloser(closer,usuario);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
         public bool AltaUsuario(Usuario nuevoUsuario, string clave)
         {
-            if (mppusuario.ComprobarExistencia(nuevoUsuario.Nombre))
+            if (mppusuario.ComprobarExistencia(nuevoUsuario.NombreDeUsuario))
             {
                 return false;
             }
@@ -50,7 +86,11 @@ namespace BLL
                 string DV = mppusuario.LeerDigitoVerificadorVertical("Usuarios");
                 if(DV != null)
                 {
-                    return mppusuario.GestionarDigitoVerificadorVertical("Usuarios",1,mppusuario.ObtenerDigitoVerificadorVertical());
+                    if (mppusuario.GestionarDigitoVerificadorVertical("Usuarios", 1, mppusuario.ObtenerDigitoVerificadorVertical()))
+                    {
+                        return AltaCDC(nuevoUsuario, null, null,null);
+                    }
+                    return false;
                 }
                 else
                 {
@@ -93,7 +133,7 @@ namespace BLL
 
         public bool ActualizarUsuario(Usuario usuario, int opcion)
         {
-            if (!mppusuario.ComprobarExistencia(usuario.Nombre))
+            if (!mppusuario.ComprobarExistencia(usuario.NombreDeUsuario))
             {
                 return false;
             }
@@ -104,6 +144,7 @@ namespace BLL
                     string DV = mppusuario.LeerDigitoVerificadorVertical("Usuarios");
                     if (DV != null)
                     {
+                        
                         return mppusuario.GestionarDigitoVerificadorVertical("Usuarios", 1, mppusuario.ObtenerDigitoVerificadorVertical());
                     }
                     else

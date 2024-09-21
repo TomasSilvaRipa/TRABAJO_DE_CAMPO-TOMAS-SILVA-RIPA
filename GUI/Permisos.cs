@@ -219,7 +219,7 @@ namespace GUI
                         grupo = (GrupoDePermisos)comboBoxGruposDePermisos.SelectedItem;
                         usuario = (Usuario)dataGridViewUsuarios.CurrentRow.DataBoundItem;
                         GrupoDePermisos g = new GrupoDePermisos();
-                        g.permisos = bllPermisos.LeerPermisosXUsuario(usuario.Nombre);
+                        g.permisos = bllPermisos.LeerPermisosXUsuario(usuario.NombreDeUsuario);
                         foreach(Permiso p in g.permisos)
                         {
                             if (ComprobarExistencia(p, treeViewPermisos.Nodes))
@@ -227,9 +227,9 @@ namespace GUI
                                 throw new Exception("El usuario ya tiene asignado este grupo de permisos");
                             }
                         }
-                        bllPermisos.AgregarGrupoDePermisosAUsuario(grupo.ID,usuario.Nombre);
-                        CargarPermisosDeUsuario(usuario.Nombre);
-                        MessageBox.Show("Grupo " + grupo.Nombre + " agregado al usuario " + usuario.Nombre);
+                        bllPermisos.AgregarGrupoDePermisosAUsuario(grupo.ID,usuario.NombreDeUsuario);
+                        CargarPermisosDeUsuario(usuario.NombreDeUsuario);
+                        MessageBox.Show("Grupo " + grupo.Nombre + " agregado al usuario " + usuario.NombreDeUsuario);
                     }
                     else
                     {
@@ -323,9 +323,9 @@ namespace GUI
                     {
                         usuario = (Usuario)dataGridViewUsuarios.CurrentRow.DataBoundItem;
                         permiso = (Permiso)dataGridViewPermisosDeUsuarios.CurrentRow.DataBoundItem;
-                        bllPermisos.QuitarPermisosDeUsuario(usuario.Nombre.Trim(), permiso.ID);
-                        CargarPermisosDeUsuario(usuario.Nombre);
-                        MessageBox.Show("Grupo de permisos " + permiso.Nombre + " del usuario " + usuario.Nombre.Trim() + " quitado");
+                        bllPermisos.QuitarPermisosDeUsuario(usuario.NombreDeUsuario.Trim(), permiso.ID);
+                        CargarPermisosDeUsuario(usuario.NombreDeUsuario);
+                        MessageBox.Show("Grupo de permisos " + permiso.Nombre + " del usuario " + usuario.NombreDeUsuario.Trim() + " quitado");
                     }
                 }
                 else
@@ -349,7 +349,7 @@ namespace GUI
             if(dataGridViewUsuarios.SelectedRows.Count == 1)
             {
                 usuario = (Usuario)dataGridViewUsuarios.CurrentRow.DataBoundItem;
-                CargarPermisosDeUsuario(usuario.Nombre);
+                CargarPermisosDeUsuario(usuario.NombreDeUsuario);
             }
             
         }
