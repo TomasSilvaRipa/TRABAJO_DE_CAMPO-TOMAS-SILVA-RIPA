@@ -14,8 +14,13 @@ namespace BE
 
         public Dueño() { }
 
-        public Dueño(string nombre, string apellido,string residencia)
+        public Dueño(Usuario usuario,string nombre, string apellido,string residencia)
         {
+            NombreDeUsuario = usuario.NombreDeUsuario;
+            Sector = usuario.Sector;
+            Clave = usuario.Clave;
+            DV = usuario.DV;
+            Mail = usuario.Mail;
             Nombre = nombre;
             Apellido = apellido;
             Residencia = residencia;

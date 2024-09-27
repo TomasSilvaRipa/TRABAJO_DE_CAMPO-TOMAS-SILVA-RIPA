@@ -68,7 +68,7 @@ namespace MPP
                 new SqlParameter("@sector", nuevoUsuario.Sector),
                 new SqlParameter("@DigitoVerificador",nuevoUsuario.DV),
                 new SqlParameter("@Mail",nuevoUsuario.Mail),
-                new SqlParameter("Fecha",fecha)
+                new SqlParameter("@Fecha",fecha)
             };
             return acceso.Escribir("InsertarUsuario", parameters);
         }
@@ -96,7 +96,7 @@ namespace MPP
                 new SqlParameter("@clave", ClaveEncriptada),
                 new SqlParameter("@DigitoVerificador",usuario.DV),
                 new SqlParameter("@Mail",usuario.Mail),
-                new SqlParameter("Fecha",fecha)
+                new SqlParameter("@Fecha",fecha)
                 };
                 return acceso.Escribir("UpdateUsuario", parameters);
             }
@@ -109,7 +109,7 @@ namespace MPP
                 new SqlParameter("@clave", usuario.Clave),
                 new SqlParameter("@DigitoVerificador",usuario.DV),
                 new SqlParameter("@Mail",usuario.Mail),
-                new SqlParameter("Fecha",fecha)
+                new SqlParameter("@Fecha",fecha)
                 };
                 return acceso.Escribir("UpdateUsuario", parameters);
             }

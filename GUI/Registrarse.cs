@@ -26,16 +26,9 @@ namespace GUI
             bitacorabll = new BitacoraBLL();
             bllusuario = new BLLUsuario();
             bllIdiomas = new BLLIdiomas();
-            cliente = new Cliente();
-            dueño = new Dueño();
-            closer = new Closer();
-
         }
         BitacoraBLL bitacorabll;
         BLLUsuario bllusuario;
-        Usuario cliente;
-        Dueño dueño;
-        Closer closer;
 
         public delegate void IniciarMdi();
         public IniciarMdi iniciarMdi;
@@ -92,6 +85,7 @@ namespace GUI
             {
                 if (!ManejoErrores.ValidarNombre(txtUsuario.Text) || !ManejoErrores.ValidarClave(txtContra.Text) || !ManejoErrores.ValidarMail(txtMail.Text))
                 {
+                    
                     bitacora = new Bitacora_(Bitacora_.BitacoraTipo.VALIDACION, "UsuarioNoExisteEnLaBase", "Los datos ingresados no tienen el formato correcto.");
                     bitacorabll.Add(bitacora);
                     MessageBox.Show(bitacora.Mensaje);
@@ -105,12 +99,11 @@ namespace GUI
                     if (rbCliente.Checked)
                     {
                         Cliente clienteCreate = new Cliente(nuevoUsuario,tbNombre.Text, tbApellido.Text, false, dateTimePickerFN.Value);
-                        //cliente = nuevoUsuario;
-                        //Cliente u = (Cliente)cliente;
+                        
                         if (bllusuario.AltaUsuario(clienteCreate, txtContra.Text))
                         {
                             MessageBox.Show("Cliente: " + nuevoUsuario.NombreDeUsuario + "creado correctamente");
-                            Registrarse.ActiveForm.Close();
+                            //ActiveForm.Close();
                         }
                         else
                         {
@@ -119,12 +112,11 @@ namespace GUI
                     }
                     else if (rbDueño.Checked)
                     {
-                        dueño = new Dueño(tbNombre.Text, tbApellido.Text, tbResicencia.Text);
-                        dueño = (Dueño)nuevoUsuario;
-                        if (bllusuario.AltaUsuario(cliente, txtContra.Text))
+                        Dueño dueño = new Dueño(nuevoUsuario,tbNombre.Text, tbApellido.Text, tbResicencia.Text);
+                        if (bllusuario.AltaUsuario(dueño, txtContra.Text))
                         {
                             MessageBox.Show("Dueño: " + nuevoUsuario.NombreDeUsuario + "creado correctamente");
-                            Registrarse.ActiveForm.Close();
+                            //ActiveForm.Close();
                         }
                         else
                         {
@@ -134,12 +126,12 @@ namespace GUI
                     }
                     else if (rbCloser.Checked)
                     {
-                        closer = new Closer(tbNombre.Text, tbApellido.Text, "Beginner", 0);
-                        closer = (Closer)nuevoUsuario;
-                        if (bllusuario.AltaUsuario(cliente, txtContra.Text))
+                        Closer closer = new Closer(nuevoUsuario,tbNombre.Text, tbApellido.Text, "Beginner", 0);
+                        if (bllusuario.AltaUsuario(closer, txtContra.Text))
                         {
+                            //ActiveForm.Close();
                             MessageBox.Show("Closer: " + nuevoUsuario.NombreDeUsuario + "creado correctamente");
-                            Registrarse.ActiveForm.Close();
+                            
                         }
                         else
                         {
@@ -150,8 +142,9 @@ namespace GUI
                     {
                         throw new Exception("Elija un tipo de cuenta para registrase");
                     }
-                    //Registrarse.ActiveForm.Close();
+                    
                 }
+                
             }
             catch (Exception ex)
             {

@@ -17,11 +17,11 @@ namespace MPP
         }
         Acceso acceso;
 
-        public bool AltaDueño(Dueño dueño, Usuario usuario)
+        public bool AltaDueño(Dueño dueño)
         {
-            dueño.ID = usuario.ID;
+            
             List<SqlParameter> parameters = new List<SqlParameter>();
-            SqlParameter id = new SqlParameter("@ID_Usuario", dueño.ID);
+            SqlParameter id = new SqlParameter("@ID", dueño.ID);
             parameters.Add(id);
             SqlParameter nombre = new SqlParameter("@Nombre", dueño.Nombre);
             parameters.Add(nombre);

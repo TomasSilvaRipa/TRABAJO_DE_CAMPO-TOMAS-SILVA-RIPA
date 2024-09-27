@@ -46,27 +46,26 @@ namespace BLL
         }
 
         //Alta de Cliente(Inquilino), Dueño o Closer  
-        public bool AltaCDC(Usuario usuario,Cliente cliente = null,Dueño dueño = null,Closer closer = null)
+        public bool AltaCDC(Usuario usuario)
         {
-            Usuario pp = mppusuario.BuscarUsuario(usuario.NombreDeUsuario);
-            usuario.ID = pp.ID;
+            Usuario usarioBD = mppusuario.BuscarUsuario(usuario.NombreDeUsuario);
+            usuario.ID = usarioBD.ID;
 
             if(usuario is Cliente)
             {
-                cliente = (Cliente)usuario;
+                Cliente cliente = (Cliente)usuario;
                 return mppCliente.AltaCliente(cliente);
             }
-            if(cliente != null)
+
+            else if(usuario is Dueño)
             {
-                return mppCliente.AltaCliente(cliente);
+                Dueño dueño = (Dueño)usuario;
+                return mppDueño.AltaDueño(dueño);
             }
-            else if(dueño != null)
+            else if(usuario is Closer)
             {
-                return mppDueño.AltaDueño(dueño,usuario);
-            }
-            else if(closer != null)
-            {
-                return mppCloser.AltaCloser(closer,usuario);
+                Closer closer = (Closer)usuario;
+                return mppCloser.AltaCloser(closer);
             }
             else
             {
@@ -88,7 +87,7 @@ namespace BLL
                 {
                     if (mppusuario.GestionarDigitoVerificadorVertical("Usuarios", 1, mppusuario.ObtenerDigitoVerificadorVertical()))
                     {
-                        return AltaCDC(nuevoUsuario, null, null,null);
+                        return AltaCDC(nuevoUsuario);
                     }
                     return false;
                 }

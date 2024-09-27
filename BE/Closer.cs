@@ -14,8 +14,13 @@ namespace BE
         public int TratosCerrados { get; set; }
 
         public Closer() { }
-        public Closer(string nombre,string apellido,string clasificacion, int tratosCerrados)
+        public Closer(Usuario usuario,string nombre,string apellido,string clasificacion, int tratosCerrados)
         {
+            NombreDeUsuario = usuario.NombreDeUsuario;
+            Sector = usuario.Sector;
+            Clave = usuario.Clave;
+            DV = usuario.DV;
+            Mail = usuario.Mail;
             Nombre = nombre;
             Apellido = apellido;
             Clasificacion = clasificacion;

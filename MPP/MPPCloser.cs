@@ -17,21 +17,20 @@ namespace MPP
         }
         Acceso acceso;
 
-        public bool AltaCloser(Closer closer, Usuario usuario)
+        public bool AltaCloser(Closer closer)
         {
-            closer.ID = usuario.ID;
             List<SqlParameter> parameters = new List<SqlParameter>();
-            SqlParameter id = new SqlParameter("@ID_Usuario", closer.ID);
+            SqlParameter id = new SqlParameter("@ID", closer.ID);
             parameters.Add(id);
             SqlParameter nombre = new SqlParameter("@Nombre", closer.Nombre);
             parameters.Add(nombre);
             SqlParameter apellido = new SqlParameter("@Apellido", closer.Apellido);
             parameters.Add(apellido);
-            SqlParameter inquilino = new SqlParameter("@Inquilino", closer.Clasificacion);
+            SqlParameter inquilino = new SqlParameter("@Clasificacion", closer.Clasificacion);
             parameters.Add(inquilino);
-            SqlParameter fechaNacimiento = new SqlParameter("@Nombre", closer.TratosCerrados);
+            SqlParameter fechaNacimiento = new SqlParameter("@TratosCerrados", closer.TratosCerrados);
             parameters.Add(fechaNacimiento);
-            return acceso.Escribir("AltaCliente", parameters);
+            return acceso.Escribir("AltaCloser", parameters);
         }
     }
 }
