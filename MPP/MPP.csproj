@@ -47,6 +47,7 @@
     <Compile Include="MPPDueño.cs" />
     <Compile Include="MPPIdiomas.cs" />
     <Compile Include="MPPPermisos.cs" />
+    <Compile Include="MPPPropiedad.cs" />
     <Compile Include="MPPUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

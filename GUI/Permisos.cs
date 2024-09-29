@@ -22,6 +22,8 @@ namespace GUI
         GrupoDePermisos grupo;
         List<Permiso> listaDePermisos;
         Usuario usuario;
+        DataTable tablaIdioma;
+        BLLIdiomas bllIdiomas;
         public Permisos()
         {
             InitializeComponent();
@@ -34,6 +36,8 @@ namespace GUI
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarIdioma();
         }
+        public delegate void IniciarMdi();
+        public IniciarMdi iniciarMdi;
 
 
         public void CargarPermisos()
@@ -61,6 +65,7 @@ namespace GUI
             dataGridViewPermisosDeUsuarios.DataSource = null;
             dataGridViewPermisosDeUsuarios.DataSource = bllPermisos.LeerPermisosXUsuario(nombre);
         }
+        
 
         public TreeNode CargarPermisosTreeNode(List<Permiso> l, TreeNode nP)
         {

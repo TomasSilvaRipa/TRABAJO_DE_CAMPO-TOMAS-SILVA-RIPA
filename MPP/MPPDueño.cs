@@ -2,6 +2,7 @@
 using DAL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,29 @@ namespace MPP
             acceso = new Acceso();
         }
         Acceso acceso;
+
+        public Dueño LeerDueño(int id)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter("@ID",id),
+            };
+            DataTable dt = acceso.Leer("LeerDueño", parameters);
+            if(dt.Rows.Count > 0)
+            {
+                Dueño dueño = new Dueño();
+                foreach(DataRow row in dt.Rows)
+                {
+                    dueño.ID = (int)row["ID"];
+                    dueño.Nombre = Convert.ToString(row["Nombre"]);
+                    dueño.Apellido = Convert.ToString(row["Apellido"]);
+                    dueño.Residencia = Convert.ToString(row["Residencia"]);
+                    return dueño;
+                }
+            }
+            return null;
+        }
+
 
         public bool AltaDueño(Dueño dueño)
         {

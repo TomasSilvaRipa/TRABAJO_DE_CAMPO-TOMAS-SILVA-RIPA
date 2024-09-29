@@ -86,8 +86,17 @@ namespace GUI
                         bitacorabll.Add(bitacora);
                         DataTable tablaTraduccion = bllIdiomas.ObtenerTraducciones(Convert.ToInt32(tablaIdioma.Rows[cbxIdiomas.SelectedIndex][0]));
                         Sesion.ObtenerSesion().Traduccion = bllIdiomas.ObtenerDiccionario(Convert.ToInt32(tablaIdioma.Rows[cbxIdiomas.SelectedIndex][0]));
-                        FMdi fMdi = new FMdi(this, usuarioIniciar.NombreDeUsuario);
-                        fMdi.Show();
+                        if(usuarioIniciar.Sector == "Admin")
+                        {
+                            FMdi fMdi = new FMdi(this, usuarioIniciar.NombreDeUsuario);
+                            fMdi.Show();
+                        }
+                        else if(usuarioIniciar.Sector == "Dueño")
+                        {
+                            MenuDueños menuDueño = new MenuDueños();
+                            menuDueño.Show();
+                        }
+                        
                         this.Hide();
                     }
                     else

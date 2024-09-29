@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitacoraBLL.cs" />
+    <Compile Include="BLLDueño.cs" />
     <Compile Include="BLLIdiomas.cs" />
     <Compile Include="BLLPermisos.cs" />
+    <Compile Include="BLLPropiedad.cs" />
     <Compile Include="BLLUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sesion.cs" />

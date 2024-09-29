@@ -63,7 +63,7 @@
             this.treeViewPermisos.Location = new System.Drawing.Point(3, 2);
             this.treeViewPermisos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.treeViewPermisos.Name = "treeViewPermisos";
-            this.treeViewPermisos.Size = new System.Drawing.Size(527, 288);
+            this.treeViewPermisos.Size = new System.Drawing.Size(495, 288);
             this.treeViewPermisos.TabIndex = 0;
             // 
             // comboBoxPermisos
@@ -73,7 +73,7 @@
             this.comboBoxPermisos.Location = new System.Drawing.Point(3, 161);
             this.comboBoxPermisos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxPermisos.Name = "comboBoxPermisos";
-            this.comboBoxPermisos.Size = new System.Drawing.Size(308, 24);
+            this.comboBoxPermisos.Size = new System.Drawing.Size(288, 24);
             this.comboBoxPermisos.TabIndex = 1;
             // 
             // txtNombreGrupoPermisos
@@ -81,7 +81,7 @@
             this.txtNombreGrupoPermisos.Location = new System.Drawing.Point(3, 28);
             this.txtNombreGrupoPermisos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNombreGrupoPermisos.Name = "txtNombreGrupoPermisos";
-            this.txtNombreGrupoPermisos.Size = new System.Drawing.Size(308, 22);
+            this.txtNombreGrupoPermisos.Size = new System.Drawing.Size(288, 22);
             this.txtNombreGrupoPermisos.TabIndex = 2;
             // 
             // btnCrearGrupo
@@ -89,7 +89,7 @@
             this.btnCrearGrupo.Location = new System.Drawing.Point(3, 58);
             this.btnCrearGrupo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCrearGrupo.Name = "btnCrearGrupo";
-            this.btnCrearGrupo.Size = new System.Drawing.Size(308, 28);
+            this.btnCrearGrupo.Size = new System.Drawing.Size(288, 28);
             this.btnCrearGrupo.TabIndex = 3;
             this.btnCrearGrupo.Tag = "Fpermisos_CrearGrupo";
             this.btnCrearGrupo.Text = "Crear Nuevo Grupo De Permisos";
@@ -111,7 +111,7 @@
             this.btnAgregarPermiso.Location = new System.Drawing.Point(3, 2);
             this.btnAgregarPermiso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregarPermiso.Name = "btnAgregarPermiso";
-            this.btnAgregarPermiso.Size = new System.Drawing.Size(308, 29);
+            this.btnAgregarPermiso.Size = new System.Drawing.Size(288, 29);
             this.btnAgregarPermiso.TabIndex = 5;
             this.btnAgregarPermiso.Tag = "Fpermisos_AgregarPermiso";
             this.btnAgregarPermiso.Text = "Agregar Permiso";
@@ -130,7 +130,7 @@
             this.dataGridViewUsuarios.Name = "dataGridViewUsuarios";
             this.dataGridViewUsuarios.RowHeadersWidth = 51;
             this.dataGridViewUsuarios.RowTemplate.Height = 24;
-            this.dataGridViewUsuarios.Size = new System.Drawing.Size(527, 232);
+            this.dataGridViewUsuarios.Size = new System.Drawing.Size(495, 232);
             this.dataGridViewUsuarios.TabIndex = 6;
             this.dataGridViewUsuarios.SelectionChanged += new System.EventHandler(this.dataGridViewUsuarios_SelectionChanged);
             // 
@@ -141,7 +141,7 @@
             this.comboBoxGruposDePermisos.Location = new System.Drawing.Point(3, 110);
             this.comboBoxGruposDePermisos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxGruposDePermisos.Name = "comboBoxGruposDePermisos";
-            this.comboBoxGruposDePermisos.Size = new System.Drawing.Size(308, 24);
+            this.comboBoxGruposDePermisos.Size = new System.Drawing.Size(288, 24);
             this.comboBoxGruposDePermisos.TabIndex = 7;
             this.comboBoxGruposDePermisos.SelectedIndexChanged += new System.EventHandler(this.comboBoxGruposDePermisos_SelectedIndexChanged);
             // 
@@ -149,10 +149,10 @@
             // 
             this.btnAsignarGrupo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAsignarGrupo.Location = new System.Drawing.Point(323, 144);
+            this.btnAsignarGrupo.Location = new System.Drawing.Point(303, 144);
             this.btnAsignarGrupo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAsignarGrupo.Name = "btnAsignarGrupo";
-            this.btnAsignarGrupo.Size = new System.Drawing.Size(201, 55);
+            this.btnAsignarGrupo.Size = new System.Drawing.Size(189, 55);
             this.btnAsignarGrupo.TabIndex = 8;
             this.btnAsignarGrupo.Tag = "Fpermisos_AsignarGrupo";
             this.btnAsignarGrupo.Text = "Asignar Grupo de Permisos al Usuario";
@@ -183,7 +183,7 @@
             this.btnBorrarPermiso.Location = new System.Drawing.Point(3, 35);
             this.btnBorrarPermiso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBorrarPermiso.Name = "btnBorrarPermiso";
-            this.btnBorrarPermiso.Size = new System.Drawing.Size(308, 29);
+            this.btnBorrarPermiso.Size = new System.Drawing.Size(288, 29);
             this.btnBorrarPermiso.TabIndex = 11;
             this.btnBorrarPermiso.Tag = "Fpermisos_BorrarPermiso";
             this.btnBorrarPermiso.Text = "Borrar Permiso";
@@ -193,11 +193,11 @@
             // btnQuitarPermisos
             // 
             this.btnQuitarPermisos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnQuitarPermisos.Location = new System.Drawing.Point(323, 210);
+            this.btnQuitarPermisos.Location = new System.Drawing.Point(303, 210);
             this.btnQuitarPermisos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnQuitarPermisos.Name = "btnQuitarPermisos";
             this.btnQuitarPermisos.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.btnQuitarPermisos.Size = new System.Drawing.Size(201, 54);
+            this.btnQuitarPermisos.Size = new System.Drawing.Size(189, 54);
             this.btnQuitarPermisos.TabIndex = 12;
             this.btnQuitarPermisos.Tag = "Fpermisos_QuitarPermisos";
             this.btnQuitarPermisos.Text = "Quitar Permisos";
@@ -211,12 +211,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewPermisosDeUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPermisosDeUsuarios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewPermisosDeUsuarios.Location = new System.Drawing.Point(536, 294);
+            this.dataGridViewPermisosDeUsuarios.Location = new System.Drawing.Point(504, 294);
             this.dataGridViewPermisosDeUsuarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewPermisosDeUsuarios.Name = "dataGridViewPermisosDeUsuarios";
             this.dataGridViewPermisosDeUsuarios.RowHeadersWidth = 51;
             this.dataGridViewPermisosDeUsuarios.RowTemplate.Height = 24;
-            this.dataGridViewPermisosDeUsuarios.Size = new System.Drawing.Size(527, 232);
+            this.dataGridViewPermisosDeUsuarios.Size = new System.Drawing.Size(495, 232);
             this.dataGridViewPermisosDeUsuarios.TabIndex = 13;
             // 
             // label4
@@ -246,7 +246,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.48902F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.51098F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1066, 528);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1002, 528);
             this.tableLayoutPanel1.TabIndex = 15;
             // 
             // tableLayoutPanel2
@@ -262,14 +262,14 @@
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.btnQuitarPermisos, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(536, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(504, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72.90076F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.09924F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 9F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(527, 286);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(495, 286);
             this.tableLayoutPanel2.TabIndex = 14;
             // 
             // tableLayoutPanel4
@@ -287,7 +287,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(314, 67);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(294, 67);
             this.tableLayoutPanel4.TabIndex = 16;
             // 
             // tableLayoutPanel3
@@ -314,14 +314,14 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.75978F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.17318F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.20112F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(314, 193);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(294, 193);
             this.tableLayoutPanel3.TabIndex = 13;
             // 
             // Permisos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 542);
+            this.ClientSize = new System.Drawing.Size(1006, 542);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Permisos";

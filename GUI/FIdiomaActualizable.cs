@@ -1,5 +1,6 @@
 ﻿using BLL;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,8 +29,8 @@ namespace GUI
 
 
             var dict = Sesion.ObtenerSesion().Traduccion;
-
-            foreach (Control c in this.Controls)
+            BuscarControles(this.Controls);
+            foreach (Control c in ListaControles)
             {
                 if (c.Tag == null)
                 {
@@ -45,6 +46,18 @@ namespace GUI
                 }
             }
 
+        }
+        List<Control> ListaControles = new List<Control>();
+        public void BuscarControles(ICollection controles)
+        {
+            foreach (Control c in controles)
+            {
+                ListaControles.Add(c);
+                if (c.HasChildren)
+                {
+                    BuscarControles(c.Controls);
+                }
+            }
         }
     }
 }

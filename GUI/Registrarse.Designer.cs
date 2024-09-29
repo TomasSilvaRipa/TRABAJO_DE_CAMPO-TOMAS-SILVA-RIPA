@@ -44,6 +44,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelResidencia = new System.Windows.Forms.Label();
+            this.tbNombre = new System.Windows.Forms.TextBox();
             this.tbResicencia = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -52,8 +54,6 @@
             this.dateTimePickerFN = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.tbNombre = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -274,7 +274,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Controls.Add(this.label8, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.labelResidencia, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.tbNombre, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.tbResicencia, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.label6, 0, 0);
@@ -288,6 +288,25 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(590, 42);
             this.tableLayoutPanel3.TabIndex = 26;
+            // 
+            // labelResidencia
+            // 
+            this.labelResidencia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelResidencia.AutoSize = true;
+            this.labelResidencia.Location = new System.Drawing.Point(256, 2);
+            this.labelResidencia.Name = "labelResidencia";
+            this.labelResidencia.Size = new System.Drawing.Size(76, 16);
+            this.labelResidencia.TabIndex = 5;
+            this.labelResidencia.Tag = "FRlabelResidencia";
+            this.labelResidencia.Text = "Residencia";
+            // 
+            // tbNombre
+            // 
+            this.tbNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbNombre.Location = new System.Drawing.Point(3, 24);
+            this.tbNombre.Name = "tbNombre";
+            this.tbNombre.Size = new System.Drawing.Size(190, 22);
+            this.tbNombre.TabIndex = 4;
             // 
             // tbResicencia
             // 
@@ -375,25 +394,6 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(130, 45);
             this.tableLayoutPanel4.TabIndex = 25;
             // 
-            // tbNombre
-            // 
-            this.tbNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbNombre.Location = new System.Drawing.Point(3, 24);
-            this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(190, 22);
-            this.tbNombre.TabIndex = 4;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(256, 2);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 16);
-            this.label8.TabIndex = 5;
-            this.label8.Tag = "FRlabelResidencia";
-            this.label8.Text = "Residencia";
-            // 
             // Registrarse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -444,7 +444,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.DateTimePicker dateTimePickerFN;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelResidencia;
         private System.Windows.Forms.TextBox tbNombre;
     }
 }

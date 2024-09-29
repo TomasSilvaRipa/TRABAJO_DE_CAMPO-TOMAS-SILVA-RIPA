@@ -26,6 +26,8 @@ namespace GUI
             bitacorabll = new BitacoraBLL();
             bllusuario = new BLLUsuario();
             bllIdiomas = new BLLIdiomas();
+            labelResidencia.Visible = false;
+            tbResicencia.Visible = false;
         }
         BitacoraBLL bitacorabll;
         BLLUsuario bllusuario;
@@ -83,9 +85,8 @@ namespace GUI
             Bitacora_ bitacora;
             try
             {
-                if (!ManejoErrores.ValidarNombre(txtUsuario.Text) || !ManejoErrores.ValidarClave(txtContra.Text) || !ManejoErrores.ValidarMail(txtMail.Text))
+                if (!ManejoErrores.ValidarNombre(txtUsuario.Text) || !ManejoErrores.ValidarClave(txtContra.Text) || !ManejoErrores.ValidarMail(txtMail.Text) || !ManejoErrores.ValidarNombre(tbNombre.Text) || !ManejoErrores.ValidarNombre(tbApellido.Text))
                 {
-                    
                     bitacora = new Bitacora_(Bitacora_.BitacoraTipo.VALIDACION, "UsuarioNoExisteEnLaBase", "Los datos ingresados no tienen el formato correcto.");
                     bitacorabll.Add(bitacora);
                     MessageBox.Show(bitacora.Mensaje);
@@ -103,7 +104,7 @@ namespace GUI
                         if (bllusuario.AltaUsuario(clienteCreate, txtContra.Text))
                         {
                             MessageBox.Show("Cliente: " + nuevoUsuario.NombreDeUsuario + "creado correctamente");
-                            //ActiveForm.Close();
+                            this.Close();
                         }
                         else
                         {
@@ -113,25 +114,32 @@ namespace GUI
                     else if (rbDueño.Checked)
                     {
                         Dueño dueño = new Dueño(nuevoUsuario,tbNombre.Text, tbApellido.Text, tbResicencia.Text);
-                        if (bllusuario.AltaUsuario(dueño, txtContra.Text))
+                        if (ManejoErrores.ValidarClave(tbResicencia.Text))
                         {
-                            MessageBox.Show("Dueño: " + nuevoUsuario.NombreDeUsuario + "creado correctamente");
-                            //ActiveForm.Close();
+                            if (bllusuario.AltaUsuario(dueño, txtContra.Text))
+                            {
+                                MessageBox.Show("Dueño: " + nuevoUsuario.NombreDeUsuario + " creado correctamente");
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Un usuario con el nombre " + nuevoUsuario.NombreDeUsuario + " ya existe!");
+
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Un usuario con el nombre " + nuevoUsuario.NombreDeUsuario + " ya existe!");
-                            
+                            MessageBox.Show("Datos en campo residencia invalidos");
                         }
+                        
                     }
                     else if (rbCloser.Checked)
                     {
                         Closer closer = new Closer(nuevoUsuario,tbNombre.Text, tbApellido.Text, "Beginner", 0);
                         if (bllusuario.AltaUsuario(closer, txtContra.Text))
                         {
-                            //ActiveForm.Close();
                             MessageBox.Show("Closer: " + nuevoUsuario.NombreDeUsuario + "creado correctamente");
-                            
+                            this.Close();
                         }
                         else
                         {
@@ -163,18 +171,24 @@ namespace GUI
         {
             rbCloser.Checked = false;
             rbDueño.Checked = false;
+            labelResidencia.Visible = false;
+            tbResicencia.Visible = false;
         }
 
         private void rbDueño_CheckedChanged(object sender, EventArgs e)
         {
             rbCloser.Checked = false;
             rbCliente.Checked = false;
+            labelResidencia.Visible = true;
+            tbResicencia.Visible = true;
         }
 
         private void rbCloser_CheckedChanged(object sender, EventArgs e)
         {
             rbCliente.Checked = false;
             rbDueño.Checked = false;
+            labelResidencia.Visible = false;
+            tbResicencia.Visible = false;
         }
     }
 }
