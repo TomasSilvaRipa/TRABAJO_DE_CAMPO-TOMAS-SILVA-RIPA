@@ -124,5 +124,20 @@ namespace GUI
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void comboBoxPatio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBoxPatio.Text == "NO")
+            {
+                comboBoxPileta.Text = "NO";
+                comboBoxPileta.Visible = false;
+                labelPileta.Visible = false;
+            }
+            else if(comboBoxPatio.Text == "SI")
+            {
+                labelPileta.Visible = true;
+                comboBoxPileta.Visible = true;
+            }
+        }
     }
 }
