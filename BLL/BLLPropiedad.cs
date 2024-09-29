@@ -25,5 +25,13 @@ namespace BLL
             Dueño dueño = mppDueño.LeerDueño(usuario.ID);
             return mppPropiedad.AltaPropiedad(propiedad,dueño.ID,imagenesEnBytes);
         }
+
+        public List<Propiedad> LeerPropiedadesDeDueño()
+        {
+            Sesion sesion = Sesion.ObtenerSesion();
+            Usuario usuario = sesion.ObtenerUsuario();
+            Dueño dueño = mppDueño.LeerDueño(usuario.ID);
+            return mppPropiedad.LeerPropiedadesDeDueño(dueño.ID);
+        }
     }
 }

@@ -17,11 +17,19 @@ namespace GUI
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        
+        private void btnAgregarPropiedad_Click(object sender, EventArgs e)
         {
             RegistrarPropiedades registrarPropiedades = new RegistrarPropiedades();
             registrarPropiedades.Show();
         }
+
+        private void btnVerCatalogo_Click(object sender, EventArgs e)
+        {
+            CatalogoPropiedadesDueño CPD = new CatalogoPropiedadesDueño();
+            CPD.Show();
+        }
+
+        
     }
 }

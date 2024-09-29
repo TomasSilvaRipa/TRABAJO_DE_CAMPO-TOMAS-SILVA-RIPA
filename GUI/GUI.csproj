@@ -52,6 +52,12 @@
     <Compile Include="Bitacora.Designer.cs">
       <DependentUpon>Bitacora.cs</DependentUpon>
     </Compile>
+    <Compile Include="CatalogoPropiedadesDueño.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CatalogoPropiedadesDueño.Designer.cs">
+      <DependentUpon>CatalogoPropiedadesDueño.cs</DependentUpon>
+    </Compile>
     <Compile Include="FAdminUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </Compile>
     <EmbeddedResource Include="Bitacora.resx">
       <DependentUpon>Bitacora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CatalogoPropiedadesDueño.resx">
+      <DependentUpon>CatalogoPropiedadesDueño.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FAdminUsuarios.resx">
       <DependentUpon>FAdminUsuarios.cs</DependentUpon>

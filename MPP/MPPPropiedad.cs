@@ -2,8 +2,10 @@
 using DAL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -56,6 +58,59 @@ namespace MPP
                 return true;
             }
             return true;
+        }
+
+        public List<Propiedad> LeerPropiedadesDeDueño(int id)
+        {
+            List<Propiedad> listaPropiedades = new List<Propiedad>();
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            SqlParameter ID = new SqlParameter("@ID", id);
+            parameters.Add(ID);
+            DataTable dt = acceso.Leer("LeerViviendasDeDueño",parameters);
+            if(dt.Rows.Count > 0)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    Propiedad propiedad = new Propiedad();
+                    propiedad.ID = (int)row["ID"];
+                    propiedad.Ambientes = (int)row["Ambientes"];
+                    propiedad.TipoDeVivienda = row["TipoDeVivienda"].ToString();
+                    propiedad.Antiguedad = (int)row["Antiguedad"];
+                    propiedad.Baños = (int)row["Baños"];
+                    propiedad.Cochera = (bool)row["Cochera"];
+                    propiedad.Patio = (bool)row["Patio"];
+                    propiedad.Pisos = (int)row["Pisos"];
+                    propiedad.Direccion = row["Direccion"].ToString();
+                    propiedad.SuperficieCubierta = row["SuperficieCubierta"].ToString();
+                    propiedad.SuperficieTotal = row["SuperficieTotal"].ToString();
+                    propiedad.Pileta = (bool)row["Pileta"];
+                    propiedad.Habitaciones = (int)row["Habitaciones"];
+                    propiedad.ValorDeCouta = (decimal)row["ValorCuota"];
+                    propiedad.Imagenes = LeerImagenesPorPropiedad(propiedad.ID);
+                    listaPropiedades.Add(propiedad);
+                }
+                return listaPropiedades;
+            }
+            return null;
+        }
+
+        public List<byte[]> LeerImagenesPorPropiedad(int id)
+        {
+            List<byte[]> Imagenes = new List<byte[]>();
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            SqlParameter ID = new SqlParameter("@ID", id);
+            parameters.Add(ID);
+            DataTable dt = acceso.Leer("LeerImagenesPorVivienda", parameters);
+            if(dt.Rows.Count > 0)
+            {
+                foreach(DataRow row in dt.Rows)
+                {
+                    byte[] imagen = (byte[])row["Imagen"];
+                    Imagenes.Add(imagen);
+                }
+                return Imagenes;
+            }
+            return null;
         }
     }
 }

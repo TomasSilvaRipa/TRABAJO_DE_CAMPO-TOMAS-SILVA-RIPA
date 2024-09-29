@@ -75,7 +75,8 @@
             // 
             // tbDireccion
             // 
-            this.tbDireccion.Location = new System.Drawing.Point(243, 45);
+            this.tbDireccion.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbDireccion.Location = new System.Drawing.Point(243, 52);
             this.tbDireccion.Name = "tbDireccion";
             this.tbDireccion.Size = new System.Drawing.Size(150, 22);
             this.tbDireccion.TabIndex = 0;
@@ -94,8 +95,9 @@
             // 
             // comboBoxVivienda
             // 
+            this.comboBoxVivienda.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comboBoxVivienda.FormattingEnabled = true;
-            this.comboBoxVivienda.Location = new System.Drawing.Point(243, 3);
+            this.comboBoxVivienda.Location = new System.Drawing.Point(243, 9);
             this.comboBoxVivienda.Name = "comboBoxVivienda";
             this.comboBoxVivienda.Size = new System.Drawing.Size(150, 24);
             this.comboBoxVivienda.TabIndex = 4;
@@ -114,7 +116,8 @@
             // 
             // numericUpDownAmbientes
             // 
-            this.numericUpDownAmbientes.Location = new System.Drawing.Point(243, 87);
+            this.numericUpDownAmbientes.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.numericUpDownAmbientes.Location = new System.Drawing.Point(243, 94);
             this.numericUpDownAmbientes.Maximum = new decimal(new int[] {
             8,
             0,
@@ -136,7 +139,8 @@
             // 
             // numericUpDownPisos
             // 
-            this.numericUpDownPisos.Location = new System.Drawing.Point(243, 171);
+            this.numericUpDownPisos.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.numericUpDownPisos.Location = new System.Drawing.Point(243, 178);
             this.numericUpDownPisos.Maximum = new decimal(new int[] {
             4,
             0,
@@ -158,7 +162,8 @@
             // 
             // numericUpDownBaños
             // 
-            this.numericUpDownBaños.Location = new System.Drawing.Point(243, 255);
+            this.numericUpDownBaños.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.numericUpDownBaños.Location = new System.Drawing.Point(243, 262);
             this.numericUpDownBaños.Maximum = new decimal(new int[] {
             5,
             0,
@@ -180,7 +185,8 @@
             // 
             // numericUpDownHabitaciones
             // 
-            this.numericUpDownHabitaciones.Location = new System.Drawing.Point(243, 213);
+            this.numericUpDownHabitaciones.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.numericUpDownHabitaciones.Location = new System.Drawing.Point(243, 220);
             this.numericUpDownHabitaciones.Maximum = new decimal(new int[] {
             6,
             0,
@@ -202,7 +208,8 @@
             // 
             // numericUpDownAntiguedad
             // 
-            this.numericUpDownAntiguedad.Location = new System.Drawing.Point(483, 87);
+            this.numericUpDownAntiguedad.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.numericUpDownAntiguedad.Location = new System.Drawing.Point(483, 94);
             this.numericUpDownAntiguedad.Maximum = new decimal(new int[] {
             50,
             0,
@@ -214,7 +221,8 @@
             // 
             // numericUpDownST
             // 
-            this.numericUpDownST.Location = new System.Drawing.Point(243, 129);
+            this.numericUpDownST.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.numericUpDownST.Location = new System.Drawing.Point(243, 136);
             this.numericUpDownST.Maximum = new decimal(new int[] {
             900,
             0,
@@ -236,7 +244,8 @@
             // 
             // numericUpDownSC
             // 
-            this.numericUpDownSC.Location = new System.Drawing.Point(483, 171);
+            this.numericUpDownSC.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.numericUpDownSC.Location = new System.Drawing.Point(483, 178);
             this.numericUpDownSC.Maximum = new decimal(new int[] {
             900,
             0,
@@ -306,9 +315,10 @@
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label7.Location = new System.Drawing.Point(483, 42);
+            this.label7.Location = new System.Drawing.Point(483, 53);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(92, 20);
             this.label7.TabIndex = 17;
@@ -329,9 +339,10 @@
             // 
             // label9
             // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label9.Location = new System.Drawing.Point(483, 126);
+            this.label9.Location = new System.Drawing.Point(483, 137);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(147, 20);
             this.label9.TabIndex = 19;
@@ -340,8 +351,9 @@
             // 
             // comboBoxPatio
             // 
+            this.comboBoxPatio.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comboBoxPatio.FormattingEnabled = true;
-            this.comboBoxPatio.Location = new System.Drawing.Point(483, 255);
+            this.comboBoxPatio.Location = new System.Drawing.Point(483, 261);
             this.comboBoxPatio.Name = "comboBoxPatio";
             this.comboBoxPatio.Size = new System.Drawing.Size(154, 24);
             this.comboBoxPatio.TabIndex = 20;
@@ -349,18 +361,19 @@
             // 
             // comboBoxPileta
             // 
-            this.comboBoxPileta.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxPileta.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comboBoxPileta.FormattingEnabled = true;
-            this.comboBoxPileta.Location = new System.Drawing.Point(283, 345);
+            this.comboBoxPileta.Location = new System.Drawing.Point(243, 345);
             this.comboBoxPileta.Name = "comboBoxPileta";
             this.comboBoxPileta.Size = new System.Drawing.Size(154, 24);
             this.comboBoxPileta.TabIndex = 21;
             // 
             // label10
             // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label10.Location = new System.Drawing.Point(483, 210);
+            this.label10.Location = new System.Drawing.Point(483, 221);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(47, 20);
             this.label10.TabIndex = 22;
@@ -369,10 +382,10 @@
             // 
             // labelPileta
             // 
-            this.labelPileta.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelPileta.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelPileta.AutoSize = true;
             this.labelPileta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelPileta.Location = new System.Drawing.Point(334, 305);
+            this.labelPileta.Location = new System.Drawing.Point(243, 305);
             this.labelPileta.Name = "labelPileta";
             this.labelPileta.Size = new System.Drawing.Size(51, 20);
             this.labelPileta.TabIndex = 23;
@@ -441,6 +454,7 @@
             // 
             // buttonSubirImagenes
             // 
+            this.buttonSubirImagenes.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.buttonSubirImagenes.Location = new System.Drawing.Point(483, 3);
             this.buttonSubirImagenes.Name = "buttonSubirImagenes";
             this.buttonSubirImagenes.Size = new System.Drawing.Size(151, 36);

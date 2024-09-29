@@ -11,8 +11,8 @@ namespace BE
         public string TipoDeVivienda { get; set; }
         public string Direccion { get; set; }
         public int Ambientes {  get; set; }
-        public int SuperficieTotal { get; set; }
-        public int SuperficieCubierta { get; set; }
+        public string SuperficieTotal { get; set; }
+        public string SuperficieCubierta { get; set; }
         public int Pisos { get; set; }
         public int Habitaciones { get; set; }
         public int Baños {  get; set; }
@@ -22,7 +22,10 @@ namespace BE
         public bool Pileta {  get; set; }
         public decimal ValorDeCouta { get; set; }
 
-        public Propiedad(string tipoDeVivienda, string direccion, int ambientes, int superficieTotal, int superficieCubierta, int pisos, int habitaciones, int baños, string cochera, int antiguedad, string patio, string pileta, decimal valorDeCouta)
+        public List<byte[]> Imagenes = new List<byte[]>();
+
+        public Propiedad() { }
+        public Propiedad(string tipoDeVivienda, string direccion, int ambientes, string superficieTotal, string superficieCubierta, int pisos, int habitaciones, int baños, string cochera, int antiguedad, string patio, string pileta, decimal valorDeCouta)
         {
             TipoDeVivienda = tipoDeVivienda;
             Direccion = direccion;

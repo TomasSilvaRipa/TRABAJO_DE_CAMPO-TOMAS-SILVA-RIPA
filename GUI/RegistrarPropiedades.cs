@@ -106,13 +106,19 @@ namespace GUI
             {
                 if (ManejoErrores.ValidarClave(tbDireccion.Text))
                 {
-                    Propiedad propiedad = new Propiedad(comboBoxVivienda.Text,tbDireccion.Text,(int)numericUpDownAmbientes.Value,(int)numericUpDownST.Value,(int)numericUpDownSC.Value,(int)numericUpDownPisos.Value,(int)numericUpDownHabitaciones.Value,(int)numericUpDownBaños.Value,comboBoxCochera.Text,(int)numericUpDownAntiguedad.Value,comboBoxPatio.Text,comboBoxPileta.Text,numericUpDownValorDeCouta.Value);
-                    if (bllPropiedad.AltaPropiedad(propiedad, ConvertirImagenesABytes(imagenes)))
+                    Propiedad propiedad = new Propiedad(comboBoxVivienda.Text,tbDireccion.Text,(int)numericUpDownAmbientes.Value,Convert.ToString(numericUpDownST.Value) + "m^2", Convert.ToString(numericUpDownSC.Value)+"m^2",(int)numericUpDownPisos.Value,(int)numericUpDownHabitaciones.Value,(int)numericUpDownBaños.Value,comboBoxCochera.Text,(int)numericUpDownAntiguedad.Value,comboBoxPatio.Text,comboBoxPileta.Text,numericUpDownValorDeCouta.Value);
+                    if(numericUpDownST.Value >= numericUpDownSC.Value)
                     {
-                        MessageBox.Show("Vivienda publicada exitosamente");
+                        if (bllPropiedad.AltaPropiedad(propiedad, ConvertirImagenesABytes(imagenes)))
+                        {
+                            MessageBox.Show("Vivienda publicada exitosamente");
+                        }
+                        imagenes.Clear();
                     }
-                    imagenes.Clear();
-                    
+                    else
+                    {
+                        MessageBox.Show("La superficie cubierta no puede ser mayor que la total");
+                    }
                 }
                 else
                 {
