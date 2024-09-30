@@ -135,6 +135,7 @@
             this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "MenuDueños";
             this.ShowIcon = false;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MenuDueños_FormClosed);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

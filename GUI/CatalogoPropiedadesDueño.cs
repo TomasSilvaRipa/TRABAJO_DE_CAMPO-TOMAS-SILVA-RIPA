@@ -28,6 +28,12 @@ namespace GUI
 
         }
 
+        public void AbrirFormularioModificar(Propiedad propiedad)
+        {
+            RegistrarPropiedades registrarPropiedades = new RegistrarPropiedades(propiedad);
+            registrarPropiedades.Show();
+        }
+
         public void GenerarCatalogo()
         {
             List<Propiedad> listaDePropiedades = new List<Propiedad>();
@@ -87,10 +93,23 @@ namespace GUI
                         labelPosY += 30;
                     }
                 }
+
+                Button btnModificar = new Button();
+                btnModificar.Text = "Modificar Datos";
+                btnModificar.Width = 120;
+                btnModificar.Location = new Point(10, labelPosY);
+                btnModificar.Click += (s, e) => AbrirFormularioModificar(p);
+
                 gpadre.Controls.Add(flpImagenes);
                 gpadre.Controls.Add(gpDescripcion);
+                gpDescripcion.Controls.Add(btnModificar);
                 flowLayoutPanelPadre.Controls.Add(gpadre);
             }
+        }
+
+        private void flowLayoutPanelPadre_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

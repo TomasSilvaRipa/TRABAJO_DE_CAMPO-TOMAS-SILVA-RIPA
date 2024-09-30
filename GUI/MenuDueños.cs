@@ -30,6 +30,9 @@ namespace GUI
             CPD.Show();
         }
 
-        
+        private void MenuDueños_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -29,7 +29,20 @@ namespace GUI
         }
         BLLPropiedad bllPropiedad;
         List<System.Drawing.Image> imagenes;
-
+        Propiedad propiedadModificada;
+        public RegistrarPropiedades(Propiedad propiedad)
+        {
+            InitializeComponent();
+            bllPropiedad = new BLLPropiedad();
+            imagenes = new List<System.Drawing.Image>();
+            comboBoxPatio.DataSource = Enum.GetValues(typeof(Patio));
+            comboBoxPileta.DataSource = Enum.GetValues(typeof(Pileta));
+            comboBoxCochera.DataSource = Enum.GetValues(typeof(Cochera));
+            comboBoxVivienda.DataSource = Enum.GetValues(typeof(Vivienda));
+            propiedadModificada = propiedad;
+            ActualizarControlesPorpiedadSeleccionada(propiedad);
+            
+        }
         private void RegistrarPropiedades_Load(object sender, EventArgs e)
         {
 
@@ -57,6 +70,45 @@ namespace GUI
             Duplex = 3,
             Triplex = 4,
             Penthouse = 5
+        }
+
+        public void ActualizarControlesPorpiedadSeleccionada(Propiedad propiedad)
+        {
+            comboBoxVivienda.Text = propiedad.TipoDeVivienda;
+            numericUpDownAmbientes.Value = propiedad.Ambientes;
+            numericUpDownBaños.Value = propiedad.Baños;
+            numericUpDownHabitaciones.Value = propiedad.Habitaciones;
+            numericUpDownPisos.Value = propiedad.Pisos;
+            tbDireccion.Text = propiedad.Direccion;
+            numericUpDownValorDeCouta.Value = propiedad.ValorDeCouta;
+            numericUpDownST.Value = Convert.ToInt32(propiedad.SuperficieTotal.Replace("m2", ""));
+            numericUpDownSC.Value = Convert.ToInt32(propiedad.SuperficieCubierta.Replace("m2", ""));
+            if (propiedad.Patio == true)
+            {
+                comboBoxPatio.SelectedItem = Patio.SI;
+            }
+            else
+            {
+                comboBoxPatio.SelectedItem = Patio.NO;
+                comboBoxPileta.Visible = false;
+                comboBoxPileta.SelectedItem = Pileta.NO;
+            }
+            if(propiedad.Pileta == true)
+            {
+                comboBoxPileta.SelectedItem = Pileta.SI;
+            }
+            else
+            {
+                comboBoxPileta.SelectedItem = Pileta.NO;
+            }
+            if(propiedad.Cochera == true)
+            {
+                comboBoxCochera.SelectedItem = Pileta.SI;
+            }
+            else
+            {
+                comboBoxCochera.SelectedItem = Pileta.NO; 
+            }
         }
 
         public List<byte[]> ConvertirImagenesABytes(List<System.Drawing.Image> imagenes)
@@ -104,16 +156,34 @@ namespace GUI
         {
             try
             {
-                if (ManejoErrores.ValidarClave(tbDireccion.Text))
+                if (ManejoErrores.ValidarDireccion(tbDireccion.Text))
                 {
-                    Propiedad propiedad = new Propiedad(comboBoxVivienda.Text,tbDireccion.Text,(int)numericUpDownAmbientes.Value,Convert.ToString(numericUpDownST.Value) + "m^2", Convert.ToString(numericUpDownSC.Value)+"m^2",(int)numericUpDownPisos.Value,(int)numericUpDownHabitaciones.Value,(int)numericUpDownBaños.Value,comboBoxCochera.Text,(int)numericUpDownAntiguedad.Value,comboBoxPatio.Text,comboBoxPileta.Text,numericUpDownValorDeCouta.Value);
+                    Propiedad propiedad = new Propiedad(comboBoxVivienda.Text,tbDireccion.Text,(int)numericUpDownAmbientes.Value,Convert.ToString(numericUpDownST.Value) + "m2", Convert.ToString(numericUpDownSC.Value)+"m2",(int)numericUpDownPisos.Value,(int)numericUpDownHabitaciones.Value,(int)numericUpDownBaños.Value,comboBoxCochera.Text,(int)numericUpDownAntiguedad.Value,comboBoxPatio.Text,comboBoxPileta.Text,numericUpDownValorDeCouta.Value);
                     if(numericUpDownST.Value >= numericUpDownSC.Value)
                     {
-                        if (bllPropiedad.AltaPropiedad(propiedad, ConvertirImagenesABytes(imagenes)))
+                        if (numericUpDownAmbientes.Value >= numericUpDownHabitaciones.Value)
                         {
-                            MessageBox.Show("Vivienda publicada exitosamente");
+                            if (imagenes.Count > 0)
+                            {
+                                if (bllPropiedad.AltaPropiedad(propiedad, ConvertirImagenesABytes(imagenes)))
+                                {
+                                    MessageBox.Show("Vivienda publicada exitosamente");
+                                    imagenes.Clear();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No se pudo registrar la vivienda");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Seleccione al menos una imagen para la vivienda");
+                            }
                         }
-                        imagenes.Clear();
+                        else
+                        {
+                            MessageBox.Show("La cantidad de habitaciones no puede ser mayor que la cantidad de ambientes");
+                        }
                     }
                     else
                     {
@@ -144,6 +214,12 @@ namespace GUI
                 labelPileta.Visible = true;
                 comboBoxPileta.Visible = true;
             }
+        }
+
+        private void btnLimpiarImagenes_Click(object sender, EventArgs e)
+        {
+            imagenes.Clear();
+            MessageBox.Show("Imagenes Deseleccionadas");
         }
     }
 }

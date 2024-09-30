@@ -41,6 +41,7 @@
             this.flowLayoutPanelPadre.Name = "flowLayoutPanelPadre";
             this.flowLayoutPanelPadre.Size = new System.Drawing.Size(799, 452);
             this.flowLayoutPanelPadre.TabIndex = 0;
+            this.flowLayoutPanelPadre.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelPadre_Paint);
             // 
             // CatalogoPropiedadesDueño
             // 
