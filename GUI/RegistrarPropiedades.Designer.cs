@@ -63,6 +63,7 @@
             this.btnPublicaPropiedad = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnLimpiarImagenes = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAmbientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPisos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBaños)).BeginInit();
@@ -354,7 +355,7 @@
             // 
             this.comboBoxPatio.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comboBoxPatio.FormattingEnabled = true;
-            this.comboBoxPatio.Location = new System.Drawing.Point(483, 345);
+            this.comboBoxPatio.Location = new System.Drawing.Point(243, 345);
             this.comboBoxPatio.Name = "comboBoxPatio";
             this.comboBoxPatio.Size = new System.Drawing.Size(154, 24);
             this.comboBoxPatio.TabIndex = 20;
@@ -364,7 +365,7 @@
             // 
             this.comboBoxPileta.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comboBoxPileta.FormattingEnabled = true;
-            this.comboBoxPileta.Location = new System.Drawing.Point(243, 345);
+            this.comboBoxPileta.Location = new System.Drawing.Point(483, 345);
             this.comboBoxPileta.Name = "comboBoxPileta";
             this.comboBoxPileta.Size = new System.Drawing.Size(154, 24);
             this.comboBoxPileta.TabIndex = 21;
@@ -374,7 +375,7 @@
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label10.Location = new System.Drawing.Point(483, 305);
+            this.label10.Location = new System.Drawing.Point(243, 305);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(47, 20);
             this.label10.TabIndex = 22;
@@ -386,7 +387,7 @@
             this.labelPileta.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelPileta.AutoSize = true;
             this.labelPileta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelPileta.Location = new System.Drawing.Point(243, 305);
+            this.labelPileta.Location = new System.Drawing.Point(483, 305);
             this.labelPileta.Name = "labelPileta";
             this.labelPileta.Size = new System.Drawing.Size(51, 20);
             this.labelPileta.TabIndex = 23;
@@ -509,22 +510,23 @@
             this.tableLayoutPanel1.Controls.Add(this.numericUpDownHabitaciones, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.numericUpDownBaños, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.labelPileta, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxPileta, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.label13, 0, 9);
             this.tableLayoutPanel1.Controls.Add(this.numericUpDownValorDeCouta, 0, 10);
             this.tableLayoutPanel1.Controls.Add(this.label12, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxCochera, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnPublicaPropiedad, 1, 10);
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxPatio, 2, 8);
-            this.tableLayoutPanel1.Controls.Add(this.label10, 2, 7);
             this.tableLayoutPanel1.Controls.Add(this.buttonSubirImagenes, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnLimpiarImagenes, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label9, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.numericUpDownSC, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.numericUpDownAntiguedad, 2, 6);
             this.tableLayoutPanel1.Controls.Add(this.label7, 2, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label10, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxPatio, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.labelPileta, 2, 7);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxPileta, 2, 8);
+            this.tableLayoutPanel1.Controls.Add(this.btnModificar, 2, 10);
+            this.tableLayoutPanel1.Controls.Add(this.btnPublicaPropiedad, 1, 10);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 11;
@@ -554,6 +556,17 @@
             this.btnLimpiarImagenes.Text = "Limpiar Imagenes";
             this.btnLimpiarImagenes.UseVisualStyleBackColor = true;
             this.btnLimpiarImagenes.Click += new System.EventHandler(this.btnLimpiarImagenes_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnModificar.Location = new System.Drawing.Point(483, 426);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(160, 40);
+            this.btnModificar.TabIndex = 31;
+            this.btnModificar.Text = "Modificar Publicacion";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // RegistrarPropiedades
             // 
@@ -615,5 +628,6 @@
         private System.Windows.Forms.Button btnPublicaPropiedad;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnLimpiarImagenes;
+        private System.Windows.Forms.Button btnModificar;
     }
 }

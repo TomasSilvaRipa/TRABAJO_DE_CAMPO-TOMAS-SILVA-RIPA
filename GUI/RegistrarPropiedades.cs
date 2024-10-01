@@ -26,6 +26,8 @@ namespace GUI
             comboBoxPileta.DataSource = Enum.GetValues(typeof(Pileta));
             comboBoxCochera.DataSource = Enum.GetValues(typeof(Cochera));
             comboBoxVivienda.DataSource = Enum.GetValues(typeof(Vivienda));
+            btnPublicaPropiedad.Visible = true;
+            btnModificar.Visible = false;
         }
         BLLPropiedad bllPropiedad;
         List<System.Drawing.Image> imagenes;
@@ -40,6 +42,8 @@ namespace GUI
             comboBoxCochera.DataSource = Enum.GetValues(typeof(Cochera));
             comboBoxVivienda.DataSource = Enum.GetValues(typeof(Vivienda));
             propiedadModificada = propiedad;
+            btnModificar.Visible = true;
+            btnPublicaPropiedad.Visible = false;
             ActualizarControlesPorpiedadSeleccionada(propiedad);
             
         }
@@ -167,8 +171,9 @@ namespace GUI
                             {
                                 if (bllPropiedad.AltaPropiedad(propiedad, ConvertirImagenesABytes(imagenes)))
                                 {
-                                    MessageBox.Show("Vivienda publicada exitosamente");
+                                    MessageBox.Show("Vivienda Publicada Exitosamente");
                                     imagenes.Clear();
+                                    
                                 }
                                 else
                                 {
@@ -220,6 +225,57 @@ namespace GUI
         {
             imagenes.Clear();
             MessageBox.Show("Imagenes Deseleccionadas");
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ManejoErrores.ValidarDireccion(tbDireccion.Text))
+                {
+                    Propiedad propiedad = new Propiedad(comboBoxVivienda.Text, tbDireccion.Text, (int)numericUpDownAmbientes.Value, Convert.ToString(numericUpDownST.Value) + "m2", Convert.ToString(numericUpDownSC.Value) + "m2", (int)numericUpDownPisos.Value, (int)numericUpDownHabitaciones.Value, (int)numericUpDownBaños.Value, comboBoxCochera.Text, (int)numericUpDownAntiguedad.Value, comboBoxPatio.Text, comboBoxPileta.Text, numericUpDownValorDeCouta.Value);
+                    propiedad.ID = propiedadModificada.ID;
+                    if (numericUpDownST.Value >= numericUpDownSC.Value)
+                    {
+                        if (numericUpDownAmbientes.Value >= numericUpDownHabitaciones.Value)
+                        {
+                            if (imagenes.Count > 0)
+                            {
+                                if (bllPropiedad.ModificarPropiedad(propiedad, ConvertirImagenesABytes(imagenes)))
+                                {
+                                    MessageBox.Show("Vivienda publicada exitosamente");
+                                    imagenes.Clear();
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No se pudo registrar la vivienda");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Seleccione al menos una imagen para la vivienda");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("La cantidad de habitaciones no puede ser mayor que la cantidad de ambientes");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("La superficie cubierta no puede ser mayor que la total");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Datos de dirección invalidos");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

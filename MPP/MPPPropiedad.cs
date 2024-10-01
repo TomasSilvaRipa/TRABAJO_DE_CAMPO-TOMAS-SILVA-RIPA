@@ -64,7 +64,6 @@ namespace MPP
         {
             List<SqlParameter> parameters = new List<SqlParameter>()
             {
-                new SqlParameter("@ID_Dueño",id),
                 new SqlParameter("@ID",propiedad.ID),
                 new SqlParameter("@TipoDeVivienda",propiedad.TipoDeVivienda),
                 new SqlParameter("@Direccion",propiedad.Direccion),
@@ -81,25 +80,30 @@ namespace MPP
                 new SqlParameter("@ValorCuota",propiedad.ValorDeCouta),
             };
 
-            if (acceso.Escribir("ModificarPropiedad", parameters))
+            if (acceso.Escribir("ModificarVivienda", parameters))
             {
                 parameters.Clear();
-
-                foreach (byte[] imagen in imagenesEnBytes)
+                SqlParameter ID = new SqlParameter("@ID", propiedad.ID);
+                parameters.Add(ID);
+                if (acceso.Escribir("BorrarImagenesVivienda", parameters))
                 {
-                    SqlParameter parametro = new SqlParameter("@Imagen", imagen);
-                    parameters.Add(parametro);
-                    SqlParameter dueño = new SqlParameter("@ID_Dueño", id);
-                    parameters.Add(dueño);
-                    SqlParameter direccion = new SqlParameter("@Direccion", propiedad.Direccion);
-                    parameters.Add(direccion);
-                    acceso.Escribir("SubirFotosVivienda", parameters);
                     parameters.Clear();
+                    foreach (byte[] imagen in imagenesEnBytes)
+                    {
+                        SqlParameter parametro = new SqlParameter("@Imagen", imagen);
+                        parameters.Add(parametro);
+                        SqlParameter dueño = new SqlParameter("@ID_Dueño", id);
+                        parameters.Add(dueño);
+                        SqlParameter direccion = new SqlParameter("@Direccion", propiedad.Direccion);
+                        parameters.Add(direccion);
+                        acceso.Escribir("SubirFotosVivienda", parameters);
+                        parameters.Clear();
 
+                    }
+                    return true;
                 }
-                return true;
             }
-            return true;
+            return false;
         }
 
         public List<Propiedad> LeerPropiedadesDeDueño(int id)
