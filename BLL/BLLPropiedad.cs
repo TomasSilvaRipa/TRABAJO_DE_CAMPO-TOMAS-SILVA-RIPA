@@ -34,6 +34,11 @@ namespace BLL
             return mppPropiedad.ModificarPropiedad(propiedad, dueño.ID, imagenesEnBytes);
         }
 
+        public List<Propiedad> LeerPropiedades(int opcion)
+        {
+            return mppPropiedad.LeerPropiedades(opcion);
+        }
+
         public List<Propiedad> LeerPropiedadesDeDueño()
         {
             Sesion sesion = Sesion.ObtenerSesion();

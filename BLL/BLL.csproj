@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitacoraBLL.cs" />
+    <Compile Include="BLLCloser.cs" />
     <Compile Include="BLLDueño.cs" />
     <Compile Include="BLLIdiomas.cs" />
     <Compile Include="BLLPermisos.cs" />

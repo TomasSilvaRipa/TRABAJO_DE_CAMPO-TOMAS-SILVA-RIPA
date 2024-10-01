@@ -96,7 +96,11 @@ namespace GUI
                             MenuDueños menuDueño = new MenuDueños();
                             menuDueño.Show();
                         }
-                        
+                        else if(usuarioIniciar.Sector == "Closer")
+                        {
+                            MenuClosers menuClosers = new MenuClosers();
+                            menuClosers.Show();
+                        }
                         this.Hide();
                     }
                     else

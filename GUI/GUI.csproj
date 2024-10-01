@@ -52,6 +52,12 @@
     <Compile Include="Bitacora.Designer.cs">
       <DependentUpon>Bitacora.cs</DependentUpon>
     </Compile>
+    <Compile Include="CatalogoDePropiedades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CatalogoDePropiedades.Designer.cs">
+      <DependentUpon>CatalogoDePropiedades.cs</DependentUpon>
+    </Compile>
     <Compile Include="CatalogoPropiedadesDueño.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,18 @@
     <Compile Include="GestorDeCambios.Designer.cs">
       <DependentUpon>GestorDeCambios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuClosers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuClosers.Designer.cs">
+      <DependentUpon>MenuClosers.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuDueños.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +141,9 @@
     <EmbeddedResource Include="Bitacora.resx">
       <DependentUpon>Bitacora.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CatalogoDePropiedades.resx">
+      <DependentUpon>CatalogoDePropiedades.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CatalogoPropiedadesDueño.resx">
       <DependentUpon>CatalogoPropiedadesDueño.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +164,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GestorDeCambios.resx">
       <DependentUpon>GestorDeCambios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuClosers.resx">
+      <DependentUpon>MenuClosers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuDueños.resx">
       <DependentUpon>MenuDueños.cs</DependentUpon>

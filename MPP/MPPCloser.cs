@@ -2,6 +2,7 @@
 using DAL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -31,6 +32,57 @@ namespace MPP
             SqlParameter fechaNacimiento = new SqlParameter("@TratosCerrados", closer.TratosCerrados);
             parameters.Add(fechaNacimiento);
             return acceso.Escribir("AltaCloser", parameters);
+        }
+
+        public bool Postularse(Closer closer, Propiedad propiedad)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter("@ID_Vivienda",propiedad.ID),
+                new SqlParameter("@ID_Closer",closer.ID),
+            };
+            return acceso.Escribir("Postularse",parameters);
+        }
+
+        public bool ComprobarExistenciaPostulado(Closer closer, Propiedad propiedad)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter("@ID_Vivienda",propiedad.ID),
+                new SqlParameter("@ID_Closer",closer.ID),
+            };
+            DataTable dt = acceso.Leer("ComprobarPostulacion", parameters);
+            if(dt.Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Closer LeerCloser(int ID)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter("@ID",ID),
+            };
+            DataTable dt = acceso.Leer("LeerCloser",parameters);
+            if(dt.Rows.Count > 0)
+            {
+                foreach(DataRow row in dt.Rows)
+                {
+                    Closer closer = new Closer();
+                    closer.ID = (int)row["ID"];
+                    closer.Nombre = row["Nombre"].ToString();
+                    closer.Apellido = row["Apellido"].ToString();
+                    closer.Clasificacion = row["Clasificacion"].ToString();
+                    closer.TratosCerrados = (int)row["TratosCerrados"];
+                    return closer;
+                }
+            }
+            return null;
         }
     }
 }

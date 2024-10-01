@@ -136,7 +136,7 @@ namespace GUI
                 using (OpenFileDialog openFileDialog = new OpenFileDialog())
                 {
                     openFileDialog.Multiselect = true;
-                    openFileDialog.Filter = "Archivos de imagen (*.png;*.jpg)|*.png;*.jpg";
+                    openFileDialog.Filter = "Archivos de imagen (*.png;*.jpg,*.jpeg)|*.png;*.jpg;*.jpeg";
                     openFileDialog.Title = "Seleccione una o más imágenes";
                     if (openFileDialog.ShowDialog() == DialogResult.OK)
                     {
