@@ -117,7 +117,7 @@ namespace MPP
                 {
                     if(opcion == 1)
                     {
-                        if (Convert.ToBoolean(row["Activo"]) == true && Convert.ToBoolean(row["Aqluilada"]) == false)
+                        if (Convert.ToBoolean(row["Activo"]) == true && Convert.ToBoolean(row["Alquilada"]) == false)
                         {
                             Propiedad propiedad = new Propiedad();
                             propiedad.ID = (int)row["ID"];

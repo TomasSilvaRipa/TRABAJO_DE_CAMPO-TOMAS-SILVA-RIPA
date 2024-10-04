@@ -32,5 +32,10 @@ namespace BLL
             
         }
 
+        public List<Closer> LeerClosersPostulados(Propiedad propiedad)
+        {
+            return mppCloser.LeerClosersPostulados(propiedad);
+        }
+
     }
 }

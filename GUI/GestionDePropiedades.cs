@@ -14,57 +14,73 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class CatalogoPropiedadesDueño : Form
+    public partial class GestionDePropiedades : Form
     {
-        public CatalogoPropiedadesDueño()
+        public GestionDePropiedades()
         {
             InitializeComponent();
             bllPropiedad = new BLLPropiedad();
+            bllCloser = new BLLCloser();
             GenerarCatalogo();
         }
         BLLPropiedad bllPropiedad;
-        private void CatalogoPropiedadesDueño_Load(object sender, EventArgs e)
+        BLLCloser bllCloser;
+        private void CatalogoDePropiedades_Load(object sender, EventArgs e)
         {
 
         }
 
-        public void AbrirFormularioModificar(Propiedad propiedad)
+        public void Postularse(Propiedad propiedad)
         {
-            RegistrarPropiedades registrarPropiedades = new RegistrarPropiedades(propiedad);
-            registrarPropiedades.Show();
+            try
+            {
+                if (bllCloser.Postularse(propiedad))
+                {
+                    MessageBox.Show("Postulacion Exitosa");
+                }
+                else
+                {
+                    MessageBox.Show("No se puedo postular");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         public void GenerarCatalogo()
         {
             List<Propiedad> listaDePropiedades = new List<Propiedad>();
-            listaDePropiedades = bllPropiedad.LeerPropiedadesDeDueño();
+            listaDePropiedades = bllPropiedad.LeerPropiedades(2);
             flowLayoutPanelPadre.Controls.Clear();
-            foreach (Propiedad p in  listaDePropiedades)
+            foreach (Propiedad p in listaDePropiedades)
             {
                 GroupBox gpadre = new GroupBox();
-                gpadre.Width = flowLayoutPanelPadre.Width - 20; 
-                gpadre.Height = 300;  
+                gpadre.Width = flowLayoutPanelPadre.Width - 20;
+                gpadre.Height = 300;
                 gpadre.Margin = new Padding(10);
 
                 FlowLayoutPanel flpImagenes = new FlowLayoutPanel();
-                flpImagenes.Width = gpadre.Width / 2; 
-                flpImagenes.Height = gpadre.Height; 
+                flpImagenes.Width = gpadre.Width / 2;
+                flpImagenes.Height = gpadre.Height;
                 flpImagenes.Dock = DockStyle.Left;
                 flpImagenes.AutoScroll = true;
 
                 Panel gpDescripcion = new Panel();
-                gpDescripcion.Width = gpadre.Width / 2; 
-                gpDescripcion.Height = gpadre.Height; 
+                gpDescripcion.Width = gpadre.Width / 2;
+                gpDescripcion.Height = gpadre.Height;
                 gpDescripcion.Dock = DockStyle.Right;
                 gpDescripcion.AutoScroll = true;
 
                 int labelPosY = 20;
-                foreach (byte[] imgBytes in p.Imagenes) 
+                foreach (byte[] imgBytes in p.Imagenes)
                 {
                     PictureBox pictureBox = new PictureBox();
-                    pictureBox.Width = 100; 
-                    pictureBox.Height = 100; 
-                    pictureBox.SizeMode = PictureBoxSizeMode.Zoom; 
+                    pictureBox.Width = 100;
+                    pictureBox.Height = 100;
+                    pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                     using (MemoryStream ms = new MemoryStream(imgBytes))
                     {
                         pictureBox.Image = Image.FromStream(ms);
@@ -84,7 +100,7 @@ namespace GUI
 
                         Label labelValor = new Label();
                         labelValor.Text = propiedad.GetValue(p)?.ToString();
-                        labelValor.Location = new Point(150, labelPosY); 
+                        labelValor.Location = new Point(150, labelPosY);
                         labelValor.AutoSize = true;
 
                         gpDescripcion.Controls.Add(labelNombre);
@@ -94,15 +110,15 @@ namespace GUI
                     }
                 }
 
-                Button btnModificar = new Button();
-                btnModificar.Text = "Modificar Datos";
-                btnModificar.Width = 120;
-                btnModificar.Location = new Point(10, labelPosY);
-                btnModificar.Click += (s, e) => AbrirFormularioModificar(p);
+                Button btnPostularse = new Button();
+                btnPostularse.Text = "Postularse";
+                btnPostularse.Width = 120;
+                btnPostularse.Location = new Point(10, labelPosY);
+                btnPostularse.Click += (s, e) => Postularse(p);
 
                 gpadre.Controls.Add(flpImagenes);
                 gpadre.Controls.Add(gpDescripcion);
-                gpDescripcion.Controls.Add(btnModificar);
+                gpDescripcion.Controls.Add(btnPostularse);
                 flowLayoutPanelPadre.Controls.Add(gpadre);
             }
         }

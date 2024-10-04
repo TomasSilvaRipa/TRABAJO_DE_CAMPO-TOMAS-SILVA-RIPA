@@ -56,5 +56,16 @@ namespace MPP
             return acceso.Escribir("AltaDueño", parameters);
         }
 
+        public bool AceptarCloserPostulado(Propiedad propiedad, Closer closer)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter("@ID_Vivienda",propiedad.ID),
+                new SqlParameter("@ID_Closer",closer.ID)
+            };
+            return acceso.Escribir("AceptarPostulado",parameters);
+            
+        }
+
     }
 }

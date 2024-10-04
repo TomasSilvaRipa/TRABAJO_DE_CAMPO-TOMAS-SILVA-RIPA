@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class CatalogoDePropiedades
+    partial class ClosersPostulados
     {
         /// <summary>
         /// Required designer variable.
@@ -41,15 +41,15 @@
             this.flowLayoutPanelPadre.Size = new System.Drawing.Size(799, 452);
             this.flowLayoutPanelPadre.TabIndex = 1;
             // 
-            // CatalogoDePropiedades
+            // ClosersPostulados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.flowLayoutPanelPadre);
-            this.Name = "CatalogoDePropiedades";
-            this.Text = "CatalogoDePropiedades";
-            this.Load += new System.EventHandler(this.CatalogoDePropiedades_Load);
+            this.Name = "ClosersPostulados";
+            this.Text = "ClosersPostulados";
+            this.Load += new System.EventHandler(this.ClosersPostulados_Load);
             this.ResumeLayout(false);
 
         }

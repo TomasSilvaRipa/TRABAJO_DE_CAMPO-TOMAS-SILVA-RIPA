@@ -91,16 +91,20 @@ namespace GUI
                             FMdi fMdi = new FMdi(this, usuarioIniciar.NombreDeUsuario);
                             fMdi.Show();
                         }
-                        else if(usuarioIniciar.Sector == "Dueño")
-                        {
-                            MenuDueños menuDueño = new MenuDueños();
-                            menuDueño.Show();
-                        }
-                        else if(usuarioIniciar.Sector == "Closer")
-                        {
-                            MenuClosers menuClosers = new MenuClosers();
-                            menuClosers.Show();
-                        }
+                        //else if(usuarioIniciar.Sector == "Dueño")
+                        //{
+                        //    MenuDueños menuDueño = new MenuDueños();
+                        //    menuDueño.Show();
+                        //}
+                        //else if(usuarioIniciar.Sector == "Closer")
+                        //{
+                        //    MenuClosers menuClosers = new MenuClosers();
+                        //    menuClosers.Show();
+                        //}
+                        Menu menu = new Menu(this);
+                        menu.Show();
+                        //MenuDueños menuD = new MenuDueños();
+                        //menuD.Show();
                         this.Hide();
                     }
                     else

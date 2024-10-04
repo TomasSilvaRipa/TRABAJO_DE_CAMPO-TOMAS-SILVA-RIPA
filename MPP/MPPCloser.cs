@@ -84,5 +84,46 @@ namespace MPP
             }
             return null;
         }
+
+        public List<Closer> LeerClosersPostulados(Propiedad propiedad)
+        {
+            List<Closer> closers = new List<Closer>();
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter("@ID_Vivienda",propiedad.ID),
+            };
+            DataTable dt = acceso.Leer("LeerClosersPostulados",parameters);
+            if(dt.Rows.Count > 0 )
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    int estado = Convert.ToInt32(row["Estado"]);
+                    if (estado != 2)
+                    {
+                        Closer closer = new Closer();
+                        closer.ID = (int)row["ID"];
+                        closer.Nombre = row["Nombre"].ToString();
+                        closer.Apellido = row["Apellido"].ToString();
+                        closer.Clasificacion = row["Clasificacion"].ToString();
+                        closer.TratosCerrados = (int)row["TratosCerrados"];
+                        closers.Add(closer);
+                    }
+                    else
+                    {
+                        closers.Clear();
+                        Closer closer = new Closer();
+                        closer.ID = (int)row["ID"];
+                        closer.Nombre = row["Nombre"].ToString();
+                        closer.Apellido = row["Apellido"].ToString();
+                        closer.Clasificacion = row["Clasificacion"].ToString();
+                        closer.TratosCerrados = (int)row["TratosCerrados"];
+                        closers.Add(closer);
+                        return closers;
+                    }
+                }
+                return closers;
+            }
+            return null;
+        }
     }
 }

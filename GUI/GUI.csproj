@@ -52,17 +52,17 @@
     <Compile Include="Bitacora.Designer.cs">
       <DependentUpon>Bitacora.cs</DependentUpon>
     </Compile>
-    <Compile Include="CatalogoDePropiedades.cs">
+    <Compile Include="ClosersPostulados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CatalogoDePropiedades.Designer.cs">
-      <DependentUpon>CatalogoDePropiedades.cs</DependentUpon>
+    <Compile Include="ClosersPostulados.Designer.cs">
+      <DependentUpon>ClosersPostulados.cs</DependentUpon>
     </Compile>
-    <Compile Include="CatalogoPropiedadesDueño.cs">
+    <Compile Include="GestionDePropiedades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CatalogoPropiedadesDueño.Designer.cs">
-      <DependentUpon>CatalogoPropiedadesDueño.cs</DependentUpon>
+    <Compile Include="GestionDePropiedades.Designer.cs">
+      <DependentUpon>GestionDePropiedades.cs</DependentUpon>
     </Compile>
     <Compile Include="FAdminUsuarios.cs">
       <SubType>Form</SubType>
@@ -106,18 +106,6 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuClosers.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MenuClosers.Designer.cs">
-      <DependentUpon>MenuClosers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MenuDueños.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MenuDueños.Designer.cs">
-      <DependentUpon>MenuDueños.cs</DependentUpon>
-    </Compile>
     <Compile Include="Permisos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,14 +126,20 @@
     <Compile Include="Registrarse.Designer.cs">
       <DependentUpon>Registrarse.cs</DependentUpon>
     </Compile>
+    <Compile Include="SolicitarReunion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SolicitarReunion.Designer.cs">
+      <DependentUpon>SolicitarReunion.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Bitacora.resx">
       <DependentUpon>Bitacora.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CatalogoDePropiedades.resx">
-      <DependentUpon>CatalogoDePropiedades.cs</DependentUpon>
+    <EmbeddedResource Include="ClosersPostulados.resx">
+      <DependentUpon>ClosersPostulados.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CatalogoPropiedadesDueño.resx">
-      <DependentUpon>CatalogoPropiedadesDueño.cs</DependentUpon>
+    <EmbeddedResource Include="GestionDePropiedades.resx">
+      <DependentUpon>GestionDePropiedades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FAdminUsuarios.resx">
       <DependentUpon>FAdminUsuarios.cs</DependentUpon>
@@ -168,12 +162,6 @@
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuClosers.resx">
-      <DependentUpon>MenuClosers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MenuDueños.resx">
-      <DependentUpon>MenuDueños.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Permisos.resx">
       <DependentUpon>Permisos.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registrarse.resx">
       <DependentUpon>Registrarse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SolicitarReunion.resx">
+      <DependentUpon>SolicitarReunion.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
