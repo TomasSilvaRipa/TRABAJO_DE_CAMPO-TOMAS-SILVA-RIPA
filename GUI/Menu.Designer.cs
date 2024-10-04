@@ -74,7 +74,7 @@
             this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.43964F));
             this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.56036F));
             this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
-            this.tableLayoutPanelPadre.Size = new System.Drawing.Size(1039, 522);
+            this.tableLayoutPanelPadre.Size = new System.Drawing.Size(1039, 571);
             this.tableLayoutPanelPadre.TabIndex = 0;
             // 
             // tableLayoutPanelBarraMenuDinamica
@@ -104,7 +104,7 @@
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnVerSolicitudesDeClosers, 3, 0);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnVerReunionesDueño, 1, 0);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnPagosCliente, 2, 2);
-            this.tableLayoutPanelBarraMenuDinamica.Location = new System.Drawing.Point(3, 462);
+            this.tableLayoutPanelBarraMenuDinamica.Location = new System.Drawing.Point(3, 511);
             this.tableLayoutPanelBarraMenuDinamica.Name = "tableLayoutPanelBarraMenuDinamica";
             this.tableLayoutPanelBarraMenuDinamica.RowCount = 4;
             this.tableLayoutPanelBarraMenuDinamica.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.85207F));
@@ -271,6 +271,7 @@
             this.btnVerReunionesDueño.Tag = "FMVerReunionesDueño";
             this.btnVerReunionesDueño.Text = "Ver Reuniones ";
             this.btnVerReunionesDueño.UseVisualStyleBackColor = true;
+            this.btnVerReunionesDueño.Click += new System.EventHandler(this.btnVerReunionesDueño_Click);
             // 
             // btnPagosCliente
             // 
@@ -293,12 +294,12 @@
             this.tableLayoutPanelCatalogoYFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.89738F));
             this.tableLayoutPanelCatalogoYFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.10261F));
             this.tableLayoutPanelCatalogoYFiltro.Controls.Add(this.flowLayoutPanelCatalogo, 0, 0);
-            this.tableLayoutPanelCatalogoYFiltro.Location = new System.Drawing.Point(3, 64);
+            this.tableLayoutPanelCatalogoYFiltro.Location = new System.Drawing.Point(3, 71);
             this.tableLayoutPanelCatalogoYFiltro.Name = "tableLayoutPanelCatalogoYFiltro";
             this.tableLayoutPanelCatalogoYFiltro.RowCount = 1;
             this.tableLayoutPanelCatalogoYFiltro.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelCatalogoYFiltro.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelCatalogoYFiltro.Size = new System.Drawing.Size(1033, 392);
+            this.tableLayoutPanelCatalogoYFiltro.Size = new System.Drawing.Size(1033, 434);
             this.tableLayoutPanelCatalogoYFiltro.TabIndex = 0;
             // 
             // flowLayoutPanelCatalogo
@@ -310,7 +311,7 @@
             this.flowLayoutPanelCatalogo.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanelCatalogo.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelCatalogo.Name = "flowLayoutPanelCatalogo";
-            this.flowLayoutPanelCatalogo.Size = new System.Drawing.Size(840, 386);
+            this.flowLayoutPanelCatalogo.Size = new System.Drawing.Size(840, 428);
             this.flowLayoutPanelCatalogo.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -331,14 +332,14 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1033, 55);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1033, 62);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // btnLogout
             // 
             this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold);
-            this.btnLogout.Location = new System.Drawing.Point(831, 12);
+            this.btnLogout.Location = new System.Drawing.Point(831, 15);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(129, 31);
@@ -354,7 +355,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(3, 8);
+            this.label1.Location = new System.Drawing.Point(3, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(184, 39);
             this.label1.TabIndex = 6;
@@ -364,7 +365,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1026, 517);
+            this.ClientSize = new System.Drawing.Size(1026, 566);
             this.Controls.Add(this.tableLayoutPanelPadre);
             this.Name = "Menu";
             this.ShowIcon = false;

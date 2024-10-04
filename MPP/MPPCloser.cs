@@ -15,8 +15,10 @@ namespace MPP
         public MPPCloser()
         {
             acceso = new Acceso();
+            mppPropiedad = new MPPPropiedad();
         }
         Acceso acceso;
+        MPPPropiedad mppPropiedad;
 
         public bool AltaCloser(Closer closer)
         {
@@ -122,6 +124,41 @@ namespace MPP
                     }
                 }
                 return closers;
+            }
+            return null;
+        }
+
+        public List<Propiedad> LeerPropiedadesXCloser(int id)
+        {
+            List<Propiedad> listaDeViviendas = new List<Propiedad>();
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter("@ID_Closer",id),
+            };
+            DataTable dt = acceso.Leer("LeerViviendasXCloser",parameters);
+            if(dt.Rows.Count > 0)
+            {
+                foreach(DataRow row in dt.Rows)
+                {
+                    Propiedad propiedad = new Propiedad();
+                    propiedad.ID = (int)row["ID"];
+                    propiedad.Ambientes = (int)row["Ambientes"];
+                    propiedad.TipoDeVivienda = row["TipoDeVivienda"].ToString();
+                    propiedad.Antiguedad = (int)row["Antiguedad"];
+                    propiedad.Baños = (int)row["Baños"];
+                    propiedad.Cochera = (bool)row["Cochera"];
+                    propiedad.Patio = (bool)row["Patio"];
+                    propiedad.Pisos = (int)row["Pisos"];
+                    propiedad.Direccion = row["Direccion"].ToString();
+                    propiedad.SuperficieCubierta = row["SuperficieCubierta"].ToString();
+                    propiedad.SuperficieTotal = row["SuperficieTotal"].ToString();
+                    propiedad.Pileta = (bool)row["Pileta"];
+                    propiedad.Habitaciones = (int)row["Habitaciones"];
+                    propiedad.ValorDeCouta = (decimal)row["ValorCuota"];
+                    propiedad.Imagenes = mppPropiedad.LeerImagenesPorPropiedad(propiedad.ID);
+                    listaDeViviendas.Add(propiedad);
+                }
+                return listaDeViviendas;
             }
             return null;
         }

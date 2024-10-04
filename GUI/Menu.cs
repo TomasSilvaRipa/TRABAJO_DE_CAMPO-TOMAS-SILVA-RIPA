@@ -220,8 +220,16 @@ namespace GUI
 
         public void AbrirFormularioSolicitarReunion(Propiedad propiedad)
         {
-            SolicitarReunion solicitarReunion = new SolicitarReunion(propiedad);
-            solicitarReunion.Show();
+            try
+            {
+                SolicitarReunion solicitarReunion = new SolicitarReunion(propiedad);
+                solicitarReunion.Show();
+            }
+            catch(Exception ex)
+            {
+
+            }
+            
         }
 
         public void Postularse(Propiedad propiedad)
@@ -554,10 +562,18 @@ namespace GUI
 
         private void btnVerCasasGestionadasCloser_Click(object sender, EventArgs e)
         {
-            
+            Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
+            Closer closer = bllCloser.LeerCloser(usuario.ID);
+            GestionDePropiedades gestionDePropiedades = new GestionDePropiedades(closer);
+            gestionDePropiedades.Show();
         }
 
         private void btnVerSolicitudesDeClosers_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVerReunionesDueño_Click(object sender, EventArgs e)
         {
 
         }

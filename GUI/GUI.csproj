@@ -94,6 +94,12 @@
     <Compile Include="FTraducciones.Designer.cs">
       <DependentUpon>FTraducciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionSolicitudesDeReunion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionSolicitudesDeReunion.Designer.cs">
+      <DependentUpon>GestionSolicitudesDeReunion.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestorDeCambios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FTraducciones.resx">
       <DependentUpon>FTraducciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionSolicitudesDeReunion.resx">
+      <DependentUpon>GestionSolicitudesDeReunion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestorDeCambios.resx">
       <DependentUpon>GestorDeCambios.cs</DependentUpon>

@@ -2,6 +2,7 @@
 using DAL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,39 @@ namespace MPP
             SqlParameter fechaNacimiento = new SqlParameter("@FechaNacimiento", cliente.FechaNacimiento);
             parameters.Add(fechaNacimiento);
             return acceso.Escribir("AltaCliente", parameters);
+        }
+
+        public Cliente LeerCliente(int id,int op)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            if (op == 1)
+            {
+                SqlParameter ID = new SqlParameter("@ID", id);
+                parameters.Add(ID);
+                SqlParameter ID_Cliente = new SqlParameter("@ID_Cliente", DBNull.Value);
+                parameters.Add(ID_Cliente);
+            }
+            else
+            {
+                SqlParameter ID = new SqlParameter("@ID", DBNull.Value);
+                parameters.Add(ID);
+                SqlParameter ID_Cliente = new SqlParameter("@ID_Cliente", id);
+                parameters.Add(ID_Cliente);
+            }
+            DataTable dt = acceso.Leer("LeerCliente",parameters);
+            if(dt.Rows.Count > 0)
+            {
+                foreach(DataRow row in dt.Rows)
+                {
+                    Cliente cliente = new Cliente();
+                    cliente.ID = (int)row["ID"];
+                    cliente.Nombre = row["Nombre"].ToString();
+                    cliente.Apellido = row["Apellido"].ToString();
+                    cliente.FechaNacimiento = Convert.ToDateTime(row["FechaDeNacimiento"]);
+                    return cliente;
+                }
+            }
+            return null;
         }
     }
 }

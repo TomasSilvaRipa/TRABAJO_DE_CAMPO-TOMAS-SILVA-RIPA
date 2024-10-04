@@ -16,12 +16,12 @@ namespace GUI
 {
     public partial class GestionDePropiedades : Form
     {
-        public GestionDePropiedades()
+        public GestionDePropiedades(Closer closer)
         {
             InitializeComponent();
             bllPropiedad = new BLLPropiedad();
             bllCloser = new BLLCloser();
-            GenerarCatalogo();
+            GenerarCatalogoViviendasXCloser(closer);
         }
         BLLPropiedad bllPropiedad;
         BLLCloser bllCloser;
@@ -30,30 +30,16 @@ namespace GUI
 
         }
 
-        public void Postularse(Propiedad propiedad)
+        public void VerSolicitantesDeReunion(Propiedad propiedad)
         {
-            try
-            {
-                if (bllCloser.Postularse(propiedad))
-                {
-                    MessageBox.Show("Postulacion Exitosa");
-                }
-                else
-                {
-                    MessageBox.Show("No se puedo postular");
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            
+            GestionSolicitudesDeReunion gestionSolicitudesDeReunion = new GestionSolicitudesDeReunion(propiedad);
+            gestionSolicitudesDeReunion.Show();
         }
 
-        public void GenerarCatalogo()
+        public void GenerarCatalogoViviendasXCloser(Closer closer)
         {
             List<Propiedad> listaDePropiedades = new List<Propiedad>();
-            listaDePropiedades = bllPropiedad.LeerPropiedades(2);
+            listaDePropiedades = bllCloser.LeerViviendasXCloser(closer);
             flowLayoutPanelPadre.Controls.Clear();
             foreach (Propiedad p in listaDePropiedades)
             {
@@ -111,10 +97,10 @@ namespace GUI
                 }
 
                 Button btnPostularse = new Button();
-                btnPostularse.Text = "Postularse";
-                btnPostularse.Width = 120;
+                btnPostularse.Text = "Ver Solicitudes de Reunion";
+                btnPostularse.Width = 150;
                 btnPostularse.Location = new Point(10, labelPosY);
-                btnPostularse.Click += (s, e) => Postularse(p);
+                btnPostularse.Click += (s, e) => VerSolicitantesDeReunion(p);
 
                 gpadre.Controls.Add(flpImagenes);
                 gpadre.Controls.Add(gpDescripcion);
