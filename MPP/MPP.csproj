@@ -49,6 +49,7 @@
     <Compile Include="MPPPermisos.cs" />
     <Compile Include="MPPPropiedad.cs" />
     <Compile Include="MPPReunion.cs" />
+    <Compile Include="MPPTrato.cs" />
     <Compile Include="MPPUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

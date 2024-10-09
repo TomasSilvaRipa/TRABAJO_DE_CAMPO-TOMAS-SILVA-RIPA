@@ -13,6 +13,8 @@ namespace BE
         public string Clasificacion { get; set; }
         public int TratosCerrados { get; set; }
 
+        public string Comision {  get; set; }
+
         public Closer() { }
         public Closer(Usuario usuario,string nombre,string apellido,string clasificacion, int tratosCerrados)
         {

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -42,17 +43,13 @@ namespace MPP
             {
                 foreach(DataRow row in dt.Rows)
                 {
-                    if ((int)row["Estado"] == 0)
-                    {
-                        Solicitud solicitud = new Solicitud();
-                        solicitud.ID = (int)row["ID"];
-                        solicitud.ID_Vivienda = (int)row["ID_Vivienda"];
-                        solicitud.ID_Cliente = (int)row["ID_Cliente"];
-                        solicitud.Fecha = Convert.ToDateTime(row["Fecha"]);
-                        solicitud.Disponibilidad = row["Disponibilidad"].ToString();
-                        solicitudes.Add(solicitud);
-                    }
-                    
+                    Solicitud solicitud = new Solicitud();
+                    solicitud.ID = (int)row["ID"];
+                    solicitud.ID_Vivienda = (int)row["ID_Vivienda"];
+                    solicitud.ID_Cliente = (int)row["ID_Cliente"];
+                    solicitud.Fecha = Convert.ToDateTime(row["Fecha"]);
+                    solicitud.Disponibilidad = row["Disponibilidad"].ToString();
+                    solicitudes.Add(solicitud);
                 }
                 return solicitudes;
             }
@@ -69,6 +66,40 @@ namespace MPP
                 new SqlParameter("@Fecha",reunion.Fecha),
             };
             return acceso.Escribir("AceptarReunion", parameters);
+        }
+
+        public bool RecharReunion(Solicitud solicitud)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter("@ID_Solicitud",solicitud.ID),
+            };
+            return acceso.Escribir("RechazarReunion", parameters);
+        }
+
+        public List<Reunion> LeerReuniones(Dueño dueño)
+        {
+            List<Reunion> reuniones = new List<Reunion>();
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter("@ID_Dueño",dueño.ID),
+            };
+            DataTable dt = acceso.Leer("LeerReuniones",parameters);
+            if(dt.Rows.Count > 0)
+            {
+                foreach(DataRow row in dt.Rows)
+                {
+                    Reunion reunion = new Reunion();
+                    reunion.ID = (int)row["ID"];
+                    reunion.ID_Cliente = (int)row["ID_Cliente"];
+                    reunion.ID_Vivienda = (int)row["ID_Vivienda"];
+                    reunion.ID_Closer = (int)row["ID_Closer"];
+                    reunion.Fecha = Convert.ToDateTime(row["Fecha"]);
+                    reuniones.Add(reunion);
+                }
+                return reuniones;
+            }
+            return null;
         }
     }
 }

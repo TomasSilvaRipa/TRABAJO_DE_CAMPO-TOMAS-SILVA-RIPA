@@ -29,10 +29,6 @@ namespace MPP
             parameters.Add(nombre);
             SqlParameter apellido = new SqlParameter("@Apellido", closer.Apellido);
             parameters.Add(apellido);
-            SqlParameter inquilino = new SqlParameter("@Clasificacion", closer.Clasificacion);
-            parameters.Add(inquilino);
-            SqlParameter fechaNacimiento = new SqlParameter("@TratosCerrados", closer.TratosCerrados);
-            parameters.Add(fechaNacimiento);
             return acceso.Escribir("AltaCloser", parameters);
         }
 
@@ -172,10 +168,6 @@ namespace MPP
             parameters.Add(nombre);
             SqlParameter apellido = new SqlParameter("@Apellido", closer.Apellido);
             parameters.Add(apellido);
-            SqlParameter inquilino = new SqlParameter("@Clasificacion", closer.Clasificacion);
-            parameters.Add(inquilino);
-            SqlParameter fechaNacimiento = new SqlParameter("@TratosCerrados", closer.TratosCerrados);
-            parameters.Add(fechaNacimiento);
             return acceso.Escribir("ModificarCloser", parameters);
         }
     }

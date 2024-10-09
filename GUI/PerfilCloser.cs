@@ -19,7 +19,7 @@ namespace GUI
         Closer closerActivo;
         public PerfilCloser()
         {
-            Closer closerActivo;
+            
             InitializeComponent();
             bitacora = new Bitacora_();
             bllBitaacora = new BitacoraBLL();
@@ -61,10 +61,18 @@ namespace GUI
 
         public void ActualizarDatos()
         {
-            closerActivo.Nombre = tbNombre.Text;
-            closerActivo.Apellido = tbApellido.Text;
-            closerActivo.Clasificacion = labelTratosCerrados.Text;
-            closerActivo.TratosCerrados = Convert.ToInt32(labelTratosCerrados.Text);
+            try
+            {
+                closerActivo.Nombre = tbNombre.Text;
+                closerActivo.Apellido = tbApellido.Text;
+                closerActivo.Clasificacion = labelTratosCerrados.Text;
+                closerActivo.TratosCerrados = Convert.ToInt32(labelTratosCerrados.Text);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         public byte[] ConvertirImagenABytes(Image Imagen)

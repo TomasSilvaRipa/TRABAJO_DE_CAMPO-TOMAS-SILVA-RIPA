@@ -559,7 +559,11 @@ namespace GUI
             registrarPropiedades.Show();
         }
         #endregion
+        private void btnVerSolicitudesDeClosers_Click(object sender, EventArgs e)
+        {
 
+        }
+        #region FORMS
         private void btnVerCasasGestionadasCloser_Click(object sender, EventArgs e)
         {
             Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
@@ -568,14 +572,10 @@ namespace GUI
             gestionDePropiedades.Show();
         }
 
-        private void btnVerSolicitudesDeClosers_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnVerReunionesDueño_Click(object sender, EventArgs e)
         {
-
+            VerReuniones verReuniones = new VerReuniones();
+            verReuniones.Show();
         }
 
         private void btnCuentaCliente_Click(object sender, EventArgs e)
@@ -595,5 +595,6 @@ namespace GUI
             PerfilCloser perfilCloser = new PerfilCloser();
             perfilCloser.Show();
         }
+        #endregion
     }
 }

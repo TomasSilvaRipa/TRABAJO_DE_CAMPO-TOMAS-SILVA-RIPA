@@ -156,6 +156,12 @@
     <Compile Include="SolicitarReunion.Designer.cs">
       <DependentUpon>SolicitarReunion.cs</DependentUpon>
     </Compile>
+    <Compile Include="VerReuniones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerReuniones.Designer.cs">
+      <DependentUpon>VerReuniones.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Bitacora.resx">
       <DependentUpon>Bitacora.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SolicitarReunion.resx">
       <DependentUpon>SolicitarReunion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerReuniones.resx">
+      <DependentUpon>VerReuniones.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

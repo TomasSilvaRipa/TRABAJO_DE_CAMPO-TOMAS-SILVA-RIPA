@@ -133,7 +133,7 @@ namespace GUI
                 btnRechazar.Text = "Rechazar";
                 btnRechazar.Width = 120;
                 btnRechazar.Location = new Point(10, labelPosY);
-                btnRechazar.Click += (s, e) => RechazarReunion(cliente); 
+                btnRechazar.Click += (s, e) => RechazarReunion(solicitud); 
                 labelPosY += 30;
 
                 gpadre.Controls.Add(flpImagen);
@@ -165,11 +165,15 @@ namespace GUI
             }
         }
 
-        public void RechazarReunion(Cliente cliente)
+        public void RechazarReunion(Solicitud solicitud)
         {
             try
             {
-
+                if (bllReunion.RechazarReunion(solicitud))
+                {
+                    CargarDatagridSolicitantes(propiedadSeleccionada);
+                    MessageBox.Show("Se rechazo la reunion con exito");
+                }
             }
             catch (Exception ex)
             {

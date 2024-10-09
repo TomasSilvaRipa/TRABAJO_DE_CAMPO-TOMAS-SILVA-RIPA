@@ -57,6 +57,7 @@
     <Compile Include="PropiedadVerificable.cs" />
     <Compile Include="Reunion.cs" />
     <Compile Include="Solicitud.cs" />
+    <Compile Include="Trato.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

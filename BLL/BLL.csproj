@@ -49,6 +49,7 @@
     <Compile Include="BLLPermisos.cs" />
     <Compile Include="BLLPropiedad.cs" />
     <Compile Include="BLLReunion.cs" />
+    <Compile Include="BLLTrato.cs" />
     <Compile Include="BLLUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sesion.cs" />

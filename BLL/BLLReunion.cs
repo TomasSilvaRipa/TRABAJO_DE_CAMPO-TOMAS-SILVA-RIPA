@@ -15,10 +15,12 @@ namespace BLL
             mppReunion = new MPPReunion();
             mppCliente = new MPPCliente();
             mppCloser = new MPPCloser();
+            mppDueño = new MPPDueño();
         }
         MPPReunion mppReunion;
         MPPCliente mppCliente;
         MPPCloser mppCloser;
+        MPPDueño mppDueño;
         public bool SolicitarReunion(Propiedad propiedad, DateTime Fecha, string Disponibilidad)
         {
             Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
@@ -37,6 +39,18 @@ namespace BLL
             Closer closer = mppCloser.LeerCloser(usuario.ID);
             Reunion reunion = new Reunion(solicitud.ID_Vivienda, closer.ID ,solicitud.ID_Cliente, DateTime.Now);
             return mppReunion.AceptarReunion(reunion);
+        }
+
+        public bool RechazarReunion(Solicitud solicitud)
+        {
+            return mppReunion.RecharReunion(solicitud);
+        }
+
+        public List<Reunion> LeerReuniones()
+        {
+            Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
+            Dueño dueño = mppDueño.LeerDueño(usuario.ID);
+            return mppReunion.LeerReuniones(dueño);
         }
     }
 }
