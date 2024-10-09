@@ -577,5 +577,23 @@ namespace GUI
         {
 
         }
+
+        private void btnCuentaCliente_Click(object sender, EventArgs e)
+        {
+            PerfilCliente perfilCliente = new PerfilCliente();
+            perfilCliente.Show();
+        }
+
+        private void btnCuentaDueño_Click(object sender, EventArgs e)
+        {
+            PerfilDueño perfilDueño = new PerfilDueño();
+            perfilDueño.Show();
+        }
+
+        private void btnCuentaCloser_Click(object sender, EventArgs e)
+        {
+            PerfilCloser perfilCloser = new PerfilCloser();
+            perfilCloser.Show();
+        }
     }
 }

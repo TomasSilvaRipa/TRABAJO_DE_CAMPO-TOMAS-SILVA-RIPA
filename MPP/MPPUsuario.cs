@@ -39,26 +39,32 @@ namespace MPP
             {
                 if (Convert.ToBoolean(salida.Rows[0][4]) == true)
                 {
-                    return new Usuario()
-                    {
-                        ID = Convert.ToInt32(salida.Rows[0][0]),
-                        NombreDeUsuario = nombre,
-                        Clave = salida.Rows[0][2].ToString().Trim(),
-                        Sector = salida.Rows[0][3].ToString().Trim(),
-                        DV = salida.Rows[0][5].ToString().Trim(),
-                        Mail = salida.Rows[0][6].ToString().Trim()
-                    };
+                        Usuario usuario = new Usuario();
+                        usuario.ID = Convert.ToInt32(salida.Rows[0][0]);
+                        usuario.NombreDeUsuario = salida.Rows[0][1].ToString().Trim();
+                        usuario.Clave = salida.Rows[0][2].ToString().Trim();
+                        usuario.Sector = salida.Rows[0][3].ToString().Trim();
+                        usuario.DV = salida.Rows[0][5].ToString();
+                        usuario.Mail = salida.Rows[0][6].ToString().Trim();
+                        if (salida.Rows[0][7] != DBNull.Value && ((byte[])salida.Rows[0][7]).Length > 0)
+                        {
+                            usuario.Foto = (byte[])salida.Rows[0][7];
+                        }
+                        return usuario;
+                    
                 }
                 else
                 {
                     return new Usuario();
                 }
                 
-            } else return new Usuario();
+            } 
+            else return new Usuario();
         }
 
         public bool InsertarUsuario(Usuario nuevoUsuario, string clave)
         {
+
             string ClaveEncriptada = Seguridad.Encriptar(clave);
             DateTime fecha = DateTime.Now;
             List<SqlParameter> parameters = new List<SqlParameter>()
@@ -96,6 +102,7 @@ namespace MPP
                 new SqlParameter("@clave", ClaveEncriptada),
                 new SqlParameter("@DigitoVerificador",usuario.DV),
                 new SqlParameter("@Mail",usuario.Mail),
+                new SqlParameter("@Foto",usuario.Foto),
                 new SqlParameter("@Fecha",fecha)
                 };
                 return acceso.Escribir("UpdateUsuario", parameters);
@@ -109,6 +116,7 @@ namespace MPP
                 new SqlParameter("@clave", usuario.Clave),
                 new SqlParameter("@DigitoVerificador",usuario.DV),
                 new SqlParameter("@Mail",usuario.Mail),
+                new SqlParameter("@Foto",usuario.Foto),
                 new SqlParameter("@Fecha",fecha)
                 };
                 return acceso.Escribir("UpdateUsuario", parameters);
@@ -120,19 +128,34 @@ namespace MPP
             return (acceso.Leer("ComprobarExistenciaUsuario", new List<SqlParameter> { new SqlParameter("@nombre", Nombre)})).Rows.Count>0;
         }
 
+
         public List<Usuario> LeerUsuarios()
         {
+            List<Usuario> usuarios = new List<Usuario>();
             DataTable tablaUsuarios = acceso.Leer("LeerUsuarios");
-            return (from Row in tablaUsuarios.AsEnumerable() where Convert.ToInt32(Row[4]) == 1
-            select new Usuario
+            if(tablaUsuarios.Rows.Count > 0)
             {
-                ID = Convert.ToInt32(Row[0]),
-                NombreDeUsuario = Row[1].ToString().Trim(),
-                Clave = Row[2].ToString().Trim(),
-                Sector = Row[3].ToString().Trim(),
-                DV = Row[5].ToString(),
-                Mail = Row[6].ToString().Trim()
-            }).ToList();
+                foreach(DataRow row in tablaUsuarios.Rows)
+                {
+                    if (Convert.ToInt32(row["Activo"]) != 0)
+                    {
+                        Usuario usuario = new Usuario();
+                        usuario.ID = Convert.ToInt32(row[0]);
+                        usuario.NombreDeUsuario = row[1].ToString().Trim();
+                        usuario.Clave = row[2].ToString().Trim();
+                        usuario.Sector = row[3].ToString().Trim();
+                        usuario.DV = row[5].ToString();
+                        usuario.Mail = row[6].ToString().Trim();
+                        if (row["Foto"] != DBNull.Value && ((byte[])row["Foto"]).Length > 0) 
+                        {
+                            usuario.Foto = (byte[])row["Foto"];
+                        }
+                        usuarios.Add(usuario);
+                    }
+                }
+               return usuarios;
+            }
+            return null;
         }
 
         public string CalcularDigitoVerificadorHorizontal(IVerificableEntidad entidad)

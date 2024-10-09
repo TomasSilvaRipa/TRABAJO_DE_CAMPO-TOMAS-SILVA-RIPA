@@ -169,6 +169,7 @@
             this.btnCuentaCliente.Tag = "FMCuentaCliente";
             this.btnCuentaCliente.Text = "Cuenta";
             this.btnCuentaCliente.UseVisualStyleBackColor = true;
+            this.btnCuentaCliente.Click += new System.EventHandler(this.btnCuentaCliente_Click);
             // 
             // btnIngresosCloser
             // 
@@ -214,6 +215,7 @@
             this.btnCuentaCloser.Tag = "FMCuentaCloser";
             this.btnCuentaCloser.Text = "Cuenta";
             this.btnCuentaCloser.UseVisualStyleBackColor = true;
+            this.btnCuentaCloser.Click += new System.EventHandler(this.btnCuentaCloser_Click);
             // 
             // btnCuentaDueño
             // 
@@ -225,6 +227,7 @@
             this.btnCuentaDueño.Tag = "FMCuentaDueños";
             this.btnCuentaDueño.Text = "Cuenta";
             this.btnCuentaDueño.UseVisualStyleBackColor = true;
+            this.btnCuentaDueño.Click += new System.EventHandler(this.btnCuentaDueño_Click);
             // 
             // btnIngresosDueño
             // 

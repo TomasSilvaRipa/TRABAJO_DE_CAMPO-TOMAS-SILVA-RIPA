@@ -26,5 +26,12 @@ namespace BE
             Inquilino = inqilino;
             FechaNacimiento = fechaNacimiento;
         }
+
+        public Cliente(string nombre, string apellido, DateTime fechaNacimiento)
+        {
+            Nombre = nombre;
+            Apellido = apellido;
+            FechaNacimiento = fechaNacimiento;
+        }
     }
 }

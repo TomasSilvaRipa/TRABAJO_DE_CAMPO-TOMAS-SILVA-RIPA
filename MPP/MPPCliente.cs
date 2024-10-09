@@ -23,7 +23,7 @@ namespace MPP
         {
             
             List<SqlParameter> parameters = new List<SqlParameter>();
-            SqlParameter id = new SqlParameter("@ID", cliente.ID);
+            SqlParameter id = new SqlParameter("@ID_Usuario", cliente.ID);
             parameters.Add(id);
             SqlParameter nombre = new SqlParameter("@Nombre",cliente.Nombre);
             parameters.Add(nombre);
@@ -34,6 +34,20 @@ namespace MPP
             SqlParameter fechaNacimiento = new SqlParameter("@FechaNacimiento", cliente.FechaNacimiento);
             parameters.Add(fechaNacimiento);
             return acceso.Escribir("AltaCliente", parameters);
+        }
+
+        public bool ModificarCliente(Cliente cliente,int ID_Usuario)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            SqlParameter id_Usuario = new SqlParameter("@ID_Usuario", ID_Usuario);
+            parameters.Add(id_Usuario);
+            SqlParameter nombre = new SqlParameter("@Nombre", cliente.Nombre);
+            parameters.Add(nombre);
+            SqlParameter apellido = new SqlParameter("@Apellido", cliente.Apellido);
+            parameters.Add(apellido);
+            SqlParameter fechaNacimiento = new SqlParameter("@FechaNacimiento", cliente.FechaNacimiento);
+            parameters.Add(fechaNacimiento);
+            return acceso.Escribir("ModificarCliente", parameters);
         }
 
         public Cliente LeerCliente(int id,int op)
@@ -63,6 +77,10 @@ namespace MPP
                     cliente.Nombre = row["Nombre"].ToString();
                     cliente.Apellido = row["Apellido"].ToString();
                     cliente.FechaNacimiento = Convert.ToDateTime(row["FechaDeNacimiento"]);
+                    if (row["Foto"] != DBNull.Value && ((byte[])row["Foto"]).Length > 0)
+                    {
+                        cliente.Foto = (byte[])row["Foto"];
+                    }
                     return cliente;
                 }
             }

@@ -106,6 +106,7 @@ namespace GUI
                                         gpDescripcion.Controls.Add(labelValor);
 
                                         labelPosY += 30;
+                                        
                                     }
                                 }
                                 else

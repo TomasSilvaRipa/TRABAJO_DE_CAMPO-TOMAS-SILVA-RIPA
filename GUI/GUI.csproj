@@ -112,6 +112,24 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="PerfilCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PerfilCliente.Designer.cs">
+      <DependentUpon>PerfilCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilCloser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PerfilCloser.Designer.cs">
+      <DependentUpon>PerfilCloser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilDueño.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PerfilDueño.Designer.cs">
+      <DependentUpon>PerfilDueño.cs</DependentUpon>
+    </Compile>
     <Compile Include="Permisos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +188,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PerfilCliente.resx">
+      <DependentUpon>PerfilCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PerfilCloser.resx">
+      <DependentUpon>PerfilCloser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PerfilDueño.resx">
+      <DependentUpon>PerfilDueño.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Permisos.resx">
       <DependentUpon>Permisos.cs</DependentUpon>

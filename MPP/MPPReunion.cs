@@ -42,17 +42,33 @@ namespace MPP
             {
                 foreach(DataRow row in dt.Rows)
                 {
-                    Solicitud solicitud = new Solicitud();
-                    solicitud.ID = (int)row["ID"];
-                    solicitud.ID_Vivienda = (int)row["ID_Vivienda"];
-                    solicitud.ID_Cliente = (int)row["ID_Cliente"];
-                    solicitud.Fecha = Convert.ToDateTime(row["Fecha"]);
-                    solicitud.Disponibilidad = row["Disponibilidad"].ToString();
-                    solicitudes.Add(solicitud);
+                    if ((int)row["Estado"] == 0)
+                    {
+                        Solicitud solicitud = new Solicitud();
+                        solicitud.ID = (int)row["ID"];
+                        solicitud.ID_Vivienda = (int)row["ID_Vivienda"];
+                        solicitud.ID_Cliente = (int)row["ID_Cliente"];
+                        solicitud.Fecha = Convert.ToDateTime(row["Fecha"]);
+                        solicitud.Disponibilidad = row["Disponibilidad"].ToString();
+                        solicitudes.Add(solicitud);
+                    }
+                    
                 }
                 return solicitudes;
             }
             return null;
+        }
+
+        public bool AceptarReunion(Reunion reunion)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter("@ID_Vivienda",reunion.ID_Vivienda),
+                new SqlParameter("@ID_Cliente",reunion.ID_Cliente),
+                new SqlParameter("@ID_Closer",reunion.ID_Closer),
+                new SqlParameter("@Fecha",reunion.Fecha),
+            };
+            return acceso.Escribir("AceptarReunion", parameters);
         }
     }
 }

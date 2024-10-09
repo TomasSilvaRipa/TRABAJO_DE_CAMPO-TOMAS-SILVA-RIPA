@@ -19,5 +19,15 @@ namespace BLL
         {
             return mppDueño.AceptarCloserPostulado(propiedad, closer);
         }
+
+        public Dueño LeerDueño(int id)
+        {
+            return mppDueño.LeerDueño(id);
+        }
+
+        public bool ModificarDueño(Dueño dueño, int ID_Usuario)
+        {
+            return mppDueño.ModificarDueño(dueño,ID_Usuario);
+        }
     }
 }

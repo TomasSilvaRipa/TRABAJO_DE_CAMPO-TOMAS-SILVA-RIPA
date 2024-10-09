@@ -162,5 +162,21 @@ namespace MPP
             }
             return null;
         }
+
+        public bool ModificarCloser(Closer closer, int ID_Usuario)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            SqlParameter id = new SqlParameter("@ID_Usuario", ID_Usuario);
+            parameters.Add(id);
+            SqlParameter nombre = new SqlParameter("@Nombre", closer.Nombre);
+            parameters.Add(nombre);
+            SqlParameter apellido = new SqlParameter("@Apellido", closer.Apellido);
+            parameters.Add(apellido);
+            SqlParameter inquilino = new SqlParameter("@Clasificacion", closer.Clasificacion);
+            parameters.Add(inquilino);
+            SqlParameter fechaNacimiento = new SqlParameter("@TratosCerrados", closer.TratosCerrados);
+            parameters.Add(fechaNacimiento);
+            return acceso.Escribir("ModificarCloser", parameters);
+        }
     }
 }

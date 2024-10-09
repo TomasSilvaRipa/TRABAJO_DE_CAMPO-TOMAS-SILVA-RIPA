@@ -43,7 +43,6 @@ namespace MPP
 
         public bool AltaDueño(Dueño dueño)
         {
-            
             List<SqlParameter> parameters = new List<SqlParameter>();
             SqlParameter id = new SqlParameter("@ID", dueño.ID);
             parameters.Add(id);
@@ -65,6 +64,19 @@ namespace MPP
             };
             return acceso.Escribir("AceptarPostulado",parameters);
             
+        }
+        public bool ModificarDueño(Dueño dueño, int ID_Usuario)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            SqlParameter id = new SqlParameter("@ID_Usuario", ID_Usuario);
+            parameters.Add(id);
+            SqlParameter nombre = new SqlParameter("@Nombre", dueño.Nombre);
+            parameters.Add(nombre);
+            SqlParameter apellido = new SqlParameter("@Apellido", dueño.Apellido);
+            parameters.Add(apellido);
+            SqlParameter residencia = new SqlParameter("@Residencia", dueño.Residencia);
+            parameters.Add(residencia);
+            return acceso.Escribir("ModificarDueño", parameters);
         }
 
     }
