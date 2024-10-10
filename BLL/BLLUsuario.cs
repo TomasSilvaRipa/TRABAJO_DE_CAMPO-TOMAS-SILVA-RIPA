@@ -76,30 +76,38 @@ namespace BLL
 
         public bool AltaUsuario(Usuario nuevoUsuario, string clave)
         {
-            if (mppusuario.ComprobarExistencia(nuevoUsuario.NombreDeUsuario))
+            try
             {
-                return false;
-            }
-            if(mppusuario.InsertarUsuario(nuevoUsuario, clave))
-            {
-                string DV = mppusuario.LeerDigitoVerificadorVertical("Usuarios");
-                if(DV != null)
+                if (mppusuario.ComprobarExistencia(nuevoUsuario.NombreDeUsuario))
                 {
-                    if (mppusuario.GestionarDigitoVerificadorVertical("Usuarios", 1, mppusuario.ObtenerDigitoVerificadorVertical()))
+                    throw new Exception("El que se esta intentando crear ya existe");
+                }
+                if (mppusuario.InsertarUsuario(nuevoUsuario, clave))
+                {
+                    string DV = mppusuario.LeerDigitoVerificadorVertical("Usuarios");
+                    if (DV != null)
                     {
-                        return AltaCDC(nuevoUsuario);
+                        if (mppusuario.GestionarDigitoVerificadorVertical("Usuarios", 1, mppusuario.ObtenerDigitoVerificadorVertical()))
+                        {
+                            return AltaCDC(nuevoUsuario);
+                        }
+                        return false;
                     }
-                    return false;
+                    else
+                    {
+                        return mppusuario.GestionarDigitoVerificadorVertical("Usuarios", 0, mppusuario.ObtenerDigitoVerificadorVertical());
+                    }
                 }
                 else
                 {
-                    return mppusuario.GestionarDigitoVerificadorVertical("Usuarios", 0, mppusuario.ObtenerDigitoVerificadorVertical());
+                    return false;
                 }
             }
-            else
+            catch(Exception ex)
             {
-                return false;
+                throw ex; 
             }
+            
         }
 
         public bool BajaUsuario(string Nombre)

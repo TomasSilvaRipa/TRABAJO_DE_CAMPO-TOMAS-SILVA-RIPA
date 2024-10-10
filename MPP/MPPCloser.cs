@@ -16,9 +16,11 @@ namespace MPP
         {
             acceso = new Acceso();
             mppPropiedad = new MPPPropiedad();
+            mppPermisos = new MPPPermisos();
         }
         Acceso acceso;
         MPPPropiedad mppPropiedad;
+        MPPPermisos mppPermisos;
 
         public bool AltaCloser(Closer closer)
         {
@@ -29,7 +31,11 @@ namespace MPP
             parameters.Add(nombre);
             SqlParameter apellido = new SqlParameter("@Apellido", closer.Apellido);
             parameters.Add(apellido);
-            return acceso.Escribir("AltaCloser", parameters);
+            if(acceso.Escribir("AltaCloser", parameters))
+            {
+                return mppPermisos.AgregarGrupoDePermisosAUsuario(33,closer.NombreDeUsuario);
+            }
+            return false;
         }
 
         public bool Postularse(Closer closer, Propiedad propiedad)

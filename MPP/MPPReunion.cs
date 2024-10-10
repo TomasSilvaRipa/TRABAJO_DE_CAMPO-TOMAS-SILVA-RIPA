@@ -18,7 +18,7 @@ namespace MPP
             acceso = new Acceso();
         }
         Acceso acceso;
-
+        
         public bool SolicitarReunion(Propiedad propiedad,Cliente cliente,DateTime Fecha, string Disponibilidad)
         {
             List<SqlParameter> parameters = new List<SqlParameter>()
@@ -80,22 +80,29 @@ namespace MPP
         public List<Reunion> LeerReuniones(Dueño dueño)
         {
             List<Reunion> reuniones = new List<Reunion>();
-            List<SqlParameter> parameters = new List<SqlParameter>()
+            if(dueño.listaDeViviendas != null)
             {
-                new SqlParameter("@ID_Dueño",dueño.ID),
-            };
-            DataTable dt = acceso.Leer("LeerReuniones",parameters);
-            if(dt.Rows.Count > 0)
-            {
-                foreach(DataRow row in dt.Rows)
+                foreach (Propiedad propiedad in dueño.listaDeViviendas)
                 {
-                    Reunion reunion = new Reunion();
-                    reunion.ID = (int)row["ID"];
-                    reunion.ID_Cliente = (int)row["ID_Cliente"];
-                    reunion.ID_Vivienda = (int)row["ID_Vivienda"];
-                    reunion.ID_Closer = (int)row["ID_Closer"];
-                    reunion.Fecha = Convert.ToDateTime(row["Fecha"]);
-                    reuniones.Add(reunion);
+                    List<SqlParameter> parameters = new List<SqlParameter>()
+                {
+                    new SqlParameter("@ID_Dueño",dueño.ID),
+                    new SqlParameter("@ID_Vivienda",propiedad.ID)
+                };
+                    DataTable dt = acceso.Leer("LeerReuniones", parameters);
+                    if (dt.Rows.Count > 0)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            Reunion reunion = new Reunion();
+                            reunion.ID = (int)row["ID"];
+                            reunion.ID_Cliente = (int)row["ID_Cliente"];
+                            reunion.ID_Vivienda = (int)row["ID_Vivienda"];
+                            reunion.ID_Closer = (int)row["ID_Closer"];
+                            reunion.Fecha = Convert.ToDateTime(row["Fecha"]);
+                            reuniones.Add(reunion);
+                        }
+                    }
                 }
                 return reuniones;
             }

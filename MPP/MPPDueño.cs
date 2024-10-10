@@ -15,8 +15,10 @@ namespace MPP
         public MPPDueño() 
         {
             acceso = new Acceso();
+            mppPermisos = new MPPPermisos();
         }
         Acceso acceso;
+        MPPPermisos mppPermisos;
 
         public Dueño LeerDueño(int id)
         {
@@ -52,7 +54,11 @@ namespace MPP
             parameters.Add(apellido);
             SqlParameter residencia = new SqlParameter("@Residencia", dueño.Residencia);
             parameters.Add(residencia);
-            return acceso.Escribir("AltaDueño", parameters);
+            if(acceso.Escribir("AltaDueño", parameters))
+            {
+                return mppPermisos.AgregarGrupoDePermisosAUsuario(28,dueño.NombreDeUsuario);
+            }
+            return false;
         }
 
         public bool AceptarCloserPostulado(Propiedad propiedad, Closer closer)

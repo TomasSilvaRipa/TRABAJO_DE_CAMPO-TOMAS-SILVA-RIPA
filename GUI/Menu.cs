@@ -226,81 +226,85 @@ namespace GUI
             flowLayoutPanelCatalogo.Controls.Clear();
             flowLayoutPanelCatalogo.FlowDirection = FlowDirection.LeftToRight;
             flowLayoutPanelCatalogo.WrapContents = true;
-            foreach (Propiedad p in listaDePropiedades)
+            if(listaDePropiedades != null && listaDePropiedades.Count > 0)
             {
-                GroupBox gpadre = new GroupBox();
-                gpadre.Width = flowLayoutPanelCatalogo.Width - 170;
-                gpadre.Height = 300;
-                gpadre.Margin = new Padding(10);
-
-                FlowLayoutPanel flpImagenes = new FlowLayoutPanel();
-                flpImagenes.Width = gpadre.Width / 2;
-                flpImagenes.Height = gpadre.Height;
-                flpImagenes.Dock = DockStyle.Left;
-                flpImagenes.AutoScroll = true;
-
-                Panel gpDescripcion = new Panel();
-                gpDescripcion.Width = gpadre.Width / 2;
-                gpDescripcion.Height = gpadre.Height;
-                gpDescripcion.Dock = DockStyle.Right;
-                gpDescripcion.AutoScroll = true;
-
-                int labelPosY = 20;
-                foreach (byte[] imgBytes in p.Imagenes)
+                foreach (Propiedad p in listaDePropiedades)
                 {
-                    PictureBox pictureBox = new PictureBox();
-                    pictureBox.Width = 100;
-                    pictureBox.Height = 100;
-                    pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-                    using (MemoryStream ms = new MemoryStream(imgBytes))
+                    GroupBox gpadre = new GroupBox();
+                    gpadre.Width = flowLayoutPanelCatalogo.Width - 170;
+                    gpadre.Height = 300;
+                    gpadre.Margin = new Padding(10);
+
+                    FlowLayoutPanel flpImagenes = new FlowLayoutPanel();
+                    flpImagenes.Width = gpadre.Width / 2;
+                    flpImagenes.Height = gpadre.Height;
+                    flpImagenes.Dock = DockStyle.Left;
+                    flpImagenes.AutoScroll = true;
+
+                    Panel gpDescripcion = new Panel();
+                    gpDescripcion.Width = gpadre.Width / 2;
+                    gpDescripcion.Height = gpadre.Height;
+                    gpDescripcion.Dock = DockStyle.Right;
+                    gpDescripcion.AutoScroll = true;
+
+                    int labelPosY = 20;
+                    foreach (byte[] imgBytes in p.Imagenes)
                     {
-                        pictureBox.Image = Image.FromStream(ms);
+                        PictureBox pictureBox = new PictureBox();
+                        pictureBox.Width = 100;
+                        pictureBox.Height = 100;
+                        pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                        using (MemoryStream ms = new MemoryStream(imgBytes))
+                        {
+                            pictureBox.Image = Image.FromStream(ms);
+                        }
+                        flpImagenes.Controls.Add(pictureBox);
                     }
-                    flpImagenes.Controls.Add(pictureBox);
-                }
 
-                foreach (PropertyInfo propiedad in p.GetType().GetProperties())
-                {
-                    if (propiedad.Name != "Imagenes" && propiedad.Name != "ID")
+                    foreach (PropertyInfo propiedad in p.GetType().GetProperties())
                     {
-                        Label labelNombre = new Label();
-                        labelNombre.Text = propiedad.Name;
-                        labelNombre.Tag = propiedad.Name;
-                        labelNombre.Location = new Point(10, labelPosY);
-                        labelNombre.AutoSize = true;
+                        if (propiedad.Name != "Imagenes" && propiedad.Name != "ID")
+                        {
+                            Label labelNombre = new Label();
+                            labelNombre.Text = propiedad.Name;
+                            labelNombre.Tag = propiedad.Name;
+                            labelNombre.Location = new Point(10, labelPosY);
+                            labelNombre.AutoSize = true;
 
-                        Label labelValor = new Label();
-                        labelValor.Text = propiedad.GetValue(p)?.ToString();
-                        labelValor.Location = new Point(150, labelPosY);
-                        labelValor.AutoSize = true;
+                            Label labelValor = new Label();
+                            labelValor.Text = propiedad.GetValue(p)?.ToString();
+                            labelValor.Location = new Point(150, labelPosY);
+                            labelValor.AutoSize = true;
 
-                        gpDescripcion.Controls.Add(labelNombre);
-                        gpDescripcion.Controls.Add(labelValor);
+                            gpDescripcion.Controls.Add(labelNombre);
+                            gpDescripcion.Controls.Add(labelValor);
 
-                        labelPosY += 30;
+                            labelPosY += 30;
+                        }
                     }
+
+                    Button btnModificar = new Button();
+                    btnModificar.Text = "Modificar Datos";
+                    btnModificar.Width = 120;
+                    btnModificar.Location = new Point(10, labelPosY);
+                    btnModificar.Click += (s, e) => AbrirFormularioModificar(p);
+                    labelPosY += 30;
+
+                    Button btnVerPostulados = new Button();
+                    btnVerPostulados.Text = "Ver Postulados";
+                    btnVerPostulados.Width = 120;
+                    btnVerPostulados.Location = new Point(10, labelPosY);
+                    labelPosY += 30;
+                    btnVerPostulados.Click += (s, e) => AbrirFormularioClosersPostulados(p);
+
+                    gpadre.Controls.Add(flpImagenes);
+                    gpadre.Controls.Add(gpDescripcion);
+                    gpDescripcion.Controls.Add(btnModificar);
+                    gpDescripcion.Controls.Add(btnVerPostulados);
+                    flowLayoutPanelCatalogo.Controls.Add(gpadre);
                 }
-
-                Button btnModificar = new Button();
-                btnModificar.Text = "Modificar Datos";
-                btnModificar.Width = 120;
-                btnModificar.Location = new Point(10, labelPosY);
-                btnModificar.Click += (s, e) => AbrirFormularioModificar(p);
-                labelPosY += 30;
-
-                Button btnVerPostulados = new Button();
-                btnVerPostulados.Text = "Ver Postulados";
-                btnVerPostulados.Width = 120;
-                btnVerPostulados.Location = new Point(10, labelPosY);
-                labelPosY += 30;
-                btnVerPostulados.Click += (s, e) => AbrirFormularioClosersPostulados(p);
-
-                gpadre.Controls.Add(flpImagenes);
-                gpadre.Controls.Add(gpDescripcion);
-                gpDescripcion.Controls.Add(btnModificar);
-                gpDescripcion.Controls.Add(btnVerPostulados);
-                flowLayoutPanelCatalogo.Controls.Add(gpadre);
             }
+            
         }
 
         public void GenerarCatalogoClosers()

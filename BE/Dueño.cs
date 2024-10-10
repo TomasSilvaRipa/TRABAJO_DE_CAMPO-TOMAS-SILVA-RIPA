@@ -12,6 +12,7 @@ namespace BE
         public string Apellido { get; set; }
         public string Residencia { get; set; }
 
+        public List<Propiedad> listaDeViviendas = new List<Propiedad>();
         public Dueño() { }
 
         public Dueño(Usuario usuario,string nombre, string apellido,string residencia)

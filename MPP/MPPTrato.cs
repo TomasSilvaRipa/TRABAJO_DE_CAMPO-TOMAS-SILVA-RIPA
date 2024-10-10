@@ -22,9 +22,9 @@ namespace MPP
             List<SqlParameter> parameters = new List<SqlParameter>()
             {
                 new SqlParameter("@ID_Cliente",trato.ID_Cliente),
+                new SqlParameter("@ID_Dueño",trato.ID_Dueño),
                 new SqlParameter("@ID_Closer",trato.ID_Closer),
-                new SqlParameter("@ID_Vivienda",trato.ID_Dueño),
-                new SqlParameter("@ID_Dueño",trato.ID_Vivienda),
+                new SqlParameter("@ID_Vivienda",trato.ID_Vivienda),
                 new SqlParameter("@FechaDeInicio",trato.FechaDeInicio),
                 new SqlParameter("@FechaDeFinalizacion",trato.FechaDeFinalizacion),
             };

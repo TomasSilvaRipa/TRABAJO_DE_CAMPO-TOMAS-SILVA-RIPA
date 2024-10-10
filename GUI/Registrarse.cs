@@ -108,7 +108,7 @@ namespace GUI
                         }
                         else
                         {
-                            MessageBox.Show("Un usuario con el nombre " + nuevoUsuario.NombreDeUsuario + " ya existe!");
+                            MessageBox.Show("Ha occurido un error");
                         }
                     }
                     else if (rbDueño.Checked)
@@ -123,7 +123,7 @@ namespace GUI
                             }
                             else
                             {
-                                MessageBox.Show("Un usuario con el nombre " + nuevoUsuario.NombreDeUsuario + " ya existe!");
+                                MessageBox.Show("Ha occurido un error");
 
                             }
                         }
@@ -143,16 +143,14 @@ namespace GUI
                         }
                         else
                         {
-                            MessageBox.Show("Un usuario con el nombre " + nuevoUsuario.NombreDeUsuario + " ya existe!");
+                            MessageBox.Show("Ha occurido un error");
                         }
                     }
                     else
                     {
                         throw new Exception("Elija un tipo de cuenta para registrase");
                     }
-                    
                 }
-                
             }
             catch (Exception ex)
             {
