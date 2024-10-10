@@ -25,7 +25,7 @@ namespace MPP
                 new SqlParameter("@ID_Closer",trato.ID_Closer),
                 new SqlParameter("@ID_Vivienda",trato.ID_Dueño),
                 new SqlParameter("@ID_Dueño",trato.ID_Vivienda),
-                new SqlParameter("@FechaDeInicia",trato.FechaDeInicio),
+                new SqlParameter("@FechaDeInicio",trato.FechaDeInicio),
                 new SqlParameter("@FechaDeFinalizacion",trato.FechaDeFinalizacion),
             };
             return acceso.Escribir("AltaTrato",parameters);
