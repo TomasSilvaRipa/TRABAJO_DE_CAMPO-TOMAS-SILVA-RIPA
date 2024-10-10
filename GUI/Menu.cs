@@ -199,39 +199,7 @@ namespace GUI
 
         #region FUNCIONES PRINCIPALES
 
-        public void AbrirFormularioModificar(Propiedad propiedad)
-        {
-            RegistrarPropiedades registrarPropiedades = new RegistrarPropiedades(propiedad);
-            registrarPropiedades.Show();
-        }
-
-        public void AbrirFormularioClosersPostulados(Propiedad p)
-        {
-            try
-            {
-                ClosersPostulados closersPostulados = new ClosersPostulados(p);
-                closersPostulados.Show();
-            }
-            catch(Exception ex)
-            {
-                
-            }
-        }
-
-        public void AbrirFormularioSolicitarReunion(Propiedad propiedad)
-        {
-            try
-            {
-                SolicitarReunion solicitarReunion = new SolicitarReunion(propiedad);
-                solicitarReunion.Show();
-            }
-            catch(Exception ex)
-            {
-
-            }
-            
-        }
-
+        
         public void Postularse(Propiedad propiedad)
         {
             try
@@ -564,6 +532,39 @@ namespace GUI
 
         }
         #region FORMS
+        public void AbrirFormularioModificar(Propiedad propiedad)
+        {
+            RegistrarPropiedades registrarPropiedades = new RegistrarPropiedades(propiedad);
+            registrarPropiedades.Show();
+        }
+
+        public void AbrirFormularioClosersPostulados(Propiedad p)
+        {
+            try
+            {
+                ClosersPostulados closersPostulados = new ClosersPostulados(p);
+                closersPostulados.Show();
+            }
+            catch(Exception ex)
+            {
+                
+            }
+        }
+
+        public void AbrirFormularioSolicitarReunion(Propiedad propiedad)
+        {
+            try
+            {
+                SolicitarReunion solicitarReunion = new SolicitarReunion(propiedad);
+                solicitarReunion.Show();
+            }
+            catch(Exception ex)
+            {
+
+            }
+            
+        }
+
         private void btnVerCasasGestionadasCloser_Click(object sender, EventArgs e)
         {
             Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();

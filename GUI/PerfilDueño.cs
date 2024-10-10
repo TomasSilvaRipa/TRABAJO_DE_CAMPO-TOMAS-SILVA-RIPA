@@ -56,11 +56,26 @@ namespace GUI
                 tableLayoutPanelFotoDePerfil.Controls.Add(pictureBox);
             }
         }
-        public void ActualizarDatos()
+        public void ActualizarDatos(Usuario usuarioModificar)
         {
-            dueñoActivo.Nombre = tbNombre.Text;
-            dueñoActivo.Apellido = tbApellido.Text;
-            dueñoActivo.Residencia = tbResidencia.Text;
+            try
+            {
+                usuarioModificar.Clave = Seguridad.Encriptar(tbContraseña.Text);
+                usuarioModificar.Mail = tbMail.Text;
+                usuarioModificar.DV = bllUsuario.CalcularDigitoVerificadorHorizontal(usuarioModificar);
+                dueñoActivo.Nombre = tbNombre.Text;
+                dueñoActivo.Apellido = tbApellido.Text;
+                dueñoActivo.Residencia = tbResidencia.Text;
+                if (imagen != null)
+                {
+                    usuarioModificar.Foto = ConvertirImagenABytes(imagen);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         public byte[] ConvertirImagenABytes(System.Drawing.Image Imagen)
@@ -84,14 +99,7 @@ namespace GUI
                     return;
                 }
                 Usuario usuarioModificar = Sesion.ObtenerSesion().ObtenerUsuario();
-                usuarioModificar.Clave = Seguridad.Encriptar(tbContraseña.Text);
-                usuarioModificar.Mail = tbMail.Text;
-                usuarioModificar.DV = bllUsuario.CalcularDigitoVerificadorHorizontal(usuarioModificar);
-                if (imagen != null)
-                {
-                    usuarioModificar.Foto = ConvertirImagenABytes(imagen);
-                }
-                ActualizarDatos();
+                ActualizarDatos(usuarioModificar);
                 if (bllUsuario.ActualizarUsuario(usuarioModificar, 1) && bllDueño.ModificarDueño(dueñoActivo, usuarioModificar.ID))
                 {
                     bitacora = new Bitacora_(Bitacora_.BitacoraTipo.INFO, tbNombreDeUsuario.Text, "El usuario se modificó con exito.");

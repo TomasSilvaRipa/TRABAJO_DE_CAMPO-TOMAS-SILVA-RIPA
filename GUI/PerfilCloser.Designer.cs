@@ -30,9 +30,8 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnActualizar = new System.Windows.Forms.Button();
+            this.labelTratosCerrados = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSubirFoto = new System.Windows.Forms.Button();
             this.tbNombreDeUsuario = new System.Windows.Forms.TextBox();
             this.tbApellido = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,11 +41,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tbMail = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanelFotoDePerfil = new System.Windows.Forms.TableLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
-            this.labelTratosCerrados = new System.Windows.Forms.Label();
             this.labelClasificacion = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnSubirFoto = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.tableLayoutPanelFotoDePerfil = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -108,15 +108,14 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(304, 346);
             this.tableLayoutPanel2.TabIndex = 16;
             // 
-            // btnActualizar
+            // labelTratosCerrados
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(155, 306);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(146, 37);
-            this.btnActualizar.TabIndex = 15;
-            this.btnActualizar.Text = "Actualizar Datos";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            this.labelTratosCerrados.AutoSize = true;
+            this.labelTratosCerrados.Location = new System.Drawing.Point(155, 225);
+            this.labelTratosCerrados.Name = "labelTratosCerrados";
+            this.labelTratosCerrados.Size = new System.Drawing.Size(10, 16);
+            this.labelTratosCerrados.TabIndex = 17;
+            this.labelTratosCerrados.Text = ".";
             // 
             // label1
             // 
@@ -128,30 +127,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre de Usuario";
             // 
-            // btnSubirFoto
-            // 
-            this.btnSubirFoto.Location = new System.Drawing.Point(3, 306);
-            this.btnSubirFoto.Name = "btnSubirFoto";
-            this.btnSubirFoto.Size = new System.Drawing.Size(146, 37);
-            this.btnSubirFoto.TabIndex = 14;
-            this.btnSubirFoto.Text = "Subir Foto";
-            this.btnSubirFoto.UseVisualStyleBackColor = true;
-            this.btnSubirFoto.Click += new System.EventHandler(this.btnSubirFoto_Click);
-            // 
             // tbNombreDeUsuario
             // 
             this.tbNombreDeUsuario.Enabled = false;
             this.tbNombreDeUsuario.Location = new System.Drawing.Point(3, 48);
             this.tbNombreDeUsuario.Name = "tbNombreDeUsuario";
             this.tbNombreDeUsuario.Size = new System.Drawing.Size(124, 22);
-            this.tbNombreDeUsuario.TabIndex = 1;
+            this.tbNombreDeUsuario.TabIndex = 18;
             // 
             // tbApellido
             // 
             this.tbApellido.Location = new System.Drawing.Point(155, 138);
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(124, 22);
-            this.tbApellido.TabIndex = 11;
+            this.tbApellido.TabIndex = 4;
             // 
             // label2
             // 
@@ -178,14 +167,15 @@
             this.tbContraseña.Location = new System.Drawing.Point(3, 138);
             this.tbContraseña.Name = "tbContraseña";
             this.tbContraseña.Size = new System.Drawing.Size(124, 22);
-            this.tbContraseña.TabIndex = 3;
+            this.tbContraseña.TabIndex = 1;
+            this.tbContraseña.UseSystemPasswordChar = true;
             // 
             // tbNombre
             // 
             this.tbNombre.Location = new System.Drawing.Point(155, 48);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(124, 22);
-            this.tbNombre.TabIndex = 9;
+            this.tbNombre.TabIndex = 3;
             // 
             // label3
             // 
@@ -212,23 +202,7 @@
             this.tbMail.Location = new System.Drawing.Point(3, 228);
             this.tbMail.Name = "tbMail";
             this.tbMail.Size = new System.Drawing.Size(124, 22);
-            this.tbMail.TabIndex = 7;
-            // 
-            // tableLayoutPanelFotoDePerfil
-            // 
-            this.tableLayoutPanelFotoDePerfil.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanelFotoDePerfil.ColumnCount = 1;
-            this.tableLayoutPanelFotoDePerfil.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelFotoDePerfil.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelFotoDePerfil.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanelFotoDePerfil.Name = "tableLayoutPanelFotoDePerfil";
-            this.tableLayoutPanelFotoDePerfil.RowCount = 1;
-            this.tableLayoutPanelFotoDePerfil.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelFotoDePerfil.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelFotoDePerfil.Size = new System.Drawing.Size(303, 346);
-            this.tableLayoutPanelFotoDePerfil.TabIndex = 17;
+            this.tbMail.TabIndex = 2;
             // 
             // label6
             // 
@@ -239,15 +213,6 @@
             this.label6.Size = new System.Drawing.Size(105, 16);
             this.label6.TabIndex = 16;
             this.label6.Text = "Tratos Cerrados";
-            // 
-            // labelTratosCerrados
-            // 
-            this.labelTratosCerrados.AutoSize = true;
-            this.labelTratosCerrados.Location = new System.Drawing.Point(155, 225);
-            this.labelTratosCerrados.Name = "labelTratosCerrados";
-            this.labelTratosCerrados.Size = new System.Drawing.Size(10, 16);
-            this.labelTratosCerrados.TabIndex = 17;
-            this.labelTratosCerrados.Text = ".";
             // 
             // labelClasificacion
             // 
@@ -267,6 +232,42 @@
             this.label9.TabIndex = 19;
             this.label9.Text = "Clasificacion";
             // 
+            // btnSubirFoto
+            // 
+            this.btnSubirFoto.Location = new System.Drawing.Point(3, 306);
+            this.btnSubirFoto.Name = "btnSubirFoto";
+            this.btnSubirFoto.Size = new System.Drawing.Size(146, 37);
+            this.btnSubirFoto.TabIndex = 5;
+            this.btnSubirFoto.Text = "Subir Foto";
+            this.btnSubirFoto.UseVisualStyleBackColor = true;
+            this.btnSubirFoto.Click += new System.EventHandler(this.btnSubirFoto_Click);
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(155, 306);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(146, 37);
+            this.btnActualizar.TabIndex = 6;
+            this.btnActualizar.Text = "Actualizar Datos";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // tableLayoutPanelFotoDePerfil
+            // 
+            this.tableLayoutPanelFotoDePerfil.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanelFotoDePerfil.ColumnCount = 1;
+            this.tableLayoutPanelFotoDePerfil.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelFotoDePerfil.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelFotoDePerfil.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanelFotoDePerfil.Name = "tableLayoutPanelFotoDePerfil";
+            this.tableLayoutPanelFotoDePerfil.RowCount = 1;
+            this.tableLayoutPanelFotoDePerfil.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelFotoDePerfil.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelFotoDePerfil.Size = new System.Drawing.Size(303, 346);
+            this.tableLayoutPanelFotoDePerfil.TabIndex = 17;
+            // 
             // PerfilCloser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -275,7 +276,6 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "PerfilCloser";
             this.Text = "PerfilCloser";
-            this.Load += new System.EventHandler(this.PerfilCloser_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

@@ -65,14 +65,15 @@
             this.tbNombreDeUsuario.Location = new System.Drawing.Point(3, 51);
             this.tbNombreDeUsuario.Name = "tbNombreDeUsuario";
             this.tbNombreDeUsuario.Size = new System.Drawing.Size(124, 22);
-            this.tbNombreDeUsuario.TabIndex = 1;
+            this.tbNombreDeUsuario.TabIndex = 9;
             // 
             // tbContraseña
             // 
             this.tbContraseña.Location = new System.Drawing.Point(3, 147);
             this.tbContraseña.Name = "tbContraseña";
             this.tbContraseña.Size = new System.Drawing.Size(124, 22);
-            this.tbContraseña.TabIndex = 3;
+            this.tbContraseña.TabIndex = 1;
+            this.tbContraseña.UseSystemPasswordChar = true;
             // 
             // label2
             // 
@@ -81,7 +82,7 @@
             this.label2.Location = new System.Drawing.Point(3, 128);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 16);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 21;
             this.label2.Text = "Contraseña";
             // 
             // tbMail
@@ -89,7 +90,7 @@
             this.tbMail.Location = new System.Drawing.Point(3, 243);
             this.tbMail.Name = "tbMail";
             this.tbMail.Size = new System.Drawing.Size(124, 22);
-            this.tbMail.TabIndex = 7;
+            this.tbMail.TabIndex = 2;
             // 
             // label3
             // 
@@ -98,7 +99,7 @@
             this.label3.Location = new System.Drawing.Point(3, 224);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 16);
-            this.label3.TabIndex = 6;
+            this.label3.TabIndex = 20;
             this.label3.Text = "Mail";
             // 
             // tbApellido
@@ -106,7 +107,7 @@
             this.tbApellido.Location = new System.Drawing.Point(155, 147);
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(124, 22);
-            this.tbApellido.TabIndex = 11;
+            this.tbApellido.TabIndex = 4;
             // 
             // label4
             // 
@@ -123,7 +124,7 @@
             this.tbNombre.Location = new System.Drawing.Point(155, 51);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(124, 22);
-            this.tbNombre.TabIndex = 9;
+            this.tbNombre.TabIndex = 3;
             // 
             // label5
             // 
@@ -140,7 +141,7 @@
             this.dateTimePickerFN.Location = new System.Drawing.Point(155, 243);
             this.dateTimePickerFN.Name = "dateTimePickerFN";
             this.dateTimePickerFN.Size = new System.Drawing.Size(132, 22);
-            this.dateTimePickerFN.TabIndex = 12;
+            this.dateTimePickerFN.TabIndex = 5;
             // 
             // label6
             // 
@@ -157,7 +158,7 @@
             this.btnSubirFoto.Location = new System.Drawing.Point(3, 291);
             this.btnSubirFoto.Name = "btnSubirFoto";
             this.btnSubirFoto.Size = new System.Drawing.Size(146, 42);
-            this.btnSubirFoto.TabIndex = 14;
+            this.btnSubirFoto.TabIndex = 6;
             this.btnSubirFoto.Text = "Subir Foto";
             this.btnSubirFoto.UseVisualStyleBackColor = true;
             this.btnSubirFoto.Click += new System.EventHandler(this.btnSubirFoto_Click);
@@ -220,7 +221,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(155, 291);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(146, 42);
-            this.btnActualizar.TabIndex = 15;
+            this.btnActualizar.TabIndex = 7;
             this.btnActualizar.Text = "Actualizar Datos";
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
@@ -249,7 +250,6 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "PerfilCliente";
             this.Text = "PerfilCliente";
-            this.Load += new System.EventHandler(this.PerfilCliente_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

@@ -56,11 +56,26 @@ namespace GUI
             }
         }
 
-        public void ActualizarDatos()
+        public void ActualizarDatos(Usuario usuarioModificar)
         {
-            clienteActivo.Nombre = tbNombre.Text;
-            clienteActivo.Apellido = tbApellido.Text;
-            clienteActivo.FechaNacimiento = dateTimePickerFN.Value;
+            try
+            {
+                usuarioModificar.Clave = Seguridad.Encriptar(tbContraseña.Text);
+                usuarioModificar.Mail = tbMail.Text;
+                usuarioModificar.DV = bllUsuario.CalcularDigitoVerificadorHorizontal(usuarioModificar);
+                clienteActivo.Nombre = tbNombre.Text;
+                clienteActivo.Apellido = tbApellido.Text;
+                clienteActivo.FechaNacimiento = dateTimePickerFN.Value;
+                if (imagen != null)
+                {
+                    usuarioModificar.Foto = ConvertirImagenABytes(imagen);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         public byte[] ConvertirImagenABytes(Image Imagen)
@@ -70,11 +85,6 @@ namespace GUI
                 Imagen.Save(ms, Imagen.RawFormat); 
                 return ms.ToArray(); 
             }
-        }
-
-        private void PerfilCliente_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btnSubirFoto_Click(object sender, EventArgs e)
@@ -114,14 +124,7 @@ namespace GUI
                     return;
                 }
                 Usuario usuarioModificar = Sesion.ObtenerSesion().ObtenerUsuario();
-                usuarioModificar.Clave = Seguridad.Encriptar(tbContraseña.Text);
-                usuarioModificar.Mail = tbMail.Text;
-                usuarioModificar.DV = bllUsuario.CalcularDigitoVerificadorHorizontal(usuarioModificar);
-                if(imagen != null)
-                {
-                    usuarioModificar.Foto = ConvertirImagenABytes(imagen);
-                }
-                ActualizarDatos();
+                ActualizarDatos(usuarioModificar);
                 if (bllUsuario.ActualizarUsuario(usuarioModificar, 1) && bllCliente.ModificarCliente(clienteActivo,usuarioModificar.ID))
                 {
                     bitacora = new Bitacora_(Bitacora_.BitacoraTipo.INFO, tbNombreDeUsuario.Text, "El usuario se modificó con exito.");

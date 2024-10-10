@@ -153,7 +153,6 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "SolicitarReunion";
             this.Text = "SolicitarReunion";
-            this.Load += new System.EventHandler(this.SolicitarReunion_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();

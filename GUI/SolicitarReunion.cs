@@ -23,10 +23,6 @@ namespace GUI
         }
         Propiedad propiedadSeleccionada;
         BLLReunion bllReunion;
-        private void SolicitarReunion_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnSolicitarReunion_Click(object sender, EventArgs e)
         {

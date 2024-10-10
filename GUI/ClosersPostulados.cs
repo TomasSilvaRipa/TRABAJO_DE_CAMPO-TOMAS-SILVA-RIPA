@@ -21,16 +21,10 @@ namespace GUI
             InitializeComponent();
             bllCloser = new BLLCloser();
             bllDueño = new BLLDueño();
-            //pSeleccionada = p;
             GenerarCatalogoClosersPostulados(p);
         }
         BLLCloser bllCloser;
         BLLDueño bllDueño;
-        //Propiedad pSeleccionada;
-        private void ClosersPostulados_Load(object sender, EventArgs e)
-        {
-
-        }
 
         public void Aceptar(Propiedad p, Closer c) 
         {
@@ -126,7 +120,7 @@ namespace GUI
                                 }
                             }
                             Button btnDarDeBaja = new Button();
-                            btnDarDeBaja.Text = "Aceptar";
+                            btnDarDeBaja.Text = "Dar de Baja";
                             btnDarDeBaja.Width = 120;
                             btnDarDeBaja.Location = new Point(10, labelPosY);
                             labelPosY += 30;
@@ -214,7 +208,7 @@ namespace GUI
                             btnRechazar.Width = 120;
                             btnRechazar.Location = new Point(10, labelPosY);
                             labelPosY += 30;
-                            //btnRechazar.Click += (s, e) => Rechzar(p,c);
+                            //btnRechazar.Click += (s, e) => Rechazar(p,c);
 
                             gpadre.Controls.Add(flpImagen);
                             gpadre.Controls.Add(gpDescripcion);

@@ -47,10 +47,6 @@ namespace GUI
             ActualizarControlesPorpiedadSeleccionada(propiedad);
             
         }
-        private void RegistrarPropiedades_Load(object sender, EventArgs e)
-        {
-
-        }
 
         enum Patio
         {
@@ -173,7 +169,6 @@ namespace GUI
                                 {
                                     MessageBox.Show("Vivienda Publicada Exitosamente");
                                     imagenes.Clear();
-                                    
                                 }
                                 else
                                 {

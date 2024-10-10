@@ -30,6 +30,7 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tbResidencia = new System.Windows.Forms.TextBox();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSubirFoto = new System.Windows.Forms.Button();
@@ -42,9 +43,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tbMail = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanelFotoDePerfil = new System.Windows.Forms.TableLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
-            this.tbResidencia = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanelFotoDePerfil = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -102,12 +102,19 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(306, 344);
             this.tableLayoutPanel2.TabIndex = 16;
             // 
+            // tbResidencia
+            // 
+            this.tbResidencia.Location = new System.Drawing.Point(156, 243);
+            this.tbResidencia.Name = "tbResidencia";
+            this.tbResidencia.Size = new System.Drawing.Size(124, 22);
+            this.tbResidencia.TabIndex = 5;
+            // 
             // btnActualizar
             // 
             this.btnActualizar.Location = new System.Drawing.Point(156, 291);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(146, 42);
-            this.btnActualizar.TabIndex = 15;
+            this.btnActualizar.TabIndex = 7;
             this.btnActualizar.Text = "Actualizar Datos";
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
@@ -127,7 +134,7 @@
             this.btnSubirFoto.Location = new System.Drawing.Point(3, 291);
             this.btnSubirFoto.Name = "btnSubirFoto";
             this.btnSubirFoto.Size = new System.Drawing.Size(146, 42);
-            this.btnSubirFoto.TabIndex = 14;
+            this.btnSubirFoto.TabIndex = 6;
             this.btnSubirFoto.Text = "Subir Foto";
             this.btnSubirFoto.UseVisualStyleBackColor = true;
             this.btnSubirFoto.Click += new System.EventHandler(this.btnSubirFoto_Click);
@@ -138,14 +145,14 @@
             this.tbNombreDeUsuario.Location = new System.Drawing.Point(3, 51);
             this.tbNombreDeUsuario.Name = "tbNombreDeUsuario";
             this.tbNombreDeUsuario.Size = new System.Drawing.Size(124, 22);
-            this.tbNombreDeUsuario.TabIndex = 1;
+            this.tbNombreDeUsuario.TabIndex = 20;
             // 
             // tbApellido
             // 
             this.tbApellido.Location = new System.Drawing.Point(156, 147);
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(124, 22);
-            this.tbApellido.TabIndex = 11;
+            this.tbApellido.TabIndex = 4;
             // 
             // label2
             // 
@@ -154,7 +161,7 @@
             this.label2.Location = new System.Drawing.Point(3, 128);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 16);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 22;
             this.label2.Text = "Contraseña";
             // 
             // label4
@@ -172,14 +179,15 @@
             this.tbContraseña.Location = new System.Drawing.Point(3, 147);
             this.tbContraseña.Name = "tbContraseña";
             this.tbContraseña.Size = new System.Drawing.Size(124, 22);
-            this.tbContraseña.TabIndex = 3;
+            this.tbContraseña.TabIndex = 1;
+            this.tbContraseña.UseSystemPasswordChar = true;
             // 
             // tbNombre
             // 
             this.tbNombre.Location = new System.Drawing.Point(156, 51);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(124, 22);
-            this.tbNombre.TabIndex = 9;
+            this.tbNombre.TabIndex = 3;
             // 
             // label3
             // 
@@ -188,7 +196,7 @@
             this.label3.Location = new System.Drawing.Point(3, 224);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 16);
-            this.label3.TabIndex = 6;
+            this.label3.TabIndex = 24;
             this.label3.Text = "Mail";
             // 
             // label5
@@ -206,7 +214,17 @@
             this.tbMail.Location = new System.Drawing.Point(3, 243);
             this.tbMail.Name = "tbMail";
             this.tbMail.Size = new System.Drawing.Size(124, 22);
-            this.tbMail.TabIndex = 7;
+            this.tbMail.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(156, 224);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(76, 16);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Residencia";
             // 
             // tableLayoutPanelFotoDePerfil
             // 
@@ -223,23 +241,6 @@
             this.tableLayoutPanelFotoDePerfil.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelFotoDePerfil.Size = new System.Drawing.Size(306, 344);
             this.tableLayoutPanelFotoDePerfil.TabIndex = 17;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(156, 224);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 16);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Residencia";
-            // 
-            // tbResidencia
-            // 
-            this.tbResidencia.Location = new System.Drawing.Point(156, 243);
-            this.tbResidencia.Name = "tbResidencia";
-            this.tbResidencia.Size = new System.Drawing.Size(124, 22);
-            this.tbResidencia.TabIndex = 17;
             // 
             // PerfilDueño
             // 

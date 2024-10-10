@@ -59,14 +59,21 @@ namespace GUI
             }
         }
 
-        public void ActualizarDatos()
+        public void ActualizarDatos(Usuario usuarioModificar)
         {
             try
             {
+                usuarioModificar.Clave = Seguridad.Encriptar(tbContraseña.Text);
+                usuarioModificar.Mail = tbMail.Text;
+                usuarioModificar.DV = bllUsuario.CalcularDigitoVerificadorHorizontal(usuarioModificar);
                 closerActivo.Nombre = tbNombre.Text;
                 closerActivo.Apellido = tbApellido.Text;
                 closerActivo.Clasificacion = labelTratosCerrados.Text;
                 closerActivo.TratosCerrados = Convert.ToInt32(labelTratosCerrados.Text);
+                if (imagen != null)
+                {
+                    usuarioModificar.Foto = ConvertirImagenABytes(imagen);
+                }
             }
             catch(Exception ex)
             {
@@ -82,11 +89,6 @@ namespace GUI
                 Imagen.Save(ms, Imagen.RawFormat);
                 return ms.ToArray();
             }
-        }
-
-        private void PerfilCloser_Load(object sender, EventArgs e)
-        {
-            
         }
 
         private void btnSubirFoto_Click(object sender, EventArgs e)
@@ -129,11 +131,8 @@ namespace GUI
                 usuarioModificar.Clave = Seguridad.Encriptar(tbContraseña.Text);
                 usuarioModificar.Mail = tbMail.Text;
                 usuarioModificar.DV = bllUsuario.CalcularDigitoVerificadorHorizontal(usuarioModificar);
-                if (imagen != null)
-                {
-                    usuarioModificar.Foto = ConvertirImagenABytes(imagen);
-                }
-                ActualizarDatos();
+                
+                ActualizarDatos(usuarioModificar);
                 if (bllUsuario.ActualizarUsuario(usuarioModificar, 1) && bllCloser.ModificarCloser(closerActivo, usuarioModificar.ID))
                 {
                     bitacora = new Bitacora_(Bitacora_.BitacoraTipo.INFO, tbNombreDeUsuario.Text, "El usuario se modificó con exito.");

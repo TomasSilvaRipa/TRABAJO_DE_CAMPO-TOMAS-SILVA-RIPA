@@ -577,7 +577,6 @@
             this.Name = "RegistrarPropiedades";
             this.ShowIcon = false;
             this.Text = "RegistrarPropiedades";
-            this.Load += new System.EventHandler(this.RegistrarPropiedades_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAmbientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPisos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBaños)).EndInit();

@@ -49,7 +49,6 @@
             this.Controls.Add(this.flowLayoutPanelPadre);
             this.Name = "ClosersPostulados";
             this.Text = "ClosersPostulados";
-            this.Load += new System.EventHandler(this.ClosersPostulados_Load);
             this.ResumeLayout(false);
 
         }
