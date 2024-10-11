@@ -28,7 +28,14 @@ namespace MPP
                 new SqlParameter("@FechaDeInicio",trato.FechaDeInicio),
                 new SqlParameter("@FechaDeFinalizacion",trato.FechaDeFinalizacion),
             };
-            return acceso.Escribir("AltaTrato",parameters);
+            if(acceso.Escribir("AltaTrato",parameters) && acceso.Escribir("EmitirCuotas"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }

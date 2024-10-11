@@ -163,7 +163,7 @@ namespace GUI
         {
             try
             {
-                if( fechaInicio < fechaFin && fechaInicio > DateTime.Now)
+                if( fechaInicio < fechaFin && fechaInicio >= DateTime.Now)
                 {
                     Reunion reunion = (Reunion)dataGridViewReuniones.CurrentRow.DataBoundItem;
                     Trato trato = new Trato(reunion.ID_Closer, reunion.ID_Cliente, reunion.ID_Vivienda, fechaInicio, fechaFin);

@@ -45,6 +45,7 @@
     <Compile Include="Bitacora_.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Closer.cs" />
+    <Compile Include="Cuota.cs" />
     <Compile Include="Dueño.cs" />
     <Compile Include="Entidad.cs" />
     <Compile Include="GestorDeUsuario.cs" />

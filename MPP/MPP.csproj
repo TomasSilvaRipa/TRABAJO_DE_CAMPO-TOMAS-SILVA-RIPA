@@ -44,6 +44,8 @@
     <Compile Include="MPPBitacora.cs" />
     <Compile Include="MPPCliente.cs" />
     <Compile Include="MPPCloser.cs" />
+    <Compile Include="MPPCuenta.cs" />
+    <Compile Include="MPPCuota.cs" />
     <Compile Include="MPPDueño.cs" />
     <Compile Include="MPPIdiomas.cs" />
     <Compile Include="MPPPermisos.cs" />

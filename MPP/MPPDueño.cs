@@ -16,10 +16,11 @@ namespace MPP
         {
             acceso = new Acceso();
             mppPermisos = new MPPPermisos();
+            mppCuenta = new MPPCuenta();
         }
         Acceso acceso;
         MPPPermisos mppPermisos;
-
+        MPPCuenta mppCuenta;
         public Dueño LeerDueño(int id)
         {
             List<SqlParameter> parameters = new List<SqlParameter>()
@@ -54,7 +55,7 @@ namespace MPP
             parameters.Add(apellido);
             SqlParameter residencia = new SqlParameter("@Residencia", dueño.Residencia);
             parameters.Add(residencia);
-            if(acceso.Escribir("AltaDueño", parameters))
+            if(acceso.Escribir("AltaDueño", parameters) && mppCuenta.AltaCuenta(dueño))
             {
                 return mppPermisos.AgregarGrupoDePermisosAUsuario(28,dueño.NombreDeUsuario);
             }

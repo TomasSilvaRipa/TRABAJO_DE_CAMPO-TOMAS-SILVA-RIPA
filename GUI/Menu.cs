@@ -601,5 +601,11 @@ namespace GUI
             perfilCloser.Show();
         }
         #endregion
+
+        private void btnPagosCliente_Click(object sender, EventArgs e)
+        {
+            Pagos pagos = new Pagos();
+            pagos.Show();
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.tableLayoutPanelPadre = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelBarraMenuDinamica = new System.Windows.Forms.TableLayoutPanel();
             this.btnPerformanceEmpresa = new System.Windows.Forms.Button();
@@ -49,11 +50,12 @@
             this.flowLayoutPanelCatalogo = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanelPadre.SuspendLayout();
             this.tableLayoutPanelBarraMenuDinamica.SuspendLayout();
             this.tableLayoutPanelCatalogoYFiltro.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanelPadre
@@ -61,7 +63,7 @@
             this.tableLayoutPanelPadre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanelPadre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.tableLayoutPanelPadre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.tableLayoutPanelPadre.ColumnCount = 1;
             this.tableLayoutPanelPadre.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelPadre.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -71,8 +73,8 @@
             this.tableLayoutPanelPadre.Location = new System.Drawing.Point(-8, 0);
             this.tableLayoutPanelPadre.Name = "tableLayoutPanelPadre";
             this.tableLayoutPanelPadre.RowCount = 3;
-            this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.43964F));
-            this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.56036F));
+            this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.53543F));
+            this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.46457F));
             this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
             this.tableLayoutPanelPadre.Size = new System.Drawing.Size(1039, 571);
             this.tableLayoutPanelPadre.TabIndex = 0;
@@ -82,7 +84,7 @@
             this.tableLayoutPanelBarraMenuDinamica.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanelBarraMenuDinamica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(13)))), ((int)(((byte)(110)))));
+            this.tableLayoutPanelBarraMenuDinamica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.tableLayoutPanelBarraMenuDinamica.ColumnCount = 5;
             this.tableLayoutPanelBarraMenuDinamica.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.5F));
             this.tableLayoutPanelBarraMenuDinamica.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.5F));
@@ -286,23 +288,24 @@
             this.btnPagosCliente.Tag = "FMPagos";
             this.btnPagosCliente.Text = "Pagos Pendientes";
             this.btnPagosCliente.UseVisualStyleBackColor = true;
+            this.btnPagosCliente.Click += new System.EventHandler(this.btnPagosCliente_Click);
             // 
             // tableLayoutPanelCatalogoYFiltro
             // 
             this.tableLayoutPanelCatalogoYFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanelCatalogoYFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.tableLayoutPanelCatalogoYFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.tableLayoutPanelCatalogoYFiltro.ColumnCount = 2;
             this.tableLayoutPanelCatalogoYFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.89738F));
             this.tableLayoutPanelCatalogoYFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.10261F));
             this.tableLayoutPanelCatalogoYFiltro.Controls.Add(this.flowLayoutPanelCatalogo, 0, 0);
-            this.tableLayoutPanelCatalogoYFiltro.Location = new System.Drawing.Point(3, 71);
+            this.tableLayoutPanelCatalogoYFiltro.Location = new System.Drawing.Point(3, 87);
             this.tableLayoutPanelCatalogoYFiltro.Name = "tableLayoutPanelCatalogoYFiltro";
             this.tableLayoutPanelCatalogoYFiltro.RowCount = 1;
             this.tableLayoutPanelCatalogoYFiltro.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelCatalogoYFiltro.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelCatalogoYFiltro.Size = new System.Drawing.Size(1033, 434);
+            this.tableLayoutPanelCatalogoYFiltro.Size = new System.Drawing.Size(1033, 418);
             this.tableLayoutPanelCatalogoYFiltro.TabIndex = 0;
             // 
             // flowLayoutPanelCatalogo
@@ -311,10 +314,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanelCatalogo.AutoScroll = true;
-            this.flowLayoutPanelCatalogo.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanelCatalogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.flowLayoutPanelCatalogo.ForeColor = System.Drawing.Color.Black;
             this.flowLayoutPanelCatalogo.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelCatalogo.Name = "flowLayoutPanelCatalogo";
-            this.flowLayoutPanelCatalogo.Size = new System.Drawing.Size(840, 428);
+            this.flowLayoutPanelCatalogo.Size = new System.Drawing.Size(840, 412);
             this.flowLayoutPanelCatalogo.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -322,27 +326,29 @@
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.92308F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.07692F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 239F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 274F));
             this.tableLayoutPanel1.Controls.Add(this.btnLogout, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
+            this.tableLayoutPanel1.ForeColor = System.Drawing.Color.BlanchedAlmond;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1033, 62);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1033, 78);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // btnLogout
             // 
             this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold);
-            this.btnLogout.Location = new System.Drawing.Point(831, 15);
+            this.btnLogout.ForeColor = System.Drawing.Color.Black;
+            this.btnLogout.Location = new System.Drawing.Point(831, 23);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(129, 31);
@@ -352,17 +358,16 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // label1
+            // pictureBox1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(3, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 39);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "RENTHUB";
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(186, 72);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // Menu
             // 
@@ -370,8 +375,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1026, 566);
             this.Controls.Add(this.tableLayoutPanelPadre);
+            this.ForeColor = System.Drawing.Color.Black;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Menu";
-            this.ShowIcon = false;
             this.Text = "Menu";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Menu_FormClosed);
             this.Load += new System.EventHandler(this.Menu_Load);
@@ -379,7 +385,7 @@
             this.tableLayoutPanelBarraMenuDinamica.ResumeLayout(false);
             this.tableLayoutPanelCatalogoYFiltro.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -394,7 +400,6 @@
         private System.Windows.Forms.Button btnVerSolicitudesDeClosers;
         private System.Windows.Forms.Button btnIngresosDueño;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelBarraMenuDinamica;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnCuentaCloser;
@@ -408,5 +413,6 @@
         private System.Windows.Forms.Button btnIngresosEmpresa;
         private System.Windows.Forms.Button btnPerformanceEmpresa;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelCatalogo;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

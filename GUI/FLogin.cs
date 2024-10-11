@@ -19,9 +19,11 @@ namespace GUI
         BLLPermisos bllPermisos;
         DataTable tablaIdioma;
         BLLIdiomas bllIdiomas;
+        BLLCuota bllCuota;
         public FLogin()
         {
             InitializeComponent();
+            bllCuota = new BLLCuota();
             bllPermisos = new BLLPermisos();
             bitacorabll = new BitacoraBLL();
             bllusuario = new BLLUsuario();
@@ -29,6 +31,7 @@ namespace GUI
             bllusuario.ValidadDigito(bllusuario.LeerUsuarios());
             bllusuario.ValidarDigitoVertical();
             actualizarcbxIdiomas();
+            bllCuota.EmitirCuotas();
         }
         BitacoraBLL bitacorabll;
         BLLUsuario bllusuario;

@@ -17,10 +17,12 @@ namespace MPP
             acceso = new Acceso();
             mppPropiedad = new MPPPropiedad();
             mppPermisos = new MPPPermisos();
+            mppCuenta = new MPPCuenta();
         }
         Acceso acceso;
         MPPPropiedad mppPropiedad;
         MPPPermisos mppPermisos;
+        MPPCuenta mppCuenta;
 
         public bool AltaCloser(Closer closer)
         {
@@ -31,7 +33,7 @@ namespace MPP
             parameters.Add(nombre);
             SqlParameter apellido = new SqlParameter("@Apellido", closer.Apellido);
             parameters.Add(apellido);
-            if(acceso.Escribir("AltaCloser", parameters))
+            if(acceso.Escribir("AltaCloser", parameters) && mppCuenta.AltaCuenta(closer))
             {
                 return mppPermisos.AgregarGrupoDePermisosAUsuario(33,closer.NombreDeUsuario);
             }
