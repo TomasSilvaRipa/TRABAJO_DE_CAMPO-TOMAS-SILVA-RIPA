@@ -194,6 +194,7 @@
             this.btnRendimientoCloser.Tag = "FMRendimiento";
             this.btnRendimientoCloser.Text = "Rendimiento";
             this.btnRendimientoCloser.UseVisualStyleBackColor = true;
+            this.btnRendimientoCloser.Click += new System.EventHandler(this.btnRendimientoCloser_Click);
             // 
             // btnVerCasasGestionadasCloser
             // 
@@ -241,6 +242,7 @@
             this.btnIngresosDueño.Tag = "FMIngresosDueño";
             this.btnIngresosDueño.Text = "Ingresos";
             this.btnIngresosDueño.UseVisualStyleBackColor = true;
+            this.btnIngresosDueño.Click += new System.EventHandler(this.btnIngresosDueño_Click);
             // 
             // btnAgregarPropiedad
             // 

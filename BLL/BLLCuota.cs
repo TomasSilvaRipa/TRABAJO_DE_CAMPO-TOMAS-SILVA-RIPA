@@ -16,12 +16,15 @@ namespace BLL
             mppCliente = new MPPCliente();
             mppTrato = new MPPTrato();
             mppCloser = new MPPCloser();
+            mppPropiedad = new MPPPropiedad();
+            mppDueño = new MPPDueño();
         }
         MPPCuota mppCuota;
         MPPCliente mppCliente;
         MPPTrato mppTrato;
         MPPCloser mppCloser;
-
+        MPPPropiedad mppPropiedad;
+        MPPDueño mppDueño;
         public bool EmitirCuotas()
         {
             return mppCuota.EmitirCuotas();
@@ -55,6 +58,22 @@ namespace BLL
                 return mppCuota.PagarCuota(cuota, trato.ID_Closer, montoCloser);
             }
             catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            
+        }
+
+        public List<Cuota> LeerCuotasXDueño()
+        {
+            try
+            {
+                Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
+                Dueño dueño = mppDueño.LeerDueño(usuario.ID);
+                dueño.listaDeViviendas = mppPropiedad.LeerPropiedadesDeDueño(dueño.ID);
+                return mppCuota.LeerCoutasXDueño(dueño);
+            }
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }

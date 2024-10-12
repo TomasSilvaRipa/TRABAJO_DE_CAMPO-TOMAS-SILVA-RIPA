@@ -96,5 +96,37 @@ namespace MPP
             };
             return acceso.Escribir("PagarCuota", parameters);
         }
+
+        public List<Cuota> LeerCoutasXDueño(Dueño dueño)
+        {
+            List<Cuota> listaDeCuotas = new List<Cuota>();
+            if(dueño.listaDeViviendas != null && dueño.listaDeViviendas.Count > 0)
+            {
+                foreach(Propiedad p in dueño.listaDeViviendas)
+                {
+                    List<SqlParameter> parameters = new List<SqlParameter>()
+                    {
+                        new SqlParameter("@ID_Vivienda",p.ID),
+                    };
+                    DataTable dt = acceso.Leer("LeerCuotasXVivienda", parameters);
+                    if(dt.Rows.Count > 0)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            Cuota cuota = new Cuota();
+                            cuota.ID = (int)row["ID"];
+                            cuota.ID_Cliente = (int)row["ID_Cliente"];
+                            cuota.ID_Vivienda = (int)row["ID_Vivienda"];
+                            cuota.Monto = Convert.ToDecimal(row["Monto"]);
+                            cuota.FechaDeEmision = Convert.ToDateTime(row["FechaDeEmision"]);
+                            cuota.FechaDeVencimiento = Convert.ToDateTime(row["FechaDeVencimiento"]);
+                            listaDeCuotas.Add(cuota);
+                        }
+                    }
+                }
+                return listaDeCuotas;
+            }
+            return null;
+        }
     }
 }

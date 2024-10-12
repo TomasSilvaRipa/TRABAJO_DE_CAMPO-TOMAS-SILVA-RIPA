@@ -53,6 +53,7 @@ namespace MPP
                 foreach(DataRow row in dt.Rows)
                 {
                     Trato t = new Trato();
+                    t.ID = (int)row["ID"];
                     t.ID_Cliente = (int)row["ID_Cliente"];
                     t.ID_Vivienda = (int)row["ID_Vivienda"];
                     t.ID_Dueño = (int)row["ID_Dueño"];
@@ -61,6 +62,33 @@ namespace MPP
                     t.FechaDeFinalizacion = Convert.ToDateTime(row["FechaDeFinalizacion"]);
                     return t;
                 }
+            }
+            return null;
+        }
+
+        public List<Trato> LeerTratosXCloser(Closer closer)
+        {
+            List<Trato> listaDeTratos = new List<Trato>();
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter("@ID_Closer",closer.ID),
+            };
+            DataTable dt = acceso.Leer("LeerTratosXCloser",parameters);
+            if(dt.Rows.Count > 0)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    Trato trato = new Trato();
+                    trato.ID = (int)row["ID"];
+                    trato.ID_Cliente = (int)row["ID_Cliente"];
+                    trato.ID_Vivienda = (int)row["ID_Vivienda"];
+                    trato.ID_Closer = (int)row["ID_Closer"];
+                    trato.ID_Dueño = (int)row["ID_Dueño"];
+                    trato.FechaDeInicio = Convert.ToDateTime(row["FechaDeInicio"]);
+                    trato.FechaDeFinalizacion = Convert.ToDateTime(row["FechaDeFinalizacion"]);
+                    listaDeTratos.Add(trato);
+                }
+                return listaDeTratos;
             }
             return null;
         }

@@ -14,11 +14,12 @@ namespace BLL
         {
             mppTrato = new MPPTrato();
             mppDueño = new MPPDueño();
-            
+            mppCloser = new MPPCloser();
         }
         MPPTrato mppTrato;
         MPPDueño mppDueño;
         MPPPropiedad mppPropiedad;
+        MPPCloser mppCloser;
         public bool AltaTrato(Trato trato)
         {
             Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
@@ -26,5 +27,14 @@ namespace BLL
             trato.ID_Dueño = dueño.ID;
             return mppTrato.AltaTrato(trato);
         }
+
+        public List<Trato> LeerTratosXCloser()
+        {
+            Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
+            Closer closer = mppCloser.LeerCloser(usuario.ID,1);
+            return mppTrato.LeerTratosXCloser(closer);
+        }
+
+        
     }
 }

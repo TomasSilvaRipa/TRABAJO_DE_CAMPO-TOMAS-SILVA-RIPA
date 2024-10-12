@@ -607,5 +607,17 @@ namespace GUI
             Pagos pagos = new Pagos();
             pagos.Show();
         }
+
+        private void btnIngresosDueño_Click(object sender, EventArgs e)
+        {
+            IngresosDueño ingresosDueño = new IngresosDueño();
+            ingresosDueño.Show();
+        }
+
+        private void btnRendimientoCloser_Click(object sender, EventArgs e)
+        {
+            Rendimientos rendimientos = new Rendimientos();
+            rendimientos.Show();
+        }
     }
 }
