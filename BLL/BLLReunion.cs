@@ -38,7 +38,7 @@ namespace BLL
         public bool AceptarReunion(Cliente cliente,Solicitud solicitud)
         {
             Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
-            Closer closer = mppCloser.LeerCloser(usuario.ID);
+            Closer closer = mppCloser.LeerCloser(usuario.ID, 1);
             Reunion reunion = new Reunion(solicitud.ID_Vivienda, closer.ID ,solicitud.ID_Cliente, DateTime.Now);
             return mppReunion.AceptarReunion(reunion);
         }

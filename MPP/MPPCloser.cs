@@ -68,11 +68,12 @@ namespace MPP
             }
         }
 
-        public Closer LeerCloser(int ID)
+        public Closer LeerCloser(int ID, int op)
         {
             List<SqlParameter> parameters = new List<SqlParameter>()
             {
-                new SqlParameter("@ID",ID),
+                new SqlParameter("@ID", ID),
+                new SqlParameter("@Opcion",op),
             };
             DataTable dt = acceso.Leer("LeerCloser",parameters);
             if(dt.Rows.Count > 0)
@@ -85,6 +86,7 @@ namespace MPP
                     closer.Apellido = row["Apellido"].ToString();
                     closer.Clasificacion = row["Clasificacion"].ToString();
                     closer.TratosCerrados = (int)row["TratosCerrados"];
+                    closer.Comision = row["Comision"].ToString();
                     return closer;
                 }
             }

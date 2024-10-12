@@ -15,6 +15,7 @@ namespace BE
 
         public DateTime FechaDeInicio { get; set; }
         public DateTime FechaDeFinalizacion { get; set; }
+        public Trato() { }
 
         public Trato(int iD_Closer, int iD_Cliente, int iD_Dueño, int iD_Vivienda, DateTime fechaDeInicio, DateTime fechaDeFinalizacion)
         {

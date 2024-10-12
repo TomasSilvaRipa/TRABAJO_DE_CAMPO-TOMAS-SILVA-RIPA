@@ -20,7 +20,7 @@ namespace BLL
         {
             Sesion sesion = Sesion.ObtenerSesion();
             Usuario usuario = sesion.ObtenerUsuario();
-            Closer closer = mppCloser.LeerCloser(usuario.ID);
+            Closer closer = mppCloser.LeerCloser(usuario.ID,1);
             if (mppCloser.ComprobarExistenciaPostulado(closer, propiedad) == false)
             {
                 return mppCloser.Postularse(closer, propiedad);
@@ -44,7 +44,7 @@ namespace BLL
 
         public Closer LeerCloser(int ID)
         {
-            return mppCloser.LeerCloser(ID);
+            return mppCloser.LeerCloser(ID,1);
         }
 
         public bool ModificarCloser(Closer closer,int id)

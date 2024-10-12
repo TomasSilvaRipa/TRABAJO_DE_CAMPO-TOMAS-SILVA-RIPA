@@ -48,6 +48,7 @@
             this.btnPagarCuota.TabIndex = 0;
             this.btnPagarCuota.Text = "Pagar Cuota";
             this.btnPagarCuota.UseVisualStyleBackColor = true;
+            this.btnPagarCuota.Click += new System.EventHandler(this.btnPagarCuota_Click);
             // 
             // dataGridViewCuotas
             // 
@@ -80,9 +81,10 @@
             // 
             this.labelValor.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelValor.AutoSize = true;
-            this.labelValor.Location = new System.Drawing.Point(3, 34);
+            this.labelValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.labelValor.Location = new System.Drawing.Point(3, 18);
             this.labelValor.Name = "labelValor";
-            this.labelValor.Size = new System.Drawing.Size(10, 16);
+            this.labelValor.Size = new System.Drawing.Size(32, 48);
             this.labelValor.TabIndex = 3;
             this.labelValor.Text = ".";
             // 

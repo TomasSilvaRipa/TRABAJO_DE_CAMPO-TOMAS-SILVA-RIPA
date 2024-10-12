@@ -27,6 +27,8 @@ namespace GUI
         }
         BLLCuota bllCuota;
 
+        
+
         public void CargarCuotas()
         {
             dataGridViewCuotas.DataSource = null;
@@ -46,6 +48,32 @@ namespace GUI
                 Cuota cuota = (Cuota)dataGridViewCuotas.CurrentRow.DataBoundItem;
                 labelValor.Text = "$" + cuota.Monto.ToString();
                 labelValor.ForeColor = Color.Red;
+            }
+        }
+
+        private void btnPagarCuota_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(dataGridViewCuotas.SelectedRows.Count == 1)
+                {
+                    Cuota cuota = (Cuota)dataGridViewCuotas.CurrentRow.DataBoundItem;
+                    if (bllCuota.PagarCuota(cuota))
+                    {
+                        labelValor.Text = "";
+                        CargarCuotas();
+                        CargarPagos();
+                        MessageBox.Show("Pago Exitoso!!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione una couta a pagar");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
