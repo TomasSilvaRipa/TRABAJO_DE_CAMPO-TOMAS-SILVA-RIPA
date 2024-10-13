@@ -48,6 +48,7 @@
     <Compile Include="BLLCuota.cs" />
     <Compile Include="BLLDueño.cs" />
     <Compile Include="BLLIdiomas.cs" />
+    <Compile Include="BLLOpinon.cs" />
     <Compile Include="BLLPermisos.cs" />
     <Compile Include="BLLPropiedad.cs" />
     <Compile Include="BLLReunion.cs" />

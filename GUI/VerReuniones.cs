@@ -23,11 +23,13 @@ namespace GUI
             bllReunion = new BLLReunion();
             bllCliente = new BLLCliente();
             bllTrato = new BLLTrato();
+            bllOpinion = new BLLOpinon();
             CargarReuniones();
         }
         BLLReunion bllReunion;
         BLLCliente bllCliente;
         BLLTrato bllTrato;
+        BLLOpinon bllOpinion;
 
         private void VerReuniones_Load(object sender, EventArgs e)
         {
@@ -167,11 +169,21 @@ namespace GUI
                 {
                     Reunion reunion = (Reunion)dataGridViewReuniones.CurrentRow.DataBoundItem;
                     Trato trato = new Trato(reunion.ID_Closer, reunion.ID_Cliente, reunion.ID_Vivienda, fechaInicio, fechaFin);
-                    if (bllTrato.AltaTrato(trato))
+                    if(richTextBoxCloser.Text != "" && richTextBoxCliente.Text != "")
                     {
-                        CargarReuniones();
-                        MessageBox.Show("Trato Cerrado Exitosamente");
+                        Opinion opinionCloser = new Opinion(trato.ID_Closer, richTextBoxCloser.Text, (int)numericUpDownCloser.Value);
+                        Opinion opinionCliente = new Opinion(trato.ID_Cliente, richTextBoxCliente.Text, (int)numericUpDownCliente.Value);
+                        if (bllTrato.AltaTrato(trato) && bllOpinion.AltaOpinion(opinionCloser) && bllOpinion.AltaOpinion(opinionCliente))
+                        {
+                            CargarReuniones();
+                            MessageBox.Show("Trato Cerrado Exitosamente");
+                        }
                     }
+                    else
+                    {
+                        MessageBox.Show("Campo reseña incompleto");
+                    }
+                    
                 }
                 else
                 {

@@ -28,25 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridViewTratosCerrados = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewOpiniones = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
             this.labelSaldoDeCuenta = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
-            this.chartTratosMensuales = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.chartTratosMensuales = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
+            this.labelCalificacionPromedio = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTratosCerrados)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -54,8 +55,8 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartTratosMensuales)).BeginInit();
             this.tableLayoutPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTratosMensuales)).BeginInit();
             this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,15 +113,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(604, 331);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Opiniones";
-            // 
             // dataGridViewOpiniones
             // 
             this.dataGridViewOpiniones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -133,6 +125,15 @@
             this.dataGridViewOpiniones.RowTemplate.Height = 24;
             this.dataGridViewOpiniones.Size = new System.Drawing.Size(598, 302);
             this.dataGridViewOpiniones.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Opiniones";
             // 
             // tableLayoutPanel3
             // 
@@ -154,6 +155,17 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(605, 269);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
+            // labelSaldoDeCuenta
+            // 
+            this.labelSaldoDeCuenta.AutoSize = true;
+            this.labelSaldoDeCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.labelSaldoDeCuenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.labelSaldoDeCuenta.Location = new System.Drawing.Point(3, 47);
+            this.labelSaldoDeCuenta.Name = "labelSaldoDeCuenta";
+            this.labelSaldoDeCuenta.Size = new System.Drawing.Size(26, 39);
+            this.labelSaldoDeCuenta.TabIndex = 4;
+            this.labelSaldoDeCuenta.Text = ".";
+            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -163,16 +175,6 @@
             this.label2.Size = new System.Drawing.Size(49, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Saldo: ";
-            // 
-            // labelSaldoDeCuenta
-            // 
-            this.labelSaldoDeCuenta.AutoSize = true;
-            this.labelSaldoDeCuenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.labelSaldoDeCuenta.Location = new System.Drawing.Point(3, 47);
-            this.labelSaldoDeCuenta.Name = "labelSaldoDeCuenta";
-            this.labelSaldoDeCuenta.Size = new System.Drawing.Size(10, 16);
-            this.labelSaldoDeCuenta.TabIndex = 4;
-            this.labelSaldoDeCuenta.Text = ".";
             // 
             // tableLayoutPanel4
             // 
@@ -200,6 +202,7 @@
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.labelCalificacionPromedio, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -218,25 +221,6 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Calificación Promedio";
             // 
-            // chartTratosMensuales
-            // 
-            this.chartTratosMensuales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.chartTratosMensuales.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartTratosMensuales.Legends.Add(legend1);
-            this.chartTratosMensuales.Location = new System.Drawing.Point(3, 33);
-            this.chartTratosMensuales.Name = "chartTratosMensuales";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Tratos Cerrados";
-            this.chartTratosMensuales.Series.Add(series1);
-            this.chartTratosMensuales.Size = new System.Drawing.Size(403, 188);
-            this.chartTratosMensuales.TabIndex = 1;
-            this.chartTratosMensuales.Text = "chart1";
-            // 
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -254,6 +238,25 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.60714F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(409, 224);
             this.tableLayoutPanel6.TabIndex = 2;
+            // 
+            // chartTratosMensuales
+            // 
+            this.chartTratosMensuales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea3.Name = "ChartArea1";
+            this.chartTratosMensuales.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartTratosMensuales.Legends.Add(legend3);
+            this.chartTratosMensuales.Location = new System.Drawing.Point(3, 33);
+            this.chartTratosMensuales.Name = "chartTratosMensuales";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Tratos Cerrados";
+            this.chartTratosMensuales.Series.Add(series3);
+            this.chartTratosMensuales.Size = new System.Drawing.Size(403, 188);
+            this.chartTratosMensuales.TabIndex = 1;
+            this.chartTratosMensuales.Text = "chart1";
             // 
             // label7
             // 
@@ -291,6 +294,16 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Tratos Cerrados";
             // 
+            // labelCalificacionPromedio
+            // 
+            this.labelCalificacionPromedio.AutoSize = true;
+            this.labelCalificacionPromedio.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.labelCalificacionPromedio.Location = new System.Drawing.Point(3, 32);
+            this.labelCalificacionPromedio.Name = "labelCalificacionPromedio";
+            this.labelCalificacionPromedio.Size = new System.Drawing.Size(20, 29);
+            this.labelCalificacionPromedio.TabIndex = 1;
+            this.labelCalificacionPromedio.Text = ".";
+            // 
             // Rendimientos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -309,9 +322,9 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartTratosMensuales)).EndInit();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTratosMensuales)).EndInit();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             this.ResumeLayout(false);
@@ -336,5 +349,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelCalificacionPromedio;
     }
 }

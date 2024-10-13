@@ -20,11 +20,16 @@ namespace GUI
             bllTrato = new BLLTrato();
             MostrarTratosRealizados();
             bllCuenta = new BLLCuenta();
+            bllOpinion = new BLLOpinon();
             LeerSaldoDeCuenta();
             CargarEstadisticas();
+            CargarOpiniones();
+            CalcularCalificacionPromedio();
+
         }
         BLLTrato bllTrato;
         BLLCuenta bllCuenta;
+        BLLOpinon bllOpinion;
 
         public void MostrarTratosRealizados()
         {
@@ -32,6 +37,8 @@ namespace GUI
             {
                 dataGridViewTratosCerrados.DataSource = null;
                 dataGridViewTratosCerrados.DataSource = bllTrato.LeerTratosXCloser();
+                //dataGridViewTratosCerrados.Rows["ID_Cliente"].Visible = false;
+                //dataGridViewTratosCerrados.Rows[1].Visible = false;
             }
             catch(Exception ex)
             {
@@ -40,11 +47,45 @@ namespace GUI
 
         }
 
+        public void CargarOpiniones()
+        {
+            try
+            {
+                dataGridViewOpiniones.DataSource = null;
+                dataGridViewOpiniones.DataSource = bllOpinion.LeerOpiniones();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void CalcularCalificacionPromedio()
+        {
+            try
+            {
+                int promedio = 0;
+                int cantidad = 0;
+                foreach(DataGridViewRow row in dataGridViewOpiniones.Rows)
+                {
+                    Opinion opinion = (Opinion)row.DataBoundItem;
+                    cantidad += 1;
+                    promedio += opinion.Calificacion;
+                }
+                promedio = promedio/ cantidad;
+                labelCalificacionPromedio.Text = promedio.ToString() + " Estrellas";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         public void LeerSaldoDeCuenta()
         {
             try
             {
-                labelSaldoDeCuenta.Text = bllCuenta.LeerSaldoDeCuenta().ToString();
+                labelSaldoDeCuenta.Text = "$" + bllCuenta.LeerSaldoDeCuenta().ToString();
             }
             catch(Exception ex)
             {

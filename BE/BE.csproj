@@ -50,6 +50,7 @@
     <Compile Include="Entidad.cs" />
     <Compile Include="GestorDeUsuario.cs" />
     <Compile Include="IVerificableEntidad.cs" />
+    <Compile Include="Opinion.cs" />
     <Compile Include="Palabra.cs" />
     <Compile Include="Permiso.cs" />
     <Compile Include="GrupoDePermisos.cs" />
