@@ -59,43 +59,6 @@ namespace GUI
             } 
         }
 
-        //public void OcultarBotones()
-        //{
-        //    btnAgregarPropiedad.Enabled = false;
-        //    btnAgregarPropiedad.Visible = false;
-        //    btnIngresosDueño.Enabled = false;
-        //    btnIngresosDueño.Visible = false;
-        //    btnVerReunionesDueño.Enabled = false;
-        //    btnVerReunionesDueño.Visible = false;
-        //    btnVerSolicitudesDeClosers.Enabled = false;
-        //    btnVerSolicitudesDeClosers.Visible = false;
-        //    btnCuentaDueño.Enabled = false;
-        //    btnCuentaDueño.Visible = false;
-
-        //    btnCuentaCloser.Enabled = false;
-        //    btnCuentaCloser.Visible = false;
-        //    btnVerCasasGestionadasCloser.Enabled = false;
-        //    btnVerCasasGestionadasCloser.Visible = false;
-        //    btnIngresosCloser.Enabled = false;
-        //    btnIngresosCloser.Visible = false;
-        //    btnRendimientoCloser.Enabled = false;
-        //    btnRendimientoCloser.Visible = false;
-
-        //    btnGestorDeReunionesCliente.Enabled = false;
-        //    btnGestorDeReunionesCliente.Visible = false;
-        //    btnPagosCliente.Enabled = false;
-        //    btnPagosCliente.Visible = false;
-        //    btnCuentaCliente.Enabled = false;
-        //    btnCuentaCliente.Visible = false;
-
-        //    btnPerformanceEmpresa.Enabled = false;
-        //    btnPerformanceEmpresa.Visible = false;
-        //    btnIngresosEmpresa.Enabled = false;
-        //    btnIngresosEmpresa.Visible = false;
-        //    btnCuentaEmpresa.Enabled = false;
-        //    btnCuentaEmpresa.Visible = false;
-        //}
-
         public void ComprobarPermisos(List<Permiso> lista)
         {
             foreach (Permiso p in lista)

@@ -44,6 +44,10 @@ namespace MPP
                         cuota.Monto = Convert.ToDecimal(row["Monto"]);
                         cuota.FechaDeEmision = Convert.ToDateTime(row["FechaDeEmision"]);
                         cuota.FechaDeVencimiento = Convert.ToDateTime(row["FechaDeVencimiento"]);
+                        if(cuota.FechaDeVencimiento < DateTime.Now)
+                        {
+                            cuota.Monto += cuota.Monto * 0.33m;
+                        }
                         cuotasPendientes.Add(cuota);
                     }
                     

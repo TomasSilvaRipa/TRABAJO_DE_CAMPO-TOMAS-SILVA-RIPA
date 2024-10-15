@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using GUI.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -105,18 +106,22 @@ namespace GUI
                                 }
                                 else
                                 {
+                                    PictureBox pictureBox = new PictureBox();
+                                    pictureBox.Width = 100;
+                                    pictureBox.Height = 100;
+                                    pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                                     if (propiedad.GetValue(c) != null)
                                     {
-                                        PictureBox pictureBox = new PictureBox();
-                                        pictureBox.Width = 100;
-                                        pictureBox.Height = 100;
-                                        pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                                         using (MemoryStream ms = new MemoryStream(c.Foto))
                                         {
                                             pictureBox.Image = Image.FromStream(ms);
                                         }
-                                        flpImagen.Controls.Add(pictureBox);
                                     }
+                                    else
+                                    {
+                                        pictureBox.Image = Resources.UsuarioGenerico;
+                                    }
+                                    flpImagen.Controls.Add(pictureBox);
                                 }
                             }
                             Button btnDarDeBaja = new Button();
@@ -181,18 +186,22 @@ namespace GUI
                                 }
                                 else
                                 {
+                                    PictureBox pictureBox = new PictureBox();
+                                    pictureBox.Width = 100;
+                                    pictureBox.Height = 100;
+                                    pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                                     if (propiedad.GetValue(c) != null)
                                     {
-                                        PictureBox pictureBox = new PictureBox();
-                                        pictureBox.Width = 100;
-                                        pictureBox.Height = 100;
-                                        pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                                         using (MemoryStream ms = new MemoryStream(c.Foto))
                                         {
                                             pictureBox.Image = Image.FromStream(ms);
                                         }
-                                        flpImagen.Controls.Add(pictureBox);
                                     }
+                                    else
+                                    {
+                                        pictureBox.Image = Resources.UsuarioGenerico;
+                                    }
+                                    flpImagen.Controls.Add(pictureBox);
                                 }
                             }
 

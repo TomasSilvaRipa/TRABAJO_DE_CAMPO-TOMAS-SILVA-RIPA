@@ -31,8 +31,12 @@
             this.tableLayoutPanelPadre = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridViewSolicitudes = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanelSolicitante = new System.Windows.Forms.FlowLayoutPanel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dataGridViewOpiniones = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanelPadre.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSolicitudes)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOpiniones)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanelPadre
@@ -44,13 +48,13 @@
             this.tableLayoutPanelPadre.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelPadre.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelPadre.Controls.Add(this.dataGridViewSolicitudes, 0, 0);
-            this.tableLayoutPanelPadre.Controls.Add(this.flowLayoutPanelSolicitante, 1, 0);
+            this.tableLayoutPanelPadre.Controls.Add(this.tableLayoutPanel1, 1, 0);
             this.tableLayoutPanelPadre.Location = new System.Drawing.Point(9, 0);
             this.tableLayoutPanelPadre.Name = "tableLayoutPanelPadre";
             this.tableLayoutPanelPadre.RowCount = 1;
             this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelPadre.Size = new System.Drawing.Size(1233, 458);
+            this.tableLayoutPanelPadre.Size = new System.Drawing.Size(1233, 561);
             this.tableLayoutPanelPadre.TabIndex = 0;
             // 
             // dataGridViewSolicitudes
@@ -63,7 +67,7 @@
             this.dataGridViewSolicitudes.Name = "dataGridViewSolicitudes";
             this.dataGridViewSolicitudes.RowHeadersWidth = 51;
             this.dataGridViewSolicitudes.RowTemplate.Height = 24;
-            this.dataGridViewSolicitudes.Size = new System.Drawing.Size(610, 452);
+            this.dataGridViewSolicitudes.Size = new System.Drawing.Size(610, 555);
             this.dataGridViewSolicitudes.TabIndex = 0;
             this.dataGridViewSolicitudes.SelectionChanged += new System.EventHandler(this.dataGridViewSolicitudes_SelectionChanged);
             // 
@@ -73,22 +77,55 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanelSolicitante.AutoSize = true;
-            this.flowLayoutPanelSolicitante.Location = new System.Drawing.Point(619, 3);
+            this.flowLayoutPanelSolicitante.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelSolicitante.Name = "flowLayoutPanelSolicitante";
-            this.flowLayoutPanelSolicitante.Size = new System.Drawing.Size(611, 452);
+            this.flowLayoutPanelSolicitante.Size = new System.Drawing.Size(605, 370);
             this.flowLayoutPanelSolicitante.TabIndex = 1;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanelSolicitante, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dataGridViewOpiniones, 0, 1);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(619, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.79661F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.20339F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(611, 555);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // dataGridViewOpiniones
+            // 
+            this.dataGridViewOpiniones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewOpiniones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewOpiniones.Location = new System.Drawing.Point(3, 379);
+            this.dataGridViewOpiniones.Name = "dataGridViewOpiniones";
+            this.dataGridViewOpiniones.RowHeadersWidth = 51;
+            this.dataGridViewOpiniones.RowTemplate.Height = 24;
+            this.dataGridViewOpiniones.Size = new System.Drawing.Size(605, 173);
+            this.dataGridViewOpiniones.TabIndex = 2;
             // 
             // GestionSolicitudesDeReunion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1241, 455);
+            this.ClientSize = new System.Drawing.Size(1241, 562);
             this.Controls.Add(this.tableLayoutPanelPadre);
             this.Name = "GestionSolicitudesDeReunion";
             this.Text = "GestionSolicitudesDeReunion";
             this.tableLayoutPanelPadre.ResumeLayout(false);
-            this.tableLayoutPanelPadre.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSolicitudes)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOpiniones)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -98,5 +135,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelPadre;
         private System.Windows.Forms.DataGridView dataGridViewSolicitudes;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelSolicitante;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.DataGridView dataGridViewOpiniones;
     }
 }

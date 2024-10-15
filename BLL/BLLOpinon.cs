@@ -21,10 +21,9 @@ namespace BLL
             return mppOpinion.AltaOpinion(opinion);
         }
 
-        public List<Opinion> LeerOpiniones()
+        public List<Opinion> LeerOpiniones(Usuario usuario, int opcion)
         {
-            Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
-            return mppOpinion.LeerOpiniones(usuario);
+            return mppOpinion.LeerOpiniones(usuario,opcion);
         }
     }
 }

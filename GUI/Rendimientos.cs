@@ -52,7 +52,7 @@ namespace GUI
             try
             {
                 dataGridViewOpiniones.DataSource = null;
-                dataGridViewOpiniones.DataSource = bllOpinion.LeerOpiniones();
+                dataGridViewOpiniones.DataSource = bllOpinion.LeerOpiniones(Sesion.ObtenerSesion().ObtenerUsuario(),1);
             }
             catch (Exception ex)
             {

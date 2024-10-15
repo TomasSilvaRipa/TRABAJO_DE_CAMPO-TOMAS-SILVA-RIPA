@@ -33,6 +33,9 @@ namespace GUI
         BLLUsuario bllusuario;
 
         #region FUNCIONES APARTE
+
+
+
         Usuario ObtenerUsuarioSeleccionado()
         {
             int indice = dgvUsuarios.SelectedRows[0].Index;

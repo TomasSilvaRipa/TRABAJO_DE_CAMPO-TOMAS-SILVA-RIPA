@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Servicios;
 using BLL;
 using System.Web;
+using System.Collections;
 
 namespace GUI
 {
@@ -43,6 +44,7 @@ namespace GUI
             labelGestorDeCambios.Visible = false;
             labelTraducciones.Visible = false;
             labelTraducciones.Enabled = false;
+            BuscarControles(this.Controls);
             ComprobarPermisos(Sesion.ObtenerSesion().listaDePermisos);
 
             Sesion.ObtenerSesion().AgregarObservador(this);
@@ -78,11 +80,24 @@ namespace GUI
 
         }
 
+        List<Control> ListaControles = new List<Control>();
+        public void BuscarControles(ICollection controles)
+        {
+            foreach (Control c in controles)
+            {
+                ListaControles.Add(c);
+                if (c.HasChildren)
+                {
+                    BuscarControles(c.Controls);
+                }
+            }
+        }
+
         public void ComprobarPermisos(List<Permiso> lista)
         {
             foreach(Permiso p in lista)
             {
-                foreach(Control c in this.Controls)
+                foreach(Control c in ListaControles)
                 {
                     if (c.Tag == null)
                     {

@@ -31,13 +31,15 @@
             this.dataGridViewCuotas = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelIngresosPorCuota = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.labelIngresosTotales = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelIngresosPorCuota = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridViewOpiniones = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCuotas)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOpiniones)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewCuotas
@@ -64,6 +66,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.98305F));
             this.tableLayoutPanel1.Controls.Add(this.dataGridViewCuotas, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dataGridViewOpiniones, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, -2);
             this.tableLayoutPanel1.MinimumSize = new System.Drawing.Size(1180, 427);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -95,15 +98,26 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(395, 207);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // label1
+            // labelIngresosTotales
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Ingresos por Cuota:";
+            this.labelIngresosTotales.AutoSize = true;
+            this.labelIngresosTotales.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.labelIngresosTotales.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.labelIngresosTotales.Location = new System.Drawing.Point(3, 161);
+            this.labelIngresosTotales.Name = "labelIngresosTotales";
+            this.labelIngresosTotales.Size = new System.Drawing.Size(26, 39);
+            this.labelIngresosTotales.TabIndex = 3;
+            this.labelIngresosTotales.Text = ".";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 145);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(111, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Ingresos Totales:";
             // 
             // labelIngresosPorCuota
             // 
@@ -116,26 +130,28 @@
             this.labelIngresosPorCuota.TabIndex = 1;
             this.labelIngresosPorCuota.Text = ".";
             // 
-            // label3
+            // label1
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 145);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 16);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Ingresos Totales:";
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Ingresos por Cuota:";
             // 
-            // labelIngresosTotales
+            // dataGridViewOpiniones
             // 
-            this.labelIngresosTotales.AutoSize = true;
-            this.labelIngresosTotales.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.labelIngresosTotales.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.labelIngresosTotales.Location = new System.Drawing.Point(3, 161);
-            this.labelIngresosTotales.Name = "labelIngresosTotales";
-            this.labelIngresosTotales.Size = new System.Drawing.Size(26, 39);
-            this.labelIngresosTotales.TabIndex = 3;
-            this.labelIngresosTotales.Text = ".";
+            this.dataGridViewOpiniones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewOpiniones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewOpiniones.Location = new System.Drawing.Point(3, 216);
+            this.dataGridViewOpiniones.Name = "dataGridViewOpiniones";
+            this.dataGridViewOpiniones.RowHeadersWidth = 51;
+            this.dataGridViewOpiniones.RowTemplate.Height = 24;
+            this.dataGridViewOpiniones.Size = new System.Drawing.Size(773, 208);
+            this.dataGridViewOpiniones.TabIndex = 2;
             // 
             // IngresosDueño
             // 
@@ -149,6 +165,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOpiniones)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -162,5 +179,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelIngresosPorCuota;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridViewOpiniones;
     }
 }

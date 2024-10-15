@@ -107,6 +107,12 @@
     <Compile Include="GestorDeCambios.Designer.cs">
       <DependentUpon>GestorDeCambios.cs</DependentUpon>
     </Compile>
+    <Compile Include="PerformanceInmoviliaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PerformanceInmoviliaria.Designer.cs">
+      <DependentUpon>PerformanceInmoviliaria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Rendimientos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +217,9 @@
     <EmbeddedResource Include="GestorDeCambios.resx">
       <DependentUpon>GestorDeCambios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PerformanceInmoviliaria.resx">
+      <DependentUpon>PerformanceInmoviliaria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Rendimientos.resx">
       <DependentUpon>Rendimientos.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,6 +252,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RegistrarPropiedades.resx">
       <DependentUpon>RegistrarPropiedades.cs</DependentUpon>
@@ -282,6 +292,9 @@
       <Project>{2732da39-6f6b-4af3-acbe-3e61f155f7e5}</Project>
       <Name>Servicios</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UsuarioGenerico.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

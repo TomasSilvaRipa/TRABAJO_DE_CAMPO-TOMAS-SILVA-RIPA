@@ -21,12 +21,13 @@ namespace GUI
             InitializeComponent();
             bllCuota = new BLLCuota();
             bllCliente = new BLLCliente();
+            bllOpinon = new BLLOpinon();
             CargarCuotas();
             CargarPagos();
             
         }
         BLLCuota bllCuota;
-
+        BLLOpinon bllOpinon;
         
 
         public void CargarCuotas()
@@ -65,6 +66,8 @@ namespace GUI
                         CargarPagos();
                         MessageBox.Show("Pago Exitoso!!");
                     }
+
+
                 }
                 else
                 {

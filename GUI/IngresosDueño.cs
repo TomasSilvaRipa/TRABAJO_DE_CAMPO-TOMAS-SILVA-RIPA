@@ -18,17 +18,24 @@ namespace GUI
         {
             InitializeComponent();
             bllCuota = new BLLCuota();
+            bllOpinion = new BLLOpinon();
             MostrarCuotas();
             MostrarIngresosTotales();
+            MostrarOpiniones();
         }
         BLLCuota bllCuota;
-
+        BLLOpinon bllOpinion;
         public void MostrarCuotas()
         {
             dataGridViewCuotas.DataSource = null;
             dataGridViewCuotas.DataSource = bllCuota.LeerCuotasXDueño();
         }
 
+        public void MostrarOpiniones()
+        {
+            dataGridViewOpiniones.DataSource = null;
+            dataGridViewOpiniones.DataSource = bllOpinion.LeerOpiniones(Sesion.ObtenerSesion().ObtenerUsuario(),1);
+        }
         public void MostrarIngresosTotales()
         {
             try

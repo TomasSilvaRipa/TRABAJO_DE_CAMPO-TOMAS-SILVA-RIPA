@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,12 +30,13 @@ namespace MPP
             return acceso.Escribir("AltaOpinion", parameters);
         }
 
-        public List<Opinion> LeerOpiniones(Usuario usuario)
+        public List<Opinion> LeerOpiniones(Usuario usuario,int opcion)
         {
             List<Opinion> opiniones = new List<Opinion>();
             List<SqlParameter> parameters = new List<SqlParameter>()
             {
-                new SqlParameter("@ID_Usuario",usuario.ID),
+                new SqlParameter("@ID",usuario.ID),
+                new SqlParameter("@Opcion",opcion)
             };
             DataTable dt = acceso.Leer("LeerOpiniones",parameters);
             if(dt.Rows.Count > 0)

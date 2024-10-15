@@ -43,7 +43,6 @@
             this.labelMail = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSubirFoto = new System.Windows.Forms.Button();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -266,7 +265,6 @@
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.Controls.Add(this.txtMail, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.btnSubirFoto, 1, 0);
             this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 243);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
@@ -274,16 +272,6 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(575, 54);
             this.tableLayoutPanel9.TabIndex = 26;
-            // 
-            // btnSubirFoto
-            // 
-            this.btnSubirFoto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSubirFoto.Location = new System.Drawing.Point(356, 3);
-            this.btnSubirFoto.Name = "btnSubirFoto";
-            this.btnSubirFoto.Size = new System.Drawing.Size(149, 47);
-            this.btnSubirFoto.TabIndex = 23;
-            this.btnSubirFoto.Text = "Subir Foto de Perfil";
-            this.btnSubirFoto.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel8
             // 
@@ -546,6 +534,5 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private System.Windows.Forms.Button btnSubirFoto;
     }
 }

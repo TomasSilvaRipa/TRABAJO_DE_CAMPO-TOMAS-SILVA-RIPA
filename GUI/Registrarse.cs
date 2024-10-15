@@ -124,7 +124,6 @@ namespace GUI
                             else
                             {
                                 MessageBox.Show("Ha occurido un error");
-
                             }
                         }
                         else

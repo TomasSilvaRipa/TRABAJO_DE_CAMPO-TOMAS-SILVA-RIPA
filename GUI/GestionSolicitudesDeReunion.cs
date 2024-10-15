@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using GUI.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +23,7 @@ namespace GUI
             bllReunion = new BLLReunion();
             bllCliente = new BLLCliente();
             bllUsuario = new BLLUsuario();
-            
+            bllOpinion = new BLLOpinon();
             CargarDatagridSolicitantes(propiedad);
             propiedadSeleccionada = propiedad;
         }
@@ -31,14 +32,20 @@ namespace GUI
         BLLCliente bllCliente;
         BLLUsuario bllUsuario;
         Solicitud solicitud;
-        
+        BLLOpinon bllOpinion;
 
         public void CargarDatagridSolicitantes(Propiedad propiedad)
         {
             dataGridViewSolicitudes.DataSource = null;
             dataGridViewSolicitudes.DataSource = bllReunion.LeerSolicitudesDeReunionXVivienda(propiedad);
-            
         }
+
+        public void CargarOpiniones(Usuario usuario)
+        {
+            dataGridViewOpiniones.DataSource = null;
+            dataGridViewOpiniones.DataSource = bllOpinion.LeerOpiniones(usuario,2);
+        }
+
 
         public void GenerarSolicitante()
         {
@@ -105,19 +112,24 @@ namespace GUI
                     }
                     else
                     {
+                        PictureBox pictureBox = new PictureBox();
+                        pictureBox.Width = flpImagen.Width - 30;
+                        pictureBox.Height = flpImagen.Height - 30;
+                        pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                         if (propiedad.GetValue(cliente) != null)
                         {
-                            PictureBox pictureBox = new PictureBox();
-                            pictureBox.Width = flpImagen.Width - 30;
-                            pictureBox.Height = flpImagen.Height -30;
-                            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                            
                             using (MemoryStream ms = new MemoryStream(cliente.Foto))
                             {
                                 pictureBox.Image = Image.FromStream(ms);
                             }
-
-                            flpImagen.Controls.Add(pictureBox);
                         }
+                        else
+                        {
+                            pictureBox.Image = Resources.UsuarioGenerico;
+                            pictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
+                        }
+                        flpImagen.Controls.Add(pictureBox);
                     }
                 }
 
@@ -141,6 +153,7 @@ namespace GUI
                 gpDescripcion.Controls.Add(btnAceptar);
                 gpDescripcion.Controls.Add(btnRechazar);
                 flowLayoutPanelSolicitante.Controls.Add(gpadre);
+                CargarOpiniones(cliente);
             }
             catch (Exception ex)
             {
