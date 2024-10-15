@@ -19,11 +19,13 @@ namespace BLL
             mppCliente = new MPPCliente();
             mppDueño = new MPPDueño();
             mppCloser = new MPPCloser();
+            mppInmoviliaria = new MPPInmoviliaria();
         }
         MPPUsuario mppusuario;
         MPPCliente mppCliente;
         MPPCloser mppCloser;
         MPPDueño mppDueño;
+        MPPInmoviliaria mppInmoviliaria;
         #endregion
 
         #region FUNCIONES
@@ -46,7 +48,7 @@ namespace BLL
         }
 
         //Alta de Cliente(Inquilino), Dueño o Closer  
-        public bool AltaCDC(Usuario usuario)
+        public bool AltaCDCI(Usuario usuario)
         {
             Usuario usarioBD = mppusuario.BuscarUsuario(usuario.NombreDeUsuario);
             usuario.ID = usarioBD.ID;
@@ -56,7 +58,6 @@ namespace BLL
                 Cliente cliente = (Cliente)usuario;
                 return mppCliente.AltaCliente(cliente);
             }
-
             else if(usuario is Dueño)
             {
                 Dueño dueño = (Dueño)usuario;
@@ -66,6 +67,42 @@ namespace BLL
             {
                 Closer closer = (Closer)usuario;
                 return mppCloser.AltaCloser(closer);
+            }
+            else if(usuario is Inmoviliaria)
+            {
+                Inmoviliaria inmoviliaria = (Inmoviliaria)usuario;
+                return mppInmoviliaria.AltaCuentaInmoviliaria(inmoviliaria); 
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool ModificarCDCI(Usuario usuario)
+        {
+            Usuario usarioBD = mppusuario.BuscarUsuario(usuario.NombreDeUsuario);
+            usuario.ID = usarioBD.ID;
+
+            if (usuario is Cliente)
+            {
+                Cliente cliente = (Cliente)usuario;
+                return mppCliente.ModificarCliente(cliente,usuario.ID);
+            }
+            else if (usuario is Dueño)
+            {
+                Dueño dueño = (Dueño)usuario;
+                return mppDueño.ModificarDueño(dueño,usuario.ID);
+            }
+            else if (usuario is Closer)
+            {
+                Closer closer = (Closer)usuario;
+                return mppCloser.ModificarCloser(closer,usuario.ID);
+            }
+            else if (usuario is Inmoviliaria)
+            {
+                Inmoviliaria inmoviliaria = (Inmoviliaria)usuario;
+                return mppInmoviliaria.ModificarCuentaInmoviliaria(inmoviliaria,usuario.ID);
             }
             else
             {
@@ -89,7 +126,7 @@ namespace BLL
                     {
                         if (mppusuario.GestionarDigitoVerificadorVertical("Usuarios", 1, mppusuario.ObtenerDigitoVerificadorVertical()))
                         {
-                            return AltaCDC(nuevoUsuario);
+                            return AltaCDCI(nuevoUsuario);
                         }
                         return false;
                     }
@@ -134,7 +171,6 @@ namespace BLL
                 {
                     return false;
                 }
-                
             }
         }
 

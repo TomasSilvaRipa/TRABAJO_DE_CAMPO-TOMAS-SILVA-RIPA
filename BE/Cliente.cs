@@ -33,5 +33,17 @@ namespace BE
             Apellido = apellido;
             FechaNacimiento = fechaNacimiento;
         }
+
+        public Cliente(Usuario usuario, string nombre, string apellido, DateTime fechaNacimiento)
+        {
+            NombreDeUsuario = usuario.NombreDeUsuario;
+            Sector = usuario.Sector;
+            Clave = usuario.Clave;
+            DV = usuario.DV;
+            Mail = usuario.Mail;
+            Nombre = nombre;
+            Apellido = apellido;
+            FechaNacimiento = fechaNacimiento;
+        }
     }
 }

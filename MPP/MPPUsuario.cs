@@ -93,7 +93,17 @@ namespace MPP
         {
             string ClaveEncriptada = Seguridad.Encriptar(usuario.Clave);
             DateTime fecha = DateTime.Now;
-            if(opcion == 0)
+            SqlParameter fotoParam = new SqlParameter("@Foto", SqlDbType.VarBinary);
+
+            if (usuario.Foto != null)
+            {
+                fotoParam.Value = usuario.Foto; // Si hay foto, la asignamos
+            }
+            else
+            {
+                fotoParam.Value = DBNull.Value; // Si no hay foto, asignamos DBNull.Value
+            }
+            if (opcion == 0)
             {
                 List<SqlParameter> parameters = new List<SqlParameter>()
                 {
@@ -102,7 +112,7 @@ namespace MPP
                 new SqlParameter("@clave", ClaveEncriptada),
                 new SqlParameter("@DigitoVerificador",usuario.DV),
                 new SqlParameter("@Mail",usuario.Mail),
-                new SqlParameter("@Foto",usuario.Foto),
+                fotoParam,
                 new SqlParameter("@Fecha",fecha)
                 };
                 return acceso.Escribir("UpdateUsuario", parameters);
@@ -116,7 +126,7 @@ namespace MPP
                 new SqlParameter("@clave", usuario.Clave),
                 new SqlParameter("@DigitoVerificador",usuario.DV),
                 new SqlParameter("@Mail",usuario.Mail),
-                new SqlParameter("@Foto",usuario.Foto),
+                fotoParam,
                 new SqlParameter("@Fecha",fecha)
                 };
                 return acceso.Escribir("UpdateUsuario", parameters);

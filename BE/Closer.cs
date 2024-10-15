@@ -28,5 +28,17 @@ namespace BE
             Clasificacion = clasificacion;
             TratosCerrados = tratosCerrados;
         }
+
+        public Closer(Usuario usuario, string nombre, string apellido)
+        {
+            NombreDeUsuario = usuario.NombreDeUsuario;
+            Sector = usuario.Sector;
+            Clave = usuario.Clave;
+            DV = usuario.DV;
+            Mail = usuario.Mail;
+            Nombre = nombre;
+            Apellido = apellido;
+            
+        }
     }
 }

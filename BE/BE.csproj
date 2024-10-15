@@ -49,6 +49,7 @@
     <Compile Include="Dueño.cs" />
     <Compile Include="Entidad.cs" />
     <Compile Include="GestorDeUsuario.cs" />
+    <Compile Include="Inmoviliaria.cs" />
     <Compile Include="IVerificableEntidad.cs" />
     <Compile Include="Opinion.cs" />
     <Compile Include="Palabra.cs" />
