@@ -2,6 +2,7 @@
 using DAL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -14,8 +15,10 @@ namespace MPP
         public MPPInmoviliaria()
         {
             acceso = new Acceso();
+            mppPermisos = new MPPPermisos();
         }
         Acceso acceso;
+        MPPPermisos mppPermisos;
 
         public bool AltaCuentaInmoviliaria(Inmoviliaria inmoviliaria)
         {
@@ -24,7 +27,12 @@ namespace MPP
                 new SqlParameter("@ID_Usuario",inmoviliaria.ID),
                 new SqlParameter("Nombre",inmoviliaria.Nombre),
             };
-            return acceso.Escribir("AltaInmoviliario",parameters);
+            
+            if (acceso.Escribir("AltaInmoviliario", parameters) && acceso.Escribir("AltaCuentaInmoviliaria"))
+            {
+                return mppPermisos.AgregarGrupoDePermisosAUsuario(43, inmoviliaria.NombreDeUsuario);
+            }
+            return false;
         }
 
         public bool ModificarCuentaInmoviliaria(Inmoviliaria inmoviliaria,int ID_usuario)
@@ -36,5 +44,7 @@ namespace MPP
             };
             return acceso.Escribir("ModificarInmoviliario", parameters);
         }
+
+        
     }
 }

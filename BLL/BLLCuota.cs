@@ -53,9 +53,10 @@ namespace BLL
                 trato.ID_Cliente = cuota.ID_Cliente;
                 trato = mppTrato.LeerTrato(trato);
                 Closer closer = mppCloser.LeerCloser(trato.ID_Closer, 2);
+                decimal montoInmoviliaria = cuota.Monto * 0.10m;
                 decimal montoCloser = cuota.Monto * (Convert.ToDecimal(closer.Comision.TrimEnd('%')) / 100);
-                cuota.Monto = cuota.Monto - montoCloser; 
-                return mppCuota.PagarCuota(cuota, trato.ID_Closer, montoCloser);
+                cuota.Monto = cuota.Monto - montoCloser - montoInmoviliaria; 
+                return mppCuota.PagarCuota(cuota, trato.ID_Closer, montoCloser,montoInmoviliaria);
             }
             catch(Exception ex)
             {

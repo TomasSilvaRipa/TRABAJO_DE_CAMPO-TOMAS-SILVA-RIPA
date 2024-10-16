@@ -125,6 +125,7 @@ namespace MPP
                         closer.Apellido = row["Apellido"].ToString();
                         closer.Clasificacion = row["Clasificacion"].ToString();
                         closer.TratosCerrados = (int)row["TratosCerrados"];
+                        closer.Comision = row["Comision"].ToString();
                         closers.Add(closer);
                         return closers;
                     }
@@ -179,6 +180,33 @@ namespace MPP
             SqlParameter apellido = new SqlParameter("@Apellido", closer.Apellido);
             parameters.Add(apellido);
             return acceso.Escribir("ModificarCloser", parameters);
+        }
+
+        public List<Closer> LeerClosers()
+        {
+            List<Closer> closers = new List<Closer>();
+            DataTable dt = acceso.Leer("LeerClosers");
+            if(dt.Rows.Count > 0)
+            {
+                foreach(DataRow row in  dt.Rows)
+                {
+                    Closer closer = new Closer();
+                    closer.ID = (int)row["ID"];
+                    closer.Nombre = row["Nombre"].ToString();
+                    closer.Apellido = row["Apellido"].ToString();
+                    closer.Clasificacion = row["Clasificacion"].ToString();
+                    closer.TratosCerrados = (int)row["TratosCerrados"];
+                    closer.Comision = row["Comision"].ToString();
+                    if (row["Foto"] != DBNull.Value)
+                    {
+                        closer.Foto = (byte[])row["Foto"];
+                    }
+                    
+                    closers.Add(closer);
+                }
+                return closers;
+            }
+            return null;
         }
     }
 }

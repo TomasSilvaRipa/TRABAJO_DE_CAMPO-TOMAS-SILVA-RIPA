@@ -35,6 +35,11 @@ namespace BLL
             return mppTrato.LeerTratosXCloser(closer);
         }
 
+        public List<Trato> LeerTratos()
+        {
+            return mppTrato.LeerTratos();
+        }
+
         
     }
 }

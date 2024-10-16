@@ -168,6 +168,23 @@ namespace MPP
             return null;
         }
 
+        public bool ComprobarExistenciaCuentaInmoviliaria()
+        {
+            DataTable dt = acceso.Leer("LeerUsuarios");
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    if (row["Sector"].ToString() == "Inmoviliaria")
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+
         public string CalcularDigitoVerificadorHorizontal(IVerificableEntidad entidad)
         {
             Type t = entidad.GetType();

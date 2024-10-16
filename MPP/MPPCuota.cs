@@ -87,7 +87,7 @@ namespace MPP
             return null;
         }
 
-        public bool PagarCuota(Cuota cuota,int idCloser,decimal montoCloser)
+        public bool PagarCuota(Cuota cuota,int idCloser,decimal montoCloser,decimal montoInmoviliaria)
         {
             List<SqlParameter> parameters = new List<SqlParameter>()
             {
@@ -96,7 +96,8 @@ namespace MPP
                 new SqlParameter("@ID_Cliente",cuota.ID_Cliente),
                 new SqlParameter("@ID_Vivienda",cuota.ID_Vivienda),
                 new SqlParameter("@MontoCloser",montoCloser),
-                new SqlParameter("@MontoDueño",cuota.Monto)
+                new SqlParameter("@MontoDueño",cuota.Monto),
+                new SqlParameter("@MontoInmoviliaria",montoInmoviliaria)
             };
             return acceso.Escribir("PagarCuota", parameters);
         }

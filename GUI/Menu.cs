@@ -146,15 +146,16 @@ namespace GUI
                 btnPagosCliente.Size = new Size(164, 35);
                 btnCuentaCliente.Size = new Size(160, 40);
             }
-            else if (btnPerformanceEmpresa.Enabled == true && btnIngresosEmpresa.Enabled == true && btnCuentaEmpresa.Enabled == true)
+            else if (btnPerformanceInmoviliaria.Enabled == true  && btnCuentaInmoviliaria.Enabled == true)
             {
                 tableLayoutPanelBarraMenuDinamica.RowStyles[0].Height = 0;
                 tableLayoutPanelBarraMenuDinamica.RowStyles[1].Height = 0;
                 tableLayoutPanelBarraMenuDinamica.RowStyles[2].Height = 0;
-                tableLayoutPanelBarraMenuDinamica.RowStyles[3].Height = 100;
-                btnPerformanceEmpresa.Size = new Size(140, 35);
+                tableLayoutPanelBarraMenuDinamica.RowStyles[3].Height = 0;
+                btnPerformanceInmoviliaria.Size = new Size(140, 35);
+                
                 btnIngresosEmpresa.Size = new Size(164, 35);
-                btnCuentaEmpresa.Size = new Size(160, 40);
+                btnCuentaInmoviliaria.Size = new Size(160, 40);
             }
             tableLayoutPanelBarraMenuDinamica.Refresh();
         }
@@ -581,6 +582,12 @@ namespace GUI
         {
             Rendimientos rendimientos = new Rendimientos();
             rendimientos.Show();
+        }
+
+        private void btnPerformanceEmpresa_Click(object sender, EventArgs e)
+        {
+            PerformanceInmoviliaria performanceInmoviliaria = new PerformanceInmoviliaria();
+            performanceInmoviliaria.Show();
         }
     }
 }

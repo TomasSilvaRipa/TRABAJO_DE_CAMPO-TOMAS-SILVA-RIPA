@@ -191,7 +191,7 @@ namespace GUI
                 else if(comboBoxSector.Text == "Inmoviliaria")
                 {
                     Inmoviliaria inmoviliaria = new Inmoviliaria(nuevoUsuario,tbNombre.Text);
-                    if (bllusuario.AltaUsuario(inmoviliaria, txtClave.Text))
+                    if (!bllusuario.ComprobarExistenciaCuentaEmpresa() && bllusuario.AltaUsuario(inmoviliaria, txtClave.Text))
                     {
                         MessageBox.Show("Usuario de Inmoviliaria: " + nuevoUsuario.NombreDeUsuario + "creada correctamente");
                         this.Close();

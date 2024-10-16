@@ -79,37 +79,6 @@ namespace BLL
             }
         }
 
-        public bool ModificarCDCI(Usuario usuario)
-        {
-            Usuario usarioBD = mppusuario.BuscarUsuario(usuario.NombreDeUsuario);
-            usuario.ID = usarioBD.ID;
-
-            if (usuario is Cliente)
-            {
-                Cliente cliente = (Cliente)usuario;
-                return mppCliente.ModificarCliente(cliente,usuario.ID);
-            }
-            else if (usuario is Dueño)
-            {
-                Dueño dueño = (Dueño)usuario;
-                return mppDueño.ModificarDueño(dueño,usuario.ID);
-            }
-            else if (usuario is Closer)
-            {
-                Closer closer = (Closer)usuario;
-                return mppCloser.ModificarCloser(closer,usuario.ID);
-            }
-            else if (usuario is Inmoviliaria)
-            {
-                Inmoviliaria inmoviliaria = (Inmoviliaria)usuario;
-                return mppInmoviliaria.ModificarCuentaInmoviliaria(inmoviliaria,usuario.ID);
-            }
-            else
-            {
-                return false;
-            }
-        }
-
 
         public bool AltaUsuario(Usuario nuevoUsuario, string clave)
         {
@@ -249,6 +218,11 @@ namespace BLL
         public List<GestorDeUsuario> LeerHistoricoDeUsuario(string nombre)
         {
             return mppusuario.LeerHistoricoDeUsuario(nombre);
+        }
+
+        public bool ComprobarExistenciaCuentaEmpresa()
+        {
+            return mppusuario.ComprobarExistenciaCuentaInmoviliaria();
         }
         #endregion
 

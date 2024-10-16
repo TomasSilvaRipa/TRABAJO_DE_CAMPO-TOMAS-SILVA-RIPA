@@ -51,5 +51,10 @@ namespace BLL
         {
             return mppCloser.ModificarCloser(closer,id);
         }
+
+        public List<Closer> LeerClosers()
+        {
+            return mppCloser.LeerClosers();
+        }
     }
 }

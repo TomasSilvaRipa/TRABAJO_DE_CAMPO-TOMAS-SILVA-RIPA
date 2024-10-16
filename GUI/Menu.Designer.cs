@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.tableLayoutPanelPadre = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelBarraMenuDinamica = new System.Windows.Forms.TableLayoutPanel();
-            this.btnPerformanceEmpresa = new System.Windows.Forms.Button();
-            this.btnCuentaEmpresa = new System.Windows.Forms.Button();
+            this.btnPerformanceInmoviliaria = new System.Windows.Forms.Button();
+            this.btnCuentaInmoviliaria = new System.Windows.Forms.Button();
             this.btnGestorDeReunionesCliente = new System.Windows.Forms.Button();
             this.btnIngresosEmpresa = new System.Windows.Forms.Button();
             this.btnCuentaCliente = new System.Windows.Forms.Button();
@@ -75,8 +75,8 @@
             this.tableLayoutPanelPadre.RowCount = 3;
             this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.53543F));
             this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.46457F));
-            this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
-            this.tableLayoutPanelPadre.Size = new System.Drawing.Size(1039, 571);
+            this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
+            this.tableLayoutPanelPadre.Size = new System.Drawing.Size(1039, 602);
             this.tableLayoutPanelPadre.TabIndex = 0;
             // 
             // tableLayoutPanelBarraMenuDinamica
@@ -91,8 +91,8 @@
             this.tableLayoutPanelBarraMenuDinamica.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanelBarraMenuDinamica.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.5F));
             this.tableLayoutPanelBarraMenuDinamica.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.5F));
-            this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnPerformanceEmpresa, 0, 3);
-            this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnCuentaEmpresa, 4, 3);
+            this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnPerformanceInmoviliaria, 0, 3);
+            this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnCuentaInmoviliaria, 4, 3);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnGestorDeReunionesCliente, 0, 2);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnIngresosEmpresa, 2, 3);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnCuentaCliente, 4, 2);
@@ -106,45 +106,47 @@
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnVerSolicitudesDeClosers, 3, 0);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnVerReunionesDueño, 1, 0);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnPagosCliente, 2, 2);
-            this.tableLayoutPanelBarraMenuDinamica.Location = new System.Drawing.Point(3, 511);
+            this.tableLayoutPanelBarraMenuDinamica.Location = new System.Drawing.Point(3, 545);
             this.tableLayoutPanelBarraMenuDinamica.Name = "tableLayoutPanelBarraMenuDinamica";
             this.tableLayoutPanelBarraMenuDinamica.RowCount = 4;
             this.tableLayoutPanelBarraMenuDinamica.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.85207F));
             this.tableLayoutPanelBarraMenuDinamica.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.76923F));
             this.tableLayoutPanelBarraMenuDinamica.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.3787F));
-            this.tableLayoutPanelBarraMenuDinamica.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelBarraMenuDinamica.Size = new System.Drawing.Size(1033, 57);
-            this.tableLayoutPanelBarraMenuDinamica.TabIndex = 5;
+            this.tableLayoutPanelBarraMenuDinamica.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanelBarraMenuDinamica.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanelBarraMenuDinamica.Size = new System.Drawing.Size(1033, 54);
+            this.tableLayoutPanelBarraMenuDinamica.TabIndex = 4;
             this.tableLayoutPanelBarraMenuDinamica.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanelBarraMenuDinamica_Paint);
             // 
-            // btnPerformanceEmpresa
+            // btnPerformanceInmoviliaria
             // 
-            this.btnPerformanceEmpresa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPerformanceEmpresa.Location = new System.Drawing.Point(59, 39);
-            this.btnPerformanceEmpresa.Name = "btnPerformanceEmpresa";
-            this.btnPerformanceEmpresa.Size = new System.Drawing.Size(114, 15);
-            this.btnPerformanceEmpresa.TabIndex = 0;
-            this.btnPerformanceEmpresa.Tag = "FMPerformance";
-            this.btnPerformanceEmpresa.Text = "Performance";
-            this.btnPerformanceEmpresa.UseVisualStyleBackColor = true;
+            this.btnPerformanceInmoviliaria.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnPerformanceInmoviliaria.Location = new System.Drawing.Point(51, 23);
+            this.btnPerformanceInmoviliaria.Name = "btnPerformanceInmoviliaria";
+            this.btnPerformanceInmoviliaria.Size = new System.Drawing.Size(129, 28);
+            this.btnPerformanceInmoviliaria.TabIndex = 0;
+            this.btnPerformanceInmoviliaria.Tag = "FMPerformance";
+            this.btnPerformanceInmoviliaria.Text = "Performance";
+            this.btnPerformanceInmoviliaria.UseVisualStyleBackColor = true;
+            this.btnPerformanceInmoviliaria.Click += new System.EventHandler(this.btnPerformanceEmpresa_Click);
             // 
-            // btnCuentaEmpresa
+            // btnCuentaInmoviliaria
             // 
-            this.btnCuentaEmpresa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCuentaEmpresa.Location = new System.Drawing.Point(836, 39);
-            this.btnCuentaEmpresa.Name = "btnCuentaEmpresa";
-            this.btnCuentaEmpresa.Size = new System.Drawing.Size(159, 15);
-            this.btnCuentaEmpresa.TabIndex = 1;
-            this.btnCuentaEmpresa.Tag = "FMCuentaEmpresa";
-            this.btnCuentaEmpresa.Text = "Cuenta";
-            this.btnCuentaEmpresa.UseVisualStyleBackColor = true;
+            this.btnCuentaInmoviliaria.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCuentaInmoviliaria.Location = new System.Drawing.Point(836, 23);
+            this.btnCuentaInmoviliaria.Name = "btnCuentaInmoviliaria";
+            this.btnCuentaInmoviliaria.Size = new System.Drawing.Size(159, 28);
+            this.btnCuentaInmoviliaria.TabIndex = 1;
+            this.btnCuentaInmoviliaria.Tag = "FMCuentaInmoviliaria";
+            this.btnCuentaInmoviliaria.Text = "Cuenta";
+            this.btnCuentaInmoviliaria.UseVisualStyleBackColor = true;
             // 
             // btnGestorDeReunionesCliente
             // 
             this.btnGestorDeReunionesCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGestorDeReunionesCliente.Location = new System.Drawing.Point(43, 23);
+            this.btnGestorDeReunionesCliente.Location = new System.Drawing.Point(43, 14);
             this.btnGestorDeReunionesCliente.Name = "btnGestorDeReunionesCliente";
-            this.btnGestorDeReunionesCliente.Size = new System.Drawing.Size(145, 9);
+            this.btnGestorDeReunionesCliente.Size = new System.Drawing.Size(145, 3);
             this.btnGestorDeReunionesCliente.TabIndex = 0;
             this.btnGestorDeReunionesCliente.Tag = "FMGestorDeReuniones";
             this.btnGestorDeReunionesCliente.Text = "Gestor De Reuniones";
@@ -153,9 +155,9 @@
             // btnIngresosEmpresa
             // 
             this.btnIngresosEmpresa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnIngresosEmpresa.Location = new System.Drawing.Point(467, 39);
+            this.btnIngresosEmpresa.Location = new System.Drawing.Point(467, 23);
             this.btnIngresosEmpresa.Name = "btnIngresosEmpresa";
-            this.btnIngresosEmpresa.Size = new System.Drawing.Size(97, 15);
+            this.btnIngresosEmpresa.Size = new System.Drawing.Size(97, 28);
             this.btnIngresosEmpresa.TabIndex = 0;
             this.btnIngresosEmpresa.Tag = "FMIngresosEmpresa";
             this.btnIngresosEmpresa.Text = "Ingresos";
@@ -164,9 +166,9 @@
             // btnCuentaCliente
             // 
             this.btnCuentaCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCuentaCliente.Location = new System.Drawing.Point(856, 23);
+            this.btnCuentaCliente.Location = new System.Drawing.Point(856, 14);
             this.btnCuentaCliente.Name = "btnCuentaCliente";
-            this.btnCuentaCliente.Size = new System.Drawing.Size(119, 9);
+            this.btnCuentaCliente.Size = new System.Drawing.Size(119, 3);
             this.btnCuentaCliente.TabIndex = 0;
             this.btnCuentaCliente.Tag = "FMCuentaCliente";
             this.btnCuentaCliente.Text = "Cuenta";
@@ -176,9 +178,9 @@
             // btnIngresosCloser
             // 
             this.btnIngresosCloser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnIngresosCloser.Location = new System.Drawing.Point(467, 12);
+            this.btnIngresosCloser.Location = new System.Drawing.Point(467, 8);
             this.btnIngresosCloser.Name = "btnIngresosCloser";
-            this.btnIngresosCloser.Size = new System.Drawing.Size(97, 4);
+            this.btnIngresosCloser.Size = new System.Drawing.Size(97, 1);
             this.btnIngresosCloser.TabIndex = 5;
             this.btnIngresosCloser.Tag = "FMIngresosCloser";
             this.btnIngresosCloser.Text = "Ingresos";
@@ -187,9 +189,9 @@
             // btnRendimientoCloser
             // 
             this.btnRendimientoCloser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRendimientoCloser.Location = new System.Drawing.Point(608, 12);
+            this.btnRendimientoCloser.Location = new System.Drawing.Point(608, 8);
             this.btnRendimientoCloser.Name = "btnRendimientoCloser";
-            this.btnRendimientoCloser.Size = new System.Drawing.Size(149, 4);
+            this.btnRendimientoCloser.Size = new System.Drawing.Size(149, 1);
             this.btnRendimientoCloser.TabIndex = 1;
             this.btnRendimientoCloser.Tag = "FMRendimiento";
             this.btnRendimientoCloser.Text = "Rendimiento";
@@ -199,9 +201,9 @@
             // btnVerCasasGestionadasCloser
             // 
             this.btnVerCasasGestionadasCloser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnVerCasasGestionadasCloser.Location = new System.Drawing.Point(31, 12);
+            this.btnVerCasasGestionadasCloser.Location = new System.Drawing.Point(31, 8);
             this.btnVerCasasGestionadasCloser.Name = "btnVerCasasGestionadasCloser";
-            this.btnVerCasasGestionadasCloser.Size = new System.Drawing.Size(170, 4);
+            this.btnVerCasasGestionadasCloser.Size = new System.Drawing.Size(170, 1);
             this.btnVerCasasGestionadasCloser.TabIndex = 1;
             this.btnVerCasasGestionadasCloser.Tag = "FMCasasBajoGestion";
             this.btnVerCasasGestionadasCloser.Text = "Casas Bajo Gestion";
@@ -211,9 +213,9 @@
             // btnCuentaCloser
             // 
             this.btnCuentaCloser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCuentaCloser.Location = new System.Drawing.Point(854, 12);
+            this.btnCuentaCloser.Location = new System.Drawing.Point(854, 8);
             this.btnCuentaCloser.Name = "btnCuentaCloser";
-            this.btnCuentaCloser.Size = new System.Drawing.Size(124, 4);
+            this.btnCuentaCloser.Size = new System.Drawing.Size(124, 1);
             this.btnCuentaCloser.TabIndex = 2;
             this.btnCuentaCloser.Tag = "FMCuentaCloser";
             this.btnCuentaCloser.Text = "Cuenta";
@@ -225,7 +227,7 @@
             this.btnCuentaDueño.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCuentaDueño.Location = new System.Drawing.Point(854, 3);
             this.btnCuentaDueño.Name = "btnCuentaDueño";
-            this.btnCuentaDueño.Size = new System.Drawing.Size(124, 2);
+            this.btnCuentaDueño.Size = new System.Drawing.Size(124, 1);
             this.btnCuentaDueño.TabIndex = 1;
             this.btnCuentaDueño.Tag = "FMCuentaDueños";
             this.btnCuentaDueño.Text = "Cuenta";
@@ -237,7 +239,7 @@
             this.btnIngresosDueño.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnIngresosDueño.Location = new System.Drawing.Point(467, 3);
             this.btnIngresosDueño.Name = "btnIngresosDueño";
-            this.btnIngresosDueño.Size = new System.Drawing.Size(97, 2);
+            this.btnIngresosDueño.Size = new System.Drawing.Size(97, 1);
             this.btnIngresosDueño.TabIndex = 1;
             this.btnIngresosDueño.Tag = "FMIngresosDueño";
             this.btnIngresosDueño.Text = "Ingresos";
@@ -249,7 +251,7 @@
             this.btnAgregarPropiedad.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAgregarPropiedad.Location = new System.Drawing.Point(41, 3);
             this.btnAgregarPropiedad.Name = "btnAgregarPropiedad";
-            this.btnAgregarPropiedad.Size = new System.Drawing.Size(149, 2);
+            this.btnAgregarPropiedad.Size = new System.Drawing.Size(149, 1);
             this.btnAgregarPropiedad.TabIndex = 1;
             this.btnAgregarPropiedad.Tag = "FMAgregarPropiedad";
             this.btnAgregarPropiedad.Text = "Agregar Propiedad";
@@ -261,7 +263,7 @@
             this.btnVerSolicitudesDeClosers.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnVerSolicitudesDeClosers.Location = new System.Drawing.Point(593, 3);
             this.btnVerSolicitudesDeClosers.Name = "btnVerSolicitudesDeClosers";
-            this.btnVerSolicitudesDeClosers.Size = new System.Drawing.Size(179, 2);
+            this.btnVerSolicitudesDeClosers.Size = new System.Drawing.Size(179, 1);
             this.btnVerSolicitudesDeClosers.TabIndex = 3;
             this.btnVerSolicitudesDeClosers.Tag = "FMVerSolicitudesDeClosers";
             this.btnVerSolicitudesDeClosers.Text = "Ver Solicitudes de Closer";
@@ -273,7 +275,7 @@
             this.btnVerReunionesDueño.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnVerReunionesDueño.Location = new System.Drawing.Point(279, 3);
             this.btnVerReunionesDueño.Name = "btnVerReunionesDueño";
-            this.btnVerReunionesDueño.Size = new System.Drawing.Size(137, 2);
+            this.btnVerReunionesDueño.Size = new System.Drawing.Size(137, 1);
             this.btnVerReunionesDueño.TabIndex = 4;
             this.btnVerReunionesDueño.Tag = "FMVerReunionesDueño";
             this.btnVerReunionesDueño.Text = "Ver Reuniones ";
@@ -283,9 +285,9 @@
             // btnPagosCliente
             // 
             this.btnPagosCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPagosCliente.Location = new System.Drawing.Point(467, 23);
+            this.btnPagosCliente.Location = new System.Drawing.Point(467, 14);
             this.btnPagosCliente.Name = "btnPagosCliente";
-            this.btnPagosCliente.Size = new System.Drawing.Size(97, 9);
+            this.btnPagosCliente.Size = new System.Drawing.Size(97, 3);
             this.btnPagosCliente.TabIndex = 0;
             this.btnPagosCliente.Tag = "FMPagos";
             this.btnPagosCliente.Text = "Pagos Pendientes";
@@ -302,12 +304,12 @@
             this.tableLayoutPanelCatalogoYFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.89738F));
             this.tableLayoutPanelCatalogoYFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.10261F));
             this.tableLayoutPanelCatalogoYFiltro.Controls.Add(this.flowLayoutPanelCatalogo, 0, 0);
-            this.tableLayoutPanelCatalogoYFiltro.Location = new System.Drawing.Point(3, 87);
+            this.tableLayoutPanelCatalogoYFiltro.Location = new System.Drawing.Point(3, 92);
             this.tableLayoutPanelCatalogoYFiltro.Name = "tableLayoutPanelCatalogoYFiltro";
             this.tableLayoutPanelCatalogoYFiltro.RowCount = 1;
             this.tableLayoutPanelCatalogoYFiltro.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelCatalogoYFiltro.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelCatalogoYFiltro.Size = new System.Drawing.Size(1033, 418);
+            this.tableLayoutPanelCatalogoYFiltro.Size = new System.Drawing.Size(1033, 447);
             this.tableLayoutPanelCatalogoYFiltro.TabIndex = 0;
             // 
             // flowLayoutPanelCatalogo
@@ -320,7 +322,7 @@
             this.flowLayoutPanelCatalogo.ForeColor = System.Drawing.Color.Black;
             this.flowLayoutPanelCatalogo.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelCatalogo.Name = "flowLayoutPanelCatalogo";
-            this.flowLayoutPanelCatalogo.Size = new System.Drawing.Size(840, 412);
+            this.flowLayoutPanelCatalogo.Size = new System.Drawing.Size(840, 441);
             this.flowLayoutPanelCatalogo.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -342,7 +344,7 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1033, 78);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1033, 83);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // btnLogout
@@ -350,7 +352,7 @@
             this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold);
             this.btnLogout.ForeColor = System.Drawing.Color.Black;
-            this.btnLogout.Location = new System.Drawing.Point(831, 23);
+            this.btnLogout.Location = new System.Drawing.Point(831, 26);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(129, 31);
@@ -366,7 +368,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(186, 72);
+            this.pictureBox1.Size = new System.Drawing.Size(186, 77);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -375,7 +377,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1026, 566);
+            this.ClientSize = new System.Drawing.Size(1026, 600);
             this.Controls.Add(this.tableLayoutPanelPadre);
             this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -411,9 +413,9 @@
         private System.Windows.Forms.Button btnCuentaCliente;
         private System.Windows.Forms.Button btnGestorDeReunionesCliente;
         private System.Windows.Forms.Button btnPagosCliente;
-        private System.Windows.Forms.Button btnCuentaEmpresa;
+        private System.Windows.Forms.Button btnCuentaInmoviliaria;
         private System.Windows.Forms.Button btnIngresosEmpresa;
-        private System.Windows.Forms.Button btnPerformanceEmpresa;
+        private System.Windows.Forms.Button btnPerformanceInmoviliaria;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelCatalogo;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

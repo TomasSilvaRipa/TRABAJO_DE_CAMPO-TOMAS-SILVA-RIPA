@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,6 +44,7 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewOpiniones = new System.Windows.Forms.DataGridView();
+            this.chartTratosXMes = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -48,6 +52,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClosers)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOpiniones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTratosXMes)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -104,8 +109,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.90972F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.09028F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 98.61111F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.388889F));
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanelCloserDelMes, 0, 0);
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 42);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -128,7 +133,7 @@
             this.tableLayoutPanelCloserDelMes.RowCount = 1;
             this.tableLayoutPanelCloserDelMes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelCloserDelMes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelCloserDelMes.Size = new System.Drawing.Size(437, 277);
+            this.tableLayoutPanelCloserDelMes.Size = new System.Drawing.Size(562, 277);
             this.tableLayoutPanelCloserDelMes.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -142,6 +147,7 @@
             this.tableLayoutPanel3.Controls.Add(this.labelSaldo, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label2, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.chartTratosXMes, 0, 1);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(591, 337);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
@@ -167,9 +173,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 12);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 16);
+            this.label3.Size = new System.Drawing.Size(150, 16);
             this.label3.TabIndex = 0;
-            this.label3.Text = "label3";
+            this.label3.Text = "Tratos Cerrado por Mes";
             // 
             // label2
             // 
@@ -193,6 +199,7 @@
             this.dataGridViewClosers.RowTemplate.Height = 24;
             this.dataGridViewClosers.Size = new System.Drawing.Size(582, 328);
             this.dataGridViewClosers.TabIndex = 2;
+            this.dataGridViewClosers.SelectionChanged += new System.EventHandler(this.dataGridViewClosers_SelectionChanged);
             // 
             // tableLayoutPanel4
             // 
@@ -223,6 +230,9 @@
             // 
             // dataGridViewOpiniones
             // 
+            this.dataGridViewOpiniones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewOpiniones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewOpiniones.Location = new System.Drawing.Point(3, 27);
             this.dataGridViewOpiniones.Name = "dataGridViewOpiniones";
@@ -230,6 +240,25 @@
             this.dataGridViewOpiniones.RowTemplate.Height = 24;
             this.dataGridViewOpiniones.Size = new System.Drawing.Size(576, 177);
             this.dataGridViewOpiniones.TabIndex = 1;
+            // 
+            // chartTratosXMes
+            // 
+            this.chartTratosXMes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea2.Name = "ChartArea1";
+            this.chartTratosXMes.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartTratosXMes.Legends.Add(legend2);
+            this.chartTratosXMes.Location = new System.Drawing.Point(3, 43);
+            this.chartTratosXMes.Name = "chartTratosXMes";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Tratos Cerrados";
+            this.chartTratosXMes.Series.Add(series2);
+            this.chartTratosXMes.Size = new System.Drawing.Size(285, 161);
+            this.chartTratosXMes.TabIndex = 2;
+            this.chartTratosXMes.Text = "chart1";
             // 
             // PerformanceInmoviliaria
             // 
@@ -249,6 +278,7 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOpiniones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTratosXMes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -268,5 +298,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelCloserDelMes;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartTratosXMes;
     }
 }
