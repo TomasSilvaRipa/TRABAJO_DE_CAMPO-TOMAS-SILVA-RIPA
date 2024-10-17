@@ -15,7 +15,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace GUI
 {
-    public partial class PerfilDueño : Form
+    public partial class PerfilDueño : FIdiomaActualizable,IObservador
     {
         Dueño dueñoActivo;
         public PerfilDueño()
@@ -25,15 +25,41 @@ namespace GUI
             bllBitaacora = new BitacoraBLL();
             bllUsuario = new BLLUsuario();
             bllDueño = new BLLDueño();
+            bllIdiomas = new BLLIdiomas();
             Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
             dueñoActivo = bllDueño.LeerDueño(usuario.ID);
             MostrarDatos(usuario, dueñoActivo);
+            Sesion.ObtenerSesion().AgregarObservador(this);
+            actualizarTablaIdiomas();
         }
         Bitacora_ bitacora;
         BitacoraBLL bllBitaacora;
         BLLUsuario bllUsuario;
         BLLDueño bllDueño;
+        DataTable tablaIdioma;
+        BLLIdiomas bllIdiomas;
         System.Drawing.Image imagen;
+
+
+        private void actualizarTablaIdiomas()
+        {
+            Sesion.ObtenerSesion().ActualizarIdiomas();
+            tablaIdioma = Sesion.ObtenerSesion().tablaIdioma;
+        }
+
+        public void Notificar(object Sender)
+        {
+
+            if (Sender is FTraducciones)
+            {
+                actualizarTablaIdiomas();
+            }
+            else
+            {
+                actualizarIdioma();
+            }
+
+        }
 
         public void MostrarDatos(Usuario usuario, Dueño dueño)
         {

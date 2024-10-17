@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +13,7 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class Rendimientos : Form
+    public partial class Rendimientos : FIdiomaActualizable,IObservador
     {
         public Rendimientos()
         {
@@ -21,15 +22,39 @@ namespace GUI
             MostrarTratosRealizados();
             bllCuenta = new BLLCuenta();
             bllOpinion = new BLLOpinon();
+            bllIdiomas = new BLLIdiomas();
             LeerSaldoDeCuenta();
             CargarEstadisticas();
             CargarOpiniones();
             CalcularCalificacionPromedio();
-
+            Sesion.ObtenerSesion().AgregarObservador(this);
+            actualizarTablaIdiomas();
         }
         BLLTrato bllTrato;
         BLLCuenta bllCuenta;
         BLLOpinon bllOpinion;
+        DataTable tablaIdioma;
+        BLLIdiomas bllIdiomas;
+
+        private void actualizarTablaIdiomas()
+        {
+            Sesion.ObtenerSesion().ActualizarIdiomas();
+            tablaIdioma = Sesion.ObtenerSesion().tablaIdioma;
+        }
+
+        public void Notificar(object Sender)
+        {
+
+            if (Sender is FTraducciones)
+            {
+                actualizarTablaIdiomas();
+            }
+            else
+            {
+                actualizarIdioma();
+            }
+
+        }
 
         public void MostrarTratosRealizados()
         {

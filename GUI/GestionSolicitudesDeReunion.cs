@@ -1,6 +1,7 @@
 ﻿using BE;
 using BLL;
 using GUI.Properties;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class GestionSolicitudesDeReunion : Form
+    public partial class GestionSolicitudesDeReunion : FIdiomaActualizable,IObservador
     {
         public GestionSolicitudesDeReunion(Propiedad propiedad)
         {
@@ -24,8 +25,11 @@ namespace GUI
             bllCliente = new BLLCliente();
             bllUsuario = new BLLUsuario();
             bllOpinion = new BLLOpinon();
+            bllIdiomas = new BLLIdiomas();
             CargarDatagridSolicitantes(propiedad);
             propiedadSeleccionada = propiedad;
+            Sesion.ObtenerSesion().AgregarObservador(this);
+            actualizarTablaIdiomas();
         }
         BLLReunion bllReunion;
         Propiedad propiedadSeleccionada;
@@ -33,6 +37,28 @@ namespace GUI
         BLLUsuario bllUsuario;
         Solicitud solicitud;
         BLLOpinon bllOpinion;
+        DataTable tablaIdioma;
+        BLLIdiomas bllIdiomas;
+
+        private void actualizarTablaIdiomas()
+        {
+            Sesion.ObtenerSesion().ActualizarIdiomas();
+            tablaIdioma = Sesion.ObtenerSesion().tablaIdioma;
+        }
+
+        public void Notificar(object Sender)
+        {
+
+            if (Sender is FTraducciones)
+            {
+                actualizarTablaIdiomas();
+            }
+            else
+            {
+                actualizarIdioma();
+            }
+
+        }
 
         public void CargarDatagridSolicitantes(Propiedad propiedad)
         {
@@ -135,6 +161,7 @@ namespace GUI
 
                 Button btnAceptar = new Button();
                 btnAceptar.Text = "Aceptar";
+                btnAceptar.Tag = "FGSRAceptar";
                 btnAceptar.Width = 120;
                 btnAceptar.Location = new Point(10, labelPosY);
                 btnAceptar.Click += (s, e) => AceptarReunion(cliente,solicitud);
@@ -143,6 +170,7 @@ namespace GUI
 
                 Button btnRechazar = new Button();
                 btnRechazar.Text = "Rechazar";
+                btnRechazar.Tag = "FGSRRechazar";
                 btnRechazar.Width = 120;
                 btnRechazar.Location = new Point(10, labelPosY);
                 btnRechazar.Click += (s, e) => RechazarReunion(solicitud); 

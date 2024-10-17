@@ -57,6 +57,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 16);
             this.label1.TabIndex = 0;
+            this.label1.Tag = "FPNombreDeUsuario";
             this.label1.Text = "Nombre de Usuario";
             // 
             // tbNombreDeUsuario
@@ -83,6 +84,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 16);
             this.label2.TabIndex = 21;
+            this.label2.Tag = "FPContraseña";
             this.label2.Text = "Contraseña";
             // 
             // tbMail
@@ -100,6 +102,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 16);
             this.label3.TabIndex = 20;
+            this.label3.Tag = "FPMail";
             this.label3.Text = "Mail";
             // 
             // tbApellido
@@ -117,6 +120,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 16);
             this.label4.TabIndex = 10;
+            this.label4.Tag = "FPApellido";
             this.label4.Text = "Apellido";
             // 
             // tbNombre
@@ -134,6 +138,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 16);
             this.label5.TabIndex = 8;
+            this.label5.Tag = "FPNombre";
             this.label5.Text = "Nombre";
             // 
             // dateTimePickerFN
@@ -151,6 +156,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(135, 16);
             this.label6.TabIndex = 13;
+            this.label6.Tag = "FPCliFechaNacimiento";
             this.label6.Text = "Fecha de Nacimiento";
             // 
             // btnSubirFoto
@@ -159,6 +165,7 @@
             this.btnSubirFoto.Name = "btnSubirFoto";
             this.btnSubirFoto.Size = new System.Drawing.Size(146, 42);
             this.btnSubirFoto.TabIndex = 6;
+            this.btnSubirFoto.Tag = "FPSubirFoto";
             this.btnSubirFoto.Text = "Subir Foto";
             this.btnSubirFoto.UseVisualStyleBackColor = true;
             this.btnSubirFoto.Click += new System.EventHandler(this.btnSubirFoto_Click);
@@ -222,6 +229,7 @@
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(146, 42);
             this.btnActualizar.TabIndex = 7;
+            this.btnActualizar.Tag = "FPActualizarDatos";
             this.btnActualizar.Text = "Actualizar Datos";
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);

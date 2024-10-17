@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,19 +40,19 @@
             this.labelSaldo = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.chartTratosXMes = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dataGridViewClosers = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewOpiniones = new System.Windows.Forms.DataGridView();
-            this.chartTratosXMes = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTratosXMes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClosers)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOpiniones)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartTratosXMes)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -101,6 +101,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 16);
             this.label4.TabIndex = 0;
+            this.label4.Tag = "FPIVendedorDelMes";
             this.label4.Text = "Vendedor del Mes";
             // 
             // tableLayoutPanel5
@@ -175,6 +176,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(150, 16);
             this.label3.TabIndex = 0;
+            this.label3.Tag = "FPITratosCerradosPorMes";
             this.label3.Text = "Tratos Cerrado por Mes";
             // 
             // label2
@@ -185,7 +187,27 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 16);
             this.label2.TabIndex = 0;
+            this.label2.Tag = "FPISaldo";
             this.label2.Text = "Saldo";
+            // 
+            // chartTratosXMes
+            // 
+            this.chartTratosXMes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea1.Name = "ChartArea1";
+            this.chartTratosXMes.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartTratosXMes.Legends.Add(legend1);
+            this.chartTratosXMes.Location = new System.Drawing.Point(3, 43);
+            this.chartTratosXMes.Name = "chartTratosXMes";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Tratos Cerrados";
+            this.chartTratosXMes.Series.Add(series1);
+            this.chartTratosXMes.Size = new System.Drawing.Size(285, 161);
+            this.chartTratosXMes.TabIndex = 2;
+            this.chartTratosXMes.Text = "chart1";
             // 
             // dataGridViewClosers
             // 
@@ -226,6 +248,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 16);
             this.label1.TabIndex = 0;
+            this.label1.Tag = "FPIOpiniones";
             this.label1.Text = "Opiniones";
             // 
             // dataGridViewOpiniones
@@ -241,25 +264,6 @@
             this.dataGridViewOpiniones.Size = new System.Drawing.Size(576, 177);
             this.dataGridViewOpiniones.TabIndex = 1;
             // 
-            // chartTratosXMes
-            // 
-            this.chartTratosXMes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Name = "ChartArea1";
-            this.chartTratosXMes.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartTratosXMes.Legends.Add(legend2);
-            this.chartTratosXMes.Location = new System.Drawing.Point(3, 43);
-            this.chartTratosXMes.Name = "chartTratosXMes";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Tratos Cerrados";
-            this.chartTratosXMes.Series.Add(series2);
-            this.chartTratosXMes.Size = new System.Drawing.Size(285, 161);
-            this.chartTratosXMes.TabIndex = 2;
-            this.chartTratosXMes.Text = "chart1";
-            // 
             // PerformanceInmoviliaria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -274,11 +278,11 @@
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTratosXMes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClosers)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOpiniones)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartTratosXMes)).EndInit();
             this.ResumeLayout(false);
 
         }

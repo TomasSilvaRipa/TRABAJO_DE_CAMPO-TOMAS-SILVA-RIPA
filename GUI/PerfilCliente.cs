@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class PerfilCliente : Form
+    public partial class PerfilCliente : FIdiomaActualizable,IObservador
     {
         Cliente clienteActivo;
         public PerfilCliente()
@@ -24,15 +24,40 @@ namespace GUI
             bllBitacora = new BitacoraBLL();
             bllCliente = new BLLCliente();
             bllUsuario = new BLLUsuario();
+            bllIdiomas = new BLLIdiomas();
             Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
             clienteActivo = bllCliente.LeerCliente(usuario.ID,1);
             MostrarDatos(usuario,clienteActivo);
+            Sesion.ObtenerSesion().AgregarObservador(this);
+            actualizarTablaIdiomas();
         }
         Bitacora_ bitacora;
         BitacoraBLL bllBitacora;
         BLLUsuario bllUsuario;
         BLLCliente bllCliente;
+        DataTable tablaIdioma;
+        BLLIdiomas bllIdiomas;
         Image imagen;
+
+
+        private void actualizarTablaIdiomas()
+        {
+            Sesion.ObtenerSesion().ActualizarIdiomas();
+            tablaIdioma = Sesion.ObtenerSesion().tablaIdioma;
+
+        }
+
+        public void Notificar(object Sender)
+        {
+            if (Sender is FTraducciones)
+            {
+                actualizarTablaIdiomas();
+            }
+            else
+            {
+                actualizarIdioma();
+            }
+        }
 
         public void MostrarDatos(Usuario usuario,Cliente cliente)
         {

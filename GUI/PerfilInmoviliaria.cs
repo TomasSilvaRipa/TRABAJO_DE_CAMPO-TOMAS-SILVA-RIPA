@@ -17,7 +17,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace GUI
 {
-    public partial class PerfilInmoviliaria : Form
+    public partial class PerfilInmoviliaria : FIdiomaActualizable,IObservador
     {
         public PerfilInmoviliaria()
         {
@@ -25,9 +25,12 @@ namespace GUI
             bllInmoviliaria = new BLLInmoviliaria();
             bllUsuario = new BLLUsuario();
             bllBitacora = new BitacoraBLL();
+            bllIdiomas = new BLLIdiomas();
             usuario = Sesion.ObtenerSesion().ObtenerUsuario();
             inmoviliariaActivo = bllInmoviliaria.LeerCuentaInmoviliaria(usuario);
             MostrarDatos(usuario,inmoviliariaActivo);
+            Sesion.ObtenerSesion().AgregarObservador(this);
+            actualizarTablaIdiomas();
         }
         Usuario usuario;
         Inmoviliaria inmoviliariaActivo;
@@ -35,9 +38,29 @@ namespace GUI
         BLLUsuario bllUsuario;
         Bitacora_ bitacora;
         BitacoraBLL bllBitacora;
+        DataTable tablaIdioma;
+        BLLIdiomas bllIdiomas;
         System.Drawing.Image imagen;
 
-        
+        private void actualizarTablaIdiomas()
+        {
+            Sesion.ObtenerSesion().ActualizarIdiomas();
+            tablaIdioma = Sesion.ObtenerSesion().tablaIdioma;
+        }
+
+        public void Notificar(object Sender)
+        {
+
+            if (Sender is FTraducciones)
+            {
+                actualizarTablaIdiomas();
+            }
+            else
+            {
+                actualizarIdioma();
+            }
+
+        }
 
         public void MostrarDatos(Usuario usuario, Inmoviliaria inmoviliaria)
         {

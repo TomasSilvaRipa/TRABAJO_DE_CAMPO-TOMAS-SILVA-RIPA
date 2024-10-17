@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,17 +15,42 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class GestionDePropiedades : Form
+    public partial class GestionDePropiedades : FIdiomaActualizable,IObservador
     {
         public GestionDePropiedades(Closer closer)
         {
             InitializeComponent();
             bllPropiedad = new BLLPropiedad();
             bllCloser = new BLLCloser();
+            bllIdiomas = new BLLIdiomas();
             GenerarCatalogoViviendasXCloser(closer);
+            Sesion.ObtenerSesion().AgregarObservador(this);
+            actualizarTablaIdiomas();
         }
         BLLPropiedad bllPropiedad;
         BLLCloser bllCloser;
+        DataTable tablaIdioma;
+        BLLIdiomas bllIdiomas;
+        private void actualizarTablaIdiomas()
+        {
+            Sesion.ObtenerSesion().ActualizarIdiomas();
+            tablaIdioma = Sesion.ObtenerSesion().tablaIdioma;
+
+        }
+
+        public void Notificar(object Sender)
+        {
+
+            if (Sender is FTraducciones)
+            {
+                actualizarTablaIdiomas();
+            }
+            else
+            {
+                actualizarIdioma();
+            }
+
+        }
         private void CatalogoDePropiedades_Load(object sender, EventArgs e)
         {
 
@@ -100,6 +126,7 @@ namespace GUI
 
                     Button btnPostularse = new Button();
                     btnPostularse.Text = "Ver Solicitudes de Reunion";
+                    btnPostularse.Tag = "FGPVerSolicitudesDeReunion";
                     btnPostularse.Width = 150;
                     btnPostularse.Location = new Point(10, labelPosY);
                     btnPostularse.Click += (s, e) => VerSolicitantesDeReunion(p);

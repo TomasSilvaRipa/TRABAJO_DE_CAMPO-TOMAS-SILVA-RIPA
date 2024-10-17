@@ -1,6 +1,7 @@
 ﻿using BE;
 using BLL;
 using GUI.Properties;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,17 +16,43 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class ClosersPostulados : Form
+    public partial class ClosersPostulados : FIdiomaActualizable,IObservador
     {
         public ClosersPostulados(Propiedad p)
         {
             InitializeComponent();
             bllCloser = new BLLCloser();
             bllDueño = new BLLDueño();
+            bllIdiomas = new BLLIdiomas();
             GenerarCatalogoClosersPostulados(p);
+            Sesion.ObtenerSesion().AgregarObservador(this);
+            actualizarTablaIdiomas();
         }
         BLLCloser bllCloser;
         BLLDueño bllDueño;
+        DataTable tablaIdioma;
+        BLLIdiomas bllIdiomas;
+
+        private void actualizarTablaIdiomas()
+        {
+            Sesion.ObtenerSesion().ActualizarIdiomas();
+            tablaIdioma = Sesion.ObtenerSesion().tablaIdioma;
+
+        }
+
+        public void Notificar(object Sender)
+        {
+
+            if (Sender is FTraducciones)
+            {
+                actualizarTablaIdiomas();
+            }
+            else
+            {
+                actualizarIdioma();
+            }
+
+        }
 
         public void Aceptar(Propiedad p, Closer c) 
         {
@@ -126,6 +153,7 @@ namespace GUI
                             }
                             Button btnDarDeBaja = new Button();
                             btnDarDeBaja.Text = "Dar de Baja";
+                            btnDarDeBaja.Tag = "FCPDarDeBaja";
                             btnDarDeBaja.Width = 120;
                             btnDarDeBaja.Location = new Point(10, labelPosY);
                             labelPosY += 30;
@@ -207,6 +235,7 @@ namespace GUI
 
                             Button btnAceptar = new Button();
                             btnAceptar.Text = "Aceptar";
+                            btnAceptar.Tag = "FCPAceptar";
                             btnAceptar.Width = 120;
                             btnAceptar.Location = new Point(10, labelPosY);
                             labelPosY += 30;
@@ -214,6 +243,7 @@ namespace GUI
 
                             Button btnRechazar = new Button();
                             btnRechazar.Text = "Rechazar";
+                            btnRechazar.Tag = "FCPRechazar";
                             btnRechazar.Width = 120;
                             btnRechazar.Location = new Point(10, labelPosY);
                             labelPosY += 30;

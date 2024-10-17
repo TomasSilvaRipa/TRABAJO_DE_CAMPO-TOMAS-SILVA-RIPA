@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +13,7 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class Pagos : Form
+    public partial class Pagos : FIdiomaActualizable,IObservador
     {
         BLLCliente bllCliente;
         Cliente clienteIniciado;
@@ -22,14 +23,35 @@ namespace GUI
             bllCuota = new BLLCuota();
             bllCliente = new BLLCliente();
             bllOpinon = new BLLOpinon();
+            bllIdiomas = new BLLIdiomas();
             CargarCuotas();
             CargarPagos();
-            
+            Sesion.ObtenerSesion().AgregarObservador(this);
+            actualizarTablaIdiomas();
+
         }
         BLLCuota bllCuota;
         BLLOpinon bllOpinon;
-        
+        DataTable tablaIdioma;
+        BLLIdiomas bllIdiomas;
+        private void actualizarTablaIdiomas()
+        {
+            Sesion.ObtenerSesion().ActualizarIdiomas();
+            tablaIdioma = Sesion.ObtenerSesion().tablaIdioma;
+        }
+        public void Notificar(object Sender)
+        {
 
+            if (Sender is FTraducciones)
+            {
+                actualizarTablaIdiomas();
+            }
+            else
+            {
+                actualizarIdioma();
+            }
+
+        }
         public void CargarCuotas()
         {
             dataGridViewCuotas.DataSource = null;
@@ -66,8 +88,6 @@ namespace GUI
                         CargarPagos();
                         MessageBox.Show("Pago Exitoso!!");
                     }
-
-
                 }
                 else
                 {

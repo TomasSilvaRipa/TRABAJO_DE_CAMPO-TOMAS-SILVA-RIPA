@@ -173,20 +173,19 @@ namespace GUI
                 btnIngresosDueño.Size = new Size(160, 40);
                 btnCuentaDueño.Size = new Size(140,35);
             }
-            else if(btnIngresosCloser.Enabled == true && btnRendimientoCloser.Enabled == true && btnCuentaCloser.Enabled == true && btnVerCasasGestionadasCloser.Enabled == true)
+            else if(btnRendimientoCloser.Enabled == true && btnCuentaCloser.Enabled == true && btnVerCasasGestionadasCloser.Enabled == true)
             {
                 tableLayoutPanelBarraMenuDinamica.RowStyles[0].Height = 0;
                 tableLayoutPanelBarraMenuDinamica.RowStyles[1].Height = 100;
                 tableLayoutPanelBarraMenuDinamica.RowStyles[2].Height = 0;
                 tableLayoutPanelBarraMenuDinamica.RowStyles[3].Height = 0;
                 tableLayoutPanelBarraMenuDinamica.ColumnStyles[1].Width = 0;
-                tableLayoutPanelBarraMenuDinamica.ColumnStyles[0].Width = 25;
-                tableLayoutPanelBarraMenuDinamica.ColumnStyles[2].Width = 25;
-                tableLayoutPanelBarraMenuDinamica.ColumnStyles[3].Width = 25;
-                tableLayoutPanelBarraMenuDinamica.ColumnStyles[4].Width = 25;
+                tableLayoutPanelBarraMenuDinamica.ColumnStyles[0].Width = 33;
+                tableLayoutPanelBarraMenuDinamica.ColumnStyles[2].Width = 0;
+                tableLayoutPanelBarraMenuDinamica.ColumnStyles[3].Width = 33;
+                tableLayoutPanelBarraMenuDinamica.ColumnStyles[4].Width = 33;
                 btnRendimientoCloser.Size = new Size(140, 35);
                 btnVerCasasGestionadasCloser.Size = new Size(164, 35);
-                btnIngresosCloser.Size = new Size(160, 40);
                 btnCuentaCloser.Size = new Size(140, 35);
             }
             else if (btnGestorDeReunionesCliente.Enabled == true && btnPagosCliente.Enabled == true && btnCuentaCliente.Enabled == true)
@@ -206,9 +205,12 @@ namespace GUI
                 tableLayoutPanelBarraMenuDinamica.RowStyles[1].Height = 0;
                 tableLayoutPanelBarraMenuDinamica.RowStyles[2].Height = 0;
                 tableLayoutPanelBarraMenuDinamica.RowStyles[3].Height = 0;
+                tableLayoutPanelBarraMenuDinamica.ColumnStyles[0].Width = 75;
+                tableLayoutPanelBarraMenuDinamica.ColumnStyles[1].Width = 0;
+                tableLayoutPanelBarraMenuDinamica.ColumnStyles[2].Width = 0;
+                tableLayoutPanelBarraMenuDinamica.ColumnStyles[3].Width = 0;
                 btnPerformanceInmoviliaria.Size = new Size(140, 35);
                 
-                btnIngresosEmpresa.Size = new Size(164, 35);
                 btnCuentaInmoviliaria.Size = new Size(160, 40);
             }
             tableLayoutPanelBarraMenuDinamica.Refresh();
@@ -397,6 +399,7 @@ namespace GUI
 
                 Button btnPostularse = new Button();
                 btnPostularse.Text = "Postularse";
+                btnPostularse.Tag  = "FMCPostularse";
                 btnPostularse.Width = 120;
                 btnPostularse.Location = new Point(10, labelPosY);
                 btnPostularse.Click += (s, e) => Postularse(p);
@@ -475,6 +478,7 @@ namespace GUI
 
                 Button btnSolicitarReunion = new Button();
                 btnSolicitarReunion.Text = "Solicitar Reunion";
+                btnSolicitarReunion.Tag = "FMCliSolicitarReunion";
                 btnAgregarPropiedad.BackColor = Color.White;
                 btnSolicitarReunion.Width = 120;
                 btnSolicitarReunion.Location = new Point(10, labelPosY);
@@ -554,6 +558,7 @@ namespace GUI
 
                 Button btnBaja = new Button();
                 btnBaja.Text = "Dar de Baja";
+                btnBaja.Tag = "FMIDarDeBaja";
                 btnBaja.ForeColor = Color.White;
                 btnBaja.Width = 120;
                 btnBaja.Location = new Point(10, labelPosY);
@@ -756,6 +761,11 @@ namespace GUI
         {
             Sesion.ObtenerSesion().AgregarObservador(this);
             Sesion.ObtenerSesion().ActualizarDiccionario(Convert.ToInt32(tablaIdioma.Rows[comboBoxIdiomas.SelectedIndex][0]));
+        }
+
+        private void btnIngresosCloser_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

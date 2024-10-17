@@ -14,7 +14,7 @@ using static System.Collections.Specialized.BitVector32;
 
 namespace GUI
 {
-    public partial class Registrarse : Form
+    public partial class Registrarse : FIdiomaActualizable,IObservador
     {
         BLLPermisos bllPermisos;
         DataTable tablaIdioma;
@@ -28,9 +28,14 @@ namespace GUI
             bllIdiomas = new BLLIdiomas();
             labelResidencia.Visible = false;
             tbResicencia.Visible = false;
+            Sesion.ObtenerSesion().AgregarObservador(this);
+            actualizarTablaIdiomas();
+            actualizarcbxIdiomas();
         }
         BitacoraBLL bitacorabll;
         BLLUsuario bllusuario;
+
+
 
         public delegate void IniciarMdi();
         public IniciarMdi iniciarMdi;
@@ -40,6 +45,25 @@ namespace GUI
         {
             txtUsuario.Text = "";
             txtContra.Text = "";
+        }
+
+        private void actualizarTablaIdiomas()
+        {
+            Sesion.ObtenerSesion().ActualizarIdiomas();
+            tablaIdioma = Sesion.ObtenerSesion().tablaIdioma;
+
+        }
+        private void LlenarCbxIdiomas()
+        {
+            cbxIdiomas.Items.Clear();
+
+            foreach (DataRow row in Sesion.ObtenerSesion().tablaIdioma.Rows)
+            {
+                cbxIdiomas.Items.Add(row[1]);
+            }
+
+            cbxIdiomas.DropDownStyle = ComboBoxStyle.DropDownList;
+
         }
 
         private void actualizarcbxIdiomas()
@@ -76,6 +100,21 @@ namespace GUI
             {
                 throw new Exception("Elija un tipo de cuenta para registrase");
             }
+        }
+
+        public void Notificar(object Sender)
+        {
+
+            if (Sender is FTraducciones)
+            {
+                actualizarTablaIdiomas();
+                LlenarCbxIdiomas();
+            }
+            else
+            {
+                actualizarIdioma();
+            }
+
         }
 
         #endregion
@@ -186,6 +225,12 @@ namespace GUI
             rbDueño.Checked = false;
             labelResidencia.Visible = false;
             tbResicencia.Visible = false;
+        }
+
+        private void cbxIdiomas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Sesion.ObtenerSesion().AgregarObservador(this);
+            Sesion.ObtenerSesion().ActualizarDiccionario(Convert.ToInt32(tablaIdioma.Rows[cbxIdiomas.SelectedIndex][0]));
         }
     }
 }

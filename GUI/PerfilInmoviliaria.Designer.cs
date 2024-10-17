@@ -30,16 +30,16 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSubirFoto = new System.Windows.Forms.Button();
             this.tbNombreDeUsuario = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbContraseña = new System.Windows.Forms.TextBox();
             this.tbNombre = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.tbMail = new System.Windows.Forms.TextBox();
+            this.btnSubirFoto = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.tableLayoutPanelFotoDePerfil = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -94,16 +94,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(349, 303);
             this.tableLayoutPanel2.TabIndex = 16;
             // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Location = new System.Drawing.Point(177, 253);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(146, 42);
-            this.btnActualizar.TabIndex = 7;
-            this.btnActualizar.Text = "Actualizar Datos";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -112,17 +102,8 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 16);
             this.label1.TabIndex = 0;
+            this.label1.Tag = "FPNombreDeUsuario";
             this.label1.Text = "Nombre de Usuario";
-            // 
-            // btnSubirFoto
-            // 
-            this.btnSubirFoto.Location = new System.Drawing.Point(3, 253);
-            this.btnSubirFoto.Name = "btnSubirFoto";
-            this.btnSubirFoto.Size = new System.Drawing.Size(146, 42);
-            this.btnSubirFoto.TabIndex = 6;
-            this.btnSubirFoto.Text = "Subir Foto";
-            this.btnSubirFoto.UseVisualStyleBackColor = true;
-            this.btnSubirFoto.Click += new System.EventHandler(this.btnSubirFoto_Click);
             // 
             // tbNombreDeUsuario
             // 
@@ -140,6 +121,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 16);
             this.label2.TabIndex = 21;
+            this.label2.Tag = "FPContraseña";
             this.label2.Text = "Contraseña";
             // 
             // tbContraseña
@@ -157,16 +139,6 @@
             this.tbNombre.Size = new System.Drawing.Size(169, 22);
             this.tbNombre.TabIndex = 3;
             // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(177, 134);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 16);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Mail";
-            // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -175,7 +147,19 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 16);
             this.label5.TabIndex = 8;
+            this.label5.Tag = "FPNombre";
             this.label5.Text = "Nombre";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(177, 134);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 16);
+            this.label3.TabIndex = 20;
+            this.label3.Tag = "FPMail";
+            this.label3.Text = "Mail";
             // 
             // tbMail
             // 
@@ -183,6 +167,28 @@
             this.tbMail.Name = "tbMail";
             this.tbMail.Size = new System.Drawing.Size(169, 22);
             this.tbMail.TabIndex = 2;
+            // 
+            // btnSubirFoto
+            // 
+            this.btnSubirFoto.Location = new System.Drawing.Point(3, 253);
+            this.btnSubirFoto.Name = "btnSubirFoto";
+            this.btnSubirFoto.Size = new System.Drawing.Size(146, 42);
+            this.btnSubirFoto.TabIndex = 6;
+            this.btnSubirFoto.Tag = "FPSubirFoto";
+            this.btnSubirFoto.Text = "Subir Foto";
+            this.btnSubirFoto.UseVisualStyleBackColor = true;
+            this.btnSubirFoto.Click += new System.EventHandler(this.btnSubirFoto_Click);
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(177, 253);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(146, 42);
+            this.btnActualizar.TabIndex = 7;
+            this.btnActualizar.Tag = "FPActualizarDatos";
+            this.btnActualizar.Text = "Actualizar Datos";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // tableLayoutPanelFotoDePerfil
             // 

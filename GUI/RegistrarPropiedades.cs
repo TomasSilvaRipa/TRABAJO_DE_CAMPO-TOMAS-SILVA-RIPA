@@ -15,12 +15,13 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace GUI
 {
-    public partial class RegistrarPropiedades : Form
+    public partial class RegistrarPropiedades : FIdiomaActualizable,IObservador
     {
         public RegistrarPropiedades()
         {
             InitializeComponent();
             bllPropiedad = new BLLPropiedad();
+            bllIdiomas = new BLLIdiomas();
             imagenes = new List<System.Drawing.Image>();
             comboBoxPatio.DataSource = Enum.GetValues(typeof(Patio));
             comboBoxPileta.DataSource = Enum.GetValues(typeof(Pileta));
@@ -28,10 +29,35 @@ namespace GUI
             comboBoxVivienda.DataSource = Enum.GetValues(typeof(Vivienda));
             btnPublicaPropiedad.Visible = true;
             btnModificar.Visible = false;
+            Sesion.ObtenerSesion().AgregarObservador(this);
+            actualizarTablaIdiomas();
         }
         BLLPropiedad bllPropiedad;
+        DataTable tablaIdioma;
+        BLLIdiomas bllIdiomas;
         List<System.Drawing.Image> imagenes;
         Propiedad propiedadModificada;
+
+        private void actualizarTablaIdiomas()
+        {
+            Sesion.ObtenerSesion().ActualizarIdiomas();
+            tablaIdioma = Sesion.ObtenerSesion().tablaIdioma;
+        }
+
+        public void Notificar(object Sender)
+        {
+
+            if (Sender is FTraducciones)
+            {
+                actualizarTablaIdiomas();
+            }
+            else
+            {
+                actualizarIdioma();
+            }
+
+        }
+
         public RegistrarPropiedades(Propiedad propiedad)
         {
             InitializeComponent();

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridViewTratosCerrados = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -41,13 +41,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelCalificacionPromedio = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.chartTratosMensuales = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
-            this.labelCalificacionPromedio = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTratosCerrados)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -133,6 +133,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 16);
             this.label1.TabIndex = 0;
+            this.label1.Tag = "FRendimientosCloserOpiniones";
             this.label1.Text = "Opiniones";
             // 
             // tableLayoutPanel3
@@ -174,6 +175,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 16);
             this.label2.TabIndex = 3;
+            this.label2.Tag = "FRendimientosCloserSaldo";
             this.label2.Text = "Saldo: ";
             // 
             // tableLayoutPanel4
@@ -212,6 +214,16 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(409, 95);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
+            // labelCalificacionPromedio
+            // 
+            this.labelCalificacionPromedio.AutoSize = true;
+            this.labelCalificacionPromedio.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.labelCalificacionPromedio.Location = new System.Drawing.Point(3, 32);
+            this.labelCalificacionPromedio.Name = "labelCalificacionPromedio";
+            this.labelCalificacionPromedio.Size = new System.Drawing.Size(20, 29);
+            this.labelCalificacionPromedio.TabIndex = 1;
+            this.labelCalificacionPromedio.Text = ".";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -219,6 +231,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(138, 16);
             this.label6.TabIndex = 0;
+            this.label6.Tag = "FRendimientosCloserCalificacionPromedio";
             this.label6.Text = "Calificación Promedio";
             // 
             // tableLayoutPanel6
@@ -244,16 +257,16 @@
             this.chartTratosMensuales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea3.Name = "ChartArea1";
-            this.chartTratosMensuales.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chartTratosMensuales.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.chartTratosMensuales.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartTratosMensuales.Legends.Add(legend1);
             this.chartTratosMensuales.Location = new System.Drawing.Point(3, 33);
             this.chartTratosMensuales.Name = "chartTratosMensuales";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Tratos Cerrados";
-            this.chartTratosMensuales.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Tratos Cerrados";
+            this.chartTratosMensuales.Series.Add(series1);
             this.chartTratosMensuales.Size = new System.Drawing.Size(403, 188);
             this.chartTratosMensuales.TabIndex = 1;
             this.chartTratosMensuales.Text = "chart1";
@@ -265,6 +278,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(161, 16);
             this.label7.TabIndex = 2;
+            this.label7.Tag = "FRendimientosCloserTratosCerradosPorMes";
             this.label7.Text = "Tratos Cerrados Por Mes:";
             // 
             // tableLayoutPanel7
@@ -293,16 +307,6 @@
             this.label3.Size = new System.Drawing.Size(105, 16);
             this.label3.TabIndex = 1;
             this.label3.Text = "Tratos Cerrados";
-            // 
-            // labelCalificacionPromedio
-            // 
-            this.labelCalificacionPromedio.AutoSize = true;
-            this.labelCalificacionPromedio.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.labelCalificacionPromedio.Location = new System.Drawing.Point(3, 32);
-            this.labelCalificacionPromedio.Name = "labelCalificacionPromedio";
-            this.labelCalificacionPromedio.Size = new System.Drawing.Size(20, 29);
-            this.labelCalificacionPromedio.TabIndex = 1;
-            this.labelCalificacionPromedio.Text = ".";
             // 
             // Rendimientos
             // 

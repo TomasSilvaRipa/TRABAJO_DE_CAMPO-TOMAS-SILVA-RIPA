@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class PerfilCloser : Form
+    public partial class PerfilCloser : FIdiomaActualizable,IObservador
     {
         Closer closerActivo;
         public PerfilCloser()
@@ -25,16 +25,42 @@ namespace GUI
             bllBitaacora = new BitacoraBLL();
             bllCloser = new BLLCloser();
             bllUsuario = new BLLUsuario();
+            bllIdiomas = new BLLIdiomas();
             Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
             closerActivo = bllCloser.LeerCloser(usuario.ID);
             MostrarDatos(usuario, closerActivo);
+            Sesion.ObtenerSesion().AgregarObservador(this);
+            actualizarTablaIdiomas();
         }
         Bitacora_ bitacora;
         BitacoraBLL bllBitaacora;
         BLLUsuario bllUsuario;
         BLLCloser bllCloser;
+        DataTable tablaIdioma;
+        BLLIdiomas bllIdiomas;
         Image imagen;
 
+
+        private void actualizarTablaIdiomas()
+        {
+            Sesion.ObtenerSesion().ActualizarIdiomas();
+            tablaIdioma = Sesion.ObtenerSesion().tablaIdioma;
+
+        }
+
+        public void Notificar(object Sender)
+        {
+
+            if (Sender is FTraducciones)
+            {
+                actualizarTablaIdiomas();
+            }
+            else
+            {
+                actualizarIdioma();
+            }
+
+        }
 
         public void MostrarDatos(Usuario usuario, Closer closer)
         {

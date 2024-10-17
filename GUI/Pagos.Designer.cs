@@ -46,6 +46,7 @@
             this.btnPagarCuota.Name = "btnPagarCuota";
             this.btnPagarCuota.Size = new System.Drawing.Size(152, 47);
             this.btnPagarCuota.TabIndex = 0;
+            this.btnPagarCuota.Tag = "FPPagarCuota";
             this.btnPagarCuota.Text = "Pagar Cuota";
             this.btnPagarCuota.UseVisualStyleBackColor = true;
             this.btnPagarCuota.Click += new System.EventHandler(this.btnPagarCuota_Click);

@@ -1,6 +1,7 @@
 ﻿using BE;
 using BLL;
 using GUI.Properties;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class PerformanceInmoviliaria : Form
+    public partial class PerformanceInmoviliaria : FIdiomaActualizable,IObservador
     {
         public PerformanceInmoviliaria()
         {
@@ -24,17 +25,43 @@ namespace GUI
             bllOpinon = new BLLOpinon();
             bllCuenta = new BLLCuenta();
             bllTrato = new BLLTrato();
+            bllIdiomas = new BLLIdiomas();
             CargarClosers();
             LeerSaldo();
             LeerTratosPorMes();
             MostrarCloserDelMes(ObtenerCloserDelMes());
+            Sesion.ObtenerSesion().AgregarObservador(this);
+            actualizarTablaIdiomas();
         }
         BLLCloser bllCloser;
         BLLOpinon bllOpinon;
         BLLCuenta bllCuenta;
         BLLTrato bllTrato;
+        DataTable tablaIdioma;
+        BLLIdiomas bllIdiomas;
         int contradorDeTratos = 0;
 
+
+        private void actualizarTablaIdiomas()
+        {
+            Sesion.ObtenerSesion().ActualizarIdiomas();
+            tablaIdioma = Sesion.ObtenerSesion().tablaIdioma;
+
+        }
+
+        public void Notificar(object Sender)
+        {
+
+            if (Sender is FTraducciones)
+            {
+                actualizarTablaIdiomas();
+            }
+            else
+            {
+                actualizarIdioma();
+            }
+
+        }
 
         public void CargarClosers()
         {

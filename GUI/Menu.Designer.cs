@@ -34,9 +34,7 @@
             this.btnPerformanceInmoviliaria = new System.Windows.Forms.Button();
             this.btnCuentaInmoviliaria = new System.Windows.Forms.Button();
             this.btnGestorDeReunionesCliente = new System.Windows.Forms.Button();
-            this.btnIngresosEmpresa = new System.Windows.Forms.Button();
             this.btnCuentaCliente = new System.Windows.Forms.Button();
-            this.btnIngresosCloser = new System.Windows.Forms.Button();
             this.btnRendimientoCloser = new System.Windows.Forms.Button();
             this.btnVerCasasGestionadasCloser = new System.Windows.Forms.Button();
             this.btnCuentaCloser = new System.Windows.Forms.Button();
@@ -97,9 +95,7 @@
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnPerformanceInmoviliaria, 0, 3);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnCuentaInmoviliaria, 4, 3);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnGestorDeReunionesCliente, 0, 2);
-            this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnIngresosEmpresa, 2, 3);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnCuentaCliente, 4, 2);
-            this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnIngresosCloser, 2, 1);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnRendimientoCloser, 3, 1);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnVerCasasGestionadasCloser, 0, 1);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnCuentaCloser, 4, 1);
@@ -127,8 +123,8 @@
             this.btnPerformanceInmoviliaria.Name = "btnPerformanceInmoviliaria";
             this.btnPerformanceInmoviliaria.Size = new System.Drawing.Size(129, 19);
             this.btnPerformanceInmoviliaria.TabIndex = 0;
-            this.btnPerformanceInmoviliaria.Tag = "FMPerformance";
-            this.btnPerformanceInmoviliaria.Text = "Performance";
+            this.btnPerformanceInmoviliaria.Tag = "FMIRendimiento";
+            this.btnPerformanceInmoviliaria.Text = "Rendimiento";
             this.btnPerformanceInmoviliaria.UseVisualStyleBackColor = true;
             this.btnPerformanceInmoviliaria.Click += new System.EventHandler(this.btnPerformanceEmpresa_Click);
             // 
@@ -155,17 +151,6 @@
             this.btnGestorDeReunionesCliente.Text = "Gestor De Reuniones";
             this.btnGestorDeReunionesCliente.UseVisualStyleBackColor = true;
             // 
-            // btnIngresosEmpresa
-            // 
-            this.btnIngresosEmpresa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnIngresosEmpresa.Location = new System.Drawing.Point(467, 32);
-            this.btnIngresosEmpresa.Name = "btnIngresosEmpresa";
-            this.btnIngresosEmpresa.Size = new System.Drawing.Size(97, 19);
-            this.btnIngresosEmpresa.TabIndex = 0;
-            this.btnIngresosEmpresa.Tag = "FMIngresosEmpresa";
-            this.btnIngresosEmpresa.Text = "Ingresos";
-            this.btnIngresosEmpresa.UseVisualStyleBackColor = true;
-            // 
             // btnCuentaCliente
             // 
             this.btnCuentaCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -177,17 +162,6 @@
             this.btnCuentaCliente.Text = "Cuenta";
             this.btnCuentaCliente.UseVisualStyleBackColor = true;
             this.btnCuentaCliente.Click += new System.EventHandler(this.btnCuentaCliente_Click);
-            // 
-            // btnIngresosCloser
-            // 
-            this.btnIngresosCloser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnIngresosCloser.Location = new System.Drawing.Point(467, 11);
-            this.btnIngresosCloser.Name = "btnIngresosCloser";
-            this.btnIngresosCloser.Size = new System.Drawing.Size(97, 1);
-            this.btnIngresosCloser.TabIndex = 5;
-            this.btnIngresosCloser.Tag = "FMIngresosCloser";
-            this.btnIngresosCloser.Text = "Ingresos";
-            this.btnIngresosCloser.UseVisualStyleBackColor = true;
             // 
             // btnRendimientoCloser
             // 
@@ -356,7 +330,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
@@ -442,12 +418,10 @@
         private System.Windows.Forms.Button btnCuentaCloser;
         private System.Windows.Forms.Button btnRendimientoCloser;
         private System.Windows.Forms.Button btnVerCasasGestionadasCloser;
-        private System.Windows.Forms.Button btnIngresosCloser;
         private System.Windows.Forms.Button btnCuentaCliente;
         private System.Windows.Forms.Button btnGestorDeReunionesCliente;
         private System.Windows.Forms.Button btnPagosCliente;
         private System.Windows.Forms.Button btnCuentaInmoviliaria;
-        private System.Windows.Forms.Button btnIngresosEmpresa;
         private System.Windows.Forms.Button btnPerformanceInmoviliaria;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelCatalogo;
         private System.Windows.Forms.PictureBox pictureBox1;

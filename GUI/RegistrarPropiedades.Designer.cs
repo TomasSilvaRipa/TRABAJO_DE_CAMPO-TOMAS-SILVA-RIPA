@@ -564,6 +564,7 @@
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(160, 40);
             this.btnModificar.TabIndex = 31;
+            this.btnModificar.Tag = "FormRPBotonModificarPropiedad";
             this.btnModificar.Text = "Modificar Publicacion";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);

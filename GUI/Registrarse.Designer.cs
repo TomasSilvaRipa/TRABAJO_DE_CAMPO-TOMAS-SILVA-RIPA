@@ -78,6 +78,7 @@
             this.btnRegistrase.Name = "btnRegistrase";
             this.btnRegistrase.Size = new System.Drawing.Size(191, 42);
             this.btnRegistrase.TabIndex = 8;
+            this.btnRegistrase.Tag = "FRbtnRegistrase";
             this.btnRegistrase.Text = "Registrarse";
             this.btnRegistrase.UseVisualStyleBackColor = true;
             this.btnRegistrase.Click += new System.EventHandler(this.btnRegistrase_Click);
@@ -90,6 +91,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 16);
             this.label4.TabIndex = 15;
+            this.label4.Tag = "FRegistrarseLabelTipoDeCuenta";
             this.label4.Text = "Tipo de Cuenta";
             // 
             // rbCloser
@@ -101,6 +103,7 @@
             this.rbCloser.Size = new System.Drawing.Size(67, 20);
             this.rbCloser.TabIndex = 14;
             this.rbCloser.TabStop = true;
+            this.rbCloser.Tag = "FRegistrarseRBCloser";
             this.rbCloser.Text = "Closer";
             this.rbCloser.UseVisualStyleBackColor = true;
             this.rbCloser.CheckedChanged += new System.EventHandler(this.rbCloser_CheckedChanged);
@@ -114,6 +117,7 @@
             this.rbDueño.Size = new System.Drawing.Size(68, 20);
             this.rbDueño.TabIndex = 13;
             this.rbDueño.TabStop = true;
+            this.rbDueño.Tag = "FRegistrarseRBDueño";
             this.rbDueño.Text = "Dueño";
             this.rbDueño.UseVisualStyleBackColor = true;
             this.rbDueño.CheckedChanged += new System.EventHandler(this.rbDueño_CheckedChanged);
@@ -127,6 +131,7 @@
             this.rbCliente.Size = new System.Drawing.Size(77, 20);
             this.rbCliente.TabIndex = 12;
             this.rbCliente.TabStop = true;
+            this.rbCliente.Tag = "FRegistrarseRBInquilino";
             this.rbCliente.Text = "Inquilino";
             this.rbCliente.UseVisualStyleBackColor = true;
             this.rbCliente.CheckedChanged += new System.EventHandler(this.rbCliente_CheckedChanged);
@@ -139,6 +144,7 @@
             this.cbxIdiomas.Name = "cbxIdiomas";
             this.cbxIdiomas.Size = new System.Drawing.Size(102, 24);
             this.cbxIdiomas.TabIndex = 20;
+            this.cbxIdiomas.SelectedIndexChanged += new System.EventHandler(this.cbxIdiomas_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -150,6 +156,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 25);
             this.label3.TabIndex = 19;
+            this.label3.Tag = "FRegistrarselabelContraseña";
             this.label3.Text = "Contraseña";
             // 
             // txtContra
@@ -173,6 +180,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 25);
             this.label1.TabIndex = 18;
+            this.label1.Tag = "FRegistrarselabelUsuario";
             this.label1.Text = "Usuario";
             // 
             // txtUsuario
@@ -195,6 +203,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(296, 42);
             this.label2.TabIndex = 21;
+            this.label2.Tag = "FRegistrarseLabelTitulo";
             this.label2.Text = "REGISTRARSE";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -218,7 +227,7 @@
             this.labelMail.Name = "labelMail";
             this.labelMail.Size = new System.Drawing.Size(52, 25);
             this.labelMail.TabIndex = 23;
-            this.labelMail.Tag = "FRlabelMail";
+            this.labelMail.Tag = "FRegistrarseLabelMail";
             this.labelMail.Text = "Mail";
             // 
             // tableLayoutPanel1
@@ -454,6 +463,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(135, 16);
             this.label7.TabIndex = 1;
+            this.label7.Tag = "FRlabelFechaDeNacimiento";
             this.label7.Text = "Fecha de Nacimiento";
             // 
             // tableLayoutPanel4

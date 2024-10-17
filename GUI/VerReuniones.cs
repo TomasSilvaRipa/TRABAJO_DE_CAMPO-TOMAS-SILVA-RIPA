@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class VerReuniones : Form
+    public partial class VerReuniones : FIdiomaActualizable,IObservador
     {
         public VerReuniones()
         {
@@ -24,12 +25,37 @@ namespace GUI
             bllCliente = new BLLCliente();
             bllTrato = new BLLTrato();
             bllOpinion = new BLLOpinon();
+            bllIdiomas = new BLLIdiomas();
             CargarReuniones();
+            Sesion.ObtenerSesion().AgregarObservador(this);
+            actualizarTablaIdiomas();
         }
         BLLReunion bllReunion;
         BLLCliente bllCliente;
         BLLTrato bllTrato;
         BLLOpinon bllOpinion;
+        DataTable tablaIdioma;
+        BLLIdiomas bllIdiomas;
+
+        private void actualizarTablaIdiomas()
+        {
+            Sesion.ObtenerSesion().ActualizarIdiomas();
+            tablaIdioma = Sesion.ObtenerSesion().tablaIdioma;
+        }
+
+        public void Notificar(object Sender)
+        {
+
+            if (Sender is FTraducciones)
+            {
+                actualizarTablaIdiomas();
+            }
+            else
+            {
+                actualizarIdioma();
+            }
+
+        }
 
         private void VerReuniones_Load(object sender, EventArgs e)
         {

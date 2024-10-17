@@ -94,6 +94,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 16);
             this.label1.TabIndex = 1;
+            this.label1.Tag = "FSRFechaPreferible";
             this.label1.Text = "Fecha Preferible";
             // 
             // tableLayoutPanel2
@@ -123,6 +124,7 @@
             this.btnSolicitarReunion.Name = "btnSolicitarReunion";
             this.btnSolicitarReunion.Size = new System.Drawing.Size(163, 74);
             this.btnSolicitarReunion.TabIndex = 0;
+            this.btnSolicitarReunion.Tag = "FSRBtnSolicitarReunion";
             this.btnSolicitarReunion.Text = "Solicitar Runión";
             this.btnSolicitarReunion.UseVisualStyleBackColor = true;
             this.btnSolicitarReunion.Click += new System.EventHandler(this.btnSolicitarReunion_Click);
@@ -143,6 +145,7 @@
             this.labelDisponibilidad.Name = "labelDisponibilidad";
             this.labelDisponibilidad.Size = new System.Drawing.Size(94, 16);
             this.labelDisponibilidad.TabIndex = 2;
+            this.labelDisponibilidad.Tag = "FSRDisponibilidad";
             this.labelDisponibilidad.Text = "Disponibilidad";
             // 
             // SolicitarReunion

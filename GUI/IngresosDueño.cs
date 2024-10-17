@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,19 +13,45 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class IngresosDueño : Form
+    public partial class IngresosDueño : FIdiomaActualizable, IObservador
     {
         public IngresosDueño()
         {
             InitializeComponent();
             bllCuota = new BLLCuota();
             bllOpinion = new BLLOpinon();
+            bllIdiomas = new BLLIdiomas();
             MostrarCuotas();
             MostrarIngresosTotales();
             MostrarOpiniones();
+            Sesion.ObtenerSesion().AgregarObservador(this);
+            actualizarTablaIdiomas();
         }
         BLLCuota bllCuota;
         BLLOpinon bllOpinion;
+        DataTable tablaIdioma;
+        BLLIdiomas bllIdiomas;
+
+        private void actualizarTablaIdiomas()
+        {
+            Sesion.ObtenerSesion().ActualizarIdiomas();
+            tablaIdioma = Sesion.ObtenerSesion().tablaIdioma;
+        }
+
+        public void Notificar(object Sender)
+        {
+
+            if (Sender is FTraducciones)
+            {
+                actualizarTablaIdiomas();
+            }
+            else
+            {
+                actualizarIdioma();
+            }
+
+        }
+
         public void MostrarCuotas()
         {
             dataGridViewCuotas.DataSource = null;
