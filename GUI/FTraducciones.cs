@@ -98,6 +98,26 @@ namespace GUI
             dgvTraduccion.AllowUserToAddRows = false;
 
         }
+        //private DataTable GenerarTablaTraduccionEditable()
+        //{
+        //    var nuevoDataTable = new DataTable();
+        //    nuevoDataTable.Columns.Add("Codigo", typeof(int));
+        //    nuevoDataTable.Columns.Add("Palabra", typeof(string));
+        //    nuevoDataTable.Columns.Add("Traduccion", typeof(string));
+
+        //    var filasCoincidentes = from palabra in tablaPalabras.AsEnumerable()
+        //                            join traduccion in tablaTraduccion.AsEnumerable()
+        //                            on palabra.Field<int>(0) equals traduccion.Field<int>(1)
+        //                            select new { Codigo = palabra.Field<int>(0), Palabra = palabra.Field<string>(1), Traduccion = traduccion.Field<string>(2) };
+
+        //    foreach (var fila in filasCoincidentes)
+        //    {
+        //        nuevoDataTable.Rows.Add(fila.Codigo,fila.Palabra, fila.Traduccion);
+        //    }
+
+        //    return nuevoDataTable;
+        //}
+
         private DataTable GenerarTablaTraduccionEditable()
         {
             var nuevoDataTable = new DataTable();
@@ -105,14 +125,21 @@ namespace GUI
             nuevoDataTable.Columns.Add("Palabra", typeof(string));
             nuevoDataTable.Columns.Add("Traduccion", typeof(string));
 
+            // Hacer un left join para incluir todas las palabras
             var filasCoincidentes = from palabra in tablaPalabras.AsEnumerable()
                                     join traduccion in tablaTraduccion.AsEnumerable()
-                                    on palabra.Field<int>(0) equals traduccion.Field<int>(1)
-                                    select new { Codigo = palabra.Field<int>(0), Palabra = palabra.Field<string>(1), Traduccion = traduccion.Field<string>(2) };
+                                    on palabra.Field<int>(0) equals traduccion.Field<int>(1) into traduccionGroup
+                                    from subtraduccion in traduccionGroup.DefaultIfEmpty()
+                                    select new
+                                    {
+                                        Codigo = palabra.Field<int>(0),
+                                        Palabra = palabra.Field<string>(1),
+                                        Traduccion = subtraduccion == null ? string.Empty : subtraduccion.Field<string>(2)
+                                    };
 
             foreach (var fila in filasCoincidentes)
             {
-                nuevoDataTable.Rows.Add(fila.Codigo,fila.Palabra, fila.Traduccion);
+                nuevoDataTable.Rows.Add(fila.Codigo, fila.Palabra, fila.Traduccion);
             }
 
             return nuevoDataTable;

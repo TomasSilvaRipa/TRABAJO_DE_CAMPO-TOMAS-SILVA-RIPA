@@ -44,11 +44,26 @@ namespace MPP
 
             foreach (DataRow row in tablaTraduccionEditable.Rows)
             {
-                valores += row["Codigo"].ToString() + "," + row["Traduccion"].ToString().Trim() + ";";
+                if (!string.IsNullOrWhiteSpace(row["Traduccion"].ToString().Trim()))
+                {
+                    string traduccion = row["Traduccion"].ToString().Trim().Replace(",", "").Replace(";", "");
+
+                    valores += row["Codigo"].ToString() + "," + traduccion + ";";
+                }
             }
 
-            ad.Escribir("UpdateIdioma", new List<System.Data.SqlClient.SqlParameter>() { new System.Data.SqlClient.SqlParameter("@IdIdioma", idIdioma), new System.Data.SqlClient.SqlParameter("@Traducciones", valores) });
-
+            if (!string.IsNullOrEmpty(valores))
+            {
+                ad.Escribir("UpdateIdioma", new List<System.Data.SqlClient.SqlParameter>()
+                {
+                    new System.Data.SqlClient.SqlParameter("@IdIdioma", idIdioma),
+                    new System.Data.SqlClient.SqlParameter("@Traducciones", valores)
+                });
+            }
+            else
+            {
+                throw new Exception("No hay cambios en las traducciones.");
+            }
         }
 
         public DataTable ObtenerIdiomas()

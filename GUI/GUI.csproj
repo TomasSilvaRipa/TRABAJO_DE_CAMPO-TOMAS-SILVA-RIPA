@@ -107,6 +107,12 @@
     <Compile Include="GestorDeCambios.Designer.cs">
       <DependentUpon>GestorDeCambios.cs</DependentUpon>
     </Compile>
+    <Compile Include="PerfilInmoviliaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PerfilInmoviliaria.Designer.cs">
+      <DependentUpon>PerfilInmoviliaria.cs</DependentUpon>
+    </Compile>
     <Compile Include="PerformanceInmoviliaria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GestorDeCambios.resx">
       <DependentUpon>GestorDeCambios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PerfilInmoviliaria.resx">
+      <DependentUpon>PerfilInmoviliaria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PerformanceInmoviliaria.resx">
       <DependentUpon>PerformanceInmoviliaria.cs</DependentUpon>

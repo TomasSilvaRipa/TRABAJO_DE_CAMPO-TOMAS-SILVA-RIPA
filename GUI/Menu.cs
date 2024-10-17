@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using Servicios;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class Menu : Form
+    public partial class Menu : FIdiomaActualizable,IObservador
     {
         public Menu(FLogin fLogin)
         {
@@ -24,10 +25,14 @@ namespace GUI
             bitacorabll = new BitacoraBLL();
             bllPropiedad = new BLLPropiedad();
             bllCloser = new BLLCloser();
+            bllIdiomas = new BLLIdiomas();
             fl = fLogin;
             BuscarControles(this.Controls);
             OcultarBotonesDinamico();
             ComprobarPermisos(Sesion.ObtenerSesion().listaDePermisos);
+            Sesion.ObtenerSesion().AgregarObservador(this);
+            actualizarTablaIdiomas();
+            actualizarcbxIdiomas();
             MostrarControles();
             IdentificarCatalogo();
         }
@@ -36,6 +41,9 @@ namespace GUI
         FLogin fl;
         BLLPropiedad bllPropiedad;
         BLLCloser bllCloser;
+        
+        DataTable tablaIdioma;
+        BLLIdiomas bllIdiomas;
         private void Menu_Load(object sender, EventArgs e)
         {
 
@@ -98,9 +106,56 @@ namespace GUI
             }
         }
 
+        private void actualizarTablaIdiomas()
+        {
+            Sesion.ObtenerSesion().ActualizarIdiomas();
+            tablaIdioma = Sesion.ObtenerSesion().tablaIdioma;
+
+        }
+
+        private void actualizarcbxIdiomas()
+        {
+
+            tablaIdioma = bllIdiomas.ObtenerIdiomas();
+            foreach (DataRow row in tablaIdioma.Rows)
+            {
+                comboBoxIdiomas.Items.Add(row[1]);
+            }
+            comboBoxIdiomas.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxIdiomas.SelectedIndex = 0;
+        }
+
+        private void LlenarCbxIdiomas()
+        {
+            comboBoxIdiomas.Items.Clear();
+
+            foreach (DataRow row in Sesion.ObtenerSesion().tablaIdioma.Rows)
+            {
+                comboBoxIdiomas.Items.Add(row[1]);
+            }
+
+            comboBoxIdiomas.DropDownStyle = ComboBoxStyle.DropDownList;
+
+        }
+
+        public void Notificar(object Sender)
+        {
+
+            if (Sender is FTraducciones)
+            {
+                actualizarTablaIdiomas();
+                LlenarCbxIdiomas();
+            }
+            else
+            {
+                actualizarIdioma();
+            }
+
+        }
+
         public void MostrarControles()
         {
-            if(btnAgregarPropiedad.Enabled == true && btnVerReunionesDueño.Enabled == true && btnIngresosDueño.Enabled == true && btnVerSolicitudesDeClosers.Enabled == true && btnCuentaDueño.Enabled == true)
+            if(btnAgregarPropiedad.Enabled == true && btnVerReunionesDueño.Enabled == true && btnIngresosDueño.Enabled == true && btnCuentaDueño.Enabled == true)
             {
                 tableLayoutPanelBarraMenuDinamica.RowStyles[0].Height = 100;
                 tableLayoutPanelBarraMenuDinamica.RowStyles[1].Height = 0;
@@ -116,7 +171,6 @@ namespace GUI
                 btnAgregarPropiedad.Size = new Size(140,35);
                 btnVerReunionesDueño.Size = new Size(164, 35);
                 btnIngresosDueño.Size = new Size(160, 40);
-                btnVerSolicitudesDeClosers.Size = new Size(140,35);
                 btnCuentaDueño.Size = new Size(140,35);
             }
             else if(btnIngresosCloser.Enabled == true && btnRendimientoCloser.Enabled == true && btnCuentaCloser.Enabled == true && btnVerCasasGestionadasCloser.Enabled == true)
@@ -234,11 +288,13 @@ namespace GUI
                             labelNombre.Tag = propiedad.Name;
                             labelNombre.Location = new Point(10, labelPosY);
                             labelNombre.AutoSize = true;
+                            labelNombre.ForeColor = Color.White;
 
                             Label labelValor = new Label();
                             labelValor.Text = propiedad.GetValue(p)?.ToString();
                             labelValor.Location = new Point(150, labelPosY);
                             labelValor.AutoSize = true;
+                            labelValor.ForeColor = Color.White;
 
                             gpDescripcion.Controls.Add(labelNombre);
                             gpDescripcion.Controls.Add(labelValor);
@@ -249,15 +305,19 @@ namespace GUI
 
                     Button btnModificar = new Button();
                     btnModificar.Text = "Modificar Datos";
+                    btnModificar.Tag = "FMDModificarDatos";
                     btnModificar.Width = 120;
                     btnModificar.Location = new Point(10, labelPosY);
                     btnModificar.Click += (s, e) => AbrirFormularioModificar(p);
+                    btnModificar.ForeColor = Color.White;
                     labelPosY += 30;
 
                     Button btnVerPostulados = new Button();
                     btnVerPostulados.Text = "Ver Postulados";
+                    btnVerPostulados.Tag = "FMDVerPostulados";
                     btnVerPostulados.Width = 120;
                     btnVerPostulados.Location = new Point(10, labelPosY);
+                    btnVerPostulados.ForeColor = Color.White;
                     labelPosY += 30;
                     btnVerPostulados.Click += (s, e) => AbrirFormularioClosersPostulados(p);
 
@@ -320,11 +380,13 @@ namespace GUI
                         labelNombre.Tag = propiedad.Name;
                         labelNombre.Location = new Point(10, labelPosY);
                         labelNombre.AutoSize = true;
+                        labelNombre.ForeColor = Color.White;
 
                         Label labelValor = new Label();
                         labelValor.Text = propiedad.GetValue(p)?.ToString();
                         labelValor.Location = new Point(130, labelPosY);
                         labelValor.AutoSize = true;
+                        labelValor.ForeColor = Color.White;
 
                         gpDescripcion.Controls.Add(labelNombre);
                         gpDescripcion.Controls.Add(labelValor);
@@ -338,6 +400,7 @@ namespace GUI
                 btnPostularse.Width = 120;
                 btnPostularse.Location = new Point(10, labelPosY);
                 btnPostularse.Click += (s, e) => Postularse(p);
+                btnPostularse.ForeColor = Color.White;
 
                 gpadre.Controls.Add(flpImagenes);
                 gpadre.Controls.Add(gpDescripcion);
@@ -395,11 +458,13 @@ namespace GUI
                         labelNombre.Tag = propiedad.Name;
                         labelNombre.Location = new Point(10, labelPosY);
                         labelNombre.AutoSize = true;
+                        labelNombre.ForeColor = Color.White;
 
                         Label labelValor = new Label();
                         labelValor.Text = propiedad.GetValue(p)?.ToString();
                         labelValor.Location = new Point(130, labelPosY);
                         labelValor.AutoSize = true;
+                        labelValor.ForeColor = Color.White;
 
                         gpDescripcion.Controls.Add(labelNombre);
                         gpDescripcion.Controls.Add(labelValor);
@@ -414,6 +479,7 @@ namespace GUI
                 btnSolicitarReunion.Width = 120;
                 btnSolicitarReunion.Location = new Point(10, labelPosY);
                 btnSolicitarReunion.Click += (s, e) => AbrirFormularioSolicitarReunion(p);
+                btnSolicitarReunion.ForeColor = Color.White;
 
                 gpadre.Controls.Add(flpImagenes);
                 gpadre.Controls.Add(gpDescripcion);
@@ -421,6 +487,86 @@ namespace GUI
                 flowLayoutPanelCatalogo.Controls.Add(gpadre);
             }
         }
+
+        public void GenerarCatalogoInmoviliaria()
+        {
+            List<Propiedad> listaDePropiedades = new List<Propiedad>();
+            listaDePropiedades = bllPropiedad.LeerPropiedades(3);
+            flowLayoutPanelCatalogo.FlowDirection = FlowDirection.LeftToRight;
+            flowLayoutPanelCatalogo.WrapContents = true;
+            flowLayoutPanelCatalogo.Controls.Clear();
+            foreach (Propiedad p in listaDePropiedades)
+            {
+                GroupBox gpadre = new GroupBox();
+                gpadre.Width = flowLayoutPanelCatalogo.Width - 170;
+                gpadre.Height = 300;
+                gpadre.Margin = new Padding(20);
+
+                FlowLayoutPanel flpImagenes = new FlowLayoutPanel();
+                flpImagenes.Width = gpadre.Width / 2;
+                flpImagenes.Height = gpadre.Height;
+                flpImagenes.Dock = DockStyle.Left;
+                flpImagenes.AutoScroll = true;
+
+                Panel gpDescripcion = new Panel();
+                gpDescripcion.Width = gpadre.Width / 2;
+                gpDescripcion.Height = gpadre.Height;
+                gpDescripcion.Dock = DockStyle.Right;
+                gpDescripcion.AutoScroll = true;
+
+                int labelPosY = 20;
+                foreach (byte[] imgBytes in p.Imagenes)
+                {
+                    PictureBox pictureBox = new PictureBox();
+                    pictureBox.Width = 100;
+                    pictureBox.Height = 100;
+                    pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                    using (MemoryStream ms = new MemoryStream(imgBytes))
+                    {
+                        pictureBox.Image = Image.FromStream(ms);
+                    }
+                    flpImagenes.Controls.Add(pictureBox);
+                }
+
+                foreach (PropertyInfo propiedad in p.GetType().GetProperties())
+                {
+                    if (propiedad.Name != "Imagenes" && propiedad.Name != "ID")
+                    {
+                        Label labelNombre = new Label();
+                        labelNombre.Text = propiedad.Name;
+                        labelNombre.Tag = propiedad.Name;
+                        labelNombre.Location = new Point(10, labelPosY);
+                        labelNombre.AutoSize = true;
+                        labelNombre.ForeColor = Color.White;
+
+                        Label labelValor = new Label();
+                        labelValor.Text = propiedad.GetValue(p)?.ToString();
+                        labelValor.Location = new Point(130, labelPosY);
+                        labelValor.AutoSize = true;
+                        labelValor.ForeColor = Color.White;
+
+                        gpDescripcion.Controls.Add(labelNombre);
+                        gpDescripcion.Controls.Add(labelValor);
+
+                        labelPosY += 30;
+                    }
+                }
+
+                Button btnBaja = new Button();
+                btnBaja.Text = "Dar de Baja";
+                btnBaja.ForeColor = Color.White;
+                btnBaja.Width = 120;
+                btnBaja.Location = new Point(10, labelPosY);
+                btnBaja.ForeColor = Color.White;
+                //btnPostularse.Click += (s, e) => Postularse(p);
+
+                gpadre.Controls.Add(flpImagenes);
+                gpadre.Controls.Add(gpDescripcion);
+                gpDescripcion.Controls.Add(btnBaja);
+                flowLayoutPanelCatalogo.Controls.Add(gpadre);
+            }
+        }
+
 
 
         public void IdentificarCatalogo()
@@ -438,6 +584,10 @@ namespace GUI
                 else if(Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Cliente")
                 {
                     GenerarCatalogoClientes();
+                }
+                else if(Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Inmoviliaria")
+                {
+                    GenerarCatalogoInmoviliaria();
                 }
             }
             catch(Exception ex)
@@ -588,6 +738,24 @@ namespace GUI
         {
             PerformanceInmoviliaria performanceInmoviliaria = new PerformanceInmoviliaria();
             performanceInmoviliaria.Show();
+        }
+
+        private void btnCuentaInmoviliaria_Click(object sender, EventArgs e)
+        {
+            PerfilInmoviliaria perfilInmoviliaria = new PerfilInmoviliaria();
+            perfilInmoviliaria.Show();
+        }
+
+        private void buttonMenuDeGestion_Click(object sender, EventArgs e)
+        {
+            FMdi fMdi = new FMdi(fl,Sesion.ObtenerSesion().ObtenerUsuario().NombreDeUsuario);
+            fMdi.Show();
+        }
+
+        private void comboBoxIdioma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Sesion.ObtenerSesion().AgregarObservador(this);
+            Sesion.ObtenerSesion().ActualizarDiccionario(Convert.ToInt32(tablaIdioma.Rows[comboBoxIdiomas.SelectedIndex][0]));
         }
     }
 }

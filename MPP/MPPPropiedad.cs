@@ -161,6 +161,26 @@ namespace MPP
                             listaDeViviendas.Add(propiedad);
                         }
                     }
+                    else if(opcion == 3)
+                    {
+                        Propiedad propiedad = new Propiedad();
+                        propiedad.ID = (int)row["ID"];
+                        propiedad.Ambientes = (int)row["Ambientes"];
+                        propiedad.TipoDeVivienda = row["TipoDeVivienda"].ToString();
+                        propiedad.Antiguedad = (int)row["Antiguedad"];
+                        propiedad.Baños = (int)row["Baños"];
+                        propiedad.Cochera = (bool)row["Cochera"];
+                        propiedad.Patio = (bool)row["Patio"];
+                        propiedad.Pisos = (int)row["Pisos"];
+                        propiedad.Direccion = row["Direccion"].ToString();
+                        propiedad.SuperficieCubierta = row["SuperficieCubierta"].ToString();
+                        propiedad.SuperficieTotal = row["SuperficieTotal"].ToString();
+                        propiedad.Pileta = (bool)row["Pileta"];
+                        propiedad.Habitaciones = (int)row["Habitaciones"];
+                        propiedad.ValorDeCouta = (decimal)row["ValorCuota"];
+                        propiedad.Imagenes = LeerImagenesPorPropiedad(propiedad.ID);
+                        listaDeViviendas.Add(propiedad);
+                    }
                 }
                 return listaDeViviendas;    
             }

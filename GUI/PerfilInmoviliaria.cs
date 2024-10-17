@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using GUI.Properties;
 using Servicios;
 using System;
 using System.Collections.Generic;
@@ -8,51 +9,65 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace GUI
 {
-    public partial class PerfilCliente : Form
+    public partial class PerfilInmoviliaria : Form
     {
-        Cliente clienteActivo;
-        public PerfilCliente()
+        public PerfilInmoviliaria()
         {
             InitializeComponent();
-            bitacora = new Bitacora_();
-            bllBitacora = new BitacoraBLL();
-            bllCliente = new BLLCliente();
+            bllInmoviliaria = new BLLInmoviliaria();
             bllUsuario = new BLLUsuario();
-            Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
-            clienteActivo = bllCliente.LeerCliente(usuario.ID,1);
-            MostrarDatos(usuario,clienteActivo);
+            bllBitacora = new BitacoraBLL();
+            usuario = Sesion.ObtenerSesion().ObtenerUsuario();
+            inmoviliariaActivo = bllInmoviliaria.LeerCuentaInmoviliaria(usuario);
+            MostrarDatos(usuario,inmoviliariaActivo);
         }
+        Usuario usuario;
+        Inmoviliaria inmoviliariaActivo;
+        BLLInmoviliaria bllInmoviliaria;
+        BLLUsuario bllUsuario;
         Bitacora_ bitacora;
         BitacoraBLL bllBitacora;
-        BLLUsuario bllUsuario;
-        BLLCliente bllCliente;
-        Image imagen;
+        System.Drawing.Image imagen;
 
-        public void MostrarDatos(Usuario usuario,Cliente cliente)
+        
+
+        public void MostrarDatos(Usuario usuario, Inmoviliaria inmoviliaria)
         {
             tbNombreDeUsuario.Text = usuario.NombreDeUsuario;
             tbMail.Text = usuario.Mail;
-            tbNombre.Text = cliente.Nombre;
-            tbApellido.Text = cliente.Apellido;
-            dateTimePickerFN.Value = cliente.FechaNacimiento;
-            if(usuario.Foto != null)
+            tbNombre.Text = inmoviliaria.Nombre; 
+            tableLayoutPanelFotoDePerfil.Controls.Clear();
+            PictureBox pictureBox = new PictureBox();
+            pictureBox.Dock = DockStyle.Fill;
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
+            if (usuario.Foto != null)
             {
-                tableLayoutPanelFotoDePerfil.Controls.Clear();
-                PictureBox pictureBox = new PictureBox();
-                pictureBox.Dock = DockStyle.Fill;
-                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-                pictureBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
                 using (MemoryStream ms = new MemoryStream(usuario.Foto))
                 {
-                    pictureBox.Image = Image.FromStream(ms);
+                    pictureBox.Image = System.Drawing.Image.FromStream(ms);
                 }
-                tableLayoutPanelFotoDePerfil.Controls.Add(pictureBox);
+            }
+            else
+            {
+                pictureBox.Image = Resources.UsuarioGenerico;
+            }
+            tableLayoutPanelFotoDePerfil.Controls.Add(pictureBox);
+        }
+        public byte[] ConvertirImagenABytes(System.Drawing.Image Imagen)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                Imagen.Save(ms, Imagen.RawFormat);
+                return ms.ToArray();
             }
         }
 
@@ -63,28 +78,17 @@ namespace GUI
                 usuarioModificar.Clave = Seguridad.Encriptar(tbContraseña.Text);
                 usuarioModificar.Mail = tbMail.Text;
                 usuarioModificar.DV = bllUsuario.CalcularDigitoVerificadorHorizontal(usuarioModificar);
-                clienteActivo.Nombre = tbNombre.Text;
-                clienteActivo.Apellido = tbApellido.Text;
-                clienteActivo.FechaNacimiento = dateTimePickerFN.Value;
+                inmoviliariaActivo.Nombre = tbNombre.Text;
                 if (imagen != null)
                 {
                     usuarioModificar.Foto = ConvertirImagenABytes(imagen);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
-        }
 
-        public byte[] ConvertirImagenABytes(Image Imagen)
-        {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                Imagen.Save(ms, Imagen.RawFormat); 
-                return ms.ToArray(); 
-            }
         }
 
         private void btnSubirFoto_Click(object sender, EventArgs e)
@@ -116,7 +120,7 @@ namespace GUI
         {
             try
             {
-                if ( !ManejoErrores.ValidarClave(tbContraseña.Text) || !ManejoErrores.ValidarMail(tbMail.Text))
+                if (!ManejoErrores.ValidarClave(tbContraseña.Text) || !ManejoErrores.ValidarMail(tbMail.Text))
                 {
                     bitacora = new Bitacora_(Bitacora_.BitacoraTipo.VALIDACION, tbNombreDeUsuario.Text, "Los datos ingresados no tienen el formato correcto.");
                     bllBitacora.Add(bitacora);
@@ -125,11 +129,11 @@ namespace GUI
                 }
                 Usuario usuarioModificar = Sesion.ObtenerSesion().ObtenerUsuario();
                 ActualizarDatos(usuarioModificar);
-                if (bllUsuario.ActualizarUsuario(usuarioModificar, 1) && bllCliente.ModificarCliente(clienteActivo,usuarioModificar.ID))
+                if (bllUsuario.ActualizarUsuario(usuarioModificar, 1) && bllInmoviliaria.ModificarCuentaInmoviliario(inmoviliariaActivo, usuarioModificar.ID))
                 {
                     bitacora = new Bitacora_(Bitacora_.BitacoraTipo.INFO, tbNombreDeUsuario.Text, "El usuario se modificó con exito.");
                     bllBitacora.Add(bitacora);
-                    MostrarDatos(usuarioModificar, clienteActivo);
+                    MostrarDatos(usuarioModificar,(inmoviliariaActivo));
                     MessageBox.Show(bitacora.Mensaje);
                 }
                 else
@@ -138,9 +142,9 @@ namespace GUI
                     bllBitacora.Add(bitacora);
                     MessageBox.Show(bitacora.Mensaje);
                 }
-                
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

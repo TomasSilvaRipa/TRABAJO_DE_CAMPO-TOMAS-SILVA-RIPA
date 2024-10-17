@@ -146,7 +146,7 @@ namespace GUI
         }
         private void FMdi_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            
 
         }
 
@@ -219,8 +219,6 @@ namespace GUI
             }
             else
             {
-
-
                 actualizarIdioma();
             }
 

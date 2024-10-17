@@ -11,7 +11,7 @@ namespace BE
         public int ID_Usuario {  get; set; }
         public string Nombre { get; set; }
         
-
+        public Inmoviliaria() { }
         public Inmoviliaria(Usuario usuario,string nombre)
         {
             NombreDeUsuario = usuario.NombreDeUsuario;

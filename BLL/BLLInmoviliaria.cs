@@ -20,5 +20,10 @@ namespace BLL
         {
             return mppInmoviliaria.ModificarCuentaInmoviliaria(inmoviliaria, id);
         }
+
+        public Inmoviliaria LeerCuentaInmoviliaria(Usuario usuario)
+        {
+            return mppInmoviliaria.LeerCuentaInmoviliaria(usuario);
+        }
     }
 }

@@ -45,6 +45,31 @@ namespace MPP
             return acceso.Escribir("ModificarInmoviliario", parameters);
         }
 
+        public Inmoviliaria LeerCuentaInmoviliaria(Usuario usuario)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter("@ID_Usuario",usuario.ID),
+            };
+            DataTable dt = acceso.Leer("LeerCuentaInmoviliaria",parameters);
+            if(dt.Rows.Count > 0)
+            {
+                foreach(DataRow row  in dt.Rows)
+                {
+                    Inmoviliaria inmoviliaria = new Inmoviliaria();
+                    inmoviliaria.ID = (int)row["ID"];
+                    inmoviliaria.Nombre = row["Nombre"].ToString();
+                    if (row["Foto"] != DBNull.Value)
+                    {
+                        inmoviliaria.Foto = (byte[])row["Foto"];
+                    }
+                    return inmoviliaria;
+                }
+                return null;
+            }
+            return null;
+        }
+
         
     }
 }
