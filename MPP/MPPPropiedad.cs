@@ -107,6 +107,15 @@ namespace MPP
         }
 
 
+        public bool BajaPropiedad(Propiedad propiedad)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter("@ID_Vivienda",propiedad.ID),
+            };
+            return acceso.Escribir("BajaVivienda",parameters);
+        }
+
         public List<Propiedad> LeerPropiedades(int opcion)
         {
             List<Propiedad> listaDeViviendas = new List<Propiedad>();
@@ -134,6 +143,7 @@ namespace MPP
                             propiedad.Pileta = (bool)row["Pileta"];
                             propiedad.Habitaciones = (int)row["Habitaciones"];
                             propiedad.ValorDeCouta = (decimal)row["ValorCuota"];
+                            propiedad.Aqluilada = Convert.ToBoolean(row["Alquilada"]);
                             propiedad.Imagenes = LeerImagenesPorPropiedad(propiedad.ID);
                             listaDeViviendas.Add(propiedad);
                         }
@@ -157,6 +167,7 @@ namespace MPP
                             propiedad.Pileta = (bool)row["Pileta"];
                             propiedad.Habitaciones = (int)row["Habitaciones"];
                             propiedad.ValorDeCouta = (decimal)row["ValorCuota"];
+                            propiedad.Aqluilada = Convert.ToBoolean(row["Alquilada"]);
                             propiedad.Imagenes = LeerImagenesPorPropiedad(propiedad.ID);
                             listaDeViviendas.Add(propiedad);
                         }
@@ -178,6 +189,7 @@ namespace MPP
                         propiedad.Pileta = (bool)row["Pileta"];
                         propiedad.Habitaciones = (int)row["Habitaciones"];
                         propiedad.ValorDeCouta = (decimal)row["ValorCuota"];
+                        propiedad.Aqluilada = Convert.ToBoolean(row["Alquilada"]);
                         propiedad.Imagenes = LeerImagenesPorPropiedad(propiedad.ID);
                         listaDeViviendas.Add(propiedad);
                     }
@@ -213,6 +225,7 @@ namespace MPP
                     propiedad.Pileta = (bool)row["Pileta"];
                     propiedad.Habitaciones = (int)row["Habitaciones"];
                     propiedad.ValorDeCouta = (decimal)row["ValorCuota"];
+                    propiedad.Aqluilada = Convert.ToBoolean(row["Alquilada"]);
                     propiedad.Imagenes = LeerImagenesPorPropiedad(propiedad.ID);
                     listaPropiedades.Add(propiedad);
                 }

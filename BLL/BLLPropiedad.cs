@@ -34,6 +34,11 @@ namespace BLL
             return mppPropiedad.ModificarPropiedad(propiedad, dueño.ID, imagenesEnBytes);
         }
 
+        public bool BajaPropiedad(Propiedad propiedad)
+        {
+            return mppPropiedad.BajaPropiedad(propiedad);
+        }
+
         public List<Propiedad> LeerPropiedades(int opcion)
         {
             return mppPropiedad.LeerPropiedades(opcion);

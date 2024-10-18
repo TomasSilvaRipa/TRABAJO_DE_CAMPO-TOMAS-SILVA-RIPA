@@ -239,6 +239,30 @@ namespace GUI
             }
         }
 
+        public void DarViviendaDeBaja(Propiedad propiedad)
+        {
+            try
+            {
+                if(propiedad.Aqluilada == false)
+                {
+                    if (bllPropiedad.BajaPropiedad(propiedad))
+                    {
+                        IdentificarCatalogo();
+                        MessageBox.Show("Vivienda dada de baja exitosamente!!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se puede borrar una vivienda que esta siendo alquilada");
+                }
+                
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
+
         public void GenerarCatalogoDueños()
         {
             List<Propiedad> listaDePropiedades = new List<Propiedad>();
@@ -323,10 +347,20 @@ namespace GUI
                     labelPosY += 30;
                     btnVerPostulados.Click += (s, e) => AbrirFormularioClosersPostulados(p);
 
+                    Button btnBaja = new Button();
+                    btnBaja.Text = "Dar de Baja";
+                    btnBaja.Tag = "FMDarDeBaja";
+                    btnBaja.Width = 120;
+                    btnBaja.Location = new Point(10, labelPosY);
+                    btnBaja.ForeColor = Color.White;
+                    labelPosY += 30;
+                    btnBaja.Click += (s, e) => DarViviendaDeBaja(p);
+
                     gpadre.Controls.Add(flpImagenes);
                     gpadre.Controls.Add(gpDescripcion);
                     gpDescripcion.Controls.Add(btnModificar);
                     gpDescripcion.Controls.Add(btnVerPostulados);
+                    gpDescripcion.Controls.Add(btnBaja);
                     flowLayoutPanelCatalogo.Controls.Add(gpadre);
                 }
             }
@@ -558,12 +592,12 @@ namespace GUI
 
                 Button btnBaja = new Button();
                 btnBaja.Text = "Dar de Baja";
-                btnBaja.Tag = "FMIDarDeBaja";
+                btnBaja.Tag = "FMDarDeBaja";
                 btnBaja.ForeColor = Color.White;
                 btnBaja.Width = 120;
                 btnBaja.Location = new Point(10, labelPosY);
                 btnBaja.ForeColor = Color.White;
-                //btnPostularse.Click += (s, e) => Postularse(p);
+                btnBaja.Click += (s, e) => DarViviendaDeBaja(p);
 
                 gpadre.Controls.Add(flpImagenes);
                 gpadre.Controls.Add(gpDescripcion);

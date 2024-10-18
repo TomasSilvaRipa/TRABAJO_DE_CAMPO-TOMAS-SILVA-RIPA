@@ -20,6 +20,8 @@ namespace BE
         public int Antiguedad { get; set; }
         public bool Patio {  get; set; }
         public bool Pileta {  get; set; }
+
+        public bool Aqluilada { get; set; }
         public decimal ValorDeCouta { get; set; }
 
         public List<byte[]> Imagenes = new List<byte[]>();
