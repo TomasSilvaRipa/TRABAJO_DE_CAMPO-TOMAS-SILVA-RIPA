@@ -71,6 +71,38 @@ namespace GUI
             }
         }
 
+        public void Rechazar(Propiedad p, Closer c)
+        {
+            try
+            {
+                if (bllDueño.RechazarCloserPostulado(p,c))
+                {
+                    GenerarCatalogoClosersPostulados(p);
+                    MessageBox.Show("Closer" + c.Nombre + " " + c.Apellido + " Rechazado");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void DarDeBaja(Propiedad propiedad,Closer closer)
+        {
+            try
+            {
+                if(bllDueño.DarDeBajaCloserACargo(propiedad, closer))
+                {
+                    GenerarCatalogoClosersPostulados(propiedad);
+                    MessageBox.Show("Closer " + closer.Nombre +" dado de baja exitosamente");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         public void GenerarCatalogoClosersPostulados(Propiedad propiedadSeleccionada)
         {
             try
@@ -134,9 +166,10 @@ namespace GUI
                                 else
                                 {
                                     PictureBox pictureBox = new PictureBox();
-                                    pictureBox.Width = 100;
-                                    pictureBox.Height = 100;
+                                    pictureBox.Width = flpImagen.Width;
+                                    pictureBox.Height = flpImagen.Height;
                                     pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                                    
                                     if (propiedad.GetValue(c) != null)
                                     {
                                         using (MemoryStream ms = new MemoryStream(c.Foto))
@@ -157,7 +190,7 @@ namespace GUI
                             btnDarDeBaja.Width = 120;
                             btnDarDeBaja.Location = new Point(10, labelPosY);
                             labelPosY += 30;
-                            //btnDarDeBaja.Click += (s, e) => Aceptar(propiedadSeleccionada, c);
+                            btnDarDeBaja.Click += (s, e) => DarDeBaja(propiedadSeleccionada, c);
 
                             gpadre.Controls.Add(flpImagen);
                             gpadre.Controls.Add(gpDescripcion);
@@ -215,8 +248,8 @@ namespace GUI
                                 else
                                 {
                                     PictureBox pictureBox = new PictureBox();
-                                    pictureBox.Width = 100;
-                                    pictureBox.Height = 100;
+                                    pictureBox.Width = flpImagen.Width;
+                                    pictureBox.Height = flpImagen.Height;
                                     pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                                     if (propiedad.GetValue(c) != null)
                                     {
@@ -247,7 +280,7 @@ namespace GUI
                             btnRechazar.Width = 120;
                             btnRechazar.Location = new Point(10, labelPosY);
                             labelPosY += 30;
-                            //btnRechazar.Click += (s, e) => Rechazar(p,c);
+                            btnRechazar.Click += (s, e) => Rechazar(propiedadSeleccionada, c);
 
                             gpadre.Controls.Add(flpImagen);
                             gpadre.Controls.Add(gpDescripcion);

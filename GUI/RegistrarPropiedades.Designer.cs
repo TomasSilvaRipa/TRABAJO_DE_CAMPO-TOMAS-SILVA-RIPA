@@ -336,7 +336,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(159, 20);
             this.label8.TabIndex = 18;
-            this.label8.Tag = "FormRPlableSP";
+            this.label8.Tag = "FormRPlableST";
             this.label8.Text = "SuperfieTotal en m2";
             // 
             // label9

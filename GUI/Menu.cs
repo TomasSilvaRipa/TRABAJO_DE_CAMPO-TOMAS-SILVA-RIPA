@@ -767,5 +767,11 @@ namespace GUI
         {
 
         }
+
+        private void btnGestorDeReunionesCliente_Click(object sender, EventArgs e)
+        {
+            VerReunionesCliente verReunionesCliente = new VerReunionesCliente();
+            verReunionesCliente.Show();
+        }
     }
 }

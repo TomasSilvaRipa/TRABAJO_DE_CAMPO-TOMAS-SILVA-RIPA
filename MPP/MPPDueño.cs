@@ -72,6 +72,27 @@ namespace MPP
             return acceso.Escribir("AceptarPostulado",parameters);
             
         }
+
+        public bool RechazarCloserPostulado(Propiedad propiedad, Closer closer)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter("@ID_Vivienda",propiedad.ID),
+                new SqlParameter("@ID_Closer",closer.ID)
+            };
+            return acceso.Escribir("RechazarPostulado", parameters);
+        }
+
+        public bool DarDeBajaCloserACargo(Propiedad propiedad, Closer closer)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter("@ID_Vivienda",propiedad.ID),
+                new SqlParameter("@ID_Closer",closer.ID),
+            };
+            return acceso.Escribir("DarDeBajaCloserACargo", parameters);
+        }
+
         public bool ModificarDueño(Dueño dueño, int ID_Usuario)
         {
             List<SqlParameter> parameters = new List<SqlParameter>();

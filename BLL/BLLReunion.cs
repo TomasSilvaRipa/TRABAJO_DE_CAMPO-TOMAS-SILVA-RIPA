@@ -55,5 +55,15 @@ namespace BLL
             dueño.listaDeViviendas = mppPropiedad.LeerPropiedadesDeDueño(dueño.ID);
             return mppReunion.LeerReuniones(dueño);
         }
+
+        public List<Reunion> LeerReunionPorCliente(Cliente cliente)
+        {
+            return mppReunion.LeerReunionesPorCliente(cliente);
+        }
+
+        public bool CancelarReunion(Reunion reunion)
+        {
+            return mppReunion.CancelarReunion(reunion);
+        }
     }
 }

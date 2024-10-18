@@ -20,6 +20,16 @@ namespace BLL
             return mppDueño.AceptarCloserPostulado(propiedad, closer);
         }
 
+        public bool RechazarCloserPostulado(Propiedad propiedad, Closer closer)
+        {
+            return mppDueño.RechazarCloserPostulado(propiedad, closer);
+        }
+
+        public bool DarDeBajaCloserACargo(Propiedad propiedad,Closer closer)
+        {
+            return mppDueño.DarDeBajaCloserACargo(propiedad,closer);
+        }
+
         public Dueño LeerDueño(int id)
         {
             return mppDueño.LeerDueño(id);

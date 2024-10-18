@@ -193,6 +193,12 @@
     <Compile Include="VerReuniones.Designer.cs">
       <DependentUpon>VerReuniones.cs</DependentUpon>
     </Compile>
+    <Compile Include="VerReunionesCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerReunionesCliente.Designer.cs">
+      <DependentUpon>VerReunionesCliente.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Bitacora.resx">
       <DependentUpon>Bitacora.cs</DependentUpon>
     </EmbeddedResource>
@@ -274,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VerReuniones.resx">
       <DependentUpon>VerReuniones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerReunionesCliente.resx">
+      <DependentUpon>VerReunionesCliente.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

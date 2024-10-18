@@ -106,7 +106,7 @@ namespace MPP
                 foreach (DataRow row in dt.Rows)
                 {
                     int estado = Convert.ToInt32(row["Estado"]);
-                    if (estado != 2)
+                    if (estado == 0)
                     {
                         Closer closer = new Closer();
                         closer.ID = (int)row["ID"];
@@ -114,9 +114,15 @@ namespace MPP
                         closer.Apellido = row["Apellido"].ToString();
                         closer.Clasificacion = row["Clasificacion"].ToString();
                         closer.TratosCerrados = (int)row["TratosCerrados"];
+                        closer.Comision = row["Comision"].ToString();
+                        closer.Mail = row["Mail"].ToString();
+                        if (row["Foto"] != DBNull.Value)
+                        {
+                            closer.Foto = (byte[])row["Foto"];
+                        }
                         closers.Add(closer);
                     }
-                    else
+                    else if(estado == 2)
                     {
                         closers.Clear();
                         Closer closer = new Closer();
@@ -126,6 +132,11 @@ namespace MPP
                         closer.Clasificacion = row["Clasificacion"].ToString();
                         closer.TratosCerrados = (int)row["TratosCerrados"];
                         closer.Comision = row["Comision"].ToString();
+                        closer.Mail = row["Mail"].ToString();
+                        if (row["Foto"] != DBNull.Value)
+                        {
+                            closer.Foto = (byte[])row["Foto"];
+                        }
                         closers.Add(closer);
                         return closers;
                     }

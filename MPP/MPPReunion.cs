@@ -108,5 +108,39 @@ namespace MPP
             }
             return null;
         }
+
+        public List<Reunion> LeerReunionesPorCliente(Cliente cliente)
+        {
+            List<Reunion> reuniones = new List<Reunion>();
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter("@ID_Cliente",cliente.ID),
+            };
+            DataTable dt = acceso.Leer("LeerReunionesPorCliente",parameters);
+            if(dt.Rows.Count > 0)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    Reunion reunion = new Reunion();
+                    reunion.ID = (int)(row["ID"]);
+                    reunion.ID_Closer = (int)row["ID_Closer"];
+                    reunion.ID_Cliente = (int)row["ID_Cliente"];
+                    reunion.ID_Vivienda = (int)row["ID_Vivienda"];
+                    reunion.Fecha = Convert.ToDateTime(row["Fecha"]);
+                    reuniones.Add(reunion);
+                }
+                return reuniones;
+            }
+            return null;
+        }
+
+        public bool CancelarReunion(Reunion reunion)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter("@ID_Reunion",reunion.ID),
+            };
+            return acceso.Escribir("CancelarReunion", parameters);
+        }
     }
 }
