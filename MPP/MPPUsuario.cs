@@ -76,7 +76,11 @@ namespace MPP
                 new SqlParameter("@Mail",nuevoUsuario.Mail),
                 new SqlParameter("@Fecha",fecha)
             };
-            return acceso.Escribir("InsertarUsuario", parameters);
+            if(acceso.Escribir("InsertarUsuario", parameters))
+            {
+                Servicios.EmailSender.EnviarMail("Usuario creado!","Su usuario ha sido creado", nuevoUsuario.Mail);
+            }
+            return false;
         }
 
         public bool RemoverUsuario(string Nombre)

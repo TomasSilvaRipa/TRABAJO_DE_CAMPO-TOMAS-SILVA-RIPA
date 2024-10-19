@@ -40,12 +40,23 @@ namespace BLL
             Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
             Closer closer = mppCloser.LeerCloser(usuario.ID, 1);
             Reunion reunion = new Reunion(solicitud.ID_Vivienda, closer.ID ,solicitud.ID_Cliente, DateTime.Now);
-            return mppReunion.AceptarReunion(reunion);
+            if (mppReunion.AceptarReunion(reunion))
+            {
+                Servicios.EmailSender.EnviarMail("Reunion Acetada", "Su solicitud para ver la vivienda a sido aceptada. Le estaremos mandando la dirección y horario de encuentro a la brevedad." , cliente.Mail);
+                return true;
+            }
+            return false;
         }
 
         public bool RechazarReunion(Solicitud solicitud)
         {
-            return mppReunion.RecharReunion(solicitud);
+            Cliente cliente = mppCliente.LeerCliente(solicitud.ID_Cliente, 2);
+            if (mppReunion.RecharReunion(solicitud))
+            {
+                Servicios.EmailSender.EnviarMail("Reunion Rechazada", "Su solicitud para ver la vivienda a sido rechazada.", cliente.Mail);
+                return true;
+            }
+            return false;
         }
 
         public List<Reunion> LeerReuniones()

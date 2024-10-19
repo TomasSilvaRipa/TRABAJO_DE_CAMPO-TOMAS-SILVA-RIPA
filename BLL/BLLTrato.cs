@@ -25,7 +25,12 @@ namespace BLL
             Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
             Dueño dueño = mppDueño.LeerDueño(usuario.ID);
             trato.ID_Dueño = dueño.ID;
-            return mppTrato.AltaTrato(trato);
+            if (mppTrato.AltaTrato(trato))
+            {
+                Servicios.EmailSender.EnviarMail("Trato cerrado","El trato ha sido cerrado exitosamente. Ya puede pagar su primer cuota",usuario.Mail);
+                return true;
+            }
+            return false;
         }
 
         public List<Trato> LeerTratosXCloser()

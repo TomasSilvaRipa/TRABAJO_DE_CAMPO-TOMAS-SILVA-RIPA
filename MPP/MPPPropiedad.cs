@@ -113,7 +113,8 @@ namespace MPP
             {
                 new SqlParameter("@ID_Vivienda",propiedad.ID),
             };
-            return acceso.Escribir("BajaVivienda",parameters);
+            return acceso.Escribir("BajaVivienda", parameters);
+            
         }
 
         public List<Propiedad> LeerPropiedades(int opcion)
@@ -251,6 +252,23 @@ namespace MPP
                 return Imagenes;
             }
             return null;
+        }
+
+        public bool ComprobarViviendaBabjoGestion(Propiedad propiedad)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter("ID_Vivienda",propiedad.ID),
+            };
+            DataTable dt = acceso.Leer("ComprobarViviendaBajoGestion",parameters);
+            if(dt.Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         

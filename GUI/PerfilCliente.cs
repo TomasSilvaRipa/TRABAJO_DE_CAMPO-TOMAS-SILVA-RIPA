@@ -25,7 +25,7 @@ namespace GUI
             bllCliente = new BLLCliente();
             bllUsuario = new BLLUsuario();
             bllIdiomas = new BLLIdiomas();
-            Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
+            usuario = Sesion.ObtenerSesion().ObtenerUsuario();
             clienteActivo = bllCliente.LeerCliente(usuario.ID,1);
             MostrarDatos(usuario,clienteActivo);
             Sesion.ObtenerSesion().AgregarObservador(this);
@@ -37,6 +37,7 @@ namespace GUI
         BLLCliente bllCliente;
         DataTable tablaIdioma;
         BLLIdiomas bllIdiomas;
+        Usuario usuario;
         Image imagen;
 
 
@@ -166,6 +167,22 @@ namespace GUI
                 
             }
             catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnBajaCuenta_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (bllUsuario.BajaUsuario(usuario.NombreDeUsuario))
+                {
+                    MessageBox.Show("Cuenta dada de baja exitosamente!!");
+                    System.Windows.Forms.Application.Restart();
+                }
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

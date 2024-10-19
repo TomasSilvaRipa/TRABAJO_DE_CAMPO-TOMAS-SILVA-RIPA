@@ -84,6 +84,7 @@ namespace MPP
                     cliente.Nombre = row["Nombre"].ToString();
                     cliente.Apellido = row["Apellido"].ToString();
                     cliente.FechaNacimiento = Convert.ToDateTime(row["FechaDeNacimiento"]);
+                    cliente.Mail = row["Mail"].ToString();
                     if (row["Foto"] != DBNull.Value && ((byte[])row["Foto"]).Length > 0)
                     {
                         cliente.Foto = (byte[])row["Foto"];

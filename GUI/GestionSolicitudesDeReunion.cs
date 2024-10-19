@@ -79,6 +79,7 @@ namespace GUI
             {
                 Solicitud solicitud = (Solicitud)dataGridViewSolicitudes.CurrentRow.DataBoundItem;
                 Cliente cliente = bllCliente.LeerCliente(solicitud.ID_Cliente, 2);
+                
                 flowLayoutPanelSolicitante.Controls.Clear();
                 flowLayoutPanelSolicitante.FlowDirection = FlowDirection.LeftToRight;
                 flowLayoutPanelSolicitante.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom; 

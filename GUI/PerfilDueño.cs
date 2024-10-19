@@ -26,7 +26,7 @@ namespace GUI
             bllUsuario = new BLLUsuario();
             bllDueño = new BLLDueño();
             bllIdiomas = new BLLIdiomas();
-            Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
+            usuario = Sesion.ObtenerSesion().ObtenerUsuario();
             dueñoActivo = bllDueño.LeerDueño(usuario.ID);
             MostrarDatos(usuario, dueñoActivo);
             Sesion.ObtenerSesion().AgregarObservador(this);
@@ -38,6 +38,7 @@ namespace GUI
         BLLDueño bllDueño;
         DataTable tablaIdioma;
         BLLIdiomas bllIdiomas;
+        Usuario usuario;
         System.Drawing.Image imagen;
 
 
@@ -164,6 +165,27 @@ namespace GUI
                             imagen = img;
                         }
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void PerfilDueño_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBajaCuenta_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (bllUsuario.BajaUsuario(usuario.NombreDeUsuario))
+                {
+                    MessageBox.Show("Cuenta dada de baja exitosamente!!");
+                    System.Windows.Forms.Application.Restart();
                 }
             }
             catch (Exception ex)

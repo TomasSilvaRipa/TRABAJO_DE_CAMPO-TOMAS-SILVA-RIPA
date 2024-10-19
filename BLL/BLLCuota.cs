@@ -55,8 +55,16 @@ namespace BLL
                 Closer closer = mppCloser.LeerCloser(trato.ID_Closer, 2);
                 decimal montoInmoviliaria = cuota.Monto * 0.10m;
                 decimal montoCloser = cuota.Monto * (Convert.ToDecimal(closer.Comision.TrimEnd('%')) / 100);
-                cuota.Monto = cuota.Monto - montoCloser - montoInmoviliaria; 
-                return mppCuota.PagarCuota(cuota, trato.ID_Closer, montoCloser,montoInmoviliaria);
+                cuota.Monto = cuota.Monto - montoCloser - montoInmoviliaria;
+                Cliente cliente = mppCliente.LeerCliente(cuota.ID_Cliente,2);
+                Dueño dueño = mppDueño.LeerDueño(trato.ID_Dueño);
+                if(mppCuota.PagarCuota(cuota, trato.ID_Closer, montoCloser, montoInmoviliaria))
+                {
+                    Servicios.EmailSender.EnviarMail("Pago Exitoso","Se acreditado su pago",cliente.Mail);
+                    Servicios.EmailSender.EnviarMail("Recibo de Pago","Ha recibido su pago de cuota nro " + cuota.ID, dueño.Mail);
+                    return true;
+                }
+                return false;
             }
             catch(Exception ex)
             {

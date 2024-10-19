@@ -37,16 +37,19 @@
             this.tbApellido = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tbNombre = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.dateTimePickerFN = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.btnSubirFoto = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnBajaCuenta = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.tableLayoutPanelFotoDePerfil = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -107,7 +110,7 @@
             // 
             // tbApellido
             // 
-            this.tbApellido.Location = new System.Drawing.Point(155, 147);
+            this.tbApellido.Location = new System.Drawing.Point(198, 147);
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(124, 22);
             this.tbApellido.TabIndex = 4;
@@ -116,7 +119,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(155, 128);
+            this.label4.Location = new System.Drawing.Point(198, 128);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 16);
             this.label4.TabIndex = 10;
@@ -125,25 +128,14 @@
             // 
             // tbNombre
             // 
-            this.tbNombre.Location = new System.Drawing.Point(155, 51);
+            this.tbNombre.Location = new System.Drawing.Point(198, 51);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(124, 22);
             this.tbNombre.TabIndex = 3;
             // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(155, 32);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 16);
-            this.label5.TabIndex = 8;
-            this.label5.Tag = "FPNombre";
-            this.label5.Text = "Nombre";
-            // 
             // dateTimePickerFN
             // 
-            this.dateTimePickerFN.Location = new System.Drawing.Point(155, 243);
+            this.dateTimePickerFN.Location = new System.Drawing.Point(198, 243);
             this.dateTimePickerFN.Name = "dateTimePickerFN";
             this.dateTimePickerFN.Size = new System.Drawing.Size(132, 22);
             this.dateTimePickerFN.TabIndex = 5;
@@ -152,7 +144,7 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(155, 224);
+            this.label6.Location = new System.Drawing.Point(198, 224);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(135, 16);
             this.label6.TabIndex = 13;
@@ -185,17 +177,17 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(619, 352);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(793, 352);
             this.tableLayoutPanel1.TabIndex = 15;
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnActualizar, 1, 6);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnSubirFoto, 0, 6);
@@ -206,11 +198,10 @@
             this.tableLayoutPanel2.Controls.Add(this.tbContraseña, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.tbNombre, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.label5, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.tbMail, 0, 5);
             this.tableLayoutPanel2.Controls.Add(this.label6, 1, 4);
             this.tableLayoutPanel2.Controls.Add(this.dateTimePickerFN, 1, 5);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(312, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(399, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 7;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -220,12 +211,56 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(304, 346);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(391, 346);
             this.tableLayoutPanel2.TabIndex = 16;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.26316F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.73684F));
+            this.tableLayoutPanel3.Controls.Add(this.label7, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnBajaCuenta, 1, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(198, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(190, 42);
+            this.tableLayoutPanel3.TabIndex = 19;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 26);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 16);
+            this.label7.TabIndex = 8;
+            this.label7.Tag = "FPNombre";
+            this.label7.Text = "Nombre";
+            // 
+            // btnBajaCuenta
+            // 
+            this.btnBajaCuenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBajaCuenta.BackColor = System.Drawing.Color.Red;
+            this.btnBajaCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.btnBajaCuenta.Location = new System.Drawing.Point(70, 4);
+            this.btnBajaCuenta.Name = "btnBajaCuenta";
+            this.btnBajaCuenta.Size = new System.Drawing.Size(117, 33);
+            this.btnBajaCuenta.TabIndex = 9;
+            this.btnBajaCuenta.Tag = "FPBorrarCuenta";
+            this.btnBajaCuenta.Text = "Borrar Cuenta";
+            this.btnBajaCuenta.UseVisualStyleBackColor = false;
+            this.btnBajaCuenta.Click += new System.EventHandler(this.btnBajaCuenta_Click);
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(155, 291);
+            this.btnActualizar.Location = new System.Drawing.Point(198, 291);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(146, 42);
             this.btnActualizar.TabIndex = 7;
@@ -247,20 +282,23 @@
             this.tableLayoutPanelFotoDePerfil.RowCount = 1;
             this.tableLayoutPanelFotoDePerfil.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelFotoDePerfil.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelFotoDePerfil.Size = new System.Drawing.Size(303, 346);
+            this.tableLayoutPanelFotoDePerfil.Size = new System.Drawing.Size(390, 346);
             this.tableLayoutPanelFotoDePerfil.TabIndex = 17;
             // 
             // PerfilCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(622, 353);
+            this.ClientSize = new System.Drawing.Size(796, 353);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.MinimumSize = new System.Drawing.Size(814, 400);
             this.Name = "PerfilCliente";
             this.Text = "PerfilCliente";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -276,7 +314,6 @@
         private System.Windows.Forms.TextBox tbApellido;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbNombre;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateTimePickerFN;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnSubirFoto;
@@ -284,5 +321,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelFotoDePerfil;
         private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnBajaCuenta;
     }
 }

@@ -23,7 +23,12 @@ namespace BLL
             Sesion sesion = Sesion.ObtenerSesion();
             Usuario usuario = sesion.ObtenerUsuario();
             Dueño dueño = mppDueño.LeerDueño(usuario.ID);
-            return mppPropiedad.AltaPropiedad(propiedad,dueño.ID,imagenesEnBytes);
+            if (mppPropiedad.AltaPropiedad(propiedad, dueño.ID, imagenesEnBytes))
+            {
+                Servicios.EmailSender.EnviarMail("Propiedad publicada","Su propiedad con dirección " + propiedad.Direccion + " se ha publicado exitosamente",dueño.Mail);
+                return true;
+            }
+            return false;
         }
 
         public bool ModificarPropiedad(Propiedad propiedad, List<byte[]> imagenesEnBytes)
@@ -36,7 +41,13 @@ namespace BLL
 
         public bool BajaPropiedad(Propiedad propiedad)
         {
-            return mppPropiedad.BajaPropiedad(propiedad);
+            if (mppPropiedad.BajaPropiedad(propiedad))
+            {
+                Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
+                Servicios.EmailSender.EnviarMail("Publicación dada de baja", "Hola "+ usuario.NombreDeUsuario +" se ha dado de baja la vivienda con dirección " + propiedad.Direccion + " exitosamente!", usuario.Mail);
+                return true;
+            }
+            return false;
         }
 
         public List<Propiedad> LeerPropiedades(int opcion)
@@ -50,6 +61,11 @@ namespace BLL
             Usuario usuario = sesion.ObtenerUsuario();
             Dueño dueño = mppDueño.LeerDueño(usuario.ID);
             return mppPropiedad.LeerPropiedadesDeDueño(dueño.ID);
+        }
+
+        public bool ComprobarViviendaBajoGestion(Propiedad propiedad)
+        {
+            return mppPropiedad.ComprobarViviendaBabjoGestion(propiedad);
         }
 
     }

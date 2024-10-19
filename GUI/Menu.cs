@@ -807,5 +807,10 @@ namespace GUI
             VerReunionesCliente verReunionesCliente = new VerReunionesCliente();
             verReunionesCliente.Show();
         }
+
+        private void flowLayoutPanelCatalogo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

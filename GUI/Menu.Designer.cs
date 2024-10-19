@@ -77,7 +77,7 @@
             this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.53543F));
             this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.46457F));
             this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
-            this.tableLayoutPanelPadre.Size = new System.Drawing.Size(1039, 602);
+            this.tableLayoutPanelPadre.Size = new System.Drawing.Size(1052, 602);
             this.tableLayoutPanelPadre.TabIndex = 0;
             // 
             // tableLayoutPanelBarraMenuDinamica
@@ -112,14 +112,14 @@
             this.tableLayoutPanelBarraMenuDinamica.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.3787F));
             this.tableLayoutPanelBarraMenuDinamica.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             this.tableLayoutPanelBarraMenuDinamica.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanelBarraMenuDinamica.Size = new System.Drawing.Size(1033, 54);
+            this.tableLayoutPanelBarraMenuDinamica.Size = new System.Drawing.Size(1046, 54);
             this.tableLayoutPanelBarraMenuDinamica.TabIndex = 4;
             this.tableLayoutPanelBarraMenuDinamica.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanelBarraMenuDinamica_Paint);
             // 
             // btnPerformanceInmoviliaria
             // 
             this.btnPerformanceInmoviliaria.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPerformanceInmoviliaria.Location = new System.Drawing.Point(51, 32);
+            this.btnPerformanceInmoviliaria.Location = new System.Drawing.Point(53, 32);
             this.btnPerformanceInmoviliaria.Name = "btnPerformanceInmoviliaria";
             this.btnPerformanceInmoviliaria.Size = new System.Drawing.Size(129, 19);
             this.btnPerformanceInmoviliaria.TabIndex = 0;
@@ -131,7 +131,7 @@
             // btnCuentaInmoviliaria
             // 
             this.btnCuentaInmoviliaria.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCuentaInmoviliaria.Location = new System.Drawing.Point(836, 32);
+            this.btnCuentaInmoviliaria.Location = new System.Drawing.Point(848, 32);
             this.btnCuentaInmoviliaria.Name = "btnCuentaInmoviliaria";
             this.btnCuentaInmoviliaria.Size = new System.Drawing.Size(159, 19);
             this.btnCuentaInmoviliaria.TabIndex = 1;
@@ -143,7 +143,7 @@
             // btnGestorDeReunionesCliente
             // 
             this.btnGestorDeReunionesCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGestorDeReunionesCliente.Location = new System.Drawing.Point(43, 21);
+            this.btnGestorDeReunionesCliente.Location = new System.Drawing.Point(45, 21);
             this.btnGestorDeReunionesCliente.Name = "btnGestorDeReunionesCliente";
             this.btnGestorDeReunionesCliente.Size = new System.Drawing.Size(145, 3);
             this.btnGestorDeReunionesCliente.TabIndex = 0;
@@ -155,7 +155,7 @@
             // btnCuentaCliente
             // 
             this.btnCuentaCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCuentaCliente.Location = new System.Drawing.Point(856, 21);
+            this.btnCuentaCliente.Location = new System.Drawing.Point(868, 21);
             this.btnCuentaCliente.Name = "btnCuentaCliente";
             this.btnCuentaCliente.Size = new System.Drawing.Size(119, 3);
             this.btnCuentaCliente.TabIndex = 0;
@@ -167,7 +167,7 @@
             // btnRendimientoCloser
             // 
             this.btnRendimientoCloser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRendimientoCloser.Location = new System.Drawing.Point(608, 11);
+            this.btnRendimientoCloser.Location = new System.Drawing.Point(617, 11);
             this.btnRendimientoCloser.Name = "btnRendimientoCloser";
             this.btnRendimientoCloser.Size = new System.Drawing.Size(149, 1);
             this.btnRendimientoCloser.TabIndex = 1;
@@ -179,7 +179,7 @@
             // btnVerCasasGestionadasCloser
             // 
             this.btnVerCasasGestionadasCloser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnVerCasasGestionadasCloser.Location = new System.Drawing.Point(31, 11);
+            this.btnVerCasasGestionadasCloser.Location = new System.Drawing.Point(32, 11);
             this.btnVerCasasGestionadasCloser.Name = "btnVerCasasGestionadasCloser";
             this.btnVerCasasGestionadasCloser.Size = new System.Drawing.Size(170, 1);
             this.btnVerCasasGestionadasCloser.TabIndex = 1;
@@ -191,7 +191,7 @@
             // btnCuentaCloser
             // 
             this.btnCuentaCloser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCuentaCloser.Location = new System.Drawing.Point(854, 11);
+            this.btnCuentaCloser.Location = new System.Drawing.Point(865, 11);
             this.btnCuentaCloser.Name = "btnCuentaCloser";
             this.btnCuentaCloser.Size = new System.Drawing.Size(124, 1);
             this.btnCuentaCloser.TabIndex = 2;
@@ -203,7 +203,7 @@
             // btnCuentaDueño
             // 
             this.btnCuentaDueño.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCuentaDueño.Location = new System.Drawing.Point(854, 3);
+            this.btnCuentaDueño.Location = new System.Drawing.Point(865, 3);
             this.btnCuentaDueño.Name = "btnCuentaDueño";
             this.btnCuentaDueño.Size = new System.Drawing.Size(124, 1);
             this.btnCuentaDueño.TabIndex = 1;
@@ -215,7 +215,7 @@
             // btnIngresosDueño
             // 
             this.btnIngresosDueño.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnIngresosDueño.Location = new System.Drawing.Point(467, 3);
+            this.btnIngresosDueño.Location = new System.Drawing.Point(473, 3);
             this.btnIngresosDueño.Name = "btnIngresosDueño";
             this.btnIngresosDueño.Size = new System.Drawing.Size(97, 1);
             this.btnIngresosDueño.TabIndex = 1;
@@ -227,7 +227,7 @@
             // btnAgregarPropiedad
             // 
             this.btnAgregarPropiedad.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAgregarPropiedad.Location = new System.Drawing.Point(41, 3);
+            this.btnAgregarPropiedad.Location = new System.Drawing.Point(43, 3);
             this.btnAgregarPropiedad.Name = "btnAgregarPropiedad";
             this.btnAgregarPropiedad.Size = new System.Drawing.Size(149, 1);
             this.btnAgregarPropiedad.TabIndex = 1;
@@ -239,7 +239,7 @@
             // btnVerReunionesDueño
             // 
             this.btnVerReunionesDueño.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnVerReunionesDueño.Location = new System.Drawing.Point(279, 3);
+            this.btnVerReunionesDueño.Location = new System.Drawing.Point(284, 3);
             this.btnVerReunionesDueño.Name = "btnVerReunionesDueño";
             this.btnVerReunionesDueño.Size = new System.Drawing.Size(137, 1);
             this.btnVerReunionesDueño.TabIndex = 4;
@@ -251,7 +251,7 @@
             // btnPagosCliente
             // 
             this.btnPagosCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPagosCliente.Location = new System.Drawing.Point(467, 21);
+            this.btnPagosCliente.Location = new System.Drawing.Point(473, 21);
             this.btnPagosCliente.Name = "btnPagosCliente";
             this.btnPagosCliente.Size = new System.Drawing.Size(97, 3);
             this.btnPagosCliente.TabIndex = 0;
@@ -275,7 +275,7 @@
             this.tableLayoutPanelCatalogoYFiltro.RowCount = 1;
             this.tableLayoutPanelCatalogoYFiltro.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelCatalogoYFiltro.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelCatalogoYFiltro.Size = new System.Drawing.Size(1033, 447);
+            this.tableLayoutPanelCatalogoYFiltro.Size = new System.Drawing.Size(1046, 447);
             this.tableLayoutPanelCatalogoYFiltro.TabIndex = 0;
             // 
             // flowLayoutPanelCatalogo
@@ -288,8 +288,9 @@
             this.flowLayoutPanelCatalogo.ForeColor = System.Drawing.Color.Black;
             this.flowLayoutPanelCatalogo.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelCatalogo.Name = "flowLayoutPanelCatalogo";
-            this.flowLayoutPanelCatalogo.Size = new System.Drawing.Size(840, 441);
+            this.flowLayoutPanelCatalogo.Size = new System.Drawing.Size(850, 441);
             this.flowLayoutPanelCatalogo.TabIndex = 0;
+            this.flowLayoutPanelCatalogo.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelCatalogo_Paint);
             // 
             // tableLayoutPanel1
             // 
@@ -311,7 +312,7 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1033, 83);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1046, 83);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // btnLogout
@@ -319,7 +320,7 @@
             this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold);
             this.btnLogout.ForeColor = System.Drawing.Color.Black;
-            this.btnLogout.Location = new System.Drawing.Point(874, 26);
+            this.btnLogout.Location = new System.Drawing.Point(886, 26);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(129, 31);
@@ -337,7 +338,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(186, 77);
+            this.pictureBox1.Size = new System.Drawing.Size(190, 77);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -352,7 +353,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.comboBoxIdiomas, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonMenuDeGestion, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(523, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(535, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -387,7 +388,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1026, 600);
+            this.ClientSize = new System.Drawing.Size(1039, 600);
             this.Controls.Add(this.tableLayoutPanelPadre);
             this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

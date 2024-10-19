@@ -1,5 +1,6 @@
 ﻿using BE;
 using DAL;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -69,7 +70,12 @@ namespace MPP
                 new SqlParameter("@ID_Vivienda",propiedad.ID),
                 new SqlParameter("@ID_Closer",closer.ID)
             };
-            return acceso.Escribir("AceptarPostulado",parameters);
+            if (acceso.Escribir("AceptarPostulado", parameters))
+            {
+                Servicios.EmailSender.EnviarMail("Postulación Aceptada", "Hola " + closer.Nombre + " " + closer.Apellido + " le informamos que ha sido aceptado para gestionar la vivienda con dirección " + propiedad.Direccion + " \n Saludos!!", closer.Mail);
+                return true;
+            }
+            return false;
             
         }
 
@@ -80,7 +86,12 @@ namespace MPP
                 new SqlParameter("@ID_Vivienda",propiedad.ID),
                 new SqlParameter("@ID_Closer",closer.ID)
             };
-            return acceso.Escribir("RechazarPostulado", parameters);
+            if(acceso.Escribir("RechazarPostulado", parameters))
+            {
+                Servicios.EmailSender.EnviarMail("Postulación Rechazada", "Hola " + closer.Nombre + " " + closer.Apellido + " lamentamos informale que no ha sido aceptado para llevar la gestión de la vivienda con dirección " + propiedad.Direccion, closer.Mail);
+                return true;
+            }
+            return false;
         }
 
         public bool DarDeBajaCloserACargo(Propiedad propiedad, Closer closer)
@@ -90,7 +101,13 @@ namespace MPP
                 new SqlParameter("@ID_Vivienda",propiedad.ID),
                 new SqlParameter("@ID_Closer",closer.ID),
             };
-            return acceso.Escribir("DarDeBajaCloserACargo", parameters);
+            if(acceso.Escribir("DarDeBajaCloserACargo", parameters))
+            {
+               Servicios.EmailSender.EnviarMail("Baja de Gestión","Hola " + closer.Nombre + " " + closer.Apellido + " lamentamos informale que se lo removido de la gestión de la vivienda con dirección " + propiedad.Direccion, closer.Mail);
+               return true;
+            
+            }
+            return false;
         }
 
         public bool ModificarDueño(Dueño dueño, int ID_Usuario)

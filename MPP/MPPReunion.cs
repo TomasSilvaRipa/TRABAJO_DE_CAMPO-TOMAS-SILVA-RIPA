@@ -28,7 +28,12 @@ namespace MPP
                 new SqlParameter("@Fecha",Fecha),
                 new SqlParameter("@Disponibilidad",Disponibilidad),
             };
-            return acceso.Escribir("SolicitarReunion",parameters );
+            if(acceso.Escribir("SolicitarReunion",parameters))
+            {
+                Servicios.EmailSender.EnviarMail("Solicitud enviada","Su solicitud de reunión para la vivienda con direccion " + propiedad.Direccion + " a sido enviada",cliente.Mail);
+                return true;
+            }
+            return false;
         }
 
         public List<Solicitud> LeerSolicitudesXVivienda(Propiedad propiedad)
@@ -66,6 +71,7 @@ namespace MPP
                 new SqlParameter("@Fecha",reunion.Fecha),
             };
             return acceso.Escribir("AceptarReunion", parameters);
+            
         }
 
         public bool RecharReunion(Solicitud solicitud)

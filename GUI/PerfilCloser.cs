@@ -27,7 +27,7 @@ namespace GUI
             bllCloser = new BLLCloser();
             bllUsuario = new BLLUsuario();
             bllIdiomas = new BLLIdiomas();
-            Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
+             usuario = Sesion.ObtenerSesion().ObtenerUsuario();
             closerActivo = bllCloser.LeerCloser(usuario.ID);
             MostrarDatos(usuario, closerActivo);
             Sesion.ObtenerSesion().AgregarObservador(this);
@@ -40,6 +40,7 @@ namespace GUI
         DataTable tablaIdioma;
         BLLIdiomas bllIdiomas;
         Image imagen;
+        Usuario usuario;
 
 
         private void actualizarTablaIdiomas()
@@ -176,11 +177,27 @@ namespace GUI
                 {
                     bitacora = new Bitacora_(Bitacora_.BitacoraTipo.VALIDACION, tbNombreDeUsuario.Text, "El usuario que intenta modificar no existe");
                     bllBitaacora.Add(bitacora);
-                    MessageBox.Show(bitacora.Mensaje);
+                    throw new Exception("El mail ya esta siendo utilizado o ha sucedio otro error");
                 }
 
             }
             catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnBajaCuenta_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (bllUsuario.BajaUsuario(usuario.NombreDeUsuario))
+                {
+                    MessageBox.Show("Cuenta dada de baja exitosamente!!");
+                    Application.Restart();
+                }
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
