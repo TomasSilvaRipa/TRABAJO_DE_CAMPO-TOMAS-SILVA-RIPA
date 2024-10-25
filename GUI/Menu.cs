@@ -688,7 +688,7 @@ namespace GUI
         #region FUNCIONALIDADES DUEÑO
         private void btnAgregarPropiedad_Click(object sender, EventArgs e)
         {
-            RegistrarPropiedades registrarPropiedades = new RegistrarPropiedades();
+            RegistrarPropiedades registrarPropiedades = new RegistrarPropiedades(this);
             registrarPropiedades.Show();
         }
         #endregion
@@ -699,7 +699,7 @@ namespace GUI
         #region FORMS
         public void AbrirFormularioModificar(Propiedad propiedad)
         {
-            RegistrarPropiedades registrarPropiedades = new RegistrarPropiedades(propiedad);
+            RegistrarPropiedades registrarPropiedades = new RegistrarPropiedades(propiedad,this);
             registrarPropiedades.Show();
         }
 
@@ -733,7 +733,7 @@ namespace GUI
         private void btnVerCasasGestionadasCloser_Click(object sender, EventArgs e)
         {
             Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
-            Closer closer = bllCloser.LeerCloser(usuario.ID);
+            Closer closer = bllCloser.LeerCloser(usuario.ID,1);
             GestionDePropiedades gestionDePropiedades = new GestionDePropiedades(closer);
             gestionDePropiedades.Show();
         }

@@ -64,7 +64,7 @@
             this.tableLayoutPanelPadre.RowCount = 1;
             this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelPadre.Size = new System.Drawing.Size(1198, 544);
+            this.tableLayoutPanelPadre.Size = new System.Drawing.Size(1217, 544);
             this.tableLayoutPanelPadre.TabIndex = 0;
             // 
             // tableLayoutPanelDerecho
@@ -77,12 +77,12 @@
             this.tableLayoutPanelDerecho.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelDerecho.Controls.Add(this.tableLayoutPanelPersonaDeReunion, 0, 0);
             this.tableLayoutPanelDerecho.Controls.Add(this.tableLayoutPanel1, 0, 1);
-            this.tableLayoutPanelDerecho.Location = new System.Drawing.Point(602, 3);
+            this.tableLayoutPanelDerecho.Location = new System.Drawing.Point(611, 3);
             this.tableLayoutPanelDerecho.Name = "tableLayoutPanelDerecho";
             this.tableLayoutPanelDerecho.RowCount = 2;
             this.tableLayoutPanelDerecho.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.19703F));
             this.tableLayoutPanelDerecho.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.80297F));
-            this.tableLayoutPanelDerecho.Size = new System.Drawing.Size(593, 538);
+            this.tableLayoutPanelDerecho.Size = new System.Drawing.Size(603, 538);
             this.tableLayoutPanelDerecho.TabIndex = 1;
             // 
             // tableLayoutPanelPersonaDeReunion
@@ -98,7 +98,7 @@
             this.tableLayoutPanelPersonaDeReunion.RowCount = 1;
             this.tableLayoutPanelPersonaDeReunion.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelPersonaDeReunion.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelPersonaDeReunion.Size = new System.Drawing.Size(587, 334);
+            this.tableLayoutPanelPersonaDeReunion.Size = new System.Drawing.Size(597, 334);
             this.tableLayoutPanelPersonaDeReunion.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -124,12 +124,12 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.99174F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 72F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(587, 192);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(597, 192);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // numericUpDownCliente
             // 
-            this.numericUpDownCliente.Location = new System.Drawing.Point(296, 122);
+            this.numericUpDownCliente.Location = new System.Drawing.Point(301, 122);
             this.numericUpDownCliente.Maximum = new decimal(new int[] {
             5,
             0,
@@ -147,7 +147,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(296, 101);
+            this.label4.Location = new System.Drawing.Point(301, 101);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 16);
             this.label4.TabIndex = 5;
@@ -166,7 +166,7 @@
             // 
             // richTextBoxCliente
             // 
-            this.richTextBoxCliente.Location = new System.Drawing.Point(296, 22);
+            this.richTextBoxCliente.Location = new System.Drawing.Point(301, 22);
             this.richTextBoxCliente.Name = "richTextBoxCliente";
             this.richTextBoxCliente.Size = new System.Drawing.Size(182, 76);
             this.richTextBoxCliente.TabIndex = 3;
@@ -185,7 +185,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(296, 0);
+            this.label2.Location = new System.Drawing.Point(301, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 16);
             this.label2.TabIndex = 1;
@@ -223,11 +223,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewReuniones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewReuniones.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewReuniones.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewReuniones.Name = "dataGridViewReuniones";
             this.dataGridViewReuniones.RowHeadersWidth = 51;
             this.dataGridViewReuniones.RowTemplate.Height = 24;
-            this.dataGridViewReuniones.Size = new System.Drawing.Size(593, 538);
+            this.dataGridViewReuniones.Size = new System.Drawing.Size(602, 538);
             this.dataGridViewReuniones.TabIndex = 0;
             this.dataGridViewReuniones.SelectionChanged += new System.EventHandler(this.dataGridViewReuniones_SelectionChanged);
             // 
@@ -235,9 +236,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1198, 549);
+            this.ClientSize = new System.Drawing.Size(1217, 549);
             this.Controls.Add(this.tableLayoutPanelPadre);
-            this.MinimumSize = new System.Drawing.Size(1216, 596);
+            this.MinimumSize = new System.Drawing.Size(1235, 596);
             this.Name = "VerReuniones";
             this.Text = "VerReuniones";
             this.Load += new System.EventHandler(this.VerReuniones_Load);

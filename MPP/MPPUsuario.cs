@@ -79,6 +79,7 @@ namespace MPP
             if(acceso.Escribir("InsertarUsuario", parameters))
             {
                 Servicios.EmailSender.EnviarMail("Usuario creado!","Su usuario ha sido creado", nuevoUsuario.Mail);
+                return true;
             }
             return false;
         }

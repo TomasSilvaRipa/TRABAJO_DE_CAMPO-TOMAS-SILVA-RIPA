@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using GUI.Properties;
 using Servicios;
 using System;
 using System.Collections.Generic;
@@ -26,16 +27,20 @@ namespace GUI
             bllTrato = new BLLTrato();
             bllOpinion = new BLLOpinon();
             bllIdiomas = new BLLIdiomas();
+            bllCloser = new BLLCloser();
+            reuniones = new List<Reunion>();
             CargarReuniones();
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarTablaIdiomas();
         }
         BLLReunion bllReunion;
         BLLCliente bllCliente;
+        BLLCloser bllCloser;
         BLLTrato bllTrato;
         BLLOpinon bllOpinion;
         DataTable tablaIdioma;
         BLLIdiomas bllIdiomas;
+        List<Reunion> reuniones;
 
         private void actualizarTablaIdiomas()
         {
@@ -64,8 +69,23 @@ namespace GUI
 
         public void CargarReuniones()
         {
+            
             dataGridViewReuniones.DataSource = null;
-            dataGridViewReuniones.DataSource = bllReunion.LeerReuniones();
+            reuniones = bllReunion.LeerReuniones();
+            if(reuniones != null && reuniones.Count > 0)
+            {
+                dataGridViewReuniones.DataSource = reuniones;
+            }
+            else
+            {
+                Label l = new Label();
+                l.Text = "No Hay Reuniones por el Momento";
+                tableLayoutPanelPersonaDeReunion.Controls.Add(l);
+                l.Size = new Size(400,200);
+                l.Anchor = AnchorStyles.None;
+            }
+            
+            
         }
 
         private void dataGridViewReuniones_SelectionChanged(object sender, EventArgs e)
@@ -103,6 +123,10 @@ namespace GUI
                     {
                         pictureBox.Image = Image.FromStream(ms);
                     }
+                }
+                else
+                {
+                    pictureBox.Image = Resources.UsuarioGenerico;
                 }
 
                 panelImagen.Controls.Add(pictureBox);
@@ -191,16 +215,19 @@ namespace GUI
         {
             try
             {
-                if( fechaInicio < fechaFin && fechaInicio >= DateTime.Now)
+                if( fechaInicio < fechaFin && fechaInicio.Day >= DateTime.Now.Day)
                 {
                     Reunion reunion = (Reunion)dataGridViewReuniones.CurrentRow.DataBoundItem;
                     Trato trato = new Trato(reunion.ID_Closer, reunion.ID_Cliente, reunion.ID_Vivienda, fechaInicio, fechaFin);
                     if(richTextBoxCloser.Text != "" && richTextBoxCliente.Text != "")
                     {
-                        Opinion opinionCloser = new Opinion(trato.ID_Closer, richTextBoxCloser.Text, (int)numericUpDownCloser.Value);
-                        Opinion opinionCliente = new Opinion(trato.ID_Cliente, richTextBoxCliente.Text, (int)numericUpDownCliente.Value);
+                        Cliente cliente = bllCliente.LeerCliente(trato.ID_Cliente, 2);
+                        Closer closer = bllCloser.LeerCloser(trato.ID_Closer,2);
+                        Opinion opinionCloser = new Opinion(closer.ID_Usuario, richTextBoxCloser.Text, (int)numericUpDownCloser.Value);
+                        Opinion opinionCliente = new Opinion(cliente.ID_Usuario, richTextBoxCliente.Text, (int)numericUpDownCliente.Value);
                         if (bllTrato.AltaTrato(trato) && bllOpinion.AltaOpinion(opinionCloser) && bllOpinion.AltaOpinion(opinionCliente))
                         {
+                            tableLayoutPanelPersonaDeReunion.Controls.Clear();
                             CargarReuniones();
                             MessageBox.Show("Trato Cerrado Exitosamente");
                         }

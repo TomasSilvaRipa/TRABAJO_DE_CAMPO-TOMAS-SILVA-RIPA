@@ -228,6 +228,7 @@
             // 
             this.btnAgregarPropiedad.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAgregarPropiedad.Location = new System.Drawing.Point(43, 3);
+            this.btnAgregarPropiedad.MinimumSize = new System.Drawing.Size(149, 1);
             this.btnAgregarPropiedad.Name = "btnAgregarPropiedad";
             this.btnAgregarPropiedad.Size = new System.Drawing.Size(149, 1);
             this.btnAgregarPropiedad.TabIndex = 1;

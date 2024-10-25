@@ -41,9 +41,9 @@ namespace BLL
             return mppCloser.LeerPropiedadesXCloser(closer.ID);
         }
 
-        public Closer LeerCloser(int ID)
+        public Closer LeerCloser(int ID,int op)
         {
-            return mppCloser.LeerCloser(ID,1);
+            return mppCloser.LeerCloser(ID,op);
         }
 
         public bool ModificarCloser(Closer closer,int id)

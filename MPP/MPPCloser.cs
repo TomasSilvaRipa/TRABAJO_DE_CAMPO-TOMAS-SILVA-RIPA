@@ -82,6 +82,7 @@ namespace MPP
                 {
                     Closer closer = new Closer();
                     closer.ID = (int)row["ID"];
+                    closer.ID_Usuario = (int)row["ID_Usuario"];
                     closer.Nombre = row["Nombre"].ToString();
                     closer.Apellido = row["Apellido"].ToString();
                     closer.Clasificacion = row["Clasificacion"].ToString();

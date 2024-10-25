@@ -28,7 +28,7 @@ namespace GUI
             bllUsuario = new BLLUsuario();
             bllIdiomas = new BLLIdiomas();
              usuario = Sesion.ObtenerSesion().ObtenerUsuario();
-            closerActivo = bllCloser.LeerCloser(usuario.ID);
+            closerActivo = bllCloser.LeerCloser(usuario.ID, 1);
             MostrarDatos(usuario, closerActivo);
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarTablaIdiomas();

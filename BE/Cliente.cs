@@ -8,6 +8,7 @@ namespace BE
 {
     public class Cliente:Usuario
     {
+        public int ID_Usuario {  get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public bool Inquilino { get; set; }

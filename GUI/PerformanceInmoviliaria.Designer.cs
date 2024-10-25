@@ -46,9 +46,9 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewOpiniones = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dataGridViewClosers = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.dataGridViewClosers = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -57,8 +57,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartTratosXMes)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOpiniones)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClosers)).BeginInit();
             this.tableLayoutPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClosers)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -279,36 +279,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewOpiniones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewOpiniones.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewOpiniones.Location = new System.Drawing.Point(3, 27);
             this.dataGridViewOpiniones.Name = "dataGridViewOpiniones";
             this.dataGridViewOpiniones.RowHeadersWidth = 51;
             this.dataGridViewOpiniones.RowTemplate.Height = 24;
             this.dataGridViewOpiniones.Size = new System.Drawing.Size(578, 177);
             this.dataGridViewOpiniones.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 6);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 16);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Closers";
-            // 
-            // dataGridViewClosers
-            // 
-            this.dataGridViewClosers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewClosers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewClosers.Location = new System.Drawing.Point(3, 32);
-            this.dataGridViewClosers.Name = "dataGridViewClosers";
-            this.dataGridViewClosers.RowHeadersWidth = 51;
-            this.dataGridViewClosers.RowTemplate.Height = 24;
-            this.dataGridViewClosers.Size = new System.Drawing.Size(578, 293);
-            this.dataGridViewClosers.TabIndex = 2;
-            this.dataGridViewClosers.SelectionChanged += new System.EventHandler(this.dataGridViewClosers_SelectionChanged);
             // 
             // tableLayoutPanel7
             // 
@@ -327,6 +304,31 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.15854F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(584, 328);
             this.tableLayoutPanel7.TabIndex = 4;
+            // 
+            // dataGridViewClosers
+            // 
+            this.dataGridViewClosers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewClosers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewClosers.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridViewClosers.Location = new System.Drawing.Point(3, 32);
+            this.dataGridViewClosers.Name = "dataGridViewClosers";
+            this.dataGridViewClosers.RowHeadersWidth = 51;
+            this.dataGridViewClosers.RowTemplate.Height = 24;
+            this.dataGridViewClosers.Size = new System.Drawing.Size(578, 293);
+            this.dataGridViewClosers.TabIndex = 2;
+            this.dataGridViewClosers.SelectionChanged += new System.EventHandler(this.dataGridViewClosers_SelectionChanged);
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 6);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 16);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Closers";
             // 
             // PerformanceInmoviliaria
             // 
@@ -347,9 +349,9 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOpiniones)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClosers)).EndInit();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClosers)).EndInit();
             this.ResumeLayout(false);
 
         }

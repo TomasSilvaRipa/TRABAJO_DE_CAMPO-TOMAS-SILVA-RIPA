@@ -57,6 +57,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewCuotas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCuotas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewCuotas.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewCuotas.Name = "dataGridViewCuotas";
             this.dataGridViewCuotas.RowHeadersWidth = 51;
@@ -71,6 +72,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewHistorialPagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewHistorialPagos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewHistorialPagos.Location = new System.Drawing.Point(3, 178);
             this.dataGridViewHistorialPagos.Name = "dataGridViewHistorialPagos";
             this.dataGridViewHistorialPagos.RowHeadersWidth = 51;

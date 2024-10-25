@@ -59,6 +59,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewReuniones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewReuniones.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewReuniones.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewReuniones.Name = "dataGridViewReuniones";
             this.dataGridViewReuniones.RowHeadersWidth = 51;

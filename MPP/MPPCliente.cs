@@ -81,6 +81,7 @@ namespace MPP
                 {
                     Cliente cliente = new Cliente();
                     cliente.ID = (int)row["ID"];
+                    cliente.ID_Usuario = (int)row["ID_Usuario"];
                     cliente.Nombre = row["Nombre"].ToString();
                     cliente.Apellido = row["Apellido"].ToString();
                     cliente.FechaNacimiento = Convert.ToDateTime(row["FechaDeNacimiento"]);

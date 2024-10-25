@@ -26,6 +26,8 @@ namespace GUI
             bllUsuario = new BLLUsuario();
             bllOpinion = new BLLOpinon();
             bllIdiomas = new BLLIdiomas();
+            solicitudes = new List<Solicitud>();
+            opiniones = new List<Opinion>();
             CargarDatagridSolicitantes(propiedad);
             propiedadSeleccionada = propiedad;
             Sesion.ObtenerSesion().AgregarObservador(this);
@@ -39,7 +41,8 @@ namespace GUI
         BLLOpinon bllOpinion;
         DataTable tablaIdioma;
         BLLIdiomas bllIdiomas;
-
+        List<Solicitud> solicitudes;
+        List<Opinion> opiniones;
         private void actualizarTablaIdiomas()
         {
             Sesion.ObtenerSesion().ActualizarIdiomas();
@@ -63,13 +66,35 @@ namespace GUI
         public void CargarDatagridSolicitantes(Propiedad propiedad)
         {
             dataGridViewSolicitudes.DataSource = null;
-            dataGridViewSolicitudes.DataSource = bllReunion.LeerSolicitudesDeReunionXVivienda(propiedad);
+            solicitudes = bllReunion.LeerSolicitudesDeReunionXVivienda(propiedad);
+            if(solicitudes != null && solicitudes.Count > 0)
+            {
+                dataGridViewSolicitudes.DataSource = solicitudes;
+                dataGridViewSolicitudes.Columns["ID"].Visible = false;
+                dataGridViewSolicitudes.Columns["ID_Cliente"].Visible = false;
+                dataGridViewSolicitudes.Columns["ID_Vivienda"].Visible = false;
+            }
+            else
+            {
+                Label l = new Label();
+                l.Text = "No Hay Reuniones por el Momento";
+                flowLayoutPanelSolicitante.Controls.Add(l);
+                l.Size = new Size(400, 200);
+                l.Anchor = AnchorStyles.None;
+            }
+            
         }
 
         public void CargarOpiniones(Usuario usuario)
         {
             dataGridViewOpiniones.DataSource = null;
-            dataGridViewOpiniones.DataSource = bllOpinion.LeerOpiniones(usuario,2);
+            opiniones = bllOpinion.LeerOpiniones(usuario, 2);
+            if (opiniones != null && opiniones.Count > 0)
+            {
+                dataGridViewOpiniones.DataSource = opiniones;
+                dataGridViewOpiniones.Columns["ID"].Visible = false;
+                dataGridViewOpiniones.Columns["ID_Usuario"].Visible = false;
+            }
         }
 
 
@@ -197,6 +222,7 @@ namespace GUI
             {
                 if (bllReunion.AceptarReunion(cliente, solicitud))
                 {
+                    flowLayoutPanelSolicitante.Controls.Clear();
                     CargarDatagridSolicitantes(propiedadSeleccionada);
                     MessageBox.Show("Solicitud Aceptada");
                 }

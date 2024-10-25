@@ -17,7 +17,7 @@ namespace GUI
 {
     public partial class RegistrarPropiedades : FIdiomaActualizable,IObservador
     {
-        public RegistrarPropiedades()
+        public RegistrarPropiedades(Menu menu)
         {
             InitializeComponent();
             bllPropiedad = new BLLPropiedad();
@@ -29,6 +29,7 @@ namespace GUI
             comboBoxVivienda.DataSource = Enum.GetValues(typeof(Vivienda));
             btnPublicaPropiedad.Visible = true;
             btnModificar.Visible = false;
+            menuActivo = menu;
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarTablaIdiomas();
         }
@@ -37,7 +38,7 @@ namespace GUI
         BLLIdiomas bllIdiomas;
         List<System.Drawing.Image> imagenes;
         Propiedad propiedadModificada;
-
+        Menu menuActivo;
         private void actualizarTablaIdiomas()
         {
             Sesion.ObtenerSesion().ActualizarIdiomas();
@@ -58,7 +59,7 @@ namespace GUI
 
         }
 
-        public RegistrarPropiedades(Propiedad propiedad)
+        public RegistrarPropiedades(Propiedad propiedad, Menu menu)
         {
             InitializeComponent();
             bllPropiedad = new BLLPropiedad();
@@ -68,6 +69,7 @@ namespace GUI
             comboBoxCochera.DataSource = Enum.GetValues(typeof(Cochera));
             comboBoxVivienda.DataSource = Enum.GetValues(typeof(Vivienda));
             propiedadModificada = propiedad;
+            menuActivo = menu;
             btnModificar.Visible = true;
             btnPublicaPropiedad.Visible = false;
             ActualizarControlesPorpiedadSeleccionada(propiedad);
@@ -195,6 +197,8 @@ namespace GUI
                                 {
                                     MessageBox.Show("Vivienda Publicada Exitosamente");
                                     imagenes.Clear();
+                                    menuActivo.IdentificarCatalogo();
+                                    this.Close();
                                 }
                                 else
                                 {
