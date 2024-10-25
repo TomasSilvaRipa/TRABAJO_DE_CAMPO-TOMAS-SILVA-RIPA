@@ -316,6 +316,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Rendimientos";
             this.Text = "IngresosCloser";
+            this.Load += new System.EventHandler(this.Rendimientos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTratosCerrados)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

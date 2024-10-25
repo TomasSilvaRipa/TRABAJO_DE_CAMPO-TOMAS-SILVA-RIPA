@@ -643,11 +643,18 @@ namespace GUI
         #region LOGOUT Y CIERRE DE APP
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
         }
 
+        //public void ApagarApp(bool cerrar)
+        //{
+        //    if(cerrar == true)
+        //    {
+        //        Application.Exit();
+        //    }
+            
+        //}
 
-        
         private void btnLogout_Click(object sender, EventArgs e)
         {
             bitacora.Fecha = DateTime.Now.Date;
@@ -658,10 +665,11 @@ namespace GUI
                 Sesion.Logout();
                 bitacora.Mensaje = "Sesion Cerada Exitosamente";
                 bitacorabll.Add(bitacora);
-                this.Hide();
+                
                 MessageBox.Show("Sesión Cerrada Exitosamente");
                 fl.Show();
                 fl.Limpiar();
+                this.Close();
             }
             catch (Exception ex)
             {

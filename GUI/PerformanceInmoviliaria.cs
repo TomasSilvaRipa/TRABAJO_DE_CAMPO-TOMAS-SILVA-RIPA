@@ -1,18 +1,27 @@
 ﻿using BE;
 using BLL;
 using GUI.Properties;
+using iTextSharp.text;
+using iText.Layout;
+using iTextSharp.text.pdf;
+using iText.Kernel.Pdf;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using iText.IO.Image;
+using System.Windows.Forms;
+using System.Drawing;
+using System.IO;
 using Servicios;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+
 
 namespace GUI
 {
@@ -72,7 +81,6 @@ namespace GUI
             dataGridViewClosers.Columns["Foto"].Visible = false;
             dataGridViewClosers.Columns["ID"].Visible = false;
             dataGridViewClosers.Columns["DV"].Visible = false;
-            dataGridViewClosers.Columns["Mail"].Visible = false;
             dataGridViewClosers.Columns["Clave"].Visible = false;
         }
 
@@ -183,7 +191,7 @@ namespace GUI
                 {
                     using (MemoryStream ms = new MemoryStream(closer.Foto))
                     {
-                        pictureBox.Image = Image.FromStream(ms);
+                        pictureBox.Image = System.Drawing.Image.FromStream(ms);
                     }
                 }
                 else
@@ -227,6 +235,184 @@ namespace GUI
                 MessageBox.Show(ex.Message);
                 this.Close();
             }
+        }
+
+        private void btnPdf_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GeneratePdf();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        
+
+        public void GeneratePdf()
+        {
+            string fecha = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+            string filePath = @"pdf_"+ fecha + ".pdf";
+
+            // Crear el escritor PDF
+            iText.Kernel.Pdf.PdfWriter writer = new iText.Kernel.Pdf.PdfWriter(filePath);
+
+            // Crear el documento PDF
+            iText.Kernel.Pdf.PdfDocument pdf = new iText.Kernel.Pdf.PdfDocument(writer);
+            iText.Layout.Document document = new iText.Layout.Document(pdf);
+
+            // Título del documento
+            iText.Layout.Element.Paragraph title = new iText.Layout.Element.Paragraph("Reporte de Performance")
+                .SetFontSize(18)
+                .SetBold()
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER);
+            document.Add(title);
+
+            // Línea separadora
+            document.Add(new iText.Layout.Element.Paragraph("────────────────────────────────────────────────────────────────"));
+
+            // Crear y agregar una lista
+            iText.Layout.Element.List list = new iText.Layout.Element.List()
+                .SetSymbolIndent(12)
+                .SetListSymbol("\u2022");
+
+            // Método para procesar controles
+            void ProcessControl(Control control)
+            {
+                if (control is Label label)
+                {
+                    // Evitar agregar títulos no deseados como "Opiniones" o "Vendedor del Mes" repetido
+                    if (label.Text != "Vendedor del Mes" && label.Text != "Opiniones" && label.Text != "Saldo" && label.Text != "Tratos Cerrados por Mes" && !label.Text.Contains("$"))
+                    {
+                        list.Add(new iText.Layout.Element.ListItem(label.Text));
+                    }
+                }
+                else if (control is DataGridView dataGridView)
+                {
+                    if (dataGridView.Name == "dataGridViewClosers")
+                    {
+                        for (int i = 0; i < dataGridView.Rows.Count; i++)
+                        {
+                            var rowData = string.Join(", ", dataGridView.Rows[i].Cells.Cast<DataGridViewCell>()
+                                .Where(c => c.Value != null && !string.IsNullOrEmpty(c.Value.ToString()) && !(c.Value is byte[]) && !(c.Value is int)) // Excluir valores numéricos no deseados
+                                .Select(c => c.Value.ToString()));
+
+                            list.Add(new iText.Layout.Element.ListItem(rowData));
+                        }
+                    }
+                }
+                else if (control is PictureBox pictureBox)
+                {
+                    if (pictureBox.Image != null)
+                    {
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                            iText.Layout.Element.Image pdfImage = new iText.Layout.Element.Image(iText.IO.Image.ImageDataFactory.Create(ms.ToArray()));
+                            document.Add(pdfImage.SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER));
+                        }
+                    }
+                }
+                else if (control is Chart chart)
+                {
+                    // Guardar el tamaño y estado original del form
+                    var originalFormSize = this.Size;
+                    var originalFormWindowState = this.WindowState;
+
+                    // Maximizar el formulario temporalmente
+                    this.WindowState = FormWindowState.Maximized;
+                    this.Refresh(); // Asegurarse de que el formulario se refresque en su nuevo estado
+
+                    // Crear un Bitmap con el tamaño del chart maximizado
+                    using (Bitmap bitmap = new Bitmap(chart.Width, chart.Height))
+                    {
+                        // Dibujar el chart en el Bitmap
+                        chart.DrawToBitmap(bitmap, new System.Drawing.Rectangle(0, 0, chart.Width, chart.Height));
+
+                        // Guardar la imagen del chart en un MemoryStream para agregarla al PDF
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                            iText.Layout.Element.Image pdfChartImage = new iText.Layout.Element.Image(iText.IO.Image.ImageDataFactory.Create(ms.ToArray()));
+
+                            // Agregar la imagen del chart al PDF
+                            document.Add(pdfChartImage.SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER));
+                        }
+                    }
+
+                    // Restaurar el estado y tamaño original del formulario
+                    this.WindowState = originalFormWindowState;
+                    this.Size = originalFormSize;
+                }
+                else if (control is TableLayoutPanel tableLayout)
+                {
+                    if (tableLayout.Name == "tableLayoutPanelOpiniones") return;
+
+                    foreach (Control item in tableLayout.Controls)
+                    {
+                        ProcessControl(item);
+                    }
+                }
+            }
+
+            // Agregar datos del Closer del Mes
+            void AgregarCloserDelMes(Closer closer)
+            {
+                document.Add(new iText.Layout.Element.Paragraph("Vendedor del Mes").SetFontSize(16).SetBold());
+
+                // Crear una tabla con 2 columnas para la imagen y los detalles
+                iText.Layout.Element.Table table = new iText.Layout.Element.Table(2); // 2 columnas
+
+                // Columna de la imagen
+                if (closer.Foto != null)
+                {
+                    using (MemoryStream ms = new MemoryStream(closer.Foto))
+                    {
+                        iText.Layout.Element.Image pdfImage = new iText.Layout.Element.Image(iText.IO.Image.ImageDataFactory.Create(ms.ToArray()));
+                        table.AddCell(new iText.Layout.Element.Cell().Add(pdfImage.SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)));
+                    }
+                }
+
+                // Columna de los detalles
+                iText.Layout.Element.Cell detallesCell = new iText.Layout.Element.Cell();
+                foreach (PropertyInfo propiedad in closer.GetType().GetProperties())
+                {
+                    if (propiedad.Name != "Foto" && propiedad.Name != "NombreDeUsuario" && propiedad.Name != "DV" && propiedad.Name != "Clave" && propiedad.Name != "Sector" && propiedad.Name != "ID")
+                    {
+                        string propiedadTexto = $"{propiedad.Name}: {propiedad.GetValue(closer)?.ToString()}";
+                        detallesCell.Add(new iText.Layout.Element.Paragraph(propiedadTexto));
+                    }
+                }
+
+                // Agregar los detalles a la segunda columna
+                table.AddCell(detallesCell);
+
+                // Añadir la tabla al documento
+                document.Add(table);
+            }
+
+            // Procesar todos los controles en el formulario
+            foreach (var control in this.Controls)
+            {
+                ProcessControl(control as Control);
+            }
+
+            // Mostrar Closer del Mes (ejemplo de cómo llamar a la función con un objeto closer)
+            Closer closerDelMes = ObtenerCloserDelMes(); // Función que obtendría el Closer del Mes
+            AgregarCloserDelMes(closerDelMes);
+
+            // Agregar el saldo de la cuenta
+            document.Add(new iText.Layout.Element.Paragraph("Saldo: $0,0000").SetFontSize(16).SetBold().SetFontColor(iText.Kernel.Colors.ColorConstants.GREEN));
+
+            // Agregar la lista generada de datos
+            document.Add(list);
+
+            // Cerrar el documento
+            document.Close();
+
+            MessageBox.Show("PDF generado exitosamente en " + filePath);
         }
     }
 }

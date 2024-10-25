@@ -100,5 +100,10 @@ namespace GUI
             }
             
         }
+
+        private void IngresosDueño_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

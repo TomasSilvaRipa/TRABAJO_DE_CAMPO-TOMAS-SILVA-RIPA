@@ -18,8 +18,7 @@ namespace BLL
 
         public bool Postularse(Propiedad propiedad)
         {
-            Sesion sesion = Sesion.ObtenerSesion();
-            Usuario usuario = sesion.ObtenerUsuario();
+            Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
             Closer closer = mppCloser.LeerCloser(usuario.ID,1);
             if (mppCloser.ComprobarExistenciaPostulado(closer, propiedad) == false)
             {

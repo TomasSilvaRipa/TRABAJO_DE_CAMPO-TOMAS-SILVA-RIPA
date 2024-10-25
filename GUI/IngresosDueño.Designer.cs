@@ -163,6 +163,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "IngresosDueño";
             this.Text = "IngresosDueño";
+            this.Load += new System.EventHandler(this.IngresosDueño_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCuotas)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

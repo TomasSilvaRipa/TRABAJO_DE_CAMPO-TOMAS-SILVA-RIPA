@@ -12,7 +12,6 @@ namespace BE
         public string Apellido { get; set; }
         public string Clasificacion { get; set; }
         public int TratosCerrados { get; set; }
-
         public string Comision {  get; set; }
 
         public Closer() { }

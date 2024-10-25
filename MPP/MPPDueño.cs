@@ -38,6 +38,7 @@ namespace MPP
                     dueño.Nombre = Convert.ToString(row["Nombre"]);
                     dueño.Apellido = Convert.ToString(row["Apellido"]);
                     dueño.Residencia = Convert.ToString(row["Residencia"]);
+                    dueño.Mail = row["Mail"].ToString();
                     return dueño;
                 }
             }

@@ -208,6 +208,7 @@ namespace MPP
                     closer.Clasificacion = row["Clasificacion"].ToString();
                     closer.TratosCerrados = (int)row["TratosCerrados"];
                     closer.Comision = row["Comision"].ToString();
+                    closer.Mail = row["Mail"].ToString();
                     if (row["Foto"] != DBNull.Value)
                     {
                         closer.Foto = (byte[])row["Foto"];

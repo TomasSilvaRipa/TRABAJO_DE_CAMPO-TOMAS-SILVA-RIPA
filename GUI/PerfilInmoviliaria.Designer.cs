@@ -215,6 +215,7 @@
             this.MinimumSize = new System.Drawing.Size(725, 352);
             this.Name = "PerfilInmoviliaria";
             this.Text = "PerfilInmoviliaria";
+            this.Load += new System.EventHandler(this.PerfilInmoviliaria_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

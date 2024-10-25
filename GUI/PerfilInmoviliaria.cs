@@ -172,5 +172,10 @@ namespace GUI
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void PerfilInmoviliaria_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

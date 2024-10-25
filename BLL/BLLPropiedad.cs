@@ -20,8 +20,7 @@ namespace BLL
         
         public bool AltaPropiedad(Propiedad propiedad, List<byte[]> imagenesEnBytes)
         {
-            Sesion sesion = Sesion.ObtenerSesion();
-            Usuario usuario = sesion.ObtenerUsuario();
+            Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
             Dueño dueño = mppDueño.LeerDueño(usuario.ID);
             if (mppPropiedad.AltaPropiedad(propiedad, dueño.ID, imagenesEnBytes))
             {
@@ -33,8 +32,7 @@ namespace BLL
 
         public bool ModificarPropiedad(Propiedad propiedad, List<byte[]> imagenesEnBytes)
         {
-            Sesion sesion = Sesion.ObtenerSesion();
-            Usuario usuario = sesion.ObtenerUsuario();
+            Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
             Dueño dueño = mppDueño.LeerDueño(usuario.ID);
             return mppPropiedad.ModificarPropiedad(propiedad, dueño.ID, imagenesEnBytes);
         }

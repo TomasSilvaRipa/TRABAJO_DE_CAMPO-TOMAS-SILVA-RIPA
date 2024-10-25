@@ -140,5 +140,10 @@ namespace GUI
                 chartTratosMensuales.Series["Tratos Cerrados"].Points.AddXY(mes, tratosPorMes[mes]);
             }
         }
+
+        private void Rendimientos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
