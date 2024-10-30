@@ -119,16 +119,20 @@ namespace MPP
 
         public List<Propiedad> LeerPropiedades(int opcion)
         {
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter("@Opcion",opcion),
+            };
             List<Propiedad> listaDeViviendas = new List<Propiedad>();
-            DataTable dt = acceso.Leer("LeerViviendas");
+            DataTable dt = acceso.Leer("LeerViviendas",parameters);
             if(dt.Rows.Count > 0)
             {
                 foreach (DataRow row in dt.Rows)
                 {
-                    if(opcion == 1)
-                    {
-                        if (Convert.ToBoolean(row["Activo"]) == true && Convert.ToBoolean(row["Alquilada"]) == false)
-                        {
+                    //if(opcion == 1)
+                    //{
+                        //if (Convert.ToBoolean(row["Activo"]) == true && Convert.ToBoolean(row["Alquilada"]) == false)
+                        //{
                             Propiedad propiedad = new Propiedad();
                             propiedad.ID = (int)row["ID"];
                             propiedad.Ambientes = (int)row["Ambientes"];
@@ -147,53 +151,53 @@ namespace MPP
                             propiedad.Aqluilada = Convert.ToBoolean(row["Alquilada"]);
                             propiedad.Imagenes = LeerImagenesPorPropiedad(propiedad.ID);
                             listaDeViviendas.Add(propiedad);
-                        }
-                    }
-                    else if(opcion == 2)
-                    {
-                        if (Convert.ToBoolean(row["Activo"]) == true && Convert.ToBoolean(row["Alquilada"]) == false && Convert.ToBoolean(row["BajoGestion"]) == false)
-                        {
-                            Propiedad propiedad = new Propiedad();
-                            propiedad.ID = (int)row["ID"];
-                            propiedad.Ambientes = (int)row["Ambientes"];
-                            propiedad.TipoDeVivienda = row["TipoDeVivienda"].ToString();
-                            propiedad.Antiguedad = (int)row["Antiguedad"];
-                            propiedad.Baños = (int)row["Baños"];
-                            propiedad.Cochera = (bool)row["Cochera"];
-                            propiedad.Patio = (bool)row["Patio"];
-                            propiedad.Pisos = (int)row["Pisos"];
-                            propiedad.Direccion = row["Direccion"].ToString();
-                            propiedad.SuperficieCubierta = row["SuperficieCubierta"].ToString();
-                            propiedad.SuperficieTotal = row["SuperficieTotal"].ToString();
-                            propiedad.Pileta = (bool)row["Pileta"];
-                            propiedad.Habitaciones = (int)row["Habitaciones"];
-                            propiedad.ValorDeCouta = (decimal)row["ValorCuota"];
-                            propiedad.Aqluilada = Convert.ToBoolean(row["Alquilada"]);
-                            propiedad.Imagenes = LeerImagenesPorPropiedad(propiedad.ID);
-                            listaDeViviendas.Add(propiedad);
-                        }
-                    }
-                    else if(opcion == 3)
-                    {
-                        Propiedad propiedad = new Propiedad();
-                        propiedad.ID = (int)row["ID"];
-                        propiedad.Ambientes = (int)row["Ambientes"];
-                        propiedad.TipoDeVivienda = row["TipoDeVivienda"].ToString();
-                        propiedad.Antiguedad = (int)row["Antiguedad"];
-                        propiedad.Baños = (int)row["Baños"];
-                        propiedad.Cochera = (bool)row["Cochera"];
-                        propiedad.Patio = (bool)row["Patio"];
-                        propiedad.Pisos = (int)row["Pisos"];
-                        propiedad.Direccion = row["Direccion"].ToString();
-                        propiedad.SuperficieCubierta = row["SuperficieCubierta"].ToString();
-                        propiedad.SuperficieTotal = row["SuperficieTotal"].ToString();
-                        propiedad.Pileta = (bool)row["Pileta"];
-                        propiedad.Habitaciones = (int)row["Habitaciones"];
-                        propiedad.ValorDeCouta = (decimal)row["ValorCuota"];
-                        propiedad.Aqluilada = Convert.ToBoolean(row["Alquilada"]);
-                        propiedad.Imagenes = LeerImagenesPorPropiedad(propiedad.ID);
-                        listaDeViviendas.Add(propiedad);
-                    }
+                    //    }
+                    //}
+                    //else if(opcion == 2)
+                    //{
+                    //    if (Convert.ToBoolean(row["Activo"]) == true && Convert.ToBoolean(row["Alquilada"]) == false && Convert.ToBoolean(row["BajoGestion"]) == false)
+                    //    {
+                    //        Propiedad propiedad = new Propiedad();
+                    //        propiedad.ID = (int)row["ID"];
+                    //        propiedad.Ambientes = (int)row["Ambientes"];
+                    //        propiedad.TipoDeVivienda = row["TipoDeVivienda"].ToString();
+                    //        propiedad.Antiguedad = (int)row["Antiguedad"];
+                    //        propiedad.Baños = (int)row["Baños"];
+                    //        propiedad.Cochera = (bool)row["Cochera"];
+                    //        propiedad.Patio = (bool)row["Patio"];
+                    //        propiedad.Pisos = (int)row["Pisos"];
+                    //        propiedad.Direccion = row["Direccion"].ToString();
+                    //        propiedad.SuperficieCubierta = row["SuperficieCubierta"].ToString();
+                    //        propiedad.SuperficieTotal = row["SuperficieTotal"].ToString();
+                    //        propiedad.Pileta = (bool)row["Pileta"];
+                    //        propiedad.Habitaciones = (int)row["Habitaciones"];
+                    //        propiedad.ValorDeCouta = (decimal)row["ValorCuota"];
+                    //        propiedad.Aqluilada = Convert.ToBoolean(row["Alquilada"]);
+                    //        propiedad.Imagenes = LeerImagenesPorPropiedad(propiedad.ID);
+                    //        listaDeViviendas.Add(propiedad);
+                    //    }
+                    //}
+                    //else if(opcion == 3)
+                    //{
+                    //    Propiedad propiedad = new Propiedad();
+                    //    propiedad.ID = (int)row["ID"];
+                    //    propiedad.Ambientes = (int)row["Ambientes"];
+                    //    propiedad.TipoDeVivienda = row["TipoDeVivienda"].ToString();
+                    //    propiedad.Antiguedad = (int)row["Antiguedad"];
+                    //    propiedad.Baños = (int)row["Baños"];
+                    //    propiedad.Cochera = (bool)row["Cochera"];
+                    //    propiedad.Patio = (bool)row["Patio"];
+                    //    propiedad.Pisos = (int)row["Pisos"];
+                    //    propiedad.Direccion = row["Direccion"].ToString();
+                    //    propiedad.SuperficieCubierta = row["SuperficieCubierta"].ToString();
+                    //    propiedad.SuperficieTotal = row["SuperficieTotal"].ToString();
+                    //    propiedad.Pileta = (bool)row["Pileta"];
+                    //    propiedad.Habitaciones = (int)row["Habitaciones"];
+                    //    propiedad.ValorDeCouta = (decimal)row["ValorCuota"];
+                    //    propiedad.Aqluilada = Convert.ToBoolean(row["Alquilada"]);
+                    //    propiedad.Imagenes = LeerImagenesPorPropiedad(propiedad.ID);
+                    //    listaDeViviendas.Add(propiedad);
+                    //}
                 }
                 return listaDeViviendas;    
             }

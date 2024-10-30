@@ -67,6 +67,8 @@ namespace GUI
             } 
         }
 
+        #region MULTI IDIOMA Y PERMISOS
+
         public void ComprobarPermisos(List<Permiso> lista)
         {
             foreach (Permiso p in lista)
@@ -152,6 +154,7 @@ namespace GUI
             }
 
         }
+        #endregion
 
         public void MostrarControles()
         {
@@ -329,48 +332,296 @@ namespace GUI
                         }
                     }
 
-                    Button btnModificar = new Button();
-                    btnModificar.Text = "Modificar Datos";
-                    btnModificar.Tag = "FMDModificarDatos";
-                    btnModificar.Width = 120;
-                    btnModificar.Location = new Point(10, labelPosY);
-                    btnModificar.Click += (s, e) => AbrirFormularioModificar(p);
-                    btnModificar.ForeColor = Color.White;
-                    labelPosY += 30;
+                    //Button btnModificar = new Button();
+                    //btnModificar.Text = "Modificar Datos";
+                    //btnModificar.Tag = "FMDModificarDatos";
+                    //btnModificar.Width = 120;
+                    //btnModificar.Location = new Point(10, labelPosY);
+                    //btnModificar.Click += (s, e) => AbrirFormularioModificar(p);
+                    //btnModificar.ForeColor = Color.White;
+                    //labelPosY += 30;
 
-                    Button btnVerPostulados = new Button();
-                    btnVerPostulados.Text = "Ver Postulados";
-                    btnVerPostulados.Tag = "FMDVerPostulados";
-                    btnVerPostulados.Width = 120;
-                    btnVerPostulados.Location = new Point(10, labelPosY);
-                    btnVerPostulados.ForeColor = Color.White;
-                    labelPosY += 30;
-                    btnVerPostulados.Click += (s, e) => AbrirFormularioClosersPostulados(p);
+                    //Button btnVerPostulados = new Button();
+                    //btnVerPostulados.Text = "Ver Postulados";
+                    //btnVerPostulados.Tag = "FMDVerPostulados";
+                    //btnVerPostulados.Width = 120;
+                    //btnVerPostulados.Location = new Point(10, labelPosY);
+                    //btnVerPostulados.ForeColor = Color.White;
+                    //labelPosY += 30;
+                    //btnVerPostulados.Click += (s, e) => AbrirFormularioClosersPostulados(p);
 
-                    Button btnBaja = new Button();
-                    btnBaja.Text = "Dar de Baja";
-                    btnBaja.Tag = "FMDarDeBaja";
-                    btnBaja.Width = 120;
-                    btnBaja.Location = new Point(10, labelPosY);
-                    btnBaja.ForeColor = Color.White;
-                    labelPosY += 30;
-                    btnBaja.Click += (s, e) => DarViviendaDeBaja(p);
+                    //Button btnBaja = new Button();
+                    //btnBaja.Text = "Dar de Baja";
+                    //btnBaja.Tag = "FMDarDeBaja";
+                    //btnBaja.Width = 120;
+                    //btnBaja.Location = new Point(10, labelPosY);
+                    //btnBaja.ForeColor = Color.White;
+                    //labelPosY += 30;
+                    //btnBaja.Click += (s, e) => DarViviendaDeBaja(p);
 
                     gpadre.Controls.Add(flpImagenes);
                     gpadre.Controls.Add(gpDescripcion);
-                    gpDescripcion.Controls.Add(btnModificar);
-                    gpDescripcion.Controls.Add(btnVerPostulados);
-                    gpDescripcion.Controls.Add(btnBaja);
+                    GenerarBotones(0, labelPosY, p, gpDescripcion);
                     flowLayoutPanelCatalogo.Controls.Add(gpadre);
                 }
             }
             
         }
 
-        public void GenerarCatalogoClosers()
+        //public void GenerarCatalogoClosers(int opcion)
+        //{
+        //    List<Propiedad> listaDePropiedades = new List<Propiedad>();
+        //    listaDePropiedades = bllPropiedad.LeerPropiedades(opcion);
+        //    flowLayoutPanelCatalogo.FlowDirection = FlowDirection.LeftToRight;
+        //    flowLayoutPanelCatalogo.WrapContents = true;
+        //    flowLayoutPanelCatalogo.Controls.Clear();
+        //    if(listaDePropiedades != null && listaDePropiedades.Count > 0)
+        //    {
+        //        foreach (Propiedad p in listaDePropiedades)
+        //        {
+        //            GroupBox gpadre = new GroupBox();
+        //            gpadre.Width = flowLayoutPanelCatalogo.Width - 170;
+        //            gpadre.Height = 300;
+        //            gpadre.Margin = new Padding(20);
+
+        //            FlowLayoutPanel flpImagenes = new FlowLayoutPanel();
+        //            flpImagenes.Width = gpadre.Width / 2;
+        //            flpImagenes.Height = gpadre.Height;
+        //            flpImagenes.Dock = DockStyle.Left;
+        //            flpImagenes.AutoScroll = true;
+
+        //            Panel gpDescripcion = new Panel();
+        //            gpDescripcion.Width = gpadre.Width / 2;
+        //            gpDescripcion.Height = gpadre.Height;
+        //            gpDescripcion.Dock = DockStyle.Right;
+        //            gpDescripcion.AutoScroll = true;
+
+        //            int labelPosY = 20;
+        //            foreach (byte[] imgBytes in p.Imagenes)
+        //            {
+        //                PictureBox pictureBox = new PictureBox();
+        //                pictureBox.Width = 100;
+        //                pictureBox.Height = 100;
+        //                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+        //                using (MemoryStream ms = new MemoryStream(imgBytes))
+        //                {
+        //                    pictureBox.Image = Image.FromStream(ms);
+        //                }
+        //                flpImagenes.Controls.Add(pictureBox);
+        //            }
+
+        //            foreach (PropertyInfo propiedad in p.GetType().GetProperties())
+        //            {
+        //                if (propiedad.Name != "Imagenes" && propiedad.Name != "ID")
+        //                {
+        //                    Label labelNombre = new Label();
+        //                    labelNombre.Text = propiedad.Name;
+        //                    labelNombre.Tag = propiedad.Name;
+        //                    labelNombre.Location = new Point(10, labelPosY);
+        //                    labelNombre.AutoSize = true;
+        //                    labelNombre.ForeColor = Color.White;
+
+        //                    Label labelValor = new Label();
+        //                    labelValor.Text = propiedad.GetValue(p)?.ToString();
+        //                    labelValor.Location = new Point(130, labelPosY);
+        //                    labelValor.AutoSize = true;
+        //                    labelValor.ForeColor = Color.White;
+
+        //                    gpDescripcion.Controls.Add(labelNombre);
+        //                    gpDescripcion.Controls.Add(labelValor);
+
+        //                    labelPosY += 30;
+        //                }
+        //            }
+
+                    //Button btnPostularse = new Button();
+                    //btnPostularse.Text = "Postularse";
+                    //btnPostularse.Tag = "FMCPostularse";
+                    //btnPostularse.Width = 120;
+                    //btnPostularse.Location = new Point(10, labelPosY);
+                    //btnPostularse.Click += (s, e) => Postularse(p);
+                    //btnPostularse.ForeColor = Color.White;
+
+                    //gpadre.Controls.Add(flpImagenes);
+                    //gpadre.Controls.Add(gpDescripcion);
+                    //gpDescripcion.Controls.Add(btnPostularse);
+        //            GenerarBotones(opcion, labelPosY, p, gpDescripcion);
+        //            flowLayoutPanelCatalogo.Controls.Add(gpadre);
+        //        }
+        //    }
+            
+        //}
+
+        //public void GenerarCatalogoClientes(int opcion)
+        //{
+        //    List<Propiedad> listaDePropiedades = new List<Propiedad>();
+        //    listaDePropiedades = bllPropiedad.LeerPropiedades(opcion);
+        //    flowLayoutPanelCatalogo.FlowDirection = FlowDirection.LeftToRight;
+        //    flowLayoutPanelCatalogo.WrapContents = true;
+        //    flowLayoutPanelCatalogo.Controls.Clear();
+        //    if(listaDePropiedades != null && listaDePropiedades.Count > 0)
+        //    {
+        //        foreach (Propiedad p in listaDePropiedades)
+        //        {
+        //            GroupBox gpadre = new GroupBox();
+        //            gpadre.Width = flowLayoutPanelCatalogo.Width - 170;
+        //            gpadre.Height = 300;
+        //            gpadre.Margin = new Padding(20);
+
+        //            FlowLayoutPanel flpImagenes = new FlowLayoutPanel();
+        //            flpImagenes.Width = gpadre.Width / 2;
+        //            flpImagenes.Height = gpadre.Height;
+        //            flpImagenes.Dock = DockStyle.Left;
+        //            flpImagenes.AutoScroll = true;
+
+        //            Panel gpDescripcion = new Panel();
+        //            gpDescripcion.Width = gpadre.Width / 2;
+        //            gpDescripcion.Height = gpadre.Height;
+        //            gpDescripcion.Dock = DockStyle.Right;
+        //            gpDescripcion.AutoScroll = true;
+
+        //            int labelPosY = 20;
+        //            foreach (byte[] imgBytes in p.Imagenes)
+        //            {
+        //                PictureBox pictureBox = new PictureBox();
+        //                pictureBox.Width = 100;
+        //                pictureBox.Height = 100;
+        //                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+        //                using (MemoryStream ms = new MemoryStream(imgBytes))
+        //                {
+        //                    pictureBox.Image = Image.FromStream(ms);
+        //                }
+        //                flpImagenes.Controls.Add(pictureBox);
+        //            }
+
+        //            foreach (PropertyInfo propiedad in p.GetType().GetProperties())
+        //            {
+        //                if (propiedad.Name != "Imagenes" && propiedad.Name != "ID")
+        //                {
+        //                    Label labelNombre = new Label();
+        //                    labelNombre.Text = propiedad.Name;
+        //                    labelNombre.Tag = propiedad.Name;
+        //                    labelNombre.Location = new Point(10, labelPosY);
+        //                    labelNombre.AutoSize = true;
+        //                    labelNombre.ForeColor = Color.White;
+
+        //                    Label labelValor = new Label();
+        //                    labelValor.Text = propiedad.GetValue(p)?.ToString();
+        //                    labelValor.Location = new Point(130, labelPosY);
+        //                    labelValor.AutoSize = true;
+        //                    labelValor.ForeColor = Color.White;
+
+        //                    gpDescripcion.Controls.Add(labelNombre);
+        //                    gpDescripcion.Controls.Add(labelValor);
+
+        //                    labelPosY += 30;
+        //                }
+        //            }
+
+                    //Button btnSolicitarReunion = new Button();
+                    //btnSolicitarReunion.Text = "Solicitar Reunion";
+                    //btnSolicitarReunion.Tag = "FMCliSolicitarReunion";
+                    //btnAgregarPropiedad.BackColor = Color.White;
+                    //btnSolicitarReunion.Width = 120;
+                    //btnSolicitarReunion.Location = new Point(10, labelPosY);
+                    //btnSolicitarReunion.Click += (s, e) => AbrirFormularioSolicitarReunion(p);
+                    //btnSolicitarReunion.ForeColor = Color.White;
+
+                    //gpadre.Controls.Add(flpImagenes);
+                    //gpadre.Controls.Add(gpDescripcion);
+                    //gpDescripcion.Controls.Add(btnSolicitarReunion);
+                    //GenerarBotones(opcion, labelPosY, p, gpDescripcion);
+        //            flowLayoutPanelCatalogo.Controls.Add(gpadre);
+        //        }
+        //    }
+            
+        //}
+
+        //public void GenerarCatalogoInmoviliaria(int opcion)
+        //{
+        //    List<Propiedad> listaDePropiedades = new List<Propiedad>();
+        //    listaDePropiedades = bllPropiedad.LeerPropiedades(opcion);
+        //    flowLayoutPanelCatalogo.FlowDirection = FlowDirection.LeftToRight;
+        //    flowLayoutPanelCatalogo.WrapContents = true;
+        //    flowLayoutPanelCatalogo.Controls.Clear();
+        //    foreach (Propiedad p in listaDePropiedades)
+        //    {
+        //        GroupBox gpadre = new GroupBox();
+        //        gpadre.Width = flowLayoutPanelCatalogo.Width - 170;
+        //        gpadre.Height = 300;
+        //        gpadre.Margin = new Padding(20);
+
+        //        FlowLayoutPanel flpImagenes = new FlowLayoutPanel();
+        //        flpImagenes.Width = gpadre.Width / 2;
+        //        flpImagenes.Height = gpadre.Height;
+        //        flpImagenes.Dock = DockStyle.Left;
+        //        flpImagenes.AutoScroll = true;
+
+        //        Panel gpDescripcion = new Panel();
+        //        gpDescripcion.Width = gpadre.Width / 2;
+        //        gpDescripcion.Height = gpadre.Height;
+        //        gpDescripcion.Dock = DockStyle.Right;
+        //        gpDescripcion.AutoScroll = true;
+
+        //        int labelPosY = 20;
+        //        foreach (byte[] imgBytes in p.Imagenes)
+        //        {
+        //            PictureBox pictureBox = new PictureBox();
+        //            pictureBox.Width = 100;
+        //            pictureBox.Height = 100;
+        //            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+        //            using (MemoryStream ms = new MemoryStream(imgBytes))
+        //            {
+        //                pictureBox.Image = Image.FromStream(ms);
+        //            }
+        //            flpImagenes.Controls.Add(pictureBox);
+        //        }
+
+        //        foreach (PropertyInfo propiedad in p.GetType().GetProperties())
+        //        {
+        //            if (propiedad.Name != "Imagenes" && propiedad.Name != "ID")
+        //            {
+        //                Label labelNombre = new Label();
+        //                labelNombre.Text = propiedad.Name;
+        //                labelNombre.Tag = propiedad.Name;
+        //                labelNombre.Location = new Point(10, labelPosY);
+        //                labelNombre.AutoSize = true;
+        //                labelNombre.ForeColor = Color.White;
+
+        //                Label labelValor = new Label();
+        //                labelValor.Text = propiedad.GetValue(p)?.ToString();
+        //                labelValor.Location = new Point(130, labelPosY);
+        //                labelValor.AutoSize = true;
+        //                labelValor.ForeColor = Color.White;
+
+        //                gpDescripcion.Controls.Add(labelNombre);
+        //                gpDescripcion.Controls.Add(labelValor);
+
+        //                labelPosY += 30;
+        //            }
+        //        }
+
+                //Button btnBaja = new Button();
+                //btnBaja.Text = "Dar de Baja";
+                //btnBaja.Tag = "FMDarDeBaja";
+                //btnBaja.ForeColor = Color.White;
+                //btnBaja.Width = 120;
+                //btnBaja.Location = new Point(10, labelPosY);
+                //btnBaja.ForeColor = Color.White;
+                //btnBaja.Click += (s, e) => DarViviendaDeBaja(p);
+
+                //gpadre.Controls.Add(flpImagenes);
+                //gpadre.Controls.Add(gpDescripcion);
+                //gpDescripcion.Controls.Add(btnBaja);
+                //GenerarBotones(opcion, labelPosY, p, gpDescripcion);
+                //flowLayoutPanelCatalogo.Controls.Add(gpadre);
+            //}
+        //}
+
+        public void GenerarCatalogo(int opcion)
         {
             List<Propiedad> listaDePropiedades = new List<Propiedad>();
-            listaDePropiedades = bllPropiedad.LeerPropiedades(2);
+            listaDePropiedades = bllPropiedad.LeerPropiedades(opcion);
             flowLayoutPanelCatalogo.FlowDirection = FlowDirection.LeftToRight;
             flowLayoutPanelCatalogo.WrapContents = true;
             flowLayoutPanelCatalogo.Controls.Clear();
@@ -431,177 +682,9 @@ namespace GUI
                     }
                 }
 
-                Button btnPostularse = new Button();
-                btnPostularse.Text = "Postularse";
-                btnPostularse.Tag  = "FMCPostularse";
-                btnPostularse.Width = 120;
-                btnPostularse.Location = new Point(10, labelPosY);
-                btnPostularse.Click += (s, e) => Postularse(p);
-                btnPostularse.ForeColor = Color.White;
-
                 gpadre.Controls.Add(flpImagenes);
                 gpadre.Controls.Add(gpDescripcion);
-                gpDescripcion.Controls.Add(btnPostularse);
-                flowLayoutPanelCatalogo.Controls.Add(gpadre);
-            }
-        }
-
-        public void GenerarCatalogoClientes()
-        {
-            List<Propiedad> listaDePropiedades = new List<Propiedad>();
-            listaDePropiedades = bllPropiedad.LeerPropiedades(1);
-            flowLayoutPanelCatalogo.FlowDirection = FlowDirection.LeftToRight;
-            flowLayoutPanelCatalogo.WrapContents = true;
-            flowLayoutPanelCatalogo.Controls.Clear();
-            foreach (Propiedad p in listaDePropiedades)
-            {
-                GroupBox gpadre = new GroupBox();
-                gpadre.Width = flowLayoutPanelCatalogo.Width - 170;
-                gpadre.Height = 300;
-                gpadre.Margin = new Padding(20);
-
-                FlowLayoutPanel flpImagenes = new FlowLayoutPanel();
-                flpImagenes.Width = gpadre.Width / 2;
-                flpImagenes.Height = gpadre.Height;
-                flpImagenes.Dock = DockStyle.Left;
-                flpImagenes.AutoScroll = true;
-
-                Panel gpDescripcion = new Panel();
-                gpDescripcion.Width = gpadre.Width / 2;
-                gpDescripcion.Height = gpadre.Height;
-                gpDescripcion.Dock = DockStyle.Right;
-                gpDescripcion.AutoScroll = true;
-
-                int labelPosY = 20;
-                foreach (byte[] imgBytes in p.Imagenes)
-                {
-                    PictureBox pictureBox = new PictureBox();
-                    pictureBox.Width = 100;
-                    pictureBox.Height = 100;
-                    pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-                    using (MemoryStream ms = new MemoryStream(imgBytes))
-                    {
-                        pictureBox.Image = Image.FromStream(ms);
-                    }
-                    flpImagenes.Controls.Add(pictureBox);
-                }
-
-                foreach (PropertyInfo propiedad in p.GetType().GetProperties())
-                {
-                    if (propiedad.Name != "Imagenes" && propiedad.Name != "ID")
-                    {
-                        Label labelNombre = new Label();
-                        labelNombre.Text = propiedad.Name;
-                        labelNombre.Tag = propiedad.Name;
-                        labelNombre.Location = new Point(10, labelPosY);
-                        labelNombre.AutoSize = true;
-                        labelNombre.ForeColor = Color.White;
-
-                        Label labelValor = new Label();
-                        labelValor.Text = propiedad.GetValue(p)?.ToString();
-                        labelValor.Location = new Point(130, labelPosY);
-                        labelValor.AutoSize = true;
-                        labelValor.ForeColor = Color.White;
-
-                        gpDescripcion.Controls.Add(labelNombre);
-                        gpDescripcion.Controls.Add(labelValor);
-
-                        labelPosY += 30;
-                    }
-                }
-
-                Button btnSolicitarReunion = new Button();
-                btnSolicitarReunion.Text = "Solicitar Reunion";
-                btnSolicitarReunion.Tag = "FMCliSolicitarReunion";
-                btnAgregarPropiedad.BackColor = Color.White;
-                btnSolicitarReunion.Width = 120;
-                btnSolicitarReunion.Location = new Point(10, labelPosY);
-                btnSolicitarReunion.Click += (s, e) => AbrirFormularioSolicitarReunion(p);
-                btnSolicitarReunion.ForeColor = Color.White;
-
-                gpadre.Controls.Add(flpImagenes);
-                gpadre.Controls.Add(gpDescripcion);
-                gpDescripcion.Controls.Add(btnSolicitarReunion);
-                flowLayoutPanelCatalogo.Controls.Add(gpadre);
-            }
-        }
-
-        public void GenerarCatalogoInmoviliaria()
-        {
-            List<Propiedad> listaDePropiedades = new List<Propiedad>();
-            listaDePropiedades = bllPropiedad.LeerPropiedades(3);
-            flowLayoutPanelCatalogo.FlowDirection = FlowDirection.LeftToRight;
-            flowLayoutPanelCatalogo.WrapContents = true;
-            flowLayoutPanelCatalogo.Controls.Clear();
-            foreach (Propiedad p in listaDePropiedades)
-            {
-                GroupBox gpadre = new GroupBox();
-                gpadre.Width = flowLayoutPanelCatalogo.Width - 170;
-                gpadre.Height = 300;
-                gpadre.Margin = new Padding(20);
-
-                FlowLayoutPanel flpImagenes = new FlowLayoutPanel();
-                flpImagenes.Width = gpadre.Width / 2;
-                flpImagenes.Height = gpadre.Height;
-                flpImagenes.Dock = DockStyle.Left;
-                flpImagenes.AutoScroll = true;
-
-                Panel gpDescripcion = new Panel();
-                gpDescripcion.Width = gpadre.Width / 2;
-                gpDescripcion.Height = gpadre.Height;
-                gpDescripcion.Dock = DockStyle.Right;
-                gpDescripcion.AutoScroll = true;
-
-                int labelPosY = 20;
-                foreach (byte[] imgBytes in p.Imagenes)
-                {
-                    PictureBox pictureBox = new PictureBox();
-                    pictureBox.Width = 100;
-                    pictureBox.Height = 100;
-                    pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-                    using (MemoryStream ms = new MemoryStream(imgBytes))
-                    {
-                        pictureBox.Image = Image.FromStream(ms);
-                    }
-                    flpImagenes.Controls.Add(pictureBox);
-                }
-
-                foreach (PropertyInfo propiedad in p.GetType().GetProperties())
-                {
-                    if (propiedad.Name != "Imagenes" && propiedad.Name != "ID")
-                    {
-                        Label labelNombre = new Label();
-                        labelNombre.Text = propiedad.Name;
-                        labelNombre.Tag = propiedad.Name;
-                        labelNombre.Location = new Point(10, labelPosY);
-                        labelNombre.AutoSize = true;
-                        labelNombre.ForeColor = Color.White;
-
-                        Label labelValor = new Label();
-                        labelValor.Text = propiedad.GetValue(p)?.ToString();
-                        labelValor.Location = new Point(130, labelPosY);
-                        labelValor.AutoSize = true;
-                        labelValor.ForeColor = Color.White;
-
-                        gpDescripcion.Controls.Add(labelNombre);
-                        gpDescripcion.Controls.Add(labelValor);
-
-                        labelPosY += 30;
-                    }
-                }
-
-                Button btnBaja = new Button();
-                btnBaja.Text = "Dar de Baja";
-                btnBaja.Tag = "FMDarDeBaja";
-                btnBaja.ForeColor = Color.White;
-                btnBaja.Width = 120;
-                btnBaja.Location = new Point(10, labelPosY);
-                btnBaja.ForeColor = Color.White;
-                btnBaja.Click += (s, e) => DarViviendaDeBaja(p);
-
-                gpadre.Controls.Add(flpImagenes);
-                gpadre.Controls.Add(gpDescripcion);
-                gpDescripcion.Controls.Add(btnBaja);
+                GenerarBotones(opcion, labelPosY, p, gpDescripcion);
                 flowLayoutPanelCatalogo.Controls.Add(gpadre);
             }
         }
@@ -612,21 +695,28 @@ namespace GUI
         {
             try
             {
+                int opcion = 0;
                 if (Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Dueño")
-                {
+                {                  
                     GenerarCatalogoDueños();
-                }
-                else if(Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Closer")
-                {
-                    GenerarCatalogoClosers();
                 }
                 else if(Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Cliente")
                 {
-                    GenerarCatalogoClientes();
+                    opcion = 1;
+                    //GenerarCatalogoClientes(opcion);
+                    GenerarCatalogo(opcion);
+                }
+                else if(Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Closer")
+                {
+                    opcion = 2;
+                    //GenerarCatalogoClosers(opcion);
+                    GenerarCatalogo(opcion);
                 }
                 else if(Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Inmoviliaria")
                 {
-                    GenerarCatalogoInmoviliaria();
+                    opcion = 3;
+                    //GenerarCatalogoInmoviliaria(opcion);
+                    GenerarCatalogo(opcion);
                 }
             }
             catch(Exception ex)
@@ -634,6 +724,79 @@ namespace GUI
                 MessageBox.Show(ex.Message);
             }
             
+        }
+
+
+        public void GenerarBotones(int opcion,int labelPosY ,Propiedad p,Panel GroupBoxDescripcion)
+        {
+            if (Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Dueño")
+            {
+                Button btnModificar = new Button();
+                btnModificar.Text = "Modificar Datos";
+                btnModificar.Tag = "FMDModificarDatos";
+                btnModificar.Width = 120;
+                btnModificar.Location = new Point(10, labelPosY);
+                btnModificar.Click += (s, e) => AbrirFormularioModificar(p);
+                btnModificar.ForeColor = Color.White;
+                labelPosY += 30;
+
+                Button btnVerPostulados = new Button();
+                btnVerPostulados.Text = "Ver Postulados";
+                btnVerPostulados.Tag = "FMDVerPostulados";
+                btnVerPostulados.Width = 120;
+                btnVerPostulados.Location = new Point(10, labelPosY);
+                btnVerPostulados.ForeColor = Color.White;
+                labelPosY += 30;
+                btnVerPostulados.Click += (s, e) => AbrirFormularioClosersPostulados(p);
+
+                Button btnBaja = new Button();
+                btnBaja.Text = "Dar de Baja";
+                btnBaja.Tag = "FMDarDeBaja";
+                btnBaja.Width = 120;
+                btnBaja.Location = new Point(10, labelPosY);
+                btnBaja.ForeColor = Color.White;
+                labelPosY += 30;
+                btnBaja.Click += (s, e) => DarViviendaDeBaja(p);
+
+                GroupBoxDescripcion.Controls.Add(btnModificar);
+                GroupBoxDescripcion.Controls.Add(btnVerPostulados);
+                GroupBoxDescripcion.Controls.Add(btnBaja);
+            }
+            else if (opcion == 1)
+            {
+                Button btnSolicitarReunion = new Button();
+                btnSolicitarReunion.Text = "Solicitar Reunion";
+                btnSolicitarReunion.Tag = "FMCliSolicitarReunion";
+                btnAgregarPropiedad.BackColor = Color.White;
+                btnSolicitarReunion.Width = 120;
+                btnSolicitarReunion.Location = new Point(10, labelPosY);
+                btnSolicitarReunion.Click += (s, e) => AbrirFormularioSolicitarReunion(p);
+                btnSolicitarReunion.ForeColor = Color.White;
+                GroupBoxDescripcion.Controls.Add(btnSolicitarReunion);
+            }
+            else if (opcion == 2)
+            {
+                Button btnPostularse = new Button();
+                btnPostularse.Text = "Postularse";
+                btnPostularse.Tag = "FMCPostularse";
+                btnPostularse.Width = 120;
+                btnPostularse.Location = new Point(10, labelPosY);
+                btnPostularse.Click += (s, e) => Postularse(p);
+                btnPostularse.ForeColor = Color.White;
+                GroupBoxDescripcion.Controls.Add(btnPostularse);
+            }
+            else if (opcion == 3)
+            {
+                Button btnBaja = new Button();
+                btnBaja.Text = "Dar de Baja";
+                btnBaja.Tag = "FMDarDeBaja";
+                btnBaja.ForeColor = Color.White;
+                btnBaja.Width = 120;
+                btnBaja.Location = new Point(10, labelPosY);
+                btnBaja.ForeColor = Color.White;
+                btnBaja.Click += (s, e) => DarViviendaDeBaja(p);
+                GroupBoxDescripcion.Controls.Add(btnBaja);
+            }
         }
 
 
@@ -646,13 +809,18 @@ namespace GUI
             //Application.Exit();
         }
 
+        //private void Menu_FormClosed(object sender, FormClosedEventArgs e, bool cerrar)
+        //{
+        //    //Application.Exit();
+        //}
+
         //public void ApagarApp(bool cerrar)
         //{
         //    if(cerrar == true)
         //    {
         //        Application.Exit();
         //    }
-            
+
         //}
 
         private void btnLogout_Click(object sender, EventArgs e)
