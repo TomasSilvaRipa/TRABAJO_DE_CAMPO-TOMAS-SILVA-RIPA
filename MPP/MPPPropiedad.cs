@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,25 +40,11 @@ namespace MPP
                 new SqlParameter("@ValorCuota",propiedad.ValorDeCouta),
             };
 
-            if (acceso.Escribir("AltaVivienda", parameters))
+            if (acceso.Escribir("AltaVivienda", parameters) && SubirImagenesPorPropiedad(imagenesEnBytes,id,propiedad.Direccion) && SubirEtiquetasPorPropiedad(propiedad.Direccion,propiedad.Etiquetas))
             {
-                parameters.Clear();
-                
-                foreach (byte[] imagen in imagenesEnBytes)
-                {
-                    SqlParameter parametro = new SqlParameter("@Imagen", imagen);
-                    parameters.Add(parametro);
-                    SqlParameter dueño = new SqlParameter("@ID_Dueño",id);
-                    parameters.Add(dueño);
-                    SqlParameter direccion = new SqlParameter("@Direccion", propiedad.Direccion);
-                    parameters.Add(direccion);
-                    acceso.Escribir("SubirFotosVivienda",parameters);
-                    parameters.Clear(); 
-                    
-                }
                 return true;
             }
-            return true;
+            return false;
         }
 
         public bool ModificarPropiedad(Propiedad propiedad, int id, List<byte[]> imagenesEnBytes)
@@ -80,28 +67,9 @@ namespace MPP
                 new SqlParameter("@ValorCuota",propiedad.ValorDeCouta),
             };
 
-            if (acceso.Escribir("ModificarVivienda", parameters))
+            if (acceso.Escribir("ModificarVivienda", parameters) && BorrarImagenesVivienda(propiedad.ID,imagenesEnBytes,id,propiedad.Direccion) && SubirImagenesPorPropiedad(imagenesEnBytes, id, propiedad.Direccion) && BorrarEtiquetasPorPropiedad(propiedad.ID) && SubirEtiquetasPorPropiedad(propiedad.Direccion, propiedad.Etiquetas))
             {
-                parameters.Clear();
-                SqlParameter ID = new SqlParameter("@ID", propiedad.ID);
-                parameters.Add(ID);
-                if (acceso.Escribir("BorrarImagenesVivienda", parameters))
-                {
-                    parameters.Clear();
-                    foreach (byte[] imagen in imagenesEnBytes)
-                    {
-                        SqlParameter parametro = new SqlParameter("@Imagen", imagen);
-                        parameters.Add(parametro);
-                        SqlParameter dueño = new SqlParameter("@ID_Dueño", id);
-                        parameters.Add(dueño);
-                        SqlParameter direccion = new SqlParameter("@Direccion", propiedad.Direccion);
-                        parameters.Add(direccion);
-                        acceso.Escribir("SubirFotosVivienda", parameters);
-                        parameters.Clear();
-
-                    }
-                    return true;
-                }
+                return true;
             }
             return false;
         }
@@ -129,75 +97,25 @@ namespace MPP
             {
                 foreach (DataRow row in dt.Rows)
                 {
-                    //if(opcion == 1)
-                    //{
-                        //if (Convert.ToBoolean(row["Activo"]) == true && Convert.ToBoolean(row["Alquilada"]) == false)
-                        //{
-                            Propiedad propiedad = new Propiedad();
-                            propiedad.ID = (int)row["ID"];
-                            propiedad.Ambientes = (int)row["Ambientes"];
-                            propiedad.TipoDeVivienda = row["TipoDeVivienda"].ToString();
-                            propiedad.Antiguedad = (int)row["Antiguedad"];
-                            propiedad.Baños = (int)row["Baños"];
-                            propiedad.Cochera = (bool)row["Cochera"];
-                            propiedad.Patio = (bool)row["Patio"];
-                            propiedad.Pisos = (int)row["Pisos"];
-                            propiedad.Direccion = row["Direccion"].ToString();
-                            propiedad.SuperficieCubierta = row["SuperficieCubierta"].ToString();
-                            propiedad.SuperficieTotal = row["SuperficieTotal"].ToString();
-                            propiedad.Pileta = (bool)row["Pileta"];
-                            propiedad.Habitaciones = (int)row["Habitaciones"];
-                            propiedad.ValorDeCouta = (decimal)row["ValorCuota"];
-                            propiedad.Aqluilada = Convert.ToBoolean(row["Alquilada"]);
-                            propiedad.Imagenes = LeerImagenesPorPropiedad(propiedad.ID);
-                            listaDeViviendas.Add(propiedad);
-                    //    }
-                    //}
-                    //else if(opcion == 2)
-                    //{
-                    //    if (Convert.ToBoolean(row["Activo"]) == true && Convert.ToBoolean(row["Alquilada"]) == false && Convert.ToBoolean(row["BajoGestion"]) == false)
-                    //    {
-                    //        Propiedad propiedad = new Propiedad();
-                    //        propiedad.ID = (int)row["ID"];
-                    //        propiedad.Ambientes = (int)row["Ambientes"];
-                    //        propiedad.TipoDeVivienda = row["TipoDeVivienda"].ToString();
-                    //        propiedad.Antiguedad = (int)row["Antiguedad"];
-                    //        propiedad.Baños = (int)row["Baños"];
-                    //        propiedad.Cochera = (bool)row["Cochera"];
-                    //        propiedad.Patio = (bool)row["Patio"];
-                    //        propiedad.Pisos = (int)row["Pisos"];
-                    //        propiedad.Direccion = row["Direccion"].ToString();
-                    //        propiedad.SuperficieCubierta = row["SuperficieCubierta"].ToString();
-                    //        propiedad.SuperficieTotal = row["SuperficieTotal"].ToString();
-                    //        propiedad.Pileta = (bool)row["Pileta"];
-                    //        propiedad.Habitaciones = (int)row["Habitaciones"];
-                    //        propiedad.ValorDeCouta = (decimal)row["ValorCuota"];
-                    //        propiedad.Aqluilada = Convert.ToBoolean(row["Alquilada"]);
-                    //        propiedad.Imagenes = LeerImagenesPorPropiedad(propiedad.ID);
-                    //        listaDeViviendas.Add(propiedad);
-                    //    }
-                    //}
-                    //else if(opcion == 3)
-                    //{
-                    //    Propiedad propiedad = new Propiedad();
-                    //    propiedad.ID = (int)row["ID"];
-                    //    propiedad.Ambientes = (int)row["Ambientes"];
-                    //    propiedad.TipoDeVivienda = row["TipoDeVivienda"].ToString();
-                    //    propiedad.Antiguedad = (int)row["Antiguedad"];
-                    //    propiedad.Baños = (int)row["Baños"];
-                    //    propiedad.Cochera = (bool)row["Cochera"];
-                    //    propiedad.Patio = (bool)row["Patio"];
-                    //    propiedad.Pisos = (int)row["Pisos"];
-                    //    propiedad.Direccion = row["Direccion"].ToString();
-                    //    propiedad.SuperficieCubierta = row["SuperficieCubierta"].ToString();
-                    //    propiedad.SuperficieTotal = row["SuperficieTotal"].ToString();
-                    //    propiedad.Pileta = (bool)row["Pileta"];
-                    //    propiedad.Habitaciones = (int)row["Habitaciones"];
-                    //    propiedad.ValorDeCouta = (decimal)row["ValorCuota"];
-                    //    propiedad.Aqluilada = Convert.ToBoolean(row["Alquilada"]);
-                    //    propiedad.Imagenes = LeerImagenesPorPropiedad(propiedad.ID);
-                    //    listaDeViviendas.Add(propiedad);
-                    //}
+                    Propiedad propiedad = new Propiedad();
+                    propiedad.ID = (int)row["ID"];
+                    propiedad.Ambientes = (int)row["Ambientes"];
+                    propiedad.TipoDeVivienda = row["TipoDeVivienda"].ToString();
+                    propiedad.Antiguedad = (int)row["Antiguedad"];
+                    propiedad.Baños = (int)row["Baños"];
+                    propiedad.Cochera = (bool)row["Cochera"];
+                    propiedad.Patio = (bool)row["Patio"];
+                    propiedad.Pisos = (int)row["Pisos"];
+                    propiedad.Direccion = row["Direccion"].ToString();
+                    propiedad.SuperficieCubierta = row["SuperficieCubierta"].ToString();
+                    propiedad.SuperficieTotal = row["SuperficieTotal"].ToString();
+                    propiedad.Pileta = (bool)row["Pileta"];
+                    propiedad.Habitaciones = (int)row["Habitaciones"];
+                    propiedad.ValorDeCouta = (decimal)row["ValorCuota"];
+                    propiedad.Aqluilada = Convert.ToBoolean(row["Alquilada"]);
+                    propiedad.Imagenes = LeerImagenesPorPropiedad(propiedad.ID);
+                    propiedad.Etiquetas = LeerEtiquetasPorPropiedad(propiedad.ID);
+                    listaDeViviendas.Add(propiedad);
                 }
                 return listaDeViviendas;    
             }
@@ -232,11 +150,63 @@ namespace MPP
                     propiedad.ValorDeCouta = (decimal)row["ValorCuota"];
                     propiedad.Aqluilada = Convert.ToBoolean(row["Alquilada"]);
                     propiedad.Imagenes = LeerImagenesPorPropiedad(propiedad.ID);
+                    propiedad.Etiquetas = LeerEtiquetasPorPropiedad(propiedad.ID);
                     listaPropiedades.Add(propiedad);
                 }
                 return listaPropiedades;
             }
             return null;
+        }
+
+        public bool SubirImagenesPorPropiedad(List<byte[]> imagenesEnBytes, int ID_Dueño,string Direccion)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            foreach (byte[] imagen in imagenesEnBytes)
+            {
+
+                SqlParameter parametro = new SqlParameter("@Imagen", imagen);
+                parameters.Add(parametro);
+                SqlParameter dueño = new SqlParameter("@ID_Dueño", ID_Dueño);
+                parameters.Add(dueño);
+                SqlParameter direccion = new SqlParameter("@Direccion", Direccion);
+                parameters.Add(direccion);
+                acceso.Escribir("SubirFotosVivienda", parameters);
+                parameters.Clear();
+            }
+            return true;
+        }
+
+        public bool BorrarImagenesVivienda(int ID_Vivienda, List<byte[]> imagenesEnBytes, int ID_Dueño, string Direccion)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            SqlParameter ID = new SqlParameter("@ID", ID_Vivienda);
+            parameters.Add(ID);
+            return acceso.Escribir("BorrarImagenesVivienda", parameters);
+             
+        }
+
+
+        public bool SubirEtiquetasPorPropiedad(string Direccion,List<Etiqueta> Etiquetas)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            foreach (Etiqueta e in Etiquetas)
+            {
+                SqlParameter ID = new SqlParameter("@Direccion", Direccion);
+                parameters.Add(ID);
+                SqlParameter ID_Etiqueta = new SqlParameter("@ID_Etiqueta", e.ID);
+                parameters.Add((ID_Etiqueta));
+                acceso.Escribir("SubirEtiquetaXVivienda",parameters);
+                parameters.Clear();
+            }
+            return true;
+        }
+
+        public bool BorrarEtiquetasPorPropiedad(int ID_Vivienda)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            SqlParameter ID = new SqlParameter("@ID_Vivienda", ID_Vivienda);
+            parameters.Add(ID);
+            return acceso.Escribir("BorrarEtiquetasVivienda", parameters);
         }
 
         public List<byte[]> LeerImagenesPorPropiedad(int id)
@@ -254,6 +224,28 @@ namespace MPP
                     Imagenes.Add(imagen);
                 }
                 return Imagenes;
+            }
+            return null;
+        }
+
+        public List<Etiqueta> LeerEtiquetasPorPropiedad(int id)
+        {
+            List<Etiqueta> etiquetas = new List<Etiqueta>();
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter("@ID_Vivienda",id),
+            };
+            DataTable dt = acceso.Leer("LeerEtiquetasXVivienda", parameters);
+            if(dt.Rows.Count > 0)
+            {
+                foreach(DataRow row in dt.Rows)
+                {
+                    Etiqueta e = new Etiqueta();
+                    e.ID = (int)row["ID"];
+                    e.Nombre = row["Nombre"].ToString();
+                    etiquetas.Add(e);
+                }
+                return etiquetas;
             }
             return null;
         }

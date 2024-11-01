@@ -47,6 +47,7 @@
     <Compile Include="BLLCuenta.cs" />
     <Compile Include="BLLCuota.cs" />
     <Compile Include="BLLDueño.cs" />
+    <Compile Include="BLLEtiquetas.cs" />
     <Compile Include="BLLIdiomas.cs" />
     <Compile Include="BLLInmoviliaria.cs" />
     <Compile Include="BLLOpinon.cs" />
@@ -71,6 +72,9 @@
       <Project>{2732da39-6f6b-4af3-acbe-3e61f155f7e5}</Project>
       <Name>Servicios</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

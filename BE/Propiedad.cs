@@ -25,7 +25,7 @@ namespace BE
         public decimal ValorDeCouta { get; set; }
 
         public List<byte[]> Imagenes = new List<byte[]>();
-
+        public List<Etiqueta> Etiquetas = new List<Etiqueta>();
         public Propiedad() { }
         public Propiedad(string tipoDeVivienda, string direccion, int ambientes, string superficieTotal, string superficieCubierta, int pisos, int habitaciones, int baños, string cochera, int antiguedad, string patio, string pileta, decimal valorDeCouta)
         {

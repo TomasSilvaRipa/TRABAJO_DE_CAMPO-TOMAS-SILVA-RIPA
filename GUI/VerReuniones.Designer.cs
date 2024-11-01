@@ -242,6 +242,7 @@
             this.Name = "VerReuniones";
             this.Text = "VerReuniones";
             this.Load += new System.EventHandler(this.VerReuniones_Load);
+            this.SizeChanged += new System.EventHandler(this.VerReuniones_SizeChanged);
             this.tableLayoutPanelPadre.ResumeLayout(false);
             this.tableLayoutPanelDerecho.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

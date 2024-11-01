@@ -47,6 +47,7 @@
     <Compile Include="MPPCuenta.cs" />
     <Compile Include="MPPCuota.cs" />
     <Compile Include="MPPDueño.cs" />
+    <Compile Include="MPPEtiquetas.cs" />
     <Compile Include="MPPIdiomas.cs" />
     <Compile Include="MPPInmoviliaria.cs" />
     <Compile Include="MPPOpinion.cs" />
@@ -70,6 +71,9 @@
       <Project>{2732da39-6f6b-4af3-acbe-3e61f155f7e5}</Project>
       <Name>Servicios</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

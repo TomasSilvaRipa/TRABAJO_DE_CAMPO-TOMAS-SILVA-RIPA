@@ -20,12 +20,14 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Windows.Forms.DataVisualization.Charting;
 
 
 namespace GUI
 {
-    public partial class PerformanceInmoviliaria : FIdiomaActualizable,IObservador
+    public partial class PerformanceInmoviliaria : FIdiomaActualizable, IObservador
     {
         public PerformanceInmoviliaria()
         {
@@ -70,6 +72,38 @@ namespace GUI
                 actualizarIdioma();
             }
 
+        }
+
+        public class FormData
+        {
+            public string Title { get; set; }
+            public List<LabelData> Labels { get; set; } = new List<LabelData>();
+            public string VendedorDelMes { get; set; } 
+            public string Saldo { get; set; }
+            public List<Closer> Closers { get; set; } = new List<Closer>();
+            public List<string> Catalogo { get; set; }
+            public List<string> ChartData { get; set; }
+
+        }
+
+        public class LabelData
+        {
+            public string Text { get; set; }
+        }
+
+        public class DataGridViewData
+        {
+            public List<List<string>> Rows { get; set; } = new List<List<string>>();
+        }
+
+        public class ImageData
+        {
+            public byte[] ImageBytes { get; set; }
+        }
+
+        public class ChartData
+        {
+            public byte[] ChartImageBytes { get; set; }
         }
 
         public void CargarClosers()
@@ -209,7 +243,7 @@ namespace GUI
                 int labelAncho = 100;
                 foreach (PropertyInfo propiedad in closer.GetType().GetProperties())
                 {
-                    if (propiedad.Name != "Foto" && propiedad.Name != "NombreDeUsuario" && propiedad.Name != "DV" && propiedad.Name != "Clave" && propiedad.Name != "Sector" && propiedad.Name != "ID")
+                    if (propiedad.Name != "ID_Usuario" && propiedad.Name != "Foto" && propiedad.Name != "NombreDeUsuario" && propiedad.Name != "DV" && propiedad.Name != "Clave" && propiedad.Name != "Sector" && propiedad.Name != "ID")
                     {
                         Label labelNombre = new Label();
                         labelNombre.Text = propiedad.Name;
@@ -414,5 +448,100 @@ namespace GUI
 
             MessageBox.Show("PDF generado exitosamente en " + filePath);
         }
+
+        private void PerformanceInmoviliaria_SizeChanged(object sender, EventArgs e)
+        {
+            if(this.Size == MinimumSize)
+            {
+                MostrarCloserDelMes(ObtenerCloserDelMes());
+            }
+        }
+
+        private void btnSerializar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ExportFormToJson();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public FormData ExtractFormData()
+        {
+            List<Closer> closers = new List<Closer>();
+            var formData = new FormData
+            {
+                Title = "Reporte de Performance",
+                VendedorDelMes = "Pablo Perez",
+                Saldo = "$"+  (0.0M).ToString(), // Cambia este valor si tienes un campo para el saldo
+                Closers = closers, 
+                Catalogo = new List<string>(),
+                ChartData = new List<string>()
+            };
+
+            // Extraer datos del DataGridView de los closers
+            foreach (DataGridViewRow row in dataGridViewClosers.Rows)
+            {
+                if (row.IsNewRow) continue; // Ignorar la última fila en blanco
+                var closer = new Closer
+                {
+                    Nombre = row.Cells["Nombre"].Value?.ToString(),
+                    Apellido = row.Cells["Apellido"].Value?.ToString(),
+                    Clasificacion = row.Cells["Clasificacion"].Value?.ToString(),
+                    TratosCerrados = Convert.ToInt32(row.Cells["TratosCerrados"].Value ?? 0),
+                    Comision = Convert.ToString(row.Cells["Comision"].Value ?? 0.0),
+                    Mail = row.Cells["Mail"].Value?.ToString(),
+                    
+
+                };
+                formData.Closers.Add(closer);
+            }
+
+            // Extraer datos de las etiquetas del catálogo
+            foreach (var control in tableLayoutPanelCloserDelMes.Controls)
+            {
+                if (control is Label label)
+                {
+                    formData.Catalogo.Add(label.Text);
+                }
+            }
+
+            // Extraer datos del Chart
+            foreach (var series in chartTratosXMes.Series)
+            {
+                foreach (var point in series.Points)
+                {
+                    formData.ChartData.Add($"Mes: {point.XValue}, Ventas: {point.YValues[0]}");
+                }
+            }
+
+            return formData;
+        }
+
+
+        public void SaveFormDataToJson(FormData formData, string filePath)
+        {
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault // Ignorar propiedades con valores por defecto
+            };
+
+            string jsonString = JsonSerializer.Serialize(formData, options);
+            File.WriteAllText(filePath, jsonString);
+        }
+
+        public void ExportFormToJson()
+        {
+            FormData formData = ExtractFormData();
+            string fecha = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+            string filePath = @"DataForm" + fecha +".json"; // Cambia esta ruta a la ubicación deseada
+            SaveFormDataToJson(formData, filePath);
+            MessageBox.Show("Formulario exportado a JSON correctamente en " + filePath);
+        }
+
     }
 }

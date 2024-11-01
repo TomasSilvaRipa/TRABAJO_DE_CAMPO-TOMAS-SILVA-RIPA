@@ -104,7 +104,7 @@ namespace GUI
 
                     foreach (PropertyInfo propiedad in p.GetType().GetProperties())
                     {
-                        if (propiedad.Name != "Imagenes")
+                        if (propiedad.Name != "Imagenes" && propiedad.Name != "ID" && propiedad.Name != "Aqluilada")
                         {
                             Label labelNombre = new Label();
                             labelNombre.Text = propiedad.Name;

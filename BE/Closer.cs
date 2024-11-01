@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace BE
 {
     public class Closer:Usuario
     {
+        [JsonIgnore]
         public int ID_Usuario { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }

@@ -30,6 +30,8 @@ namespace GUI
             btnPublicaPropiedad.Visible = true;
             btnModificar.Visible = false;
             menuActivo = menu;
+            bllEtiquetas = new BLLEtiquetas();
+            CargarEtiquetas();
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarTablaIdiomas();
         }
@@ -39,6 +41,10 @@ namespace GUI
         List<System.Drawing.Image> imagenes;
         Propiedad propiedadModificada;
         Menu menuActivo;
+        BLLEtiquetas bllEtiquetas;
+        List<Etiqueta> Etiquetas;
+        
+
         private void actualizarTablaIdiomas()
         {
             Sesion.ObtenerSesion().ActualizarIdiomas();
@@ -63,6 +69,7 @@ namespace GUI
         {
             InitializeComponent();
             bllPropiedad = new BLLPropiedad();
+            bllEtiquetas = new BLLEtiquetas();
             imagenes = new List<System.Drawing.Image>();
             comboBoxPatio.DataSource = Enum.GetValues(typeof(Patio));
             comboBoxPileta.DataSource = Enum.GetValues(typeof(Pileta));
@@ -73,7 +80,7 @@ namespace GUI
             btnModificar.Visible = true;
             btnPublicaPropiedad.Visible = false;
             ActualizarControlesPorpiedadSeleccionada(propiedad);
-            
+            CargarEtiquetas();
         }
 
         enum Patio
@@ -139,6 +146,40 @@ namespace GUI
             }
         }
 
+        public void CargarEtiquetas()
+        {
+            flowLayoutPanelEtiquetas.Controls.Clear();
+            Etiquetas = bllEtiquetas.LeerEtiquetas();
+            foreach(Etiqueta e in  Etiquetas)
+            {
+                CheckBox cb;
+                cb = new CheckBox();
+                cb.Text = e.Nombre;
+                cb.Tag = "Formchb" + e.Nombre;
+                flowLayoutPanelEtiquetas.Controls.Add(cb);
+            }
+        }
+
+        public bool ValidarCheckBox()
+        {
+            try
+            {
+                foreach(Control c in flowLayoutPanelEtiquetas.Controls)
+                {
+                    if(c is CheckBox)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
         public List<byte[]> ConvertirImagenesABytes(List<System.Drawing.Image> imagenes)
         {
             List<byte[]> listaDeImagenesEnBytes = new List<byte[]>();
@@ -178,7 +219,37 @@ namespace GUI
             }
         }
 
-       
+       public List<Etiqueta> ObtenerEtiquetasPorPropiedad()
+        {
+            try
+            {
+                List<Etiqueta> EtiquetasVivienda = new List<Etiqueta>();
+                foreach (Etiqueta e in Etiquetas) {
+                    foreach (Control c in flowLayoutPanelEtiquetas.Controls)
+                    {
+                        if (c is CheckBox)
+                        {
+                            CheckBox cb = (CheckBox)c;
+                            if (cb.Checked)
+                            {
+                                string nombre = c.Tag.ToString().Substring("Formchb".Length);
+                                if (nombre == e.Nombre)
+                                {
+                                    EtiquetasVivienda.Add(e);
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+                return EtiquetasVivienda;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -193,16 +264,24 @@ namespace GUI
                         {
                             if (imagenes.Count > 0)
                             {
-                                if (bllPropiedad.AltaPropiedad(propiedad, ConvertirImagenesABytes(imagenes)))
+                                if(ValidarCheckBox())
                                 {
-                                    MessageBox.Show("Vivienda Publicada Exitosamente");
-                                    imagenes.Clear();
-                                    menuActivo.IdentificarCatalogo();
-                                    this.Close();
+                                    propiedad.Etiquetas = ObtenerEtiquetasPorPropiedad();
+                                    if (bllPropiedad.AltaPropiedad(propiedad, ConvertirImagenesABytes(imagenes)))
+                                    {
+                                        MessageBox.Show("Vivienda Publicada Exitosamente");
+                                        imagenes.Clear();
+                                        menuActivo.IdentificarCatalogo();
+                                        this.Close();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("No se pudo registrar la vivienda");
+                                    }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("No se pudo registrar la vivienda");
+                                    MessageBox.Show("Seleccione al menos una etiqueta para su vivienda");
                                 }
                             }
                             else
@@ -266,21 +345,30 @@ namespace GUI
                         {
                             if (imagenes.Count > 0)
                             {
-                                if (bllPropiedad.ModificarPropiedad(propiedad, ConvertirImagenesABytes(imagenes)))
+                                if (ValidarCheckBox())
                                 {
-                                    MessageBox.Show("Vivienda publicada exitosamente");
-                                    imagenes.Clear();
-                                    this.Close();
+                                    propiedad.Etiquetas = ObtenerEtiquetasPorPropiedad();
+                                    if (bllPropiedad.ModificarPropiedad(propiedad, ConvertirImagenesABytes(imagenes)))
+                                    {
+                                        MessageBox.Show("Vivienda publicada exitosamente");
+                                        imagenes.Clear();
+                                        this.Close();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("No se pudo registrar la vivienda");
+                                    }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("No se pudo registrar la vivienda");
+                                    MessageBox.Show("Seleccione al menos una etiqueta para su vivienda");
                                 }
                             }
                             else
                             {
                                 MessageBox.Show("Seleccione al menos una imagen para la vivienda");
                             }
+
                         }
                         else
                         {

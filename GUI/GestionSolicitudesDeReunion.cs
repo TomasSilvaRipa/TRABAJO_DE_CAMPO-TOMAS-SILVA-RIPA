@@ -102,112 +102,116 @@ namespace GUI
         {
             try
             {
-                Solicitud solicitud = (Solicitud)dataGridViewSolicitudes.CurrentRow.DataBoundItem;
-                Cliente cliente = bllCliente.LeerCliente(solicitud.ID_Cliente, 2);
-                
-                flowLayoutPanelSolicitante.Controls.Clear();
-                flowLayoutPanelSolicitante.FlowDirection = FlowDirection.LeftToRight;
-                flowLayoutPanelSolicitante.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom; 
-                flowLayoutPanelSolicitante.WrapContents = true;
-
-                GroupBox gpadre = new GroupBox();
-                gpadre.Width = flowLayoutPanelSolicitante.Width;
-                gpadre.Height = 300;
-                gpadre.Margin = new Padding(10);
-
-                
-                TableLayoutPanel flpImagen = new TableLayoutPanel();
-                flpImagen.Width = (gpadre.Width / 2); 
-                flpImagen.Height = gpadre.Height;
-                flpImagen.Dock = DockStyle.Left;
-                flpImagen.AutoScroll = true;
-               
-
-
-                Panel gpDescripcion = new Panel();
-                gpDescripcion.Width = gpadre.Width / 2;
-                gpDescripcion.Height = gpadre.Height;
-                gpDescripcion.Dock = DockStyle.Right;
-                gpDescripcion.AutoScroll = true;
-
-                int labelPosY = 20;
-                int labelAncho = 100;  
-                 
-
-                foreach (PropertyInfo propiedad in cliente.GetType().GetProperties())
+                if (dataGridViewSolicitudes.SelectedRows.Count == 1)
                 {
-                    if (propiedad.Name != "Foto")
+                    Solicitud solicitud = (Solicitud)dataGridViewSolicitudes.CurrentRow.DataBoundItem;
+                    Cliente cliente = bllCliente.LeerCliente(solicitud.ID_Cliente, 2);
+
+                    flowLayoutPanelSolicitante.Controls.Clear();
+                    flowLayoutPanelSolicitante.FlowDirection = FlowDirection.LeftToRight;
+                    flowLayoutPanelSolicitante.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom;
+                    flowLayoutPanelSolicitante.WrapContents = true;
+
+                    GroupBox gpadre = new GroupBox();
+                    gpadre.Width = flowLayoutPanelSolicitante.Width;
+                    gpadre.Height = 300;
+                    gpadre.Margin = new Padding(10);
+
+
+                    TableLayoutPanel flpImagen = new TableLayoutPanel();
+                    flpImagen.Width = (gpadre.Width / 2);
+                    flpImagen.Height = gpadre.Height;
+                    flpImagen.Dock = DockStyle.Left;
+                    flpImagen.AutoScroll = true;
+
+
+
+                    Panel gpDescripcion = new Panel();
+                    gpDescripcion.Width = gpadre.Width / 2;
+                    gpDescripcion.Height = gpadre.Height;
+                    gpDescripcion.Dock = DockStyle.Right;
+                    gpDescripcion.AutoScroll = true;
+
+                    int labelPosY = 20;
+                    int labelAncho = 100;
+
+
+                    foreach (PropertyInfo propiedad in cliente.GetType().GetProperties())
                     {
-                        if (propiedad.Name != "NombreDeUsuario" && propiedad.Name != "DV" && propiedad.Name != "Clave" && propiedad.Name != "Sector" && propiedad.Name != "ID")
+                        if (propiedad.Name != "Foto")
                         {
-                            Label labelNombre = new Label();
-                            labelNombre.Text = propiedad.Name;
-                            labelNombre.Tag = propiedad.Name;
-                            labelNombre.Location = new Point(10, labelPosY);
-                            
-                            Label labelValor = new Label();
-                            labelValor.Text = propiedad.GetValue(cliente)?.ToString();
-                            labelValor.Location = new Point(labelAncho + 20, labelPosY);
-                            
-
-                            if (propiedad.GetValue(cliente) is DateTime)
+                            if (propiedad.Name != "ID_Usuario" && propiedad.Name != "NombreDeUsuario" && propiedad.Name != "DV" && propiedad.Name != "Clave" && propiedad.Name != "Sector" && propiedad.Name != "ID" && propiedad.Name != "Inquilino")
                             {
-                                DateTime fn = Convert.ToDateTime(propiedad.GetValue(cliente)).Date;
-                                labelValor.Text = fn.ToString("dd/MM/yyyy");
-                            }
+                                Label labelNombre = new Label();
+                                labelNombre.Text = propiedad.Name;
+                                labelNombre.Tag = propiedad.Name;
+                                labelNombre.Location = new Point(10, labelPosY);
 
-                            gpDescripcion.Controls.Add(labelNombre);
-                            gpDescripcion.Controls.Add(labelValor);
+                                Label labelValor = new Label();
+                                labelValor.Text = propiedad.GetValue(cliente)?.ToString();
+                                labelValor.Location = new Point(labelAncho + 20, labelPosY);
 
-                            labelPosY += 30;
-                        }
-                    }
-                    else
-                    {
-                        PictureBox pictureBox = new PictureBox();
-                        pictureBox.Width = flpImagen.Width - 30;
-                        pictureBox.Height = flpImagen.Height - 30;
-                        pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-                        if (propiedad.GetValue(cliente) != null)
-                        {
-                            
-                            using (MemoryStream ms = new MemoryStream(cliente.Foto))
-                            {
-                                pictureBox.Image = Image.FromStream(ms);
+
+                                if (propiedad.GetValue(cliente) is DateTime)
+                                {
+                                    DateTime fn = Convert.ToDateTime(propiedad.GetValue(cliente)).Date;
+                                    labelValor.Text = fn.ToString("dd/MM/yyyy");
+                                }
+
+                                gpDescripcion.Controls.Add(labelNombre);
+                                gpDescripcion.Controls.Add(labelValor);
+
+                                labelPosY += 30;
                             }
                         }
                         else
                         {
-                            pictureBox.Image = Resources.UsuarioGenerico;
-                            pictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
+                            PictureBox pictureBox = new PictureBox();
+                            pictureBox.Width = flpImagen.Width - 30;
+                            pictureBox.Height = flpImagen.Height - 30;
+                            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                            if (propiedad.GetValue(cliente) != null)
+                            {
+
+                                using (MemoryStream ms = new MemoryStream(cliente.Foto))
+                                {
+                                    pictureBox.Image = Image.FromStream(ms);
+                                }
+                            }
+                            else
+                            {
+                                pictureBox.Image = Resources.UsuarioGenerico;
+                                pictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
+                            }
+                            flpImagen.Controls.Add(pictureBox);
                         }
-                        flpImagen.Controls.Add(pictureBox);
+
                     }
+
+                    Button btnAceptar = new Button();
+                    btnAceptar.Text = "Aceptar";
+                    btnAceptar.Tag = "FGSRAceptar";
+                    btnAceptar.Width = 120;
+                    btnAceptar.Location = new Point(10, labelPosY);
+                    btnAceptar.Click += (s, e) => AceptarReunion(cliente, solicitud);
+                    labelPosY += 30;
+
+
+                    Button btnRechazar = new Button();
+                    btnRechazar.Text = "Rechazar";
+                    btnRechazar.Tag = "FGSRRechazar";
+                    btnRechazar.Width = 120;
+                    btnRechazar.Location = new Point(10, labelPosY);
+                    btnRechazar.Click += (s, e) => RechazarReunion(solicitud);
+                    labelPosY += 30;
+
+                    gpadre.Controls.Add(flpImagen);
+                    gpadre.Controls.Add(gpDescripcion);
+                    gpDescripcion.Controls.Add(btnAceptar);
+                    gpDescripcion.Controls.Add(btnRechazar);
+                    flowLayoutPanelSolicitante.Controls.Add(gpadre);
+                    CargarOpiniones(cliente);
                 }
-
-                Button btnAceptar = new Button();
-                btnAceptar.Text = "Aceptar";
-                btnAceptar.Tag = "FGSRAceptar";
-                btnAceptar.Width = 120;
-                btnAceptar.Location = new Point(10, labelPosY);
-                btnAceptar.Click += (s, e) => AceptarReunion(cliente,solicitud);
-                labelPosY += 30;
-                
-
-                Button btnRechazar = new Button();
-                btnRechazar.Text = "Rechazar";
-                btnRechazar.Tag = "FGSRRechazar";
-                btnRechazar.Width = 120;
-                btnRechazar.Location = new Point(10, labelPosY);
-                btnRechazar.Click += (s, e) => RechazarReunion(solicitud); 
-                labelPosY += 30;
-
-                gpadre.Controls.Add(flpImagen);
-                gpadre.Controls.Add(gpDescripcion);
-                gpDescripcion.Controls.Add(btnAceptar);
-                gpDescripcion.Controls.Add(btnRechazar);
-                flowLayoutPanelSolicitante.Controls.Add(gpadre);
-                CargarOpiniones(cliente);
             }
             catch (Exception ex)
             {
@@ -257,6 +261,28 @@ namespace GUI
                 GenerarSolicitante();
                 solicitud = (Solicitud)dataGridViewSolicitudes.CurrentRow.DataBoundItem;
             }
+        }
+
+        private void GestionSolicitudesDeReunion_MaximumSizeChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void GestionSolicitudesDeReunion_MinimumSizeChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void GestionSolicitudesDeReunion_SizeChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void GestionSolicitudesDeReunion_ResizeEnd(object sender, EventArgs e)
+        {
+            GenerarSolicitante();
+        }
+
+        private void GestionSolicitudesDeReunion_Resize(object sender, EventArgs e)
+        {
+            GenerarSolicitante();
         }
     }
 }

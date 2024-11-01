@@ -61,7 +61,7 @@ namespace BLL
                 if(mppCuota.PagarCuota(cuota, trato.ID_Closer, montoCloser, montoInmoviliaria))
                 {
                     Servicios.EmailSender.EnviarMail("Pago Exitoso","Se acreditado su pago",cliente.Mail);
-                    Servicios.EmailSender.EnviarMail("Recibo de Pago","Ha recibido su pago de cuota nro " + cuota.ID, dueño.Mail);
+                    //Servicios.EmailSender.EnviarMail("Recibo de Pago","Ha recibido su pago de cuota nro " + cuota.ID, dueño.Mail);
                     return true;
                 }
                 return false;

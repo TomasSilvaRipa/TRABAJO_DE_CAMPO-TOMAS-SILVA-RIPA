@@ -32,19 +32,25 @@
             this.tableLayoutPanelPadre = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelBarraMenuDinamica = new System.Windows.Forms.TableLayoutPanel();
             this.btnPerformanceInmoviliaria = new System.Windows.Forms.Button();
-            this.btnCuentaInmoviliaria = new System.Windows.Forms.Button();
             this.btnGestorDeReunionesCliente = new System.Windows.Forms.Button();
-            this.btnCuentaCliente = new System.Windows.Forms.Button();
-            this.btnRendimientoCloser = new System.Windows.Forms.Button();
             this.btnVerCasasGestionadasCloser = new System.Windows.Forms.Button();
-            this.btnCuentaCloser = new System.Windows.Forms.Button();
-            this.btnCuentaDueño = new System.Windows.Forms.Button();
             this.btnIngresosDueño = new System.Windows.Forms.Button();
             this.btnAgregarPropiedad = new System.Windows.Forms.Button();
             this.btnVerReunionesDueño = new System.Windows.Forms.Button();
             this.btnPagosCliente = new System.Windows.Forms.Button();
+            this.btnCuentaDueño = new System.Windows.Forms.Button();
+            this.btnRendimientoCloser = new System.Windows.Forms.Button();
+            this.btnCuentaCloser = new System.Windows.Forms.Button();
+            this.btnCuentaCliente = new System.Windows.Forms.Button();
+            this.btnCuentaInmoviliaria = new System.Windows.Forms.Button();
             this.tableLayoutPanelCatalogoYFiltro = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanelCatalogo = new System.Windows.Forms.FlowLayoutPanel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.FMlabelFiltrar = new System.Windows.Forms.Label();
+            this.flowLayoutPanelFiltro = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnLogout = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -54,6 +60,8 @@
             this.tableLayoutPanelPadre.SuspendLayout();
             this.tableLayoutPanelBarraMenuDinamica.SuspendLayout();
             this.tableLayoutPanelCatalogoYFiltro.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -77,7 +85,7 @@
             this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.53543F));
             this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.46457F));
             this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
-            this.tableLayoutPanelPadre.Size = new System.Drawing.Size(1052, 602);
+            this.tableLayoutPanelPadre.Size = new System.Drawing.Size(1052, 606);
             this.tableLayoutPanelPadre.TabIndex = 0;
             // 
             // tableLayoutPanelBarraMenuDinamica
@@ -86,25 +94,25 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanelBarraMenuDinamica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.tableLayoutPanelBarraMenuDinamica.ColumnCount = 5;
+            this.tableLayoutPanelBarraMenuDinamica.ColumnCount = 4;
             this.tableLayoutPanelBarraMenuDinamica.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.5F));
             this.tableLayoutPanelBarraMenuDinamica.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.5F));
             this.tableLayoutPanelBarraMenuDinamica.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanelBarraMenuDinamica.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.5F));
             this.tableLayoutPanelBarraMenuDinamica.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.5F));
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnPerformanceInmoviliaria, 0, 3);
-            this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnCuentaInmoviliaria, 4, 3);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnGestorDeReunionesCliente, 0, 2);
-            this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnCuentaCliente, 4, 2);
-            this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnRendimientoCloser, 3, 1);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnVerCasasGestionadasCloser, 0, 1);
-            this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnCuentaCloser, 4, 1);
-            this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnCuentaDueño, 4, 0);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnIngresosDueño, 2, 0);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnAgregarPropiedad, 0, 0);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnVerReunionesDueño, 1, 0);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnPagosCliente, 2, 2);
-            this.tableLayoutPanelBarraMenuDinamica.Location = new System.Drawing.Point(3, 545);
+            this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnCuentaDueño, 3, 0);
+            this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnRendimientoCloser, 2, 1);
+            this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnCuentaCloser, 3, 1);
+            this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnCuentaCliente, 3, 2);
+            this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnCuentaInmoviliaria, 3, 3);
+            this.tableLayoutPanelBarraMenuDinamica.Location = new System.Drawing.Point(3, 549);
             this.tableLayoutPanelBarraMenuDinamica.Name = "tableLayoutPanelBarraMenuDinamica";
             this.tableLayoutPanelBarraMenuDinamica.RowCount = 4;
             this.tableLayoutPanelBarraMenuDinamica.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.85207F));
@@ -119,7 +127,9 @@
             // btnPerformanceInmoviliaria
             // 
             this.btnPerformanceInmoviliaria.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPerformanceInmoviliaria.Location = new System.Drawing.Point(53, 32);
+            this.btnPerformanceInmoviliaria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPerformanceInmoviliaria.ForeColor = System.Drawing.Color.Red;
+            this.btnPerformanceInmoviliaria.Location = new System.Drawing.Point(87, 32);
             this.btnPerformanceInmoviliaria.Name = "btnPerformanceInmoviliaria";
             this.btnPerformanceInmoviliaria.Size = new System.Drawing.Size(129, 19);
             this.btnPerformanceInmoviliaria.TabIndex = 0;
@@ -128,22 +138,10 @@
             this.btnPerformanceInmoviliaria.UseVisualStyleBackColor = true;
             this.btnPerformanceInmoviliaria.Click += new System.EventHandler(this.btnPerformanceEmpresa_Click);
             // 
-            // btnCuentaInmoviliaria
-            // 
-            this.btnCuentaInmoviliaria.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCuentaInmoviliaria.Location = new System.Drawing.Point(848, 32);
-            this.btnCuentaInmoviliaria.Name = "btnCuentaInmoviliaria";
-            this.btnCuentaInmoviliaria.Size = new System.Drawing.Size(159, 19);
-            this.btnCuentaInmoviliaria.TabIndex = 1;
-            this.btnCuentaInmoviliaria.Tag = "FMCuentaInmoviliaria";
-            this.btnCuentaInmoviliaria.Text = "Cuenta";
-            this.btnCuentaInmoviliaria.UseVisualStyleBackColor = true;
-            this.btnCuentaInmoviliaria.Click += new System.EventHandler(this.btnCuentaInmoviliaria_Click);
-            // 
             // btnGestorDeReunionesCliente
             // 
             this.btnGestorDeReunionesCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGestorDeReunionesCliente.Location = new System.Drawing.Point(45, 21);
+            this.btnGestorDeReunionesCliente.Location = new System.Drawing.Point(79, 21);
             this.btnGestorDeReunionesCliente.Name = "btnGestorDeReunionesCliente";
             this.btnGestorDeReunionesCliente.Size = new System.Drawing.Size(145, 3);
             this.btnGestorDeReunionesCliente.TabIndex = 0;
@@ -152,34 +150,10 @@
             this.btnGestorDeReunionesCliente.UseVisualStyleBackColor = true;
             this.btnGestorDeReunionesCliente.Click += new System.EventHandler(this.btnGestorDeReunionesCliente_Click);
             // 
-            // btnCuentaCliente
-            // 
-            this.btnCuentaCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCuentaCliente.Location = new System.Drawing.Point(868, 21);
-            this.btnCuentaCliente.Name = "btnCuentaCliente";
-            this.btnCuentaCliente.Size = new System.Drawing.Size(119, 3);
-            this.btnCuentaCliente.TabIndex = 0;
-            this.btnCuentaCliente.Tag = "FMCuentaCliente";
-            this.btnCuentaCliente.Text = "Cuenta";
-            this.btnCuentaCliente.UseVisualStyleBackColor = true;
-            this.btnCuentaCliente.Click += new System.EventHandler(this.btnCuentaCliente_Click);
-            // 
-            // btnRendimientoCloser
-            // 
-            this.btnRendimientoCloser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRendimientoCloser.Location = new System.Drawing.Point(617, 11);
-            this.btnRendimientoCloser.Name = "btnRendimientoCloser";
-            this.btnRendimientoCloser.Size = new System.Drawing.Size(149, 1);
-            this.btnRendimientoCloser.TabIndex = 1;
-            this.btnRendimientoCloser.Tag = "FMRendimiento";
-            this.btnRendimientoCloser.Text = "Rendimiento";
-            this.btnRendimientoCloser.UseVisualStyleBackColor = true;
-            this.btnRendimientoCloser.Click += new System.EventHandler(this.btnRendimientoCloser_Click);
-            // 
             // btnVerCasasGestionadasCloser
             // 
             this.btnVerCasasGestionadasCloser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnVerCasasGestionadasCloser.Location = new System.Drawing.Point(32, 11);
+            this.btnVerCasasGestionadasCloser.Location = new System.Drawing.Point(66, 11);
             this.btnVerCasasGestionadasCloser.Name = "btnVerCasasGestionadasCloser";
             this.btnVerCasasGestionadasCloser.Size = new System.Drawing.Size(170, 1);
             this.btnVerCasasGestionadasCloser.TabIndex = 1;
@@ -188,34 +162,10 @@
             this.btnVerCasasGestionadasCloser.UseVisualStyleBackColor = true;
             this.btnVerCasasGestionadasCloser.Click += new System.EventHandler(this.btnVerCasasGestionadasCloser_Click);
             // 
-            // btnCuentaCloser
-            // 
-            this.btnCuentaCloser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCuentaCloser.Location = new System.Drawing.Point(865, 11);
-            this.btnCuentaCloser.Name = "btnCuentaCloser";
-            this.btnCuentaCloser.Size = new System.Drawing.Size(124, 1);
-            this.btnCuentaCloser.TabIndex = 2;
-            this.btnCuentaCloser.Tag = "FMCuentaCloser";
-            this.btnCuentaCloser.Text = "Cuenta";
-            this.btnCuentaCloser.UseVisualStyleBackColor = true;
-            this.btnCuentaCloser.Click += new System.EventHandler(this.btnCuentaCloser_Click);
-            // 
-            // btnCuentaDueño
-            // 
-            this.btnCuentaDueño.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCuentaDueño.Location = new System.Drawing.Point(865, 3);
-            this.btnCuentaDueño.Name = "btnCuentaDueño";
-            this.btnCuentaDueño.Size = new System.Drawing.Size(124, 1);
-            this.btnCuentaDueño.TabIndex = 1;
-            this.btnCuentaDueño.Tag = "FMCuentaDueños";
-            this.btnCuentaDueño.Text = "Cuenta";
-            this.btnCuentaDueño.UseVisualStyleBackColor = true;
-            this.btnCuentaDueño.Click += new System.EventHandler(this.btnCuentaDueño_Click);
-            // 
             // btnIngresosDueño
             // 
             this.btnIngresosDueño.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnIngresosDueño.Location = new System.Drawing.Point(473, 3);
+            this.btnIngresosDueño.Location = new System.Drawing.Point(624, 3);
             this.btnIngresosDueño.Name = "btnIngresosDueño";
             this.btnIngresosDueño.Size = new System.Drawing.Size(97, 1);
             this.btnIngresosDueño.TabIndex = 1;
@@ -227,7 +177,7 @@
             // btnAgregarPropiedad
             // 
             this.btnAgregarPropiedad.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAgregarPropiedad.Location = new System.Drawing.Point(43, 3);
+            this.btnAgregarPropiedad.Location = new System.Drawing.Point(77, 3);
             this.btnAgregarPropiedad.MinimumSize = new System.Drawing.Size(149, 1);
             this.btnAgregarPropiedad.Name = "btnAgregarPropiedad";
             this.btnAgregarPropiedad.Size = new System.Drawing.Size(149, 1);
@@ -240,7 +190,7 @@
             // btnVerReunionesDueño
             // 
             this.btnVerReunionesDueño.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnVerReunionesDueño.Location = new System.Drawing.Point(284, 3);
+            this.btnVerReunionesDueño.Location = new System.Drawing.Point(386, 3);
             this.btnVerReunionesDueño.Name = "btnVerReunionesDueño";
             this.btnVerReunionesDueño.Size = new System.Drawing.Size(137, 1);
             this.btnVerReunionesDueño.TabIndex = 4;
@@ -252,7 +202,7 @@
             // btnPagosCliente
             // 
             this.btnPagosCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPagosCliente.Location = new System.Drawing.Point(473, 21);
+            this.btnPagosCliente.Location = new System.Drawing.Point(624, 21);
             this.btnPagosCliente.Name = "btnPagosCliente";
             this.btnPagosCliente.Size = new System.Drawing.Size(97, 3);
             this.btnPagosCliente.TabIndex = 0;
@@ -261,6 +211,68 @@
             this.btnPagosCliente.UseVisualStyleBackColor = true;
             this.btnPagosCliente.Click += new System.EventHandler(this.btnPagosCliente_Click);
             // 
+            // btnCuentaDueño
+            // 
+            this.btnCuentaDueño.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCuentaDueño.Location = new System.Drawing.Point(831, 3);
+            this.btnCuentaDueño.Name = "btnCuentaDueño";
+            this.btnCuentaDueño.Size = new System.Drawing.Size(124, 1);
+            this.btnCuentaDueño.TabIndex = 1;
+            this.btnCuentaDueño.Tag = "FMCuentaDueños";
+            this.btnCuentaDueño.Text = "Cuenta";
+            this.btnCuentaDueño.UseVisualStyleBackColor = true;
+            this.btnCuentaDueño.Click += new System.EventHandler(this.btnCuentaDueño_Click);
+            // 
+            // btnRendimientoCloser
+            // 
+            this.btnRendimientoCloser.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnRendimientoCloser.Location = new System.Drawing.Point(609, 11);
+            this.btnRendimientoCloser.Name = "btnRendimientoCloser";
+            this.btnRendimientoCloser.Size = new System.Drawing.Size(128, 1);
+            this.btnRendimientoCloser.TabIndex = 1;
+            this.btnRendimientoCloser.Tag = "FMRendimiento";
+            this.btnRendimientoCloser.Text = "Rendimiento";
+            this.btnRendimientoCloser.UseVisualStyleBackColor = true;
+            this.btnRendimientoCloser.Click += new System.EventHandler(this.btnRendimientoCloser_Click);
+            // 
+            // btnCuentaCloser
+            // 
+            this.btnCuentaCloser.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCuentaCloser.Location = new System.Drawing.Point(831, 11);
+            this.btnCuentaCloser.Name = "btnCuentaCloser";
+            this.btnCuentaCloser.Size = new System.Drawing.Size(124, 1);
+            this.btnCuentaCloser.TabIndex = 2;
+            this.btnCuentaCloser.Tag = "FMCuentaCloser";
+            this.btnCuentaCloser.Text = "Cuenta";
+            this.btnCuentaCloser.UseVisualStyleBackColor = true;
+            this.btnCuentaCloser.Click += new System.EventHandler(this.btnCuentaCloser_Click);
+            // 
+            // btnCuentaCliente
+            // 
+            this.btnCuentaCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCuentaCliente.Location = new System.Drawing.Point(833, 21);
+            this.btnCuentaCliente.Name = "btnCuentaCliente";
+            this.btnCuentaCliente.Size = new System.Drawing.Size(119, 3);
+            this.btnCuentaCliente.TabIndex = 0;
+            this.btnCuentaCliente.Tag = "FMCuentaCliente";
+            this.btnCuentaCliente.Text = "Cuenta";
+            this.btnCuentaCliente.UseVisualStyleBackColor = true;
+            this.btnCuentaCliente.Click += new System.EventHandler(this.btnCuentaCliente_Click);
+            // 
+            // btnCuentaInmoviliaria
+            // 
+            this.btnCuentaInmoviliaria.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCuentaInmoviliaria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCuentaInmoviliaria.ForeColor = System.Drawing.Color.Red;
+            this.btnCuentaInmoviliaria.Location = new System.Drawing.Point(813, 32);
+            this.btnCuentaInmoviliaria.Name = "btnCuentaInmoviliaria";
+            this.btnCuentaInmoviliaria.Size = new System.Drawing.Size(159, 19);
+            this.btnCuentaInmoviliaria.TabIndex = 1;
+            this.btnCuentaInmoviliaria.Tag = "FMCuentaInmoviliaria";
+            this.btnCuentaInmoviliaria.Text = "Cuenta";
+            this.btnCuentaInmoviliaria.UseVisualStyleBackColor = true;
+            this.btnCuentaInmoviliaria.Click += new System.EventHandler(this.btnCuentaInmoviliaria_Click);
+            // 
             // tableLayoutPanelCatalogoYFiltro
             // 
             this.tableLayoutPanelCatalogoYFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -268,15 +280,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanelCatalogoYFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.tableLayoutPanelCatalogoYFiltro.ColumnCount = 2;
-            this.tableLayoutPanelCatalogoYFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.89738F));
-            this.tableLayoutPanelCatalogoYFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.10261F));
+            this.tableLayoutPanelCatalogoYFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 77.05545F));
+            this.tableLayoutPanelCatalogoYFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.94455F));
             this.tableLayoutPanelCatalogoYFiltro.Controls.Add(this.flowLayoutPanelCatalogo, 0, 0);
-            this.tableLayoutPanelCatalogoYFiltro.Location = new System.Drawing.Point(3, 92);
+            this.tableLayoutPanelCatalogoYFiltro.Controls.Add(this.tableLayoutPanel3, 1, 0);
+            this.tableLayoutPanelCatalogoYFiltro.Location = new System.Drawing.Point(3, 93);
             this.tableLayoutPanelCatalogoYFiltro.Name = "tableLayoutPanelCatalogoYFiltro";
             this.tableLayoutPanelCatalogoYFiltro.RowCount = 1;
             this.tableLayoutPanelCatalogoYFiltro.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelCatalogoYFiltro.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelCatalogoYFiltro.Size = new System.Drawing.Size(1046, 447);
+            this.tableLayoutPanelCatalogoYFiltro.Size = new System.Drawing.Size(1046, 450);
             this.tableLayoutPanelCatalogoYFiltro.TabIndex = 0;
             // 
             // flowLayoutPanelCatalogo
@@ -289,9 +302,89 @@
             this.flowLayoutPanelCatalogo.ForeColor = System.Drawing.Color.Black;
             this.flowLayoutPanelCatalogo.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelCatalogo.Name = "flowLayoutPanelCatalogo";
-            this.flowLayoutPanelCatalogo.Size = new System.Drawing.Size(850, 441);
+            this.flowLayoutPanelCatalogo.Size = new System.Drawing.Size(800, 444);
             this.flowLayoutPanelCatalogo.TabIndex = 0;
             this.flowLayoutPanelCatalogo.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelCatalogo_Paint);
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.FMlabelFiltrar, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanelFiltro, 0, 1);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(809, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.728132F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95.27187F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(234, 444);
+            this.tableLayoutPanel3.TabIndex = 1;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.07018F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.92982F));
+            this.tableLayoutPanel4.Controls.Add(this.btnFiltrar, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.btnLimpiar, 1, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 386);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(228, 55);
+            this.tableLayoutPanel4.TabIndex = 0;
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnFiltrar.Location = new System.Drawing.Point(3, 8);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(111, 38);
+            this.btnFiltrar.TabIndex = 0;
+            this.btnFiltrar.Text = "Filtrar Viviendas";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnLimpiar.Location = new System.Drawing.Point(124, 5);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(101, 44);
+            this.btnLimpiar.TabIndex = 1;
+            this.btnLimpiar.Text = "Limpiar Busqueda";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // FMlabelFiltrar
+            // 
+            this.FMlabelFiltrar.AutoSize = true;
+            this.FMlabelFiltrar.ForeColor = System.Drawing.Color.White;
+            this.FMlabelFiltrar.Location = new System.Drawing.Point(3, 0);
+            this.FMlabelFiltrar.Name = "FMlabelFiltrar";
+            this.FMlabelFiltrar.Size = new System.Drawing.Size(103, 16);
+            this.FMlabelFiltrar.TabIndex = 1;
+            this.FMlabelFiltrar.Text = "Filtrar Viviendas";
+            // 
+            // flowLayoutPanelFiltro
+            // 
+            this.flowLayoutPanelFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelFiltro.Location = new System.Drawing.Point(3, 21);
+            this.flowLayoutPanelFiltro.Name = "flowLayoutPanelFiltro";
+            this.flowLayoutPanelFiltro.Size = new System.Drawing.Size(228, 359);
+            this.flowLayoutPanelFiltro.TabIndex = 2;
             // 
             // tableLayoutPanel1
             // 
@@ -313,7 +406,7 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1046, 83);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1046, 84);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // btnLogout
@@ -339,7 +432,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(190, 77);
+            this.pictureBox1.Size = new System.Drawing.Size(190, 78);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -359,14 +452,14 @@
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(318, 77);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(318, 78);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
             // comboBoxIdiomas
             // 
             this.comboBoxIdiomas.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.comboBoxIdiomas.FormattingEnabled = true;
-            this.comboBoxIdiomas.Location = new System.Drawing.Point(194, 26);
+            this.comboBoxIdiomas.Location = new System.Drawing.Point(194, 27);
             this.comboBoxIdiomas.Name = "comboBoxIdiomas";
             this.comboBoxIdiomas.Size = new System.Drawing.Size(121, 24);
             this.comboBoxIdiomas.TabIndex = 8;
@@ -376,7 +469,7 @@
             // 
             this.buttonMenuDeGestion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonMenuDeGestion.ForeColor = System.Drawing.Color.Black;
-            this.buttonMenuDeGestion.Location = new System.Drawing.Point(28, 16);
+            this.buttonMenuDeGestion.Location = new System.Drawing.Point(28, 17);
             this.buttonMenuDeGestion.Name = "buttonMenuDeGestion";
             this.buttonMenuDeGestion.Size = new System.Drawing.Size(102, 44);
             this.buttonMenuDeGestion.TabIndex = 9;
@@ -393,6 +486,7 @@
             this.Controls.Add(this.tableLayoutPanelPadre);
             this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(1057, 647);
             this.Name = "Menu";
             this.Text = "Menu";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Menu_FormClosed);
@@ -400,6 +494,9 @@
             this.tableLayoutPanelPadre.ResumeLayout(false);
             this.tableLayoutPanelBarraMenuDinamica.ResumeLayout(false);
             this.tableLayoutPanelCatalogoYFiltro.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -431,5 +528,11 @@
         private System.Windows.Forms.ComboBox comboBoxIdiomas;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button buttonMenuDeGestion;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.Label FMlabelFiltrar;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFiltro;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }
