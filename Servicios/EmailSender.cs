@@ -12,32 +12,35 @@ namespace Servicios
     {
         internal static string Emisor = "RentHub.Notifier@gmail.com";
 
-        public static bool EnviarMail(string Tema, string Descripcion, string Receptor)
+        public static async Task<bool> EnviarMail(string Tema, string Descripcion, string Receptor)
         {
             try
             {
-                // Configuración del cliente SMTP
-                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
+                using (SmtpClient smtpClient = new SmtpClient("smtp.gmail.com"))
                 {
-                    Port = 587, // El puerto SMTP (587 o 465 generalmente)
-                    Credentials = new NetworkCredential(Emisor, "vhcq mrvv beqi yqwy"),
-                    EnableSsl = true, // Activar SSL si es necesario
-                };
+                    // Configuración del cliente SMTP
+                    //SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
+                    //{
+                    smtpClient.Port = 587; // El puerto SMTP (587 o 465 generalmente)
+                    smtpClient.Credentials = new NetworkCredential(Emisor, "vhcq mrvv beqi yqwy");
+                    smtpClient.EnableSsl = true; // Activar SSL si es necesario
+                    //};
 
-                // Crear el correo
-                MailMessage mail = new MailMessage
-                {
-                    From = new MailAddress(Emisor),
-                    Subject = Tema,
-                    Body = Descripcion,
-                    IsBodyHtml = true // Si quieres que el cuerpo sea en HTML
-                };
+                    // Crear el correo
+                    MailMessage mail = new MailMessage
+                    {
+                        From = new MailAddress(Emisor),
+                        Subject = Tema,
+                        Body = Descripcion,
+                        IsBodyHtml = true // Si quieres que el cuerpo sea en HTML
+                    };
 
-                // Destinatarios
-                mail.To.Add(Receptor);
+                    // Destinatarios
+                    mail.To.Add(Receptor);
 
-                // Enviar el correo
-                smtpClient.Send(mail);
+                    // Enviar el correo
+                    await smtpClient.SendMailAsync(mail);
+                }
                 return true;
             }
             catch (Exception ex)

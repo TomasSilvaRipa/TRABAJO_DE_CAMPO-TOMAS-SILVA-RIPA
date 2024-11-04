@@ -40,6 +40,7 @@
             this.labelTraducciones = new System.Windows.Forms.Label();
             this.cbxIdiomas = new System.Windows.Forms.ComboBox();
             this.labelGestorDeCambios = new System.Windows.Forms.Label();
+            this.labelGestionDeBaseDeDatos = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,7 +80,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUsuario.AutoSize = true;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(841, -1);
+            this.txtUsuario.Location = new System.Drawing.Point(891, 1);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(109, 25);
@@ -106,7 +107,7 @@
             // 
             this.labelGU.AutoSize = true;
             this.labelGU.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.labelGU.Location = new System.Drawing.Point(12, 8);
+            this.labelGU.Location = new System.Drawing.Point(-3, 8);
             this.labelGU.Name = "labelGU";
             this.labelGU.Size = new System.Drawing.Size(131, 16);
             this.labelGU.TabIndex = 4;
@@ -117,7 +118,7 @@
             // labelBitacora
             // 
             this.labelBitacora.AutoSize = true;
-            this.labelBitacora.Location = new System.Drawing.Point(160, 8);
+            this.labelBitacora.Location = new System.Drawing.Point(145, 8);
             this.labelBitacora.Name = "labelBitacora";
             this.labelBitacora.Size = new System.Drawing.Size(57, 16);
             this.labelBitacora.TabIndex = 5;
@@ -128,7 +129,7 @@
             // labelGestionDePermisos
             // 
             this.labelGestionDePermisos.AutoSize = true;
-            this.labelGestionDePermisos.Location = new System.Drawing.Point(240, 8);
+            this.labelGestionDePermisos.Location = new System.Drawing.Point(225, 8);
             this.labelGestionDePermisos.Name = "labelGestionDePermisos";
             this.labelGestionDePermisos.Size = new System.Drawing.Size(64, 16);
             this.labelGestionDePermisos.TabIndex = 6;
@@ -139,7 +140,7 @@
             // labelTraducciones
             // 
             this.labelTraducciones.AutoSize = true;
-            this.labelTraducciones.Location = new System.Drawing.Point(325, 8);
+            this.labelTraducciones.Location = new System.Drawing.Point(310, 8);
             this.labelTraducciones.Name = "labelTraducciones";
             this.labelTraducciones.Size = new System.Drawing.Size(90, 16);
             this.labelTraducciones.TabIndex = 8;
@@ -151,16 +152,16 @@
             // 
             this.cbxIdiomas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxIdiomas.FormattingEnabled = true;
-            this.cbxIdiomas.Location = new System.Drawing.Point(602, 1);
+            this.cbxIdiomas.Location = new System.Drawing.Point(747, 0);
             this.cbxIdiomas.Name = "cbxIdiomas";
-            this.cbxIdiomas.Size = new System.Drawing.Size(155, 24);
+            this.cbxIdiomas.Size = new System.Drawing.Size(104, 24);
             this.cbxIdiomas.TabIndex = 9;
             this.cbxIdiomas.SelectedIndexChanged += new System.EventHandler(this.cbxIdiomas_SelectedIndexChanged);
             // 
             // labelGestorDeCambios
             // 
             this.labelGestorDeCambios.AutoSize = true;
-            this.labelGestorDeCambios.Location = new System.Drawing.Point(431, 8);
+            this.labelGestorDeCambios.Location = new System.Drawing.Point(416, 8);
             this.labelGestorDeCambios.Name = "labelGestorDeCambios";
             this.labelGestorDeCambios.Size = new System.Drawing.Size(125, 16);
             this.labelGestorDeCambios.TabIndex = 8;
@@ -168,11 +169,22 @@
             this.labelGestorDeCambios.Text = "Gestor De Cambios";
             this.labelGestorDeCambios.Click += new System.EventHandler(this.label1_Click_1);
             // 
+            // labelGestionDeBaseDeDatos
+            // 
+            this.labelGestionDeBaseDeDatos.AutoSize = true;
+            this.labelGestionDeBaseDeDatos.Location = new System.Drawing.Point(547, 8);
+            this.labelGestionDeBaseDeDatos.Name = "labelGestionDeBaseDeDatos";
+            this.labelGestionDeBaseDeDatos.Size = new System.Drawing.Size(165, 16);
+            this.labelGestionDeBaseDeDatos.TabIndex = 11;
+            this.labelGestionDeBaseDeDatos.Text = "Gestion de Base de Datos";
+            this.labelGestionDeBaseDeDatos.Click += new System.EventHandler(this.labelGestionDeBaseDeDatos_Click);
+            // 
             // FMdi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1172, 554);
+            this.Controls.Add(this.labelGestionDeBaseDeDatos);
             this.Controls.Add(this.cbxIdiomas);
             this.Controls.Add(this.labelTraducciones);
             this.Controls.Add(this.labelGestorDeCambios);
@@ -211,5 +223,6 @@
         private System.Windows.Forms.Label labelTraducciones;
         private System.Windows.Forms.ComboBox cbxIdiomas;
         private System.Windows.Forms.Label labelGestorDeCambios;
+        private System.Windows.Forms.Label labelGestionDeBaseDeDatos;
     }
 }

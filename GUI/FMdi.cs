@@ -250,5 +250,11 @@ namespace GUI
             GestorDeCambios gestorDeCambios = new GestorDeCambios();
             gestorDeCambios.Show();
         }
+
+        private void labelGestionDeBaseDeDatos_Click(object sender, EventArgs e)
+        {
+            GestionDeBaseDeDatos GDBD = new GestionDeBaseDeDatos();
+            GDBD.Show();
+        }
     }
 }

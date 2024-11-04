@@ -159,6 +159,12 @@
     <Compile Include="ClosersPostulados.Designer.cs">
       <DependentUpon>ClosersPostulados.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionDeBaseDeDatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionDeBaseDeDatos.Designer.cs">
+      <DependentUpon>GestionDeBaseDeDatos.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionDePropiedades.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -304,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ClosersPostulados.resx">
       <DependentUpon>ClosersPostulados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionDeBaseDeDatos.resx">
+      <DependentUpon>GestionDeBaseDeDatos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionDePropiedades.resx">
       <DependentUpon>GestionDePropiedades.cs</DependentUpon>

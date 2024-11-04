@@ -72,5 +72,31 @@ namespace DAL
 
         }
 
+        public bool EscribirBackupRestore(string procedimiento, List<SqlParameter> parametros = null)
+        {
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.ConnectionString = "Data Source=DESKTOP-CUKEVVE\\SQLEXPRESS;Initial Catalog=TPGrupal;Integrated Security=True;";
+                conn.Open();
+            }
+            try
+            {
+                cmd = new SqlCommand(procedimiento, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                if (parametros != null)
+                {
+                    foreach (SqlParameter param in parametros)
+                    {
+                        cmd.Parameters.Add(param);
+                    }
+                }
+                int respuesta = cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex){ return false;}
+            catch (Exception ex){ return false;}
+            finally {  conn.Close(); }
+        }
+
     }
 }
