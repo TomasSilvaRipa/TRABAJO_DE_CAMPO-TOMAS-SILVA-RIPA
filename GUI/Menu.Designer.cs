@@ -52,11 +52,11 @@
             this.FMlabelFiltrar = new System.Windows.Forms.Label();
             this.flowLayoutPanelFiltro = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnLogout = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.comboBoxIdiomas = new System.Windows.Forms.ComboBox();
             this.buttonMenuDeGestion = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.tableLayoutPanelPadre.SuspendLayout();
             this.tableLayoutPanelBarraMenuDinamica.SuspendLayout();
             this.tableLayoutPanelCatalogoYFiltro.SuspendLayout();
@@ -79,13 +79,13 @@
             this.tableLayoutPanelPadre.Controls.Add(this.tableLayoutPanelBarraMenuDinamica, 0, 2);
             this.tableLayoutPanelPadre.Controls.Add(this.tableLayoutPanelCatalogoYFiltro, 0, 1);
             this.tableLayoutPanelPadre.Controls.Add(this.tableLayoutPanel1, 0, 0);
-            this.tableLayoutPanelPadre.Location = new System.Drawing.Point(-8, 0);
+            this.tableLayoutPanelPadre.Location = new System.Drawing.Point(-17, 0);
             this.tableLayoutPanelPadre.Name = "tableLayoutPanelPadre";
             this.tableLayoutPanelPadre.RowCount = 3;
             this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.53543F));
             this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.46457F));
             this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
-            this.tableLayoutPanelPadre.Size = new System.Drawing.Size(1047, 600);
+            this.tableLayoutPanelPadre.Size = new System.Drawing.Size(1057, 604);
             this.tableLayoutPanelPadre.TabIndex = 0;
             // 
             // tableLayoutPanelBarraMenuDinamica
@@ -112,7 +112,7 @@
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnCuentaCloser, 3, 1);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnCuentaCliente, 3, 2);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnCuentaInmoviliaria, 3, 3);
-            this.tableLayoutPanelBarraMenuDinamica.Location = new System.Drawing.Point(3, 543);
+            this.tableLayoutPanelBarraMenuDinamica.Location = new System.Drawing.Point(3, 547);
             this.tableLayoutPanelBarraMenuDinamica.Name = "tableLayoutPanelBarraMenuDinamica";
             this.tableLayoutPanelBarraMenuDinamica.RowCount = 4;
             this.tableLayoutPanelBarraMenuDinamica.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.85207F));
@@ -120,7 +120,7 @@
             this.tableLayoutPanelBarraMenuDinamica.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.3787F));
             this.tableLayoutPanelBarraMenuDinamica.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             this.tableLayoutPanelBarraMenuDinamica.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanelBarraMenuDinamica.Size = new System.Drawing.Size(1041, 54);
+            this.tableLayoutPanelBarraMenuDinamica.Size = new System.Drawing.Size(1051, 54);
             this.tableLayoutPanelBarraMenuDinamica.TabIndex = 4;
             this.tableLayoutPanelBarraMenuDinamica.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanelBarraMenuDinamica_Paint);
             // 
@@ -129,7 +129,7 @@
             this.btnPerformanceInmoviliaria.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnPerformanceInmoviliaria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPerformanceInmoviliaria.ForeColor = System.Drawing.Color.Red;
-            this.btnPerformanceInmoviliaria.Location = new System.Drawing.Point(86, 32);
+            this.btnPerformanceInmoviliaria.Location = new System.Drawing.Point(88, 32);
             this.btnPerformanceInmoviliaria.Name = "btnPerformanceInmoviliaria";
             this.btnPerformanceInmoviliaria.Size = new System.Drawing.Size(129, 19);
             this.btnPerformanceInmoviliaria.TabIndex = 0;
@@ -141,7 +141,7 @@
             // btnGestorDeReunionesCliente
             // 
             this.btnGestorDeReunionesCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGestorDeReunionesCliente.Location = new System.Drawing.Point(78, 21);
+            this.btnGestorDeReunionesCliente.Location = new System.Drawing.Point(80, 21);
             this.btnGestorDeReunionesCliente.Name = "btnGestorDeReunionesCliente";
             this.btnGestorDeReunionesCliente.Size = new System.Drawing.Size(145, 3);
             this.btnGestorDeReunionesCliente.TabIndex = 0;
@@ -153,7 +153,7 @@
             // btnVerCasasGestionadasCloser
             // 
             this.btnVerCasasGestionadasCloser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnVerCasasGestionadasCloser.Location = new System.Drawing.Point(66, 11);
+            this.btnVerCasasGestionadasCloser.Location = new System.Drawing.Point(67, 11);
             this.btnVerCasasGestionadasCloser.Name = "btnVerCasasGestionadasCloser";
             this.btnVerCasasGestionadasCloser.Size = new System.Drawing.Size(170, 1);
             this.btnVerCasasGestionadasCloser.TabIndex = 1;
@@ -165,7 +165,7 @@
             // btnIngresosDueño
             // 
             this.btnIngresosDueño.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnIngresosDueño.Location = new System.Drawing.Point(622, 3);
+            this.btnIngresosDueño.Location = new System.Drawing.Point(629, 3);
             this.btnIngresosDueño.Name = "btnIngresosDueño";
             this.btnIngresosDueño.Size = new System.Drawing.Size(97, 1);
             this.btnIngresosDueño.TabIndex = 1;
@@ -177,7 +177,7 @@
             // btnAgregarPropiedad
             // 
             this.btnAgregarPropiedad.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAgregarPropiedad.Location = new System.Drawing.Point(76, 3);
+            this.btnAgregarPropiedad.Location = new System.Drawing.Point(78, 3);
             this.btnAgregarPropiedad.MinimumSize = new System.Drawing.Size(149, 1);
             this.btnAgregarPropiedad.Name = "btnAgregarPropiedad";
             this.btnAgregarPropiedad.Size = new System.Drawing.Size(149, 1);
@@ -190,7 +190,7 @@
             // btnVerReunionesDueño
             // 
             this.btnVerReunionesDueño.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnVerReunionesDueño.Location = new System.Drawing.Point(384, 3);
+            this.btnVerReunionesDueño.Location = new System.Drawing.Point(389, 3);
             this.btnVerReunionesDueño.Name = "btnVerReunionesDueño";
             this.btnVerReunionesDueño.Size = new System.Drawing.Size(137, 1);
             this.btnVerReunionesDueño.TabIndex = 4;
@@ -202,7 +202,7 @@
             // btnPagosCliente
             // 
             this.btnPagosCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPagosCliente.Location = new System.Drawing.Point(622, 21);
+            this.btnPagosCliente.Location = new System.Drawing.Point(629, 21);
             this.btnPagosCliente.Name = "btnPagosCliente";
             this.btnPagosCliente.Size = new System.Drawing.Size(97, 3);
             this.btnPagosCliente.TabIndex = 0;
@@ -214,7 +214,7 @@
             // btnCuentaDueño
             // 
             this.btnCuentaDueño.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCuentaDueño.Location = new System.Drawing.Point(827, 3);
+            this.btnCuentaDueño.Location = new System.Drawing.Point(836, 3);
             this.btnCuentaDueño.Name = "btnCuentaDueño";
             this.btnCuentaDueño.Size = new System.Drawing.Size(124, 1);
             this.btnCuentaDueño.TabIndex = 1;
@@ -226,7 +226,7 @@
             // btnRendimientoCloser
             // 
             this.btnRendimientoCloser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRendimientoCloser.Location = new System.Drawing.Point(607, 11);
+            this.btnRendimientoCloser.Location = new System.Drawing.Point(613, 11);
             this.btnRendimientoCloser.Name = "btnRendimientoCloser";
             this.btnRendimientoCloser.Size = new System.Drawing.Size(128, 1);
             this.btnRendimientoCloser.TabIndex = 1;
@@ -238,7 +238,7 @@
             // btnCuentaCloser
             // 
             this.btnCuentaCloser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCuentaCloser.Location = new System.Drawing.Point(827, 11);
+            this.btnCuentaCloser.Location = new System.Drawing.Point(836, 11);
             this.btnCuentaCloser.Name = "btnCuentaCloser";
             this.btnCuentaCloser.Size = new System.Drawing.Size(124, 1);
             this.btnCuentaCloser.TabIndex = 2;
@@ -250,7 +250,7 @@
             // btnCuentaCliente
             // 
             this.btnCuentaCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCuentaCliente.Location = new System.Drawing.Point(830, 21);
+            this.btnCuentaCliente.Location = new System.Drawing.Point(838, 21);
             this.btnCuentaCliente.Name = "btnCuentaCliente";
             this.btnCuentaCliente.Size = new System.Drawing.Size(119, 3);
             this.btnCuentaCliente.TabIndex = 0;
@@ -264,7 +264,7 @@
             this.btnCuentaInmoviliaria.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCuentaInmoviliaria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCuentaInmoviliaria.ForeColor = System.Drawing.Color.Red;
-            this.btnCuentaInmoviliaria.Location = new System.Drawing.Point(810, 32);
+            this.btnCuentaInmoviliaria.Location = new System.Drawing.Point(818, 32);
             this.btnCuentaInmoviliaria.Name = "btnCuentaInmoviliaria";
             this.btnCuentaInmoviliaria.Size = new System.Drawing.Size(159, 19);
             this.btnCuentaInmoviliaria.TabIndex = 1;
@@ -284,12 +284,12 @@
             this.tableLayoutPanelCatalogoYFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.94455F));
             this.tableLayoutPanelCatalogoYFiltro.Controls.Add(this.flowLayoutPanelCatalogo, 0, 0);
             this.tableLayoutPanelCatalogoYFiltro.Controls.Add(this.tableLayoutPanel3, 1, 0);
-            this.tableLayoutPanelCatalogoYFiltro.Location = new System.Drawing.Point(3, 92);
+            this.tableLayoutPanelCatalogoYFiltro.Location = new System.Drawing.Point(3, 93);
             this.tableLayoutPanelCatalogoYFiltro.Name = "tableLayoutPanelCatalogoYFiltro";
             this.tableLayoutPanelCatalogoYFiltro.RowCount = 1;
             this.tableLayoutPanelCatalogoYFiltro.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelCatalogoYFiltro.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelCatalogoYFiltro.Size = new System.Drawing.Size(1041, 445);
+            this.tableLayoutPanelCatalogoYFiltro.Size = new System.Drawing.Size(1051, 448);
             this.tableLayoutPanelCatalogoYFiltro.TabIndex = 0;
             // 
             // flowLayoutPanelCatalogo
@@ -302,7 +302,7 @@
             this.flowLayoutPanelCatalogo.ForeColor = System.Drawing.Color.Black;
             this.flowLayoutPanelCatalogo.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelCatalogo.Name = "flowLayoutPanelCatalogo";
-            this.flowLayoutPanelCatalogo.Size = new System.Drawing.Size(796, 439);
+            this.flowLayoutPanelCatalogo.Size = new System.Drawing.Size(803, 442);
             this.flowLayoutPanelCatalogo.TabIndex = 0;
             this.flowLayoutPanelCatalogo.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelCatalogo_Paint);
             // 
@@ -317,13 +317,13 @@
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.FMlabelFiltrar, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanelFiltro, 0, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(805, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(812, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.728132F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95.27187F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(233, 439);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(236, 442);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -336,20 +336,21 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.17544F));
             this.tableLayoutPanel4.Controls.Add(this.btnFiltrar, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnLimpiar, 1, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 381);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 384);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(227, 55);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(230, 55);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // btnFiltrar
             // 
             this.btnFiltrar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.4F);
             this.btnFiltrar.Location = new System.Drawing.Point(3, 7);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(118, 41);
+            this.btnFiltrar.Size = new System.Drawing.Size(120, 41);
             this.btnFiltrar.TabIndex = 0;
             this.btnFiltrar.Text = "Filtrar Viviendas";
             this.btnFiltrar.UseVisualStyleBackColor = true;
@@ -358,7 +359,8 @@
             // btnLimpiar
             // 
             this.btnLimpiar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnLimpiar.Location = new System.Drawing.Point(127, 6);
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.4F);
+            this.btnLimpiar.Location = new System.Drawing.Point(129, 6);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(96, 42);
             this.btnLimpiar.TabIndex = 1;
@@ -381,9 +383,9 @@
             this.flowLayoutPanelFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanelFiltro.Location = new System.Drawing.Point(3, 20);
+            this.flowLayoutPanelFiltro.Location = new System.Drawing.Point(3, 21);
             this.flowLayoutPanelFiltro.Name = "flowLayoutPanelFiltro";
-            this.flowLayoutPanelFiltro.Size = new System.Drawing.Size(227, 355);
+            this.flowLayoutPanelFiltro.Size = new System.Drawing.Size(230, 357);
             this.flowLayoutPanelFiltro.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -395,19 +397,73 @@
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.92308F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.07692F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 324F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 191F));
-            this.tableLayoutPanel1.Controls.Add(this.btnLogout, 3, 0);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 305F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 212F));
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnLogout, 3, 0);
             this.tableLayoutPanel1.ForeColor = System.Drawing.Color.BlanchedAlmond;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1041, 83);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.37349F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.62651F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1051, 84);
             this.tableLayoutPanel1.TabIndex = 6;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(191, 78);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.comboBoxIdiomas, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonMenuDeGestion, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(536, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(299, 78);
+            this.tableLayoutPanel2.TabIndex = 9;
+            // 
+            // comboBoxIdiomas
+            // 
+            this.comboBoxIdiomas.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.comboBoxIdiomas.FormattingEnabled = true;
+            this.comboBoxIdiomas.Location = new System.Drawing.Point(175, 27);
+            this.comboBoxIdiomas.Name = "comboBoxIdiomas";
+            this.comboBoxIdiomas.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxIdiomas.TabIndex = 8;
+            this.comboBoxIdiomas.SelectedIndexChanged += new System.EventHandler(this.comboBoxIdioma_SelectedIndexChanged);
+            // 
+            // buttonMenuDeGestion
+            // 
+            this.buttonMenuDeGestion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonMenuDeGestion.ForeColor = System.Drawing.Color.Black;
+            this.buttonMenuDeGestion.Location = new System.Drawing.Point(15, 10);
+            this.buttonMenuDeGestion.Name = "buttonMenuDeGestion";
+            this.buttonMenuDeGestion.Size = new System.Drawing.Size(119, 57);
+            this.buttonMenuDeGestion.TabIndex = 9;
+            this.buttonMenuDeGestion.Tag = "FMenuDeGestion";
+            this.buttonMenuDeGestion.Text = "Menu de Gestion";
+            this.buttonMenuDeGestion.UseVisualStyleBackColor = true;
+            this.buttonMenuDeGestion.Click += new System.EventHandler(this.buttonMenuDeGestion_Click);
             // 
             // btnLogout
             // 
@@ -423,60 +479,6 @@
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(188, 77);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.comboBoxIdiomas, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.buttonMenuDeGestion, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(528, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(318, 77);
-            this.tableLayoutPanel2.TabIndex = 9;
-            // 
-            // comboBoxIdiomas
-            // 
-            this.comboBoxIdiomas.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.comboBoxIdiomas.FormattingEnabled = true;
-            this.comboBoxIdiomas.Location = new System.Drawing.Point(194, 26);
-            this.comboBoxIdiomas.Name = "comboBoxIdiomas";
-            this.comboBoxIdiomas.Size = new System.Drawing.Size(121, 24);
-            this.comboBoxIdiomas.TabIndex = 8;
-            this.comboBoxIdiomas.SelectedIndexChanged += new System.EventHandler(this.comboBoxIdioma_SelectedIndexChanged);
-            // 
-            // buttonMenuDeGestion
-            // 
-            this.buttonMenuDeGestion.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonMenuDeGestion.ForeColor = System.Drawing.Color.Black;
-            this.buttonMenuDeGestion.Location = new System.Drawing.Point(28, 16);
-            this.buttonMenuDeGestion.Name = "buttonMenuDeGestion";
-            this.buttonMenuDeGestion.Size = new System.Drawing.Size(102, 44);
-            this.buttonMenuDeGestion.TabIndex = 9;
-            this.buttonMenuDeGestion.Tag = "FMenuDeGestion";
-            this.buttonMenuDeGestion.Text = "Menu de Gestion";
-            this.buttonMenuDeGestion.UseVisualStyleBackColor = true;
-            this.buttonMenuDeGestion.Click += new System.EventHandler(this.buttonMenuDeGestion_Click);
             // 
             // Menu
             // 

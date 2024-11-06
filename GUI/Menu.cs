@@ -290,86 +290,86 @@ namespace GUI
             }
         }
 
-        public void GenerarCatalogoDueños()
-        {
-            listaDePropiedades = new List<Propiedad>();
-            listaDePropiedades = bllPropiedad.LeerPropiedadesDeDueño();
-            if(viviendasFiltradas != null && viviendasFiltradas.Count > 0)
-            {
-                listaDePropiedades = viviendasFiltradas;
-            }
-            flowLayoutPanelCatalogo.Controls.Clear();
-            flowLayoutPanelCatalogo.FlowDirection = FlowDirection.LeftToRight;
-            flowLayoutPanelCatalogo.WrapContents = true;
-            flowLayoutPanelCatalogo.Padding = new Padding(50,0,0,0);
-            if(listaDePropiedades != null && listaDePropiedades.Count > 0)
-            {
-                foreach (Propiedad p in listaDePropiedades)
-                {
-                    GroupBox gpadre = new GroupBox();
-                    gpadre.Width = flowLayoutPanelCatalogo.Width - 130;
-                    gpadre.Height = 300;
-                    gpadre.Margin = new Padding(10);
+        //public void GenerarCatalogoDueños()
+        //{
+        //    listaDePropiedades = new List<Propiedad>();
+        //    listaDePropiedades = bllPropiedad.LeerPropiedadesDeDueño();
+        //    if(viviendasFiltradas != null && viviendasFiltradas.Count > 0)
+        //    {
+        //        listaDePropiedades = viviendasFiltradas;
+        //    }
+        //    flowLayoutPanelCatalogo.Controls.Clear();
+        //    flowLayoutPanelCatalogo.FlowDirection = FlowDirection.LeftToRight;
+        //    flowLayoutPanelCatalogo.WrapContents = true;
+        //    flowLayoutPanelCatalogo.Padding = new Padding(50,0,0,0);
+        //    if(listaDePropiedades != null && listaDePropiedades.Count > 0)
+        //    {
+        //        foreach (Propiedad p in listaDePropiedades)
+        //        {
+        //            GroupBox gpadre = new GroupBox();
+        //            gpadre.Width = flowLayoutPanelCatalogo.Width - 130;
+        //            gpadre.Height = 300;
+        //            gpadre.Margin = new Padding(10);
 
-                    FlowLayoutPanel flpImagenes = new FlowLayoutPanel();
-                    flpImagenes.Width = gpadre.Width / 2;
-                    flpImagenes.Height = gpadre.Height;
-                    flpImagenes.Dock = DockStyle.Left;
-                    flpImagenes.AutoScroll = true;
+        //            FlowLayoutPanel flpImagenes = new FlowLayoutPanel();
+        //            flpImagenes.Width = gpadre.Width / 2;
+        //            flpImagenes.Height = gpadre.Height;
+        //            flpImagenes.Dock = DockStyle.Left;
+        //            flpImagenes.AutoScroll = true;
 
-                    Panel gpDescripcion = new Panel();
-                    gpDescripcion.Width = gpadre.Width / 2;
-                    gpDescripcion.Height = gpadre.Height;
-                    gpDescripcion.Dock = DockStyle.Right;
-                    gpDescripcion.AutoScroll = true;
+        //            Panel gpDescripcion = new Panel();
+        //            gpDescripcion.Width = gpadre.Width / 2;
+        //            gpDescripcion.Height = gpadre.Height;
+        //            gpDescripcion.Dock = DockStyle.Right;
+        //            gpDescripcion.AutoScroll = true;
 
-                    int labelPosY = 20;
-                    foreach (byte[] imgBytes in p.Imagenes)
-                    {
-                        PictureBox pictureBox = new PictureBox();
-                        pictureBox.Width = 100;
-                        pictureBox.Height = 100;
-                        pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-                        using (MemoryStream ms = new MemoryStream(imgBytes))
-                        {
-                            pictureBox.Image = Image.FromStream(ms);
-                        }
-                        flpImagenes.Controls.Add(pictureBox);
-                    }
+        //            int labelPosY = 20;
+        //            foreach (byte[] imgBytes in p.Imagenes)
+        //            {
+        //                PictureBox pictureBox = new PictureBox();
+        //                pictureBox.Width = 100;
+        //                pictureBox.Height = 100;
+        //                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+        //                using (MemoryStream ms = new MemoryStream(imgBytes))
+        //                {
+        //                    pictureBox.Image = Image.FromStream(ms);
+        //                }
+        //                flpImagenes.Controls.Add(pictureBox);
+        //            }
 
-                    foreach (PropertyInfo propiedad in p.GetType().GetProperties())
-                    {
-                        if (propiedad.Name != "Imagenes" && propiedad.Name != "ID")
-                        {
-                            Label labelNombre = new Label();
-                            labelNombre.Text = propiedad.Name;
-                            labelNombre.Tag = propiedad.Name;
-                            labelNombre.Location = new Point(10, labelPosY);
-                            labelNombre.AutoSize = true;
-                            labelNombre.ForeColor = Color.White;
+        //            foreach (PropertyInfo propiedad in p.GetType().GetProperties())
+        //            {
+        //                if (propiedad.Name != "Imagenes" && propiedad.Name != "ID")
+        //                {
+        //                    Label labelNombre = new Label();
+        //                    labelNombre.Text = propiedad.Name;
+        //                    labelNombre.Tag = propiedad.Name;
+        //                    labelNombre.Location = new Point(10, labelPosY);
+        //                    labelNombre.AutoSize = true;
+        //                    labelNombre.ForeColor = Color.White;
 
-                            Label labelValor = new Label();
-                            labelValor.Text = propiedad.GetValue(p)?.ToString();
-                            labelValor.Location = new Point(150, labelPosY);
-                            labelValor.AutoSize = true;
-                            labelValor.ForeColor = Color.White;
+        //                    Label labelValor = new Label();
+        //                    labelValor.Text = propiedad.GetValue(p)?.ToString();
+        //                    labelValor.Location = new Point(150, labelPosY);
+        //                    labelValor.AutoSize = true;
+        //                    labelValor.ForeColor = Color.White;
 
-                            gpDescripcion.Controls.Add(labelNombre);
-                            gpDescripcion.Controls.Add(labelValor);
+        //                    gpDescripcion.Controls.Add(labelNombre);
+        //                    gpDescripcion.Controls.Add(labelValor);
 
-                            labelPosY += 30;
-                        }
-                    }
+        //                    labelPosY += 30;
+        //                }
+        //            }
 
-                    gpadre.Controls.Add(flpImagenes);
-                    gpadre.Controls.Add(gpDescripcion);
-                    GenerarBotones(0, labelPosY, p, gpDescripcion);
-                    flowLayoutPanelCatalogo.Controls.Add(gpadre);
+        //            gpadre.Controls.Add(flpImagenes);
+        //            gpadre.Controls.Add(gpDescripcion);
+        //            GenerarBotones(0, labelPosY, p, gpDescripcion);
+        //            flowLayoutPanelCatalogo.Controls.Add(gpadre);
                     
-                }
-            }
+        //        }
+        //    }
             
-        }
+        //}
 
         
 
@@ -474,8 +474,9 @@ namespace GUI
             {
                 int opcion = 0;
                 if (Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Dueño")
-                {                  
-                    GenerarCatalogoDueños();
+                {
+                    //GenerarCatalogoDueños();
+                    GenerarCatalogo(opcion);
                 }
                 else if(Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Cliente")
                 {
@@ -501,7 +502,7 @@ namespace GUI
 
         public void GenerarBotones(int opcion,int labelPosY ,Propiedad p,Panel GroupBoxDescripcion)
         {
-            if (Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Dueño")
+            if (opcion == 0)
             {
                 Button btnModificar = new Button();
                 btnModificar.Text = "Modificar Datos";
@@ -621,10 +622,7 @@ namespace GUI
             registrarPropiedades.Show();
         }
         #endregion
-        //private void btnVerSolicitudesDeClosers_Click(object sender, EventArgs e)
-        //{
-
-        //}
+        
         #region FORMS
         public void AbrirFormularioModificar(Propiedad propiedad)
         {
@@ -741,10 +739,6 @@ namespace GUI
             Sesion.ObtenerSesion().ActualizarDiccionario(Convert.ToInt32(tablaIdioma.Rows[comboBoxIdiomas.SelectedIndex][0]));
         }
 
-        //private void btnIngresosCloser_Click(object sender, EventArgs e)
-        //{
-
-        //}
 
         private void btnGestorDeReunionesCliente_Click(object sender, EventArgs e)
         {
@@ -778,6 +772,7 @@ namespace GUI
                                     if (etiquetasP.Nombre == nombre)
                                     {
                                         viviendasFiltradas.Add(p);
+                                        cb.Checked = false;
                                     }
                                 }
                             }
@@ -799,5 +794,8 @@ namespace GUI
                 IdentificarCatalogo();
             }
         }
+
+
+       
     }
 }

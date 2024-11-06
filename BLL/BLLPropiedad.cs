@@ -50,7 +50,17 @@ namespace BLL
 
         public List<Propiedad> LeerPropiedades(int opcion)
         {
-            return mppPropiedad.LeerPropiedades(opcion);
+            if (opcion != 0) 
+            {
+                return mppPropiedad.LeerPropiedades(opcion);
+            }
+            else
+            {
+                Sesion sesion = Sesion.ObtenerSesion();
+                Usuario usuario = sesion.ObtenerUsuario();
+                Dueño dueño = mppDueño.LeerDueño(usuario.ID);
+                return mppPropiedad.LeerPropiedadesDeDueño(dueño.ID);
+            }
         }
 
         public List<Propiedad> LeerPropiedadesDeDueño()
