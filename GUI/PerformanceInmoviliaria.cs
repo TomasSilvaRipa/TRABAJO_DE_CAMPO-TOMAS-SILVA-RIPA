@@ -116,6 +116,7 @@ namespace GUI
             dataGridViewClosers.Columns["ID"].Visible = false;
             dataGridViewClosers.Columns["DV"].Visible = false;
             dataGridViewClosers.Columns["Clave"].Visible = false;
+            dataGridViewClosers.Columns["ID_Usuario"].Visible = false;
         }
 
         public void LeerSaldo()
@@ -135,6 +136,8 @@ namespace GUI
             
             dataGridViewOpiniones.DataSource = null;
             dataGridViewOpiniones.DataSource = bllOpinon.LeerOpiniones(closer,3);
+            dataGridViewOpiniones.Columns["ID_Usuario"].Visible = false;
+            dataGridViewOpiniones.Columns["ID"].Visible = false;
         }
 
         private void dataGridViewClosers_SelectionChanged(object sender, EventArgs e)
