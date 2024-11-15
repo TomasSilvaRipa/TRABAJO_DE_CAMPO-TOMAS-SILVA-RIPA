@@ -32,6 +32,7 @@ namespace GUI
             CargarReuniones();
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarTablaIdiomas();
+            Notificar(this);
         }
         BLLReunion bllReunion;
         BLLCliente bllCliente;

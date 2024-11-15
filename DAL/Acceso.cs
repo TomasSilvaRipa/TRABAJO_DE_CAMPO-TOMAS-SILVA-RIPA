@@ -76,7 +76,7 @@ namespace DAL
         {
             if (conn.State == ConnectionState.Closed)
             {
-                conn.ConnectionString = "Data Source=DESKTOP-CUKEVVE\\SQLEXPRESS;Initial Catalog=TPGrupal;Integrated Security=True;";
+                conn.ConnectionString = "Data Source=DESKTOP-CUKEVVE\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True;";
                 conn.Open();
             }
             try

@@ -43,6 +43,7 @@ namespace GUI
             MostrarCloserDelMes(ObtenerCloserDelMes());
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarTablaIdiomas();
+            Notificar(this);
         }
         BLLCloser bllCloser;
         BLLOpinon bllOpinon;

@@ -60,6 +60,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 25);
             this.label1.TabIndex = 1;
+            this.label1.Tag = "FloginNombreDeUsuario";
             this.label1.Text = "Usuario";
             // 
             // btnLogin
@@ -71,6 +72,7 @@
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(180, 40);
             this.btnLogin.TabIndex = 2;
+            this.btnLogin.Tag = "FLIniciarSesion";
             this.btnLogin.Text = "Iniciar Sesión";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -85,6 +87,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 25);
             this.label3.TabIndex = 4;
+            this.label3.Tag = "FloginClave";
             this.label3.Text = "Contraseña";
             // 
             // txtContra
@@ -171,7 +174,6 @@
             this.ClientSize = new System.Drawing.Size(353, 532);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimizeBox = false;
             this.Name = "FLogin";
             this.ShowIcon = false;

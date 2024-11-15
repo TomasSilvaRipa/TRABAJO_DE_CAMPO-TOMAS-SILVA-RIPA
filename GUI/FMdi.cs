@@ -33,6 +33,7 @@ namespace GUI
             adminUsuarios = new AdminUsuarios(nombreDeUsuario);
             ftraducciones = new FTraducciones();
             bitacora = new Bitacora_();
+            Notificar(this);
             listaP = Sesion.ObtenerSesion().listaDePermisos;
             labelGestionDePermisos.Enabled = false;
             labelGestionDePermisos.Visible = false;

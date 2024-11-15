@@ -24,6 +24,7 @@ namespace GUI
             CargarHistoricoDeUsuario();
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarTablaIdiomas();
+            Notificar(this);
         }
         DataTable tablaIdioma;
 

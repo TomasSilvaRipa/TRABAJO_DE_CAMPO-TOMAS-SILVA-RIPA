@@ -26,12 +26,14 @@ namespace GUI
             bllUsuario = new BLLUsuario();
             bllBitacora = new BitacoraBLL();
             bllIdiomas = new BLLIdiomas();
+            Notificar(this);
             usuario = Sesion.ObtenerSesion().ObtenerUsuario();
             inmoviliariaActivo = bllInmoviliaria.LeerCuentaInmoviliaria(usuario);
             MostrarDatos(usuario,inmoviliariaActivo);
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarTablaIdiomas();
         }
+       
         Usuario usuario;
         Inmoviliaria inmoviliariaActivo;
         BLLInmoviliaria bllInmoviliaria;

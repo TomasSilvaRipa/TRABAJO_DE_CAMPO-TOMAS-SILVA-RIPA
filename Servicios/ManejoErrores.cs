@@ -31,7 +31,7 @@ namespace Servicios
 
         public static bool ValidarTraduccion(string cadena)
         {
-            return (!string.IsNullOrEmpty(cadena) && Regex.IsMatch(cadena, @"^[a-zA-ZñÑ0-9 ]{1,50}$"));
+            return (!string.IsNullOrEmpty(cadena) && Regex.IsMatch(cadena, @"^[\p{L}\p{N} ]{1,50}$"));
         }
     }
 }

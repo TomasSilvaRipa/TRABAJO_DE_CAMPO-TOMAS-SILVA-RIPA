@@ -34,6 +34,7 @@ namespace GUI
             CargarEtiquetas();
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarTablaIdiomas();
+            Notificar(this);
         }
         BLLPropiedad bllPropiedad;
         DataTable tablaIdioma;

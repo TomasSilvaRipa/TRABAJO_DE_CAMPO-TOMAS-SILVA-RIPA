@@ -26,6 +26,7 @@ namespace GUI
             GenerarCatalogoViviendasXCloser(closer);
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarTablaIdiomas();
+            Notificar(this);
         }
         BLLPropiedad bllPropiedad;
         BLLCloser bllCloser;

@@ -31,6 +31,7 @@ namespace GUI
             MostrarDatos(usuario, dueñoActivo);
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarTablaIdiomas();
+            Notificar(this);
         }
         Bitacora_ bitacora;
         BitacoraBLL bllBitaacora;

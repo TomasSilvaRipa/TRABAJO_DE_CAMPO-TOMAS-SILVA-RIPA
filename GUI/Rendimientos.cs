@@ -29,6 +29,7 @@ namespace GUI
             CalcularCalificacionPromedio();
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarTablaIdiomas();
+            Notificar(this);
         }
         BLLTrato bllTrato;
         BLLCuenta bllCuenta;

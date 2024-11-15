@@ -37,6 +37,7 @@ namespace GUI
             MostrarControles();
             CargarEtiquetas();
             IdentificarCatalogo();
+            Notificar(this);
 
         }
         Bitacora_ bitacora;
@@ -174,7 +175,6 @@ namespace GUI
                 CheckBox cb;
                 cb = new CheckBox();
                 cb.Text = e.Nombre;
-                //cb.Tag = "Formchb" + e.Nombre;
                 cb.Tag = "CE" + e.Nombre;
                 cb.ForeColor = Color.White;
                 flowLayoutPanelFiltro.Controls.Add(cb);
@@ -601,8 +601,7 @@ namespace GUI
             PerfilCloser perfilCloser = new PerfilCloser();
             perfilCloser.Show();
         }
-        #endregion
-
+        
         private void btnPagosCliente_Click(object sender, EventArgs e)
         {
             Pagos pagos = new Pagos();
@@ -637,6 +636,14 @@ namespace GUI
             FMdi fMdi = new FMdi(fl,Sesion.ObtenerSesion().ObtenerUsuario().NombreDeUsuario);
             fMdi.Show();
         }
+        private void btnGestorDeReunionesCliente_Click(object sender, EventArgs e)
+        {
+            VerReunionesCliente verReunionesCliente = new VerReunionesCliente();
+            verReunionesCliente.Show();
+        }
+        #endregion
+
+        
 
         private void comboBoxIdioma_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -645,11 +652,7 @@ namespace GUI
         }
 
 
-        private void btnGestorDeReunionesCliente_Click(object sender, EventArgs e)
-        {
-            VerReunionesCliente verReunionesCliente = new VerReunionesCliente();
-            verReunionesCliente.Show();
-        }
+        
 
         private void flowLayoutPanelCatalogo_Paint(object sender, PaintEventArgs e){}
 
@@ -666,7 +669,7 @@ namespace GUI
                         CheckBox cb = (CheckBox)c;
                         if (cb.Checked)
                         {
-                            string nombre = c.Tag.ToString().Substring("Formchb".Length);
+                            string nombre = c.Tag.ToString().Substring("CE".Length);
                             foreach (Propiedad p in viviendasAFiltrar)
                             {
                                 foreach (Etiqueta etiquetasP in p.Etiquetas)
@@ -674,7 +677,6 @@ namespace GUI
                                     if (etiquetasP.Nombre == nombre)
                                     {
                                         viviendasFiltradas.Add(p);
-                                        //cb.Checked = false;
                                     }
                                 }
                             }

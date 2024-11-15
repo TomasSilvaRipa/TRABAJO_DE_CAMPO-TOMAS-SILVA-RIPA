@@ -26,6 +26,7 @@ namespace GUI
             MostrarOpiniones();
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarTablaIdiomas();
+            Notificar(this);
         }
         BLLCuota bllCuota;
         BLLOpinon bllOpinion;

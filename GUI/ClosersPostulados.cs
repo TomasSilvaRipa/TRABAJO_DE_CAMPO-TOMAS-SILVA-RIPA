@@ -28,6 +28,7 @@ namespace GUI
             IdentificarCatalogo(p);
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarTablaIdiomas();
+            Notificar(this);
         }
         BLLCloser bllCloser;
         BLLDueño bllDueño;

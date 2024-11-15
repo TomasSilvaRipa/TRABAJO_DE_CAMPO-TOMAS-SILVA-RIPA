@@ -23,6 +23,7 @@ namespace GUI
             bf = new BitacoraFiltros();
             actualizarIdioma();
             Sesion.ObtenerSesion().AgregarObservador(this);
+            Notificar(this);
         }
         BitacoraBLL bitacorabll;
         BitacoraFiltros bf;

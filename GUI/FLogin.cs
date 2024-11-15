@@ -30,6 +30,7 @@ namespace GUI
             bllIdiomas = new BLLIdiomas();
             bllusuario.ValidadDigito(bllusuario.LeerUsuarios());
             bllusuario.ValidarDigitoVertical();
+            Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarcbxIdiomas();
             bllCuota.EmitirCuotas();
         }
@@ -67,6 +68,7 @@ namespace GUI
             tablaIdioma = Sesion.ObtenerSesion().tablaIdioma;
 
         }
+        
 
         private void btnLogin_Click(object sender, EventArgs e)
         {

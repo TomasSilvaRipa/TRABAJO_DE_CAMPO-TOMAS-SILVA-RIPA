@@ -24,6 +24,7 @@ namespace GUI
             propiedadSeleccionada = p;
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarTablaIdiomas();
+            Notificar(this);
         }
         Propiedad propiedadSeleccionada;
         BLLReunion bllReunion;

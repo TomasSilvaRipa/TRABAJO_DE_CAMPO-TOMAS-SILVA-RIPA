@@ -35,6 +35,7 @@ namespace GUI
             CargarGruposDePermisos();
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarIdioma();
+            Notificar(this);
         }
         public delegate void IniciarMdi();
         public IniciarMdi iniciarMdi;

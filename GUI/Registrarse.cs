@@ -28,9 +28,11 @@ namespace GUI
             bllIdiomas = new BLLIdiomas();
             labelResidencia.Visible = false;
             tbResicencia.Visible = false;
+            Notificar(this);
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarTablaIdiomas();
             actualizarcbxIdiomas();
+            
         }
         BitacoraBLL bitacorabll;
         BLLUsuario bllusuario;
