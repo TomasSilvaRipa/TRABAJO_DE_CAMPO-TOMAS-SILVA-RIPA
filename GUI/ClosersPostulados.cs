@@ -154,13 +154,14 @@ namespace GUI
                         {
                             if (propiedad.Name != "Foto")
                             {
-                                if (propiedad.Name != "NombreDeUsuario" && propiedad.Name != "DV" && propiedad.Name != "Clave" && propiedad.Name != "Sector" && propiedad.Name != "ID")
+                                if (propiedad.Name != "ID_Usuario" && propiedad.Name != "NombreDeUsuario" && propiedad.Name != "DV" && propiedad.Name != "Clave" && propiedad.Name != "Sector" && propiedad.Name != "ID")
                                 {
                                     Label labelNombre = new Label();
                                     labelNombre.Text = propiedad.Name;
                                     labelNombre.Tag = propiedad.Name;
                                     labelNombre.Location = new Point(10, labelPosY);
                                     labelNombre.AutoSize = true;
+                                    labelNombre.Tag = "FP" + propiedad.Name;
 
                                     Label labelValor = new Label();
                                     labelValor.Text = propiedad.GetValue(c)?.ToString();

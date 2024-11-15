@@ -148,7 +148,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(135, 16);
             this.label6.TabIndex = 13;
-            this.label6.Tag = "FPCliFechaNacimiento";
+            this.label6.Tag = "FPFechaNacimiento";
             this.label6.Text = "Fecha de Nacimiento";
             // 
             // btnSubirFoto

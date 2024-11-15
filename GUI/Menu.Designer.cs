@@ -322,7 +322,7 @@
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.728132F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95.27187F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 86F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(236, 442);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
@@ -336,22 +336,23 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.17544F));
             this.tableLayoutPanel4.Controls.Add(this.btnFiltrar, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnLimpiar, 1, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 384);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 358);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(230, 55);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(230, 81);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // btnFiltrar
             // 
             this.btnFiltrar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.4F);
-            this.btnFiltrar.Location = new System.Drawing.Point(3, 7);
+            this.btnFiltrar.Location = new System.Drawing.Point(3, 20);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(120, 41);
             this.btnFiltrar.TabIndex = 0;
+            this.btnFiltrar.Tag = "FMFiltrarViviendas";
             this.btnFiltrar.Text = "Filtrar Viviendas";
             this.btnFiltrar.UseVisualStyleBackColor = true;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
@@ -360,10 +361,11 @@
             // 
             this.btnLimpiar.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.4F);
-            this.btnLimpiar.Location = new System.Drawing.Point(129, 6);
+            this.btnLimpiar.Location = new System.Drawing.Point(129, 19);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(96, 42);
             this.btnLimpiar.TabIndex = 1;
+            this.btnLimpiar.Tag = "FMLimpiarBusqueda";
             this.btnLimpiar.Text = "Limpiar Busqueda";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
@@ -374,18 +376,19 @@
             this.FMlabelFiltrar.ForeColor = System.Drawing.Color.White;
             this.FMlabelFiltrar.Location = new System.Drawing.Point(3, 0);
             this.FMlabelFiltrar.Name = "FMlabelFiltrar";
-            this.FMlabelFiltrar.Size = new System.Drawing.Size(103, 16);
+            this.FMlabelFiltrar.Size = new System.Drawing.Size(43, 16);
             this.FMlabelFiltrar.TabIndex = 1;
-            this.FMlabelFiltrar.Text = "Filtrar Viviendas";
+            this.FMlabelFiltrar.Tag = "FMLabelFiltros";
+            this.FMlabelFiltrar.Text = "Filtros";
             // 
             // flowLayoutPanelFiltro
             // 
             this.flowLayoutPanelFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanelFiltro.Location = new System.Drawing.Point(3, 21);
+            this.flowLayoutPanelFiltro.Location = new System.Drawing.Point(3, 19);
             this.flowLayoutPanelFiltro.Name = "flowLayoutPanelFiltro";
-            this.flowLayoutPanelFiltro.Size = new System.Drawing.Size(230, 357);
+            this.flowLayoutPanelFiltro.Size = new System.Drawing.Size(230, 333);
             this.flowLayoutPanelFiltro.TabIndex = 2;
             // 
             // tableLayoutPanel1

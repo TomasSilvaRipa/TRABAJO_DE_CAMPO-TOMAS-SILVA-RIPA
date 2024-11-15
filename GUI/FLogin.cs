@@ -14,7 +14,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace GUI
 {
-    public partial class FLogin : Form, IObservador
+    public partial class FLogin : FIdiomaActualizable, IObservador
     {
         BLLPermisos bllPermisos;
         DataTable tablaIdioma;
@@ -59,6 +59,13 @@ namespace GUI
             }
             cbxIdiomas.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxIdiomas.SelectedIndex = 0;
+        }
+
+        private void actualizarTablaIdiomas()
+        {
+            Sesion.ObtenerSesion().ActualizarIdiomas();
+            tablaIdioma = Sesion.ObtenerSesion().tablaIdioma;
+
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -115,10 +122,16 @@ namespace GUI
 
         public void Notificar(object Sender)
         {
-            var dict = Sesion.ObtenerSesion().Traduccion;
 
-            this.label1.Text = dict["Flogin_Nombre"];
-            this.label3.Text = dict["Flogin_Clave"];
+            if (Sender is FTraducciones)
+            {
+                actualizarTablaIdiomas();
+            }
+            else
+            {
+                actualizarIdioma();
+            }
+
         }
 
         private void cbxIdiomas_SelectedIndexChanged(object sender, EventArgs e)

@@ -30,7 +30,6 @@ namespace GUI
         {
             BLLIdiomas bLLIdiomas = new BLLIdiomas();
             actualizarTablaIdiomas();
-
             LlenarCbxIdiomas();
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarIdioma();
@@ -44,11 +43,6 @@ namespace GUI
             tablaPalabras = bLLIdiomas.ObtenerPalabras();
 
         }
-
-
-
-
-
         private void LlenarCbxIdiomas()
         {
             cbxIdiomas.Items.Clear();
@@ -80,43 +74,23 @@ namespace GUI
             if (tablaTraduccion != null && cbxIdiomas.SelectedIndex > 0)
             {
                 tablaTraduccionEditable = GenerarTablaTraduccionEditable();
-
                 dgvTraduccion.DataSource = tablaTraduccionEditable;
-
-
             }
             else
             {
                 tablaNuevaTraduccion = tablaPalabras.Copy();
                 tablaNuevaTraduccion.Columns.Add("Traduccion", typeof(string));
                 dgvTraduccion.DataSource = tablaNuevaTraduccion;
+                
             }
 
             dgvTraduccion.Columns[0].Visible = false;
             dgvTraduccion.Columns[0].ReadOnly = true;
             dgvTraduccion.Columns[1].ReadOnly = true;
             dgvTraduccion.AllowUserToAddRows = false;
+            dgvTraduccion.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
         }
-        //private DataTable GenerarTablaTraduccionEditable()
-        //{
-        //    var nuevoDataTable = new DataTable();
-        //    nuevoDataTable.Columns.Add("Codigo", typeof(int));
-        //    nuevoDataTable.Columns.Add("Palabra", typeof(string));
-        //    nuevoDataTable.Columns.Add("Traduccion", typeof(string));
-
-        //    var filasCoincidentes = from palabra in tablaPalabras.AsEnumerable()
-        //                            join traduccion in tablaTraduccion.AsEnumerable()
-        //                            on palabra.Field<int>(0) equals traduccion.Field<int>(1)
-        //                            select new { Codigo = palabra.Field<int>(0), Palabra = palabra.Field<string>(1), Traduccion = traduccion.Field<string>(2) };
-
-        //    foreach (var fila in filasCoincidentes)
-        //    {
-        //        nuevoDataTable.Rows.Add(fila.Codigo,fila.Palabra, fila.Traduccion);
-        //    }
-
-        //    return nuevoDataTable;
-        //}
 
         private DataTable GenerarTablaTraduccionEditable()
         {
@@ -158,7 +132,7 @@ namespace GUI
                     }
                     else
                     {
-                        if (!Servicios.ManejoErrores.ValidarNombre(row[2].ToString().Trim()))
+                        if (!Servicios.ManejoErrores.ValidarTraduccion(row[2].ToString().Trim()))
                         {
                             MessageBox.Show("Error en la traduccion de la palabra: " + row[1].ToString());
                             return;
@@ -208,7 +182,7 @@ namespace GUI
                     }
                     else
                     {
-                        if (!Servicios.ManejoErrores.ValidarNombre(row[2].ToString().Trim()))
+                        if (!Servicios.ManejoErrores.ValidarTraduccion(row[2].ToString().Trim()))
                         {
                             MessageBox.Show("Error en la traduccion de la palabra: " + row[1].ToString());
                             return;

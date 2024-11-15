@@ -618,6 +618,7 @@
             this.FormRPlableEtiquetas.Name = "FormRPlableEtiquetas";
             this.FormRPlableEtiquetas.Size = new System.Drawing.Size(66, 16);
             this.FormRPlableEtiquetas.TabIndex = 0;
+            this.FormRPlableEtiquetas.Tag = "FRPLabelEtiquetas";
             this.FormRPlableEtiquetas.Text = "Eitiquetas";
             // 
             // flowLayoutPanelEtiquetas

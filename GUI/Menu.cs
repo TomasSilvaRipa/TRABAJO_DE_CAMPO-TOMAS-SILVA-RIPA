@@ -119,7 +119,6 @@ namespace GUI
         {
             Sesion.ObtenerSesion().ActualizarIdiomas();
             tablaIdioma = Sesion.ObtenerSesion().tablaIdioma;
-
         }
 
         private void actualizarcbxIdiomas()
@@ -167,13 +166,16 @@ namespace GUI
         public void CargarEtiquetas()
         {
             flowLayoutPanelFiltro.Controls.Clear();
+            flowLayoutPanelFiltro.AutoScroll = true;
+            flowLayoutPanelFiltro.VerticalScroll.Enabled = true;
             Etiquetas = bllEtiquetas.LeerEtiquetas();
             foreach (Etiqueta e in Etiquetas)
             {
                 CheckBox cb;
                 cb = new CheckBox();
                 cb.Text = e.Nombre;
-                cb.Tag = "Formchb" + e.Nombre;
+                //cb.Tag = "Formchb" + e.Nombre;
+                cb.Tag = "CE" + e.Nombre;
                 cb.ForeColor = Color.White;
                 flowLayoutPanelFiltro.Controls.Add(cb);
             }
@@ -347,6 +349,7 @@ namespace GUI
                             labelNombre.Location = new Point(10, labelPosY);
                             labelNombre.AutoSize = true;
                             labelNombre.ForeColor = Color.White;
+                            labelNombre.Tag = "CV" + propiedad.Name;
 
                             Label labelValor = new Label();
                             labelValor.Text = propiedad.GetValue(p)?.ToString();
@@ -378,12 +381,9 @@ namespace GUI
                 Aviso.TextAlign = ContentAlignment.MiddleCenter;
                 Aviso.Dock = DockStyle.None;
                 flowLayoutPanelCatalogo.Controls.Add(Aviso);
-                Aviso.Anchor = AnchorStyles.None;
-                
+                Aviso.Anchor = AnchorStyles.None;  
             }
         }
-
-
 
         public void IdentificarCatalogo()
         {

@@ -38,6 +38,7 @@ namespace GUI
         {
             dataGridViewBitacora.DataSource = null;
             dataGridViewBitacora.DataSource = bitacorabll.LeerBitacora();
+            dataGridViewBitacora.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         #endregion

@@ -30,6 +30,9 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnBajaCuenta = new System.Windows.Forms.Button();
             this.tbResidencia = new System.Windows.Forms.TextBox();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,9 +47,6 @@
             this.tbMail = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanelFotoDePerfil = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnBajaCuenta = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -104,6 +104,49 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(393, 344);
             this.tableLayoutPanel2.TabIndex = 16;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.49754F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.50246F));
+            this.tableLayoutPanel3.Controls.Add(this.label7, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnBajaCuenta, 1, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(199, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(191, 42);
+            this.tableLayoutPanel3.TabIndex = 18;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 26);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 16);
+            this.label7.TabIndex = 8;
+            this.label7.Tag = "FPNombre";
+            this.label7.Text = "Nombre";
+            // 
+            // btnBajaCuenta
+            // 
+            this.btnBajaCuenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBajaCuenta.BackColor = System.Drawing.Color.Red;
+            this.btnBajaCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.btnBajaCuenta.Location = new System.Drawing.Point(66, 4);
+            this.btnBajaCuenta.Name = "btnBajaCuenta";
+            this.btnBajaCuenta.Size = new System.Drawing.Size(122, 33);
+            this.btnBajaCuenta.TabIndex = 9;
+            this.btnBajaCuenta.Tag = "FPBorrarCuenta";
+            this.btnBajaCuenta.Text = "Borrar Cuenta";
+            this.btnBajaCuenta.UseVisualStyleBackColor = false;
+            this.btnBajaCuenta.Click += new System.EventHandler(this.btnBajaCuenta_Click);
             // 
             // tbResidencia
             // 
@@ -223,7 +266,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 16);
             this.label6.TabIndex = 16;
-            this.label6.Tag = "FPDResidencia";
+            this.label6.Tag = "FPResidencia";
             this.label6.Text = "Residencia";
             // 
             // tableLayoutPanelFotoDePerfil
@@ -241,49 +284,6 @@
             this.tableLayoutPanelFotoDePerfil.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelFotoDePerfil.Size = new System.Drawing.Size(392, 344);
             this.tableLayoutPanelFotoDePerfil.TabIndex = 17;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.49754F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.50246F));
-            this.tableLayoutPanel3.Controls.Add(this.label7, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btnBajaCuenta, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(199, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(191, 42);
-            this.tableLayoutPanel3.TabIndex = 18;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 26);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 16);
-            this.label7.TabIndex = 8;
-            this.label7.Tag = "FPNombre";
-            this.label7.Text = "Nombre";
-            // 
-            // btnBajaCuenta
-            // 
-            this.btnBajaCuenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBajaCuenta.BackColor = System.Drawing.Color.Red;
-            this.btnBajaCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.btnBajaCuenta.Location = new System.Drawing.Point(66, 4);
-            this.btnBajaCuenta.Name = "btnBajaCuenta";
-            this.btnBajaCuenta.Size = new System.Drawing.Size(122, 33);
-            this.btnBajaCuenta.TabIndex = 9;
-            this.btnBajaCuenta.Tag = "FPBorrarCuenta";
-            this.btnBajaCuenta.Text = "Borrar Cuenta";
-            this.btnBajaCuenta.UseVisualStyleBackColor = false;
-            this.btnBajaCuenta.Click += new System.EventHandler(this.btnBajaCuenta_Click);
             // 
             // PerfilDueño
             // 

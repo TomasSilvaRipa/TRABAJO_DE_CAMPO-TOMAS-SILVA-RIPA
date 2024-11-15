@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelCloserDelMes = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSerializar = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -49,7 +50,6 @@
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridViewClosers = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -141,7 +141,7 @@
             this.tableLayoutPanel6.ColumnCount = 3;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.93357F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.06643F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 126F));
             this.tableLayoutPanel6.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.btnSerializar, 1, 0);
@@ -152,6 +152,19 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(578, 33);
             this.tableLayoutPanel6.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(291, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(157, 27);
+            this.button1.TabIndex = 2;
+            this.button1.Tag = "FPIBtnPDF";
+            this.button1.Text = "Convertir a pdf";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnPdf_Click);
             // 
             // label4
             // 
@@ -172,6 +185,7 @@
             this.btnSerializar.Name = "btnSerializar";
             this.btnSerializar.Size = new System.Drawing.Size(120, 27);
             this.btnSerializar.TabIndex = 1;
+            this.btnSerializar.Tag = "FPIBtnSerializar";
             this.btnSerializar.Text = "Serializar Datos";
             this.btnSerializar.UseVisualStyleBackColor = true;
             this.btnSerializar.Click += new System.EventHandler(this.btnSerializar_Click);
@@ -235,16 +249,16 @@
             this.chartTratosXMes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.chartTratosXMes.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartTratosXMes.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chartTratosXMes.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartTratosXMes.Legends.Add(legend2);
             this.chartTratosXMes.Location = new System.Drawing.Point(3, 43);
             this.chartTratosXMes.Name = "chartTratosXMes";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Tratos Cerrados";
-            this.chartTratosXMes.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Tratos Cerrados";
+            this.chartTratosXMes.Series.Add(series2);
             this.chartTratosXMes.Size = new System.Drawing.Size(384, 161);
             this.chartTratosXMes.TabIndex = 2;
             this.chartTratosXMes.Text = "chart1";
@@ -332,19 +346,8 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 16);
             this.label5.TabIndex = 3;
+            this.label5.Tag = "FPILabelClosers";
             this.label5.Text = "Closers";
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(292, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(157, 27);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Convertir a pdf";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnPdf_Click);
             // 
             // PerformanceInmoviliaria
             // 

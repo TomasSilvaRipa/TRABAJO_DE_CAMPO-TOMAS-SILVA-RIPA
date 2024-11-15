@@ -28,5 +28,10 @@ namespace Servicios
         {
             return (!string.IsNullOrEmpty(cadena) && Regex.IsMatch(cadena, @"^[a-zA-Z0-9,\-]{1,30}$"));
         }
+
+        public static bool ValidarTraduccion(string cadena)
+        {
+            return (!string.IsNullOrEmpty(cadena) && Regex.IsMatch(cadena, @"^[a-zA-ZñÑ0-9 ]{1,50}$"));
+        }
     }
 }

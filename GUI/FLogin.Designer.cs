@@ -129,6 +129,7 @@
             this.btnRegistrase.Name = "btnRegistrase";
             this.btnRegistrase.Size = new System.Drawing.Size(180, 56);
             this.btnRegistrase.TabIndex = 7;
+            this.btnRegistrase.Tag = "FLlabelQuieroRegistrarme";
             this.btnRegistrase.Text = "Quiero Registrarme";
             this.btnRegistrase.UseVisualStyleBackColor = true;
             this.btnRegistrase.Click += new System.EventHandler(this.btnRegistrase_Click);
@@ -141,13 +142,13 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.btnLogin, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.btnRegistrase, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.cbxIdiomas, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.txtUsuario, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtContra, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.btnRegistrase, 0, 7);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;

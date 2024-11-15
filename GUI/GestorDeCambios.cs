@@ -22,8 +22,30 @@ namespace GUI
             bllUsuarios = new BLLUsuario();
             CargarUsuarios();
             CargarHistoricoDeUsuario();
+            Sesion.ObtenerSesion().AgregarObservador(this);
+            actualizarTablaIdiomas();
         }
+        DataTable tablaIdioma;
 
+
+        private void actualizarTablaIdiomas()
+        {
+            Sesion.ObtenerSesion().ActualizarIdiomas();
+            tablaIdioma = Sesion.ObtenerSesion().tablaIdioma;
+        }
+        public void Notificar(object Sender)
+        {
+
+            if (Sender is FTraducciones)
+            {
+                actualizarTablaIdiomas();
+            }
+            else
+            {
+                actualizarIdioma();
+            }
+
+        }
 
         public void CargarUsuarios()
         {
@@ -41,6 +63,7 @@ namespace GUI
             dataGridViewHistoricoUsuario.ReadOnly = true;
             dataGridViewHistoricoUsuario.Columns["DigitoVerificador"].Visible = false;
             dataGridViewHistoricoUsuario.Columns["Clave"].Visible = false;
+            dataGridViewHistoricoUsuario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void GestorDeCambios_Load(object sender, EventArgs e)
@@ -84,11 +107,6 @@ namespace GUI
         private void comboBoxUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarHistoricoDeUsuario();
-        }
-
-        public void Notificar(object Sender)
-        {
-            actualizarIdioma();
         }
     }
 }

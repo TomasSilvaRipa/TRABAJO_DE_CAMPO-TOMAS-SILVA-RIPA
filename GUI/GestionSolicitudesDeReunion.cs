@@ -146,6 +146,7 @@ namespace GUI
                                 labelNombre.Text = propiedad.Name;
                                 labelNombre.Tag = propiedad.Name;
                                 labelNombre.Location = new Point(10, labelPosY);
+                                labelNombre.Tag = "FP" + propiedad.Name;
 
                                 Label labelValor = new Label();
                                 labelValor.Text = propiedad.GetValue(cliente)?.ToString();

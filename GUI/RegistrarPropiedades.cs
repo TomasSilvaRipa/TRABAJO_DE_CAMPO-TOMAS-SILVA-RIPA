@@ -155,7 +155,8 @@ namespace GUI
                 CheckBox cb;
                 cb = new CheckBox();
                 cb.Text = e.Nombre;
-                cb.Tag = "Formchb" + e.Nombre;
+                //cb.Tag = "Formchb" + e.Nombre;
+                cb.Tag = "CE"+ e.Nombre;
                 flowLayoutPanelEtiquetas.Controls.Add(cb);
             }
         }
@@ -232,7 +233,7 @@ namespace GUI
                             CheckBox cb = (CheckBox)c;
                             if (cb.Checked)
                             {
-                                string nombre = c.Tag.ToString().Substring("Formchb".Length);
+                                string nombre = c.Tag.ToString().Substring("CE".Length);
                                 if (nombre == e.Nombre)
                                 {
                                     EtiquetasVivienda.Add(e);

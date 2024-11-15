@@ -306,6 +306,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(105, 16);
             this.label3.TabIndex = 1;
+            this.label3.Tag = "FRendimientosLabelTratosCerrados";
             this.label3.Text = "Tratos Cerrados";
             // 
             // Rendimientos

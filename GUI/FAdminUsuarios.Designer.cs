@@ -34,7 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnMod = new System.Windows.Forms.Button();
             this.btnBaja = new System.Windows.Forms.Button();
-            this.txtSector = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtClave = new System.Windows.Forms.TextBox();
@@ -50,7 +49,6 @@
             this.tbResicencia = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBoxSector = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.dateTimePickerFN = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -108,10 +106,10 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 22);
+            this.label1.Size = new System.Drawing.Size(165, 22);
             this.label1.TabIndex = 3;
             this.label1.Tag = "labelNombre";
-            this.label1.Text = "Nombre";
+            this.label1.Text = "Nombre de Usuario";
             // 
             // btnMod
             // 
@@ -140,16 +138,6 @@
             this.btnBaja.Text = "Baja";
             this.btnBaja.UseVisualStyleBackColor = true;
             this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
-            // 
-            // txtSector
-            // 
-            this.txtSector.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSector.Location = new System.Drawing.Point(383, 176);
-            this.txtSector.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtSector.Name = "txtSector";
-            this.txtSector.Size = new System.Drawing.Size(184, 28);
-            this.txtSector.TabIndex = 1;
-            this.txtSector.Tag = "txtSector";
             // 
             // label2
             // 
@@ -260,9 +248,7 @@
             this.tableLayoutPanel2.Controls.Add(this.tbResicencia, 1, 5);
             this.tableLayoutPanel2.Controls.Add(this.label7, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.btnBaja, 2, 7);
-            this.tableLayoutPanel2.Controls.Add(this.txtSector, 2, 3);
             this.tableLayoutPanel2.Controls.Add(this.comboBoxSector, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.label8, 2, 2);
             this.tableLayoutPanel2.Controls.Add(this.btnMod, 2, 6);
             this.tableLayoutPanel2.Controls.Add(this.btnAlta, 2, 5);
             this.tableLayoutPanel2.Controls.Add(this.dateTimePickerFN, 1, 7);
@@ -301,9 +287,10 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(193, 42);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.label6.Location = new System.Drawing.Point(193, 36);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 16);
+            this.label6.Size = new System.Drawing.Size(73, 22);
             this.label6.TabIndex = 16;
             this.label6.Tag = "FRlabelNombre";
             this.label6.Text = "Nombre";
@@ -312,9 +299,10 @@
             // 
             this.labelResidencia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelResidencia.AutoSize = true;
-            this.labelResidencia.Location = new System.Drawing.Point(193, 274);
+            this.labelResidencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.labelResidencia.Location = new System.Drawing.Point(193, 268);
             this.labelResidencia.Name = "labelResidencia";
-            this.labelResidencia.Size = new System.Drawing.Size(76, 16);
+            this.labelResidencia.Size = new System.Drawing.Size(99, 22);
             this.labelResidencia.TabIndex = 16;
             this.labelResidencia.Tag = "FRlabelResidencia";
             this.labelResidencia.Text = "Residencia";
@@ -331,9 +319,10 @@
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(193, 158);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.label7.Location = new System.Drawing.Point(193, 152);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 16);
+            this.label7.Size = new System.Drawing.Size(74, 22);
             this.label7.TabIndex = 16;
             this.label7.Tag = "FRlabelApellido";
             this.label7.Text = "Apellido";
@@ -346,17 +335,6 @@
             this.comboBoxSector.Size = new System.Drawing.Size(156, 24);
             this.comboBoxSector.TabIndex = 17;
             // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(383, 158);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 16);
-            this.label8.TabIndex = 18;
-            this.label8.Tag = "labelSector";
-            this.label8.Text = "Sector";
-            // 
             // dateTimePickerFN
             // 
             this.dateTimePickerFN.Location = new System.Drawing.Point(193, 409);
@@ -368,9 +346,10 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(193, 390);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.label9.Location = new System.Drawing.Point(193, 384);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(135, 16);
+            this.label9.Size = new System.Drawing.Size(179, 22);
             this.label9.TabIndex = 20;
             this.label9.Text = "Fecha de Nacimiento";
             // 
@@ -399,7 +378,6 @@
             this.ClientSize = new System.Drawing.Size(1145, 480);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximizeBox = false;
             this.Name = "AdminUsuarios";
             this.ShowIcon = false;
             this.Text = "Gestion de Usuarios";
@@ -422,7 +400,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnMod;
         private System.Windows.Forms.Button btnBaja;
-        private System.Windows.Forms.TextBox txtSector;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtClave;
@@ -439,7 +416,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbApellido;
         private System.Windows.Forms.ComboBox comboBoxSector;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dateTimePickerFN;
         private System.Windows.Forms.Label label9;
     }

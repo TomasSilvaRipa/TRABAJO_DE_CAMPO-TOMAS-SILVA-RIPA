@@ -52,6 +52,9 @@ namespace GUI
             dataGridViewUsuarios.DataSource = bllUsuarios.LeerUsuarios();
             dataGridViewUsuarios.Columns["Clave"].Visible = false;
             dataGridViewUsuarios.Columns["DV"].Visible = false;
+            dataGridViewUsuarios.Columns["Foto"].Visible = false;
+            dataGridViewUsuarios.Columns["ID"].Visible = false;
+            dataGridViewUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         public void CargarGruposDePermisos()
@@ -64,6 +67,7 @@ namespace GUI
         {
             dataGridViewPermisosDeUsuarios.DataSource = null;
             dataGridViewPermisosDeUsuarios.DataSource = bllPermisos.LeerPermisosXUsuario(nombre);
+            dataGridViewPermisosDeUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         
 

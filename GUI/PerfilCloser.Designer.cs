@@ -121,12 +121,12 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.50246F));
             this.tableLayoutPanel3.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnBajaCuenta, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(186, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(185, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(203, 39);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(204, 39);
             this.tableLayoutPanel3.TabIndex = 17;
             // 
             // label5
@@ -145,7 +145,7 @@
             this.btnBajaCuenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBajaCuenta.BackColor = System.Drawing.Color.Red;
             this.btnBajaCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.btnBajaCuenta.Location = new System.Drawing.Point(70, 3);
+            this.btnBajaCuenta.Location = new System.Drawing.Point(71, 3);
             this.btnBajaCuenta.Name = "btnBajaCuenta";
             this.btnBajaCuenta.Size = new System.Drawing.Size(130, 33);
             this.btnBajaCuenta.TabIndex = 9;
@@ -157,7 +157,7 @@
             // labelTratosCerrados
             // 
             this.labelTratosCerrados.AutoSize = true;
-            this.labelTratosCerrados.Location = new System.Drawing.Point(186, 225);
+            this.labelTratosCerrados.Location = new System.Drawing.Point(185, 225);
             this.labelTratosCerrados.Name = "labelTratosCerrados";
             this.labelTratosCerrados.Size = new System.Drawing.Size(10, 16);
             this.labelTratosCerrados.TabIndex = 17;
@@ -184,7 +184,7 @@
             // 
             // tbApellido
             // 
-            this.tbApellido.Location = new System.Drawing.Point(186, 138);
+            this.tbApellido.Location = new System.Drawing.Point(185, 138);
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(124, 22);
             this.tbApellido.TabIndex = 4;
@@ -204,7 +204,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(186, 119);
+            this.label4.Location = new System.Drawing.Point(185, 119);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 16);
             this.label4.TabIndex = 10;
@@ -221,7 +221,7 @@
             // 
             // tbNombre
             // 
-            this.tbNombre.Location = new System.Drawing.Point(186, 48);
+            this.tbNombre.Location = new System.Drawing.Point(185, 48);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(124, 22);
             this.tbNombre.TabIndex = 3;
@@ -248,17 +248,17 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(186, 209);
+            this.label6.Location = new System.Drawing.Point(185, 209);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(105, 16);
             this.label6.TabIndex = 16;
-            this.label6.Tag = "FPCloserTratosCerrados";
+            this.label6.Tag = "FPTratosCerrados";
             this.label6.Text = "Tratos Cerrados";
             // 
             // labelClasificacion
             // 
             this.labelClasificacion.AutoSize = true;
-            this.labelClasificacion.Location = new System.Drawing.Point(186, 270);
+            this.labelClasificacion.Location = new System.Drawing.Point(185, 270);
             this.labelClasificacion.Name = "labelClasificacion";
             this.labelClasificacion.Size = new System.Drawing.Size(10, 16);
             this.labelClasificacion.TabIndex = 18;
@@ -271,7 +271,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(83, 16);
             this.label9.TabIndex = 19;
-            this.label9.Tag = "FPCloserCalificacion";
+            this.label9.Tag = "FPCalificacion";
             this.label9.Text = "Clasificacion";
             // 
             // btnSubirFoto
@@ -287,7 +287,7 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(186, 306);
+            this.btnActualizar.Location = new System.Drawing.Point(185, 306);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(146, 37);
             this.btnActualizar.TabIndex = 6;

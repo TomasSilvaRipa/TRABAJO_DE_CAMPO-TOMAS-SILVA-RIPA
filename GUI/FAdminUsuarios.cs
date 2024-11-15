@@ -115,11 +115,12 @@ namespace GUI
             dgvUsuarios.Columns["Clave"].Visible = false;
             dgvUsuarios.Columns["DV"].Visible = false;
             dgvUsuarios.Columns["Foto"].Visible = false;
+            dgvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtNombreUsuario.Text = ObtenerUsuarioSeleccionado().NombreDeUsuario.Trim();
-            txtSector.Text = ObtenerUsuarioSeleccionado().Sector.Trim();
+            comboBoxSector.Text = ObtenerUsuarioSeleccionado().Sector.Trim();
             txtMail.Text = ObtenerUsuarioSeleccionado().Mail.Trim();
         }
 
@@ -262,7 +263,7 @@ namespace GUI
             Bitacora_ bitacora;
             try
             {
-                if ( !ManejoErrores.ValidarNombre(txtSector.Text) || !ManejoErrores.ValidarClave(txtClave.Text) || !ManejoErrores.ValidarMail(txtMail.Text) || !ManejoErrores.ValidarNombre(tbNombre.Text))
+                if (!ManejoErrores.ValidarClave(txtClave.Text) || !ManejoErrores.ValidarMail(txtMail.Text) || !ManejoErrores.ValidarNombre(tbNombre.Text))
                 {
                     bitacora = new Bitacora_(Bitacora_.BitacoraTipo.VALIDACION,Usuario, "Los datos ingresados no tienen el formato correcto." );
                     bitacorabll.Add(bitacora);
