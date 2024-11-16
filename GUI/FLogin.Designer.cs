@@ -177,6 +177,7 @@
             this.MinimizeBox = false;
             this.Name = "FLogin";
             this.ShowIcon = false;
+            this.Text = "Login";
             this.Load += new System.EventHandler(this.FLogin_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

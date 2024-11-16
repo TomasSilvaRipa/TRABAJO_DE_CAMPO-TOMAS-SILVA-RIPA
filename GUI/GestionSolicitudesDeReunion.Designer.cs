@@ -123,7 +123,8 @@
             this.Controls.Add(this.tableLayoutPanelPadre);
             this.MinimumSize = new System.Drawing.Size(1259, 609);
             this.Name = "GestionSolicitudesDeReunion";
-            this.Text = "GestionSolicitudesDeReunion";
+            this.ShowIcon = false;
+            this.Text = "Gestion Solicitudes de Reunion";
             this.ResizeEnd += new System.EventHandler(this.GestionSolicitudesDeReunion_ResizeEnd);
             this.Resize += new System.EventHandler(this.GestionSolicitudesDeReunion_Resize);
             this.tableLayoutPanelPadre.ResumeLayout(false);

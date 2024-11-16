@@ -62,7 +62,7 @@
             this.dataGridViewCuotas.Name = "dataGridViewCuotas";
             this.dataGridViewCuotas.RowHeadersWidth = 51;
             this.dataGridViewCuotas.RowTemplate.Height = 24;
-            this.dataGridViewCuotas.Size = new System.Drawing.Size(371, 169);
+            this.dataGridViewCuotas.Size = new System.Drawing.Size(490, 169);
             this.dataGridViewCuotas.TabIndex = 1;
             this.dataGridViewCuotas.SelectionChanged += new System.EventHandler(this.dataGridViewCuotas_SelectionChanged);
             // 
@@ -77,7 +77,7 @@
             this.dataGridViewHistorialPagos.Name = "dataGridViewHistorialPagos";
             this.dataGridViewHistorialPagos.RowHeadersWidth = 51;
             this.dataGridViewHistorialPagos.RowTemplate.Height = 24;
-            this.dataGridViewHistorialPagos.Size = new System.Drawing.Size(371, 199);
+            this.dataGridViewHistorialPagos.Size = new System.Drawing.Size(490, 199);
             this.dataGridViewHistorialPagos.TabIndex = 2;
             // 
             // labelValor
@@ -107,7 +107,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.2725F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.7275F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(755, 380);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(993, 380);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // tableLayoutPanel2
@@ -120,21 +120,23 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.labelValor, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnPagarCuota, 0, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(380, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(499, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(372, 169);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(491, 169);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
             // Pagos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 395);
+            this.ClientSize = new System.Drawing.Size(1012, 395);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.MinimumSize = new System.Drawing.Size(1030, 442);
             this.Name = "Pagos";
+            this.ShowIcon = false;
             this.Text = "Pagos";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCuotas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHistorialPagos)).EndInit();

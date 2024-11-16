@@ -320,7 +320,8 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.MinimumSize = new System.Drawing.Size(816, 400);
             this.Name = "PerfilCloser";
-            this.Text = "PerfilCloser";
+            this.ShowIcon = false;
+            this.Text = "Perfil Closer";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

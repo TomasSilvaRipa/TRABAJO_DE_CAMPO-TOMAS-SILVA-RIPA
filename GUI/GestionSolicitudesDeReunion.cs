@@ -61,7 +61,6 @@ namespace GUI
             {
                 actualizarIdioma();
             }
-
         }
 
         public void CargarDatagridSolicitantes(Propiedad propiedad)
@@ -74,6 +73,7 @@ namespace GUI
                 dataGridViewSolicitudes.Columns["ID"].Visible = false;
                 dataGridViewSolicitudes.Columns["ID_Cliente"].Visible = false;
                 dataGridViewSolicitudes.Columns["ID_Vivienda"].Visible = false;
+                dataGridViewSolicitudes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
             else
             {
@@ -95,6 +95,7 @@ namespace GUI
                 dataGridViewOpiniones.DataSource = opiniones;
                 dataGridViewOpiniones.Columns["ID"].Visible = false;
                 dataGridViewOpiniones.Columns["ID_Usuario"].Visible = false;
+                dataGridViewOpiniones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
         }
 

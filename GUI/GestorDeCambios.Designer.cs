@@ -136,7 +136,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "GestorDeCambios";
-            this.Text = "GestorDeCambios";
+            this.ShowIcon = false;
+            this.Text = "Gestor de Cambios";
             this.Load += new System.EventHandler(this.GestorDeCambios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHistoricoUsuario)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);

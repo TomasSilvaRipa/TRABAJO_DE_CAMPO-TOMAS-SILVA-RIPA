@@ -293,7 +293,8 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.MinimumSize = new System.Drawing.Size(814, 400);
             this.Name = "PerfilCliente";
-            this.Text = "PerfilCliente";
+            this.ShowIcon = false;
+            this.Text = "Perfil Cliente";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

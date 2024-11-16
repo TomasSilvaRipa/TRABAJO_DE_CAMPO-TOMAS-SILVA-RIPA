@@ -162,7 +162,8 @@
             this.ClientSize = new System.Drawing.Size(1185, 418);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "IngresosDueño";
-            this.Text = "IngresosDueño";
+            this.ShowIcon = false;
+            this.Text = "Ingresos de Dueño";
             this.Load += new System.EventHandler(this.IngresosDueño_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCuotas)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);

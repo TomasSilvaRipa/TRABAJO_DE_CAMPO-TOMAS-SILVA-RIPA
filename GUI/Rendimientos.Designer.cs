@@ -316,7 +316,8 @@
             this.ClientSize = new System.Drawing.Size(1220, 609);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Rendimientos";
-            this.Text = "IngresosCloser";
+            this.ShowIcon = false;
+            this.Text = "Ingresos de Closer";
             this.Load += new System.EventHandler(this.Rendimientos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTratosCerrados)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);

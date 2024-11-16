@@ -48,7 +48,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.flowLayoutPanelPadre);
             this.Name = "ClosersPostulados";
-            this.Text = "ClosersPostulados";
+            this.ShowIcon = false;
+            this.Text = "Closers Postulados";
             this.ResumeLayout(false);
 
         }

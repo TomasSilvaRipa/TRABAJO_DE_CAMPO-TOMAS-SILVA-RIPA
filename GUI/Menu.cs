@@ -52,17 +52,13 @@ namespace GUI
         bool IsLogOut = false;
         List<Etiqueta> Etiquetas;
         List<Propiedad> viviendasFiltradas;
-        private void Menu_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void Menu_Load(object sender, EventArgs e){ }
 
         #region FUNCIONES EXTRA
         public void OcultarBotonesDinamico()
         {
             foreach (Control c in ListaControles)
             {
-
                 if (c.Tag == null || c.Tag.ToString() == "")
                 {
                     continue;

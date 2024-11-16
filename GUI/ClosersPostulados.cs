@@ -63,8 +63,7 @@ namespace GUI
                 if (bllDueño.AceptarCloserPostulado(p, c))
                 {
                     IdentificarCatalogo(p);
-                    MessageBox.Show("Closer" + c.Nombre + " " + c.Apellido + " Aceptado");
-                    
+                    MessageBox.Show("Closer" + c.Nombre + " " + c.Apellido + " Aceptado");   
                 }
             }
             catch(Exception ex)
@@ -81,7 +80,6 @@ namespace GUI
                 {
                     IdentificarCatalogo(p);
                     MessageBox.Show("Closer" + c.Nombre + " " + c.Apellido + " Rechazado");
-
                 }
             }
             catch (Exception ex)
@@ -105,7 +103,6 @@ namespace GUI
                 MessageBox.Show(ex.Message);
             }
         }
-
 
         public void IdentificarCatalogo(Propiedad propiedad)
         {

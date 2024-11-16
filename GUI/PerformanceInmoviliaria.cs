@@ -118,6 +118,7 @@ namespace GUI
             dataGridViewClosers.Columns["DV"].Visible = false;
             dataGridViewClosers.Columns["Clave"].Visible = false;
             dataGridViewClosers.Columns["ID_Usuario"].Visible = false;
+            dataGridViewClosers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         public void LeerSaldo()
@@ -139,6 +140,7 @@ namespace GUI
             dataGridViewOpiniones.DataSource = bllOpinon.LeerOpiniones(closer,3);
             dataGridViewOpiniones.Columns["ID_Usuario"].Visible = false;
             dataGridViewOpiniones.Columns["ID"].Visible = false;
+            dataGridViewOpiniones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void dataGridViewClosers_SelectionChanged(object sender, EventArgs e)
@@ -498,8 +500,6 @@ namespace GUI
                     TratosCerrados = Convert.ToInt32(row.Cells["TratosCerrados"].Value ?? 0),
                     Comision = Convert.ToString(row.Cells["Comision"].Value ?? 0.0),
                     Mail = row.Cells["Mail"].Value?.ToString(),
-                    
-
                 };
                 formData.Closers.Add(closer);
             }

@@ -240,7 +240,8 @@
             this.Controls.Add(this.tableLayoutPanelPadre);
             this.MinimumSize = new System.Drawing.Size(1235, 596);
             this.Name = "VerReuniones";
-            this.Text = "VerReuniones";
+            this.ShowIcon = false;
+            this.Text = "Ver Reuniones";
             this.Load += new System.EventHandler(this.VerReuniones_Load);
             this.SizeChanged += new System.EventHandler(this.VerReuniones_SizeChanged);
             this.tableLayoutPanelPadre.ResumeLayout(false);

@@ -214,7 +214,8 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.MinimumSize = new System.Drawing.Size(725, 352);
             this.Name = "PerfilInmoviliaria";
-            this.Text = "PerfilInmoviliaria";
+            this.ShowIcon = false;
+            this.Text = "Perfil Inmoviliaria";
             this.Load += new System.EventHandler(this.PerfilInmoviliaria_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

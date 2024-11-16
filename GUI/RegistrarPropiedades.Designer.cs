@@ -640,7 +640,7 @@
             this.MinimumSize = new System.Drawing.Size(1027, 516);
             this.Name = "RegistrarPropiedades";
             this.ShowIcon = false;
-            this.Text = "RegistrarPropiedades";
+            this.Text = "Registrar Propiedades";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAmbientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPisos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBaños)).EndInit();

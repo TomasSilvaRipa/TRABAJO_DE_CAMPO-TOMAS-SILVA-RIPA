@@ -180,7 +180,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FTraducciones";
-            this.Text = "FTraducciones";
+            this.ShowIcon = false;
+            this.Text = "Traducciones";
             this.Load += new System.EventHandler(this.FTraducciones_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTraduccion)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);

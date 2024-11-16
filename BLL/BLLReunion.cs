@@ -63,7 +63,7 @@ namespace BLL
         {
             Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
             Dueño dueño = mppDueño.LeerDueño(usuario.ID);
-            dueño.listaDeViviendas = mppPropiedad.LeerPropiedadesDeDueño(dueño.ID);
+            dueño.listaDeViviendas = mppPropiedad.LeerPropiedadesDeDueño(usuario.ID);
             return mppReunion.LeerReuniones(dueño);
         }
 

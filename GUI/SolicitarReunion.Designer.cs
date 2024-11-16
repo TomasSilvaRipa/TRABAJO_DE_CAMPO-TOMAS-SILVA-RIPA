@@ -155,7 +155,8 @@
             this.ClientSize = new System.Drawing.Size(800, 395);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "SolicitarReunion";
-            this.Text = "SolicitarReunion";
+            this.ShowIcon = false;
+            this.Text = "Solicitar Reunion";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();

@@ -86,7 +86,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "VerReunionesCliente";
-            this.Text = "VerReunionesCliente";
+            this.ShowIcon = false;
+            this.Text = "Ver Reuniones Cliente";
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReuniones)).EndInit();
             this.ResumeLayout(false);

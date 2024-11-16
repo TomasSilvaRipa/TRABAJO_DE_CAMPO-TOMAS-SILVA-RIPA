@@ -42,14 +42,15 @@
             this.flowLayoutPanelPadre.TabIndex = 1;
             this.flowLayoutPanelPadre.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelPadre_Paint);
             // 
-            // CatalogoDePropiedades
+            // GestionDePropiedades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.flowLayoutPanelPadre);
-            this.Name = "CatalogoDePropiedades";
-            this.Text = "CatalogoDePropiedades";
+            this.Name = "GestionDePropiedades";
+            this.ShowIcon = false;
+            this.Text = "Catalogo de Propiedades";
             this.Load += new System.EventHandler(this.CatalogoDePropiedades_Load);
             this.ResumeLayout(false);
 
