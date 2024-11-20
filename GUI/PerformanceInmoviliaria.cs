@@ -15,11 +15,8 @@ using Servicios;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Windows.Forms;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -119,6 +116,7 @@ namespace GUI
             dataGridViewClosers.Columns["Clave"].Visible = false;
             dataGridViewClosers.Columns["ID_Usuario"].Visible = false;
             dataGridViewClosers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewClosers.ForeColor = Color.Black;
         }
 
         public void LeerSaldo()
@@ -137,10 +135,15 @@ namespace GUI
         {
             
             dataGridViewOpiniones.DataSource = null;
-            dataGridViewOpiniones.DataSource = bllOpinon.LeerOpiniones(closer,3);
-            dataGridViewOpiniones.Columns["ID_Usuario"].Visible = false;
-            dataGridViewOpiniones.Columns["ID"].Visible = false;
-            dataGridViewOpiniones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            List<Opinion> opiniones = bllOpinon.LeerOpiniones(closer, 3);
+            if( opiniones != null && opiniones.Count > 0)
+            {
+                dataGridViewOpiniones.DataSource = bllOpinon.LeerOpiniones(closer, 3);
+                dataGridViewOpiniones.Columns["ID_Usuario"].Visible = false;
+                dataGridViewOpiniones.Columns["ID"].Visible = false;
+                dataGridViewOpiniones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridViewOpiniones.ForeColor = Color.Black;
+            }
         }
 
         private void dataGridViewClosers_SelectionChanged(object sender, EventArgs e)
@@ -153,10 +156,7 @@ namespace GUI
                     CargarOpinionesXCloser(closer);
                 }
             }
-            catch(Exception ex)
-            {
-
-            }
+            catch(Exception ){  }
         }
 
         public void LeerTratosPorMes()
@@ -219,7 +219,7 @@ namespace GUI
                 tableLayoutPanelCloserDelMes.ColumnStyles.Clear();
                 tableLayoutPanelCloserDelMes.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
                 tableLayoutPanelCloserDelMes.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-
+                tableLayoutPanelCloserDelMes.ForeColor = Color.White;
                 Panel panelImagen = new Panel();
                 panelImagen.Dock = DockStyle.Fill;
 
@@ -246,7 +246,7 @@ namespace GUI
                 panelDescripcion.AutoScroll = true;
 
                 int labelPosY = 20;
-                int labelAncho = 100;
+                //int labelAncho = 100;
                 foreach (PropertyInfo propiedad in closer.GetType().GetProperties())
                 {
                     if (propiedad.Name != "ID_Usuario" && propiedad.Name != "Foto" && propiedad.Name != "NombreDeUsuario" && propiedad.Name != "DV" && propiedad.Name != "Clave" && propiedad.Name != "Sector" && propiedad.Name != "ID")

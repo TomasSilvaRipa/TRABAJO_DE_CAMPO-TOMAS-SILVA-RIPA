@@ -56,8 +56,15 @@ namespace GUI
         public void CargarReuniones()
         {
             dataGridViewReuniones.DataSource = null;
-            dataGridViewReuniones.DataSource = bllReunion.LeerReunionPorCliente(clienteActivos);
-            dataGridViewReuniones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            List<Reunion> reuniones = bllReunion.LeerReunionPorCliente(clienteActivos);
+            if (reuniones != null && reuniones.Count > 0)
+            {
+                dataGridViewReuniones.DataSource = reuniones;
+                dataGridViewReuniones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridViewReuniones.Columns["ID_Cliente"].Visible = false;
+                dataGridViewReuniones.Columns["ID_Closer"].Visible = false;
+                dataGridViewReuniones.Columns["ID"].Visible = false;
+            }
         }
 
         private void buttonCancelarReunion_Click(object sender, EventArgs e)

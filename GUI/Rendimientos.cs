@@ -62,7 +62,18 @@ namespace GUI
             try
             {
                 dataGridViewTratosCerrados.DataSource = null;
-                dataGridViewTratosCerrados.DataSource = bllTrato.LeerTratosXCloser();
+                List<Trato> tratos = bllTrato.LeerTratosXCloser();
+                if (tratos != null && tratos.Count > 0) 
+                {
+                    dataGridViewTratosCerrados.DataSource = tratos;
+                    dataGridViewTratosCerrados.Columns["ID_Cliente"].Visible = false;
+                    dataGridViewTratosCerrados.Columns["ID_Closer"].Visible = false;
+                    dataGridViewTratosCerrados.Columns["ID_Dueño"].Visible = false;
+                    dataGridViewTratosCerrados.Columns["ID_Vivienda"].Visible = false;
+                    dataGridViewTratosCerrados.Columns["ID"].Visible = false;
+                    dataGridViewTratosCerrados.ForeColor = Color.Black;
+                    dataGridViewTratosCerrados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                }
                 //dataGridViewTratosCerrados.Rows["ID_Cliente"].Visible = false;
                 //dataGridViewTratosCerrados.Rows[1].Visible = false;
             }
@@ -78,7 +89,14 @@ namespace GUI
             try
             {
                 dataGridViewOpiniones.DataSource = null;
-                dataGridViewOpiniones.DataSource = bllOpinion.LeerOpiniones(Sesion.ObtenerSesion().ObtenerUsuario(),1);
+                List<Opinion> opiniones = bllOpinion.LeerOpiniones(Sesion.ObtenerSesion().ObtenerUsuario(), 1);
+                if (opiniones != null && opiniones.Count > 0) {
+                    dataGridViewOpiniones.DataSource = opiniones;
+                    dataGridViewOpiniones.Columns["ID"].Visible = false;
+                    dataGridViewOpiniones.Columns["ID_Usuario"].Visible = false;
+                    dataGridViewOpiniones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dataGridViewOpiniones.ForeColor = Color.Black;
+                } 
             }
             catch (Exception ex)
             {

@@ -99,6 +99,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(3, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 16);
@@ -108,6 +109,9 @@
             // 
             // btnAgregarPermiso
             // 
+            this.btnAgregarPermiso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnAgregarPermiso.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnAgregarPermiso.ForeColor = System.Drawing.Color.Red;
             this.btnAgregarPermiso.Location = new System.Drawing.Point(3, 2);
             this.btnAgregarPermiso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregarPermiso.Name = "btnAgregarPermiso";
@@ -115,7 +119,7 @@
             this.btnAgregarPermiso.TabIndex = 5;
             this.btnAgregarPermiso.Tag = "Fpermisos_AgregarPermiso";
             this.btnAgregarPermiso.Text = "Agregar Permiso";
-            this.btnAgregarPermiso.UseVisualStyleBackColor = true;
+            this.btnAgregarPermiso.UseVisualStyleBackColor = false;
             this.btnAgregarPermiso.Click += new System.EventHandler(this.btnAgregarPermiso_Click);
             // 
             // dataGridViewUsuarios
@@ -149,6 +153,9 @@
             // 
             this.btnAsignarGrupo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAsignarGrupo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnAsignarGrupo.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnAsignarGrupo.ForeColor = System.Drawing.Color.Red;
             this.btnAsignarGrupo.Location = new System.Drawing.Point(255, 176);
             this.btnAsignarGrupo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAsignarGrupo.Name = "btnAsignarGrupo";
@@ -156,13 +163,14 @@
             this.btnAsignarGrupo.TabIndex = 8;
             this.btnAsignarGrupo.Tag = "Fpermisos_AsignarGrupo";
             this.btnAsignarGrupo.Text = "Asignar Grupo de Permisos al Usuario";
-            this.btnAsignarGrupo.UseVisualStyleBackColor = true;
+            this.btnAsignarGrupo.UseVisualStyleBackColor = false;
             this.btnAsignarGrupo.Click += new System.EventHandler(this.btnAsignarGrupo_Click);
             // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(3, 170);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 16);
@@ -172,6 +180,9 @@
             // 
             // btnBorrarPermiso
             // 
+            this.btnBorrarPermiso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnBorrarPermiso.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnBorrarPermiso.ForeColor = System.Drawing.Color.Red;
             this.btnBorrarPermiso.Location = new System.Drawing.Point(3, 36);
             this.btnBorrarPermiso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBorrarPermiso.Name = "btnBorrarPermiso";
@@ -179,13 +190,16 @@
             this.btnBorrarPermiso.TabIndex = 11;
             this.btnBorrarPermiso.Tag = "Fpermisos_BorrarPermiso";
             this.btnBorrarPermiso.Text = "Borrar Permiso";
-            this.btnBorrarPermiso.UseVisualStyleBackColor = true;
+            this.btnBorrarPermiso.UseVisualStyleBackColor = false;
             this.btnBorrarPermiso.Click += new System.EventHandler(this.btnBorrarPermiso_Click);
             // 
             // btnQuitarPermisos
             // 
             this.btnQuitarPermisos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQuitarPermisos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnQuitarPermisos.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnQuitarPermisos.ForeColor = System.Drawing.Color.Red;
             this.btnQuitarPermisos.Location = new System.Drawing.Point(255, 235);
             this.btnQuitarPermisos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnQuitarPermisos.Name = "btnQuitarPermisos";
@@ -194,7 +208,7 @@
             this.btnQuitarPermisos.TabIndex = 12;
             this.btnQuitarPermisos.Tag = "Fpermisos_QuitarPermisos";
             this.btnQuitarPermisos.Text = "Quitar Permisos";
-            this.btnQuitarPermisos.UseVisualStyleBackColor = true;
+            this.btnQuitarPermisos.UseVisualStyleBackColor = false;
             this.btnQuitarPermisos.Click += new System.EventHandler(this.btnReiniciarPermisos_Click);
             // 
             // dataGridViewPermisosDeUsuarios
@@ -216,6 +230,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(3, 112);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(130, 16);
@@ -311,9 +326,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1025, 549);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimumSize = new System.Drawing.Size(1043, 596);
             this.Name = "Permisos";
             this.ShowIcon = false;
             this.Text = "Permisos";

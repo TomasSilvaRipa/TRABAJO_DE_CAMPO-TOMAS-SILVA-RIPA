@@ -40,6 +40,7 @@ namespace GUI
             dataGridViewBitacora.DataSource = null;
             dataGridViewBitacora.DataSource = bitacorabll.LeerBitacora();
             dataGridViewBitacora.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewBitacora.ForeColor = Color.Black;
         }
 
         #endregion

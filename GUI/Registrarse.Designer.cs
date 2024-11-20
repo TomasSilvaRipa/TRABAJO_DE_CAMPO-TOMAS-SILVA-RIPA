@@ -72,6 +72,8 @@
             // btnRegistrase
             // 
             this.btnRegistrase.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnRegistrase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRegistrase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrase.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnRegistrase.Location = new System.Drawing.Point(195, 551);
             this.btnRegistrase.Margin = new System.Windows.Forms.Padding(4);
@@ -80,13 +82,14 @@
             this.btnRegistrase.TabIndex = 8;
             this.btnRegistrase.Tag = "FRbtnRegistrase";
             this.btnRegistrase.Text = "Registrarse";
-            this.btnRegistrase.UseVisualStyleBackColor = true;
+            this.btnRegistrase.UseVisualStyleBackColor = false;
             this.btnRegistrase.Click += new System.EventHandler(this.btnRegistrase_Click);
             // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Red;
             this.label4.Location = new System.Drawing.Point(241, 322);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 16);
@@ -98,6 +101,7 @@
             // 
             this.rbCloser.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.rbCloser.AutoSize = true;
+            this.rbCloser.ForeColor = System.Drawing.Color.Red;
             this.rbCloser.Location = new System.Drawing.Point(385, 17);
             this.rbCloser.Name = "rbCloser";
             this.rbCloser.Size = new System.Drawing.Size(67, 20);
@@ -112,6 +116,7 @@
             // 
             this.rbDueño.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbDueño.AutoSize = true;
+            this.rbDueño.ForeColor = System.Drawing.Color.Red;
             this.rbDueño.Location = new System.Drawing.Point(252, 17);
             this.rbDueño.Name = "rbDueño";
             this.rbDueño.Size = new System.Drawing.Size(68, 20);
@@ -126,6 +131,7 @@
             // 
             this.rbCliente.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.rbCliente.AutoSize = true;
+            this.rbCliente.ForeColor = System.Drawing.Color.Red;
             this.rbCliente.Location = new System.Drawing.Point(111, 17);
             this.rbCliente.Name = "rbCliente";
             this.rbCliente.Size = new System.Drawing.Size(77, 20);
@@ -140,7 +146,7 @@
             // 
             this.cbxIdiomas.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbxIdiomas.FormattingEnabled = true;
-            this.cbxIdiomas.Location = new System.Drawing.Point(14, 3);
+            this.cbxIdiomas.Location = new System.Drawing.Point(14, 16);
             this.cbxIdiomas.Name = "cbxIdiomas";
             this.cbxIdiomas.Size = new System.Drawing.Size(102, 24);
             this.cbxIdiomas.TabIndex = 20;
@@ -151,6 +157,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
             this.label3.Location = new System.Drawing.Point(369, 14);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -175,6 +182,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(100, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -198,6 +206,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
             this.label2.Location = new System.Drawing.Point(142, 9);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
@@ -222,6 +231,7 @@
             this.labelMail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelMail.AutoSize = true;
             this.labelMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMail.ForeColor = System.Drawing.Color.Red;
             this.labelMail.Location = new System.Drawing.Point(261, 14);
             this.labelMail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMail.Name = "labelMail";
@@ -235,6 +245,7 @@
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel9, 0, 4);
@@ -378,6 +389,7 @@
             // 
             this.labelResidencia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelResidencia.AutoSize = true;
+            this.labelResidencia.ForeColor = System.Drawing.Color.Red;
             this.labelResidencia.Location = new System.Drawing.Point(248, 2);
             this.labelResidencia.Name = "labelResidencia";
             this.labelResidencia.Size = new System.Drawing.Size(76, 16);
@@ -405,6 +417,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Red;
             this.label6.Location = new System.Drawing.Point(67, 2);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 16);
@@ -416,6 +429,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Red;
             this.label5.Location = new System.Drawing.Point(450, 2);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 16);
@@ -459,6 +473,7 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Red;
             this.label7.Location = new System.Drawing.Point(220, 6);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(135, 16);
@@ -468,12 +483,14 @@
             // 
             // tableLayoutPanel4
             // 
+            this.tableLayoutPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Controls.Add(this.cbxIdiomas, 0, 0);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(1, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.Padding = new System.Windows.Forms.Padding(0, 13, 0, 0);
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -487,6 +504,8 @@
             this.ClientSize = new System.Drawing.Size(577, 604);
             this.Controls.Add(this.tableLayoutPanel4);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.ForeColor = System.Drawing.Color.Red;
+            this.MinimumSize = new System.Drawing.Size(595, 651);
             this.Name = "Registrarse";
             this.ShowIcon = false;
             this.Text = "Registrarse";

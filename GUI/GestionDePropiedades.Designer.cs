@@ -36,6 +36,8 @@
             this.flowLayoutPanelPadre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelPadre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.flowLayoutPanelPadre.ForeColor = System.Drawing.Color.White;
             this.flowLayoutPanelPadre.Location = new System.Drawing.Point(1, -1);
             this.flowLayoutPanelPadre.Name = "flowLayoutPanelPadre";
             this.flowLayoutPanelPadre.Size = new System.Drawing.Size(799, 452);

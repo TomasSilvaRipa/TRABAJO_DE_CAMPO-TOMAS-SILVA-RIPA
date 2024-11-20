@@ -46,6 +46,7 @@
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -90,6 +91,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(3, 2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 16);
@@ -120,13 +122,16 @@
             // btnSolicitarReunion
             // 
             this.btnSolicitarReunion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSolicitarReunion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnSolicitarReunion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSolicitarReunion.ForeColor = System.Drawing.Color.Red;
             this.btnSolicitarReunion.Location = new System.Drawing.Point(115, 287);
             this.btnSolicitarReunion.Name = "btnSolicitarReunion";
             this.btnSolicitarReunion.Size = new System.Drawing.Size(163, 74);
             this.btnSolicitarReunion.TabIndex = 0;
             this.btnSolicitarReunion.Tag = "FSRBtnSolicitarReunion";
             this.btnSolicitarReunion.Text = "Solicitar Runión";
-            this.btnSolicitarReunion.UseVisualStyleBackColor = true;
+            this.btnSolicitarReunion.UseVisualStyleBackColor = false;
             this.btnSolicitarReunion.Click += new System.EventHandler(this.btnSolicitarReunion_Click);
             // 
             // richTextBoxDisponibilidad
@@ -141,6 +146,7 @@
             // 
             this.labelDisponibilidad.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelDisponibilidad.AutoSize = true;
+            this.labelDisponibilidad.ForeColor = System.Drawing.Color.White;
             this.labelDisponibilidad.Location = new System.Drawing.Point(3, 3);
             this.labelDisponibilidad.Name = "labelDisponibilidad";
             this.labelDisponibilidad.Size = new System.Drawing.Size(94, 16);
@@ -154,6 +160,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 395);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.MinimumSize = new System.Drawing.Size(818, 442);
             this.Name = "SolicitarReunion";
             this.ShowIcon = false;
             this.Text = "Solicitar Reunion";

@@ -85,12 +85,21 @@ namespace MPP
             
         }
 
-        public List<Propiedad> LeerPropiedades(int opcion)
+        public List<Propiedad> LeerPropiedades(int opcion, int id)
         {
-            List<SqlParameter> parameters = new List<SqlParameter>()
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            SqlParameter Opcion = new SqlParameter("@Opcion", opcion);
+            parameters.Add(Opcion);
+            if(id != 0)
             {
-                new SqlParameter("@Opcion",opcion),
-            };
+                SqlParameter idCliente = new SqlParameter("@ID_Cliente", id);
+                parameters.Add(idCliente);
+            }
+            else
+            {
+                SqlParameter idCliente = new SqlParameter("@ID_Cliente", DBNull.Value);
+                parameters.Add(idCliente);
+            }
             List<Propiedad> listaDeViviendas = new List<Propiedad>();
             DataTable dt = acceso.Leer("LeerViviendas",parameters);
             if(dt.Rows.Count > 0)
@@ -163,7 +172,6 @@ namespace MPP
             List<SqlParameter> parameters = new List<SqlParameter>();
             foreach (byte[] imagen in imagenesEnBytes)
             {
-
                 SqlParameter parametro = new SqlParameter("@Imagen", imagen);
                 parameters.Add(parametro);
                 SqlParameter dueño = new SqlParameter("@ID_Dueño", ID_Dueño);
@@ -181,8 +189,7 @@ namespace MPP
             List<SqlParameter> parameters = new List<SqlParameter>();
             SqlParameter ID = new SqlParameter("@ID", ID_Vivienda);
             parameters.Add(ID);
-            return acceso.Escribir("BorrarImagenesVivienda", parameters);
-             
+            return acceso.Escribir("BorrarImagenesVivienda", parameters); 
         }
 
 

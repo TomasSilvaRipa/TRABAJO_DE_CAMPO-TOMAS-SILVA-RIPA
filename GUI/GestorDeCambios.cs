@@ -83,7 +83,8 @@ namespace GUI
                     usuario.NombreDeUsuario = gc.Nombre;
                     usuario.Clave = gc.Clave;
                     usuario.Sector = gc.Sector;
-                    usuario.DV = bllUsuarios.CalcularDigitoVerificadorHorizontal(usuario);
+                    usuario.Mail = gc.Mail;
+                    usuario.DV = bllUsuarios.CalcularDigitoVerificadorHorizontal(usuario);                  
                     if (bllUsuarios.ActualizarUsuario(usuario,1))
                     {
                         CargarHistoricoDeUsuario();

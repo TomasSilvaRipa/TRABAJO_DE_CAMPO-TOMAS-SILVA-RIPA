@@ -25,6 +25,7 @@ namespace GUI
             bllDueño = new BLLDueño();
             bllPropiedad = new BLLPropiedad();
             bllIdiomas = new BLLIdiomas();
+            propiedadActiva = p;
             IdentificarCatalogo(p);
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarTablaIdiomas();
@@ -35,6 +36,7 @@ namespace GUI
         DataTable tablaIdioma;
         BLLIdiomas bllIdiomas;
         BLLPropiedad bllPropiedad;
+        Propiedad propiedadActiva;
         private void actualizarTablaIdiomas()
         {
             Sesion.ObtenerSesion().ActualizarIdiomas();
@@ -124,6 +126,7 @@ namespace GUI
                 flowLayoutPanelPadre.Controls.Clear();
                 flowLayoutPanelPadre.FlowDirection = FlowDirection.LeftToRight;
                 flowLayoutPanelPadre.WrapContents = true;
+                flowLayoutPanelPadre.ForeColor = Color.White;
                 if (closers != null)
                 {
                     foreach (Closer c in closers)
@@ -165,7 +168,6 @@ namespace GUI
                                     labelValor.Text = propiedad.GetValue(c)?.ToString();
                                     labelValor.Location = new Point(130, labelPosY);
                                     labelValor.AutoSize = true;
-
                                     gpDescripcion.Controls.Add(labelNombre);
                                     gpDescripcion.Controls.Add(labelValor);
 
@@ -184,6 +186,7 @@ namespace GUI
                                     {
                                         pictureBox.Image = Image.FromStream(ms);
                                     }
+                                    
                                 }
                                 else
                                 {
@@ -237,6 +240,7 @@ namespace GUI
                 flowLayoutPanelPadre.Controls.Clear();
                 flowLayoutPanelPadre.FlowDirection = FlowDirection.LeftToRight;
                 flowLayoutPanelPadre.WrapContents = true;
+                flowLayoutPanelPadre.ForeColor = Color.White;
                 if (closers != null)
                 {
                     if (closers.Count == 1)
@@ -268,7 +272,7 @@ namespace GUI
                             {
                                 if (propiedad.Name != "Foto")
                                 {
-                                    if (propiedad.Name != "NombreDeUsuario" && propiedad.Name != "DV" && propiedad.Name != "Clave" && propiedad.Name != "Sector" && propiedad.Name != "ID")
+                                    if (propiedad.Name != "ID_Usuario" && propiedad.Name != "NombreDeUsuario" && propiedad.Name != "DV" && propiedad.Name != "Clave" && propiedad.Name != "Sector" && propiedad.Name != "ID")
                                     {
                                         Label labelNombre = new Label();
                                         labelNombre.Text = propiedad.Name;
@@ -335,6 +339,20 @@ namespace GUI
                 this.Close();
             }
 
+        }
+
+        private void ClosersPostulados_ResizeEnd(object sender, EventArgs e)
+        {
+            IdentificarCatalogo(propiedadActiva);
+        }
+
+        private void ClosersPostulados_Resize(object sender, EventArgs e)
+        {
+            if(propiedadActiva != null)
+            {
+                IdentificarCatalogo(propiedadActiva);
+            }
+            
         }
     }
 }

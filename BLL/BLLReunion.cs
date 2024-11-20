@@ -53,7 +53,7 @@ namespace BLL
             Cliente cliente = mppCliente.LeerCliente(solicitud.ID_Cliente, 2);
             if (mppReunion.RecharReunion(solicitud))
             {
-                Servicios.EmailSender.EnviarMail("Reunion Rechazada", "Su solicitud para ver la vivienda a sido rechazada.", cliente.Mail);
+                Servicios.EmailSender.EnviarMail("Reunion Rechazada", "Su solicitud para ver la vivienda a sido rechazada.", cliente.Mail); 
                 return true;
             }
             return false;
@@ -63,7 +63,7 @@ namespace BLL
         {
             Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
             Dueño dueño = mppDueño.LeerDueño(usuario.ID);
-            dueño.listaDeViviendas = mppPropiedad.LeerPropiedadesDeDueño(usuario.ID);
+            dueño.listaDeViviendas = mppPropiedad.LeerPropiedadesDeDueño(dueño.ID);
             return mppReunion.LeerReuniones(dueño);
         }
 

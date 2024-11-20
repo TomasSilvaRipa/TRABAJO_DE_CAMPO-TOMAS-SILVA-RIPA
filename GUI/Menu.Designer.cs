@@ -118,7 +118,7 @@
             this.tableLayoutPanelBarraMenuDinamica.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.85207F));
             this.tableLayoutPanelBarraMenuDinamica.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.76923F));
             this.tableLayoutPanelBarraMenuDinamica.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.3787F));
-            this.tableLayoutPanelBarraMenuDinamica.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanelBarraMenuDinamica.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17F));
             this.tableLayoutPanelBarraMenuDinamica.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanelBarraMenuDinamica.Size = new System.Drawing.Size(1051, 54);
             this.tableLayoutPanelBarraMenuDinamica.TabIndex = 4;
@@ -129,9 +129,9 @@
             this.btnPerformanceInmoviliaria.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnPerformanceInmoviliaria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPerformanceInmoviliaria.ForeColor = System.Drawing.Color.Red;
-            this.btnPerformanceInmoviliaria.Location = new System.Drawing.Point(88, 32);
+            this.btnPerformanceInmoviliaria.Location = new System.Drawing.Point(88, 39);
             this.btnPerformanceInmoviliaria.Name = "btnPerformanceInmoviliaria";
-            this.btnPerformanceInmoviliaria.Size = new System.Drawing.Size(129, 19);
+            this.btnPerformanceInmoviliaria.Size = new System.Drawing.Size(129, 12);
             this.btnPerformanceInmoviliaria.TabIndex = 0;
             this.btnPerformanceInmoviliaria.Tag = "FMIRendimiento";
             this.btnPerformanceInmoviliaria.Text = "Rendimiento";
@@ -141,7 +141,9 @@
             // btnGestorDeReunionesCliente
             // 
             this.btnGestorDeReunionesCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGestorDeReunionesCliente.Location = new System.Drawing.Point(80, 21);
+            this.btnGestorDeReunionesCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestorDeReunionesCliente.ForeColor = System.Drawing.Color.Red;
+            this.btnGestorDeReunionesCliente.Location = new System.Drawing.Point(80, 26);
             this.btnGestorDeReunionesCliente.Name = "btnGestorDeReunionesCliente";
             this.btnGestorDeReunionesCliente.Size = new System.Drawing.Size(145, 3);
             this.btnGestorDeReunionesCliente.TabIndex = 0;
@@ -153,7 +155,9 @@
             // btnVerCasasGestionadasCloser
             // 
             this.btnVerCasasGestionadasCloser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnVerCasasGestionadasCloser.Location = new System.Drawing.Point(67, 11);
+            this.btnVerCasasGestionadasCloser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerCasasGestionadasCloser.ForeColor = System.Drawing.Color.Red;
+            this.btnVerCasasGestionadasCloser.Location = new System.Drawing.Point(67, 14);
             this.btnVerCasasGestionadasCloser.Name = "btnVerCasasGestionadasCloser";
             this.btnVerCasasGestionadasCloser.Size = new System.Drawing.Size(170, 1);
             this.btnVerCasasGestionadasCloser.TabIndex = 1;
@@ -165,7 +169,9 @@
             // btnIngresosDueño
             // 
             this.btnIngresosDueño.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnIngresosDueño.Location = new System.Drawing.Point(629, 3);
+            this.btnIngresosDueño.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIngresosDueño.ForeColor = System.Drawing.Color.Red;
+            this.btnIngresosDueño.Location = new System.Drawing.Point(629, 4);
             this.btnIngresosDueño.Name = "btnIngresosDueño";
             this.btnIngresosDueño.Size = new System.Drawing.Size(97, 1);
             this.btnIngresosDueño.TabIndex = 1;
@@ -177,7 +183,9 @@
             // btnAgregarPropiedad
             // 
             this.btnAgregarPropiedad.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAgregarPropiedad.Location = new System.Drawing.Point(78, 3);
+            this.btnAgregarPropiedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarPropiedad.ForeColor = System.Drawing.Color.Red;
+            this.btnAgregarPropiedad.Location = new System.Drawing.Point(78, 4);
             this.btnAgregarPropiedad.MinimumSize = new System.Drawing.Size(149, 1);
             this.btnAgregarPropiedad.Name = "btnAgregarPropiedad";
             this.btnAgregarPropiedad.Size = new System.Drawing.Size(149, 1);
@@ -190,7 +198,9 @@
             // btnVerReunionesDueño
             // 
             this.btnVerReunionesDueño.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnVerReunionesDueño.Location = new System.Drawing.Point(389, 3);
+            this.btnVerReunionesDueño.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerReunionesDueño.ForeColor = System.Drawing.Color.Red;
+            this.btnVerReunionesDueño.Location = new System.Drawing.Point(389, 4);
             this.btnVerReunionesDueño.Name = "btnVerReunionesDueño";
             this.btnVerReunionesDueño.Size = new System.Drawing.Size(137, 1);
             this.btnVerReunionesDueño.TabIndex = 4;
@@ -202,7 +212,9 @@
             // btnPagosCliente
             // 
             this.btnPagosCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPagosCliente.Location = new System.Drawing.Point(629, 21);
+            this.btnPagosCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagosCliente.ForeColor = System.Drawing.Color.Red;
+            this.btnPagosCliente.Location = new System.Drawing.Point(629, 26);
             this.btnPagosCliente.Name = "btnPagosCliente";
             this.btnPagosCliente.Size = new System.Drawing.Size(97, 3);
             this.btnPagosCliente.TabIndex = 0;
@@ -214,7 +226,9 @@
             // btnCuentaDueño
             // 
             this.btnCuentaDueño.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCuentaDueño.Location = new System.Drawing.Point(836, 3);
+            this.btnCuentaDueño.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCuentaDueño.ForeColor = System.Drawing.Color.Red;
+            this.btnCuentaDueño.Location = new System.Drawing.Point(836, 4);
             this.btnCuentaDueño.Name = "btnCuentaDueño";
             this.btnCuentaDueño.Size = new System.Drawing.Size(124, 1);
             this.btnCuentaDueño.TabIndex = 1;
@@ -226,19 +240,24 @@
             // btnRendimientoCloser
             // 
             this.btnRendimientoCloser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRendimientoCloser.Location = new System.Drawing.Point(613, 11);
+            this.btnRendimientoCloser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRendimientoCloser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRendimientoCloser.ForeColor = System.Drawing.Color.Red;
+            this.btnRendimientoCloser.Location = new System.Drawing.Point(613, 14);
             this.btnRendimientoCloser.Name = "btnRendimientoCloser";
             this.btnRendimientoCloser.Size = new System.Drawing.Size(128, 1);
             this.btnRendimientoCloser.TabIndex = 1;
             this.btnRendimientoCloser.Tag = "FMRendimiento";
             this.btnRendimientoCloser.Text = "Rendimiento";
-            this.btnRendimientoCloser.UseVisualStyleBackColor = true;
+            this.btnRendimientoCloser.UseVisualStyleBackColor = false;
             this.btnRendimientoCloser.Click += new System.EventHandler(this.btnRendimientoCloser_Click);
             // 
             // btnCuentaCloser
             // 
             this.btnCuentaCloser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCuentaCloser.Location = new System.Drawing.Point(836, 11);
+            this.btnCuentaCloser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCuentaCloser.ForeColor = System.Drawing.Color.Red;
+            this.btnCuentaCloser.Location = new System.Drawing.Point(836, 14);
             this.btnCuentaCloser.Name = "btnCuentaCloser";
             this.btnCuentaCloser.Size = new System.Drawing.Size(124, 1);
             this.btnCuentaCloser.TabIndex = 2;
@@ -250,7 +269,9 @@
             // btnCuentaCliente
             // 
             this.btnCuentaCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCuentaCliente.Location = new System.Drawing.Point(838, 21);
+            this.btnCuentaCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCuentaCliente.ForeColor = System.Drawing.Color.Red;
+            this.btnCuentaCliente.Location = new System.Drawing.Point(838, 26);
             this.btnCuentaCliente.Name = "btnCuentaCliente";
             this.btnCuentaCliente.Size = new System.Drawing.Size(119, 3);
             this.btnCuentaCliente.TabIndex = 0;
@@ -264,9 +285,9 @@
             this.btnCuentaInmoviliaria.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCuentaInmoviliaria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCuentaInmoviliaria.ForeColor = System.Drawing.Color.Red;
-            this.btnCuentaInmoviliaria.Location = new System.Drawing.Point(818, 32);
+            this.btnCuentaInmoviliaria.Location = new System.Drawing.Point(818, 39);
             this.btnCuentaInmoviliaria.Name = "btnCuentaInmoviliaria";
-            this.btnCuentaInmoviliaria.Size = new System.Drawing.Size(159, 19);
+            this.btnCuentaInmoviliaria.Size = new System.Drawing.Size(159, 12);
             this.btnCuentaInmoviliaria.TabIndex = 1;
             this.btnCuentaInmoviliaria.Tag = "FMCuentaInmoviliaria";
             this.btnCuentaInmoviliaria.Text = "Cuenta";

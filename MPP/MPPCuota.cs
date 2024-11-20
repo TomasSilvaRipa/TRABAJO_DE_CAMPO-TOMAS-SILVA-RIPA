@@ -80,7 +80,6 @@ namespace MPP
                         cuota.FechaDeVencimiento = Convert.ToDateTime(row["FechaDeVencimiento"]);
                         cuotasPagas.Add(cuota);
                     }
-
                 }
                 return cuotasPagas;
             }

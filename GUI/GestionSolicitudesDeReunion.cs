@@ -74,6 +74,7 @@ namespace GUI
                 dataGridViewSolicitudes.Columns["ID_Cliente"].Visible = false;
                 dataGridViewSolicitudes.Columns["ID_Vivienda"].Visible = false;
                 dataGridViewSolicitudes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridViewSolicitudes.ForeColor = Color.White;
             }
             else
             {

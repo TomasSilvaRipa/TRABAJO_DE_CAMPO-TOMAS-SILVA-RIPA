@@ -42,13 +42,16 @@
             // 
             // btnPagarCuota
             // 
+            this.btnPagarCuota.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnPagarCuota.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagarCuota.ForeColor = System.Drawing.Color.Red;
             this.btnPagarCuota.Location = new System.Drawing.Point(3, 87);
             this.btnPagarCuota.Name = "btnPagarCuota";
             this.btnPagarCuota.Size = new System.Drawing.Size(152, 47);
             this.btnPagarCuota.TabIndex = 0;
             this.btnPagarCuota.Tag = "FPPagarCuota";
             this.btnPagarCuota.Text = "Pagar Cuota";
-            this.btnPagarCuota.UseVisualStyleBackColor = true;
+            this.btnPagarCuota.UseVisualStyleBackColor = false;
             this.btnPagarCuota.Click += new System.EventHandler(this.btnPagarCuota_Click);
             // 
             // dataGridViewCuotas
@@ -56,6 +59,7 @@
             this.dataGridViewCuotas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewCuotas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.dataGridViewCuotas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCuotas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewCuotas.Location = new System.Drawing.Point(3, 3);
@@ -71,6 +75,7 @@
             this.dataGridViewHistorialPagos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewHistorialPagos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.dataGridViewHistorialPagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewHistorialPagos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewHistorialPagos.Location = new System.Drawing.Point(3, 178);
@@ -100,8 +105,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dataGridViewCuotas, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dataGridViewHistorialPagos, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dataGridViewCuotas, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(7, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
@@ -132,6 +137,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.ClientSize = new System.Drawing.Size(1012, 395);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MinimumSize = new System.Drawing.Size(1030, 442);

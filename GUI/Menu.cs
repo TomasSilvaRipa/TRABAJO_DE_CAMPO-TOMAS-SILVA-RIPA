@@ -13,6 +13,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace GUI
 {
@@ -77,10 +78,8 @@ namespace GUI
         {
             foreach (Permiso p in lista)
             {
-                
                 foreach (Control c in ListaControles)
                 {
-                    
                     if (c.Tag == null)
                     {
                         continue;
@@ -90,7 +89,6 @@ namespace GUI
                         c.Enabled = true;
                         c.Visible = true;
                     }
-
                     if (p.permisos.Count > 0)
                     {
                         ComprobarPermisos(p.permisos);
@@ -280,12 +278,8 @@ namespace GUI
                 {
                     MessageBox.Show("No se puede borrar una vivienda que esta siendo alquilada");
                 }
-                
             }
-            catch(Exception ex)
-            {
-
-            }
+            catch(Exception){ }
         }
 
         public void GenerarCatalogo(int opcion)
@@ -373,12 +367,21 @@ namespace GUI
                 Aviso.Width = flowLayoutPanelCatalogo.Width -40;
                 
                 Aviso.ForeColor = Color.White;
+                Aviso.Font = new Font("Microsoft Sans Serif", 15);
                 Aviso.Text = "No hay Casas Disponibles Por el Momentos";
                 Aviso.TextAlign = ContentAlignment.MiddleCenter;
                 Aviso.Dock = DockStyle.None;
                 flowLayoutPanelCatalogo.Controls.Add(Aviso);
-                Aviso.Anchor = AnchorStyles.None;  
+                Aviso.Anchor = AnchorStyles.None;
+                flowLayoutPanelCatalogo.Resize += (s, e) =>
+                {
+                    Aviso.Height = flowLayoutPanelCatalogo.Height - 40;
+                    Aviso.Width = flowLayoutPanelCatalogo.Width - 40;
+                    Aviso.TextAlign = ContentAlignment.MiddleCenter;
+                    Aviso.Dock = DockStyle.None;
+                };
             }
+            
         }
 
         public void IdentificarCatalogo()
@@ -386,25 +389,11 @@ namespace GUI
             try
             {
                 int opcion = 0;
-                if (Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Dueño")
-                {
-                    GenerarCatalogo(opcion);
-                }
-                else if(Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Cliente")
-                {
-                    opcion = 1;
-                    GenerarCatalogo(opcion);
-                }
-                else if(Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Closer")
-                {
-                    opcion = 2;
-                    GenerarCatalogo(opcion);
-                }
-                else if(Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Inmoviliaria")
-                {
-                    opcion = 3;
-                    GenerarCatalogo(opcion);
-                }
+                if (Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Dueño"){ GenerarCatalogo(opcion); }
+                else if(Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Cliente") { opcion = 1; }
+                else if(Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Closer") { opcion = 2; }
+                else if(Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Inmoviliaria") { opcion = 3; }
+                GenerarCatalogo(opcion);
             }
             catch(Exception ex)
             {
@@ -449,15 +438,18 @@ namespace GUI
             }
             else if (opcion == 1)
             {
-                Button btnSolicitarReunion = new Button();
-                btnSolicitarReunion.Text = "Solicitar Reunion";
-                btnSolicitarReunion.Tag = "FMCliSolicitarReunion";
-                btnAgregarPropiedad.BackColor = Color.White;
-                btnSolicitarReunion.Width = 120;
-                btnSolicitarReunion.Location = new Point(10, labelPosY);
-                btnSolicitarReunion.Click += (s, e) => AbrirFormularioSolicitarReunion(p);
-                btnSolicitarReunion.ForeColor = Color.White;
-                GroupBoxDescripcion.Controls.Add(btnSolicitarReunion);
+                if (p.Aqluilada == false)
+                {
+                    Button btnSolicitarReunion = new Button();
+                    btnSolicitarReunion.Text = "Solicitar Reunion";
+                    btnSolicitarReunion.Tag = "FMCliSolicitarReunion";
+                    btnAgregarPropiedad.BackColor = Color.White;
+                    btnSolicitarReunion.Width = 120;
+                    btnSolicitarReunion.Location = new Point(10, labelPosY);
+                    btnSolicitarReunion.Click += (s, e) => AbrirFormularioSolicitarReunion(p);
+                    btnSolicitarReunion.ForeColor = Color.White;
+                    GroupBoxDescripcion.Controls.Add(btnSolicitarReunion);
+                }
             }
             else if (opcion == 2)
             {
@@ -553,7 +545,7 @@ namespace GUI
                     MessageBox.Show("Su casa esta en alquiler ahora mismo");
                 }
             }
-            catch(Exception ex){}
+            catch(Exception ){}
         }
 
         public void AbrirFormularioSolicitarReunion(Propiedad propiedad)
@@ -563,7 +555,7 @@ namespace GUI
                 SolicitarReunion solicitarReunion = new SolicitarReunion(propiedad);
                 solicitarReunion.Show();
             }
-            catch(Exception ex){  }
+            catch(Exception ){  }
         }
 
         private void btnVerCasasGestionadasCloser_Click(object sender, EventArgs e)

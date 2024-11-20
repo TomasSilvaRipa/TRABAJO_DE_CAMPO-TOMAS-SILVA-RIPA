@@ -222,10 +222,6 @@ namespace GUI
             {
                 actualizarIdioma();
             }
-
-
-
-
         }
 
 

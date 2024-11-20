@@ -55,13 +55,28 @@ namespace GUI
         public void CargarCuotas()
         {
             dataGridViewCuotas.DataSource = null;
-            dataGridViewCuotas.DataSource = bllCuota.LeerCuotasXClientePendientes();
+            List<Cuota> cuotas = bllCuota.LeerCuotasXClientePendientes();
+            if (cuotas != null && cuotas.Count > 0) 
+            {
+                dataGridViewCuotas.DataSource = cuotas;
+                dataGridViewCuotas.Columns["ID_Cliente"].Visible = false;
+                dataGridViewCuotas.Columns["ID"].Visible = false;
+                dataGridViewCuotas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
         }
 
         public void CargarPagos()
         {
             dataGridViewHistorialPagos.DataSource = null;
-            dataGridViewHistorialPagos.DataSource = bllCuota.LeerCuotasXClientePagas();
+            //dataGridViewHistorialPagos.DataSource = bllCuota.LeerCuotasXClientePagas();
+            List<Cuota> cuotas = bllCuota.LeerCuotasXClientePagas();
+            if (cuotas != null && cuotas.Count > 0)
+            {
+                dataGridViewHistorialPagos.DataSource = cuotas;
+                dataGridViewHistorialPagos.Columns["ID_Cliente"].Visible = false;
+                dataGridViewHistorialPagos.Columns["ID"].Visible = false;
+                dataGridViewHistorialPagos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
         }
 
         private void dataGridViewCuotas_SelectionChanged(object sender, EventArgs e)

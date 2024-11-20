@@ -17,7 +17,7 @@ namespace BLL
         MPPDueño mppDueño;
         public bool AceptarCloserPostulado(Propiedad propiedad, Closer closer)
         {
-            return mppDueño.AceptarCloserPostulado(propiedad, closer);
+            return  mppDueño.AceptarCloserPostulado(propiedad, closer);
         }
 
         public bool RechazarCloserPostulado(Propiedad propiedad, Closer closer)

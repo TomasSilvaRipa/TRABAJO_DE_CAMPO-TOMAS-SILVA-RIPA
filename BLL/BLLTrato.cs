@@ -20,6 +20,7 @@ namespace BLL
         MPPDueño mppDueño;
         MPPPropiedad mppPropiedad;
         MPPCloser mppCloser;
+
         public bool AltaTrato(Trato trato)
         {
             Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();

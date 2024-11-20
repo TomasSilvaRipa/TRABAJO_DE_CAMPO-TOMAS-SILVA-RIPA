@@ -21,6 +21,8 @@ namespace GUI
         }
         BLLBackUp bllBackUp;
 
+        
+        
         private void btnRestore_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -34,25 +36,23 @@ namespace GUI
                     {
                         bllBackUp.Restore(2, file);
                     }
+                    MessageBox.Show("Restore Exitoso");
+                    Application.Restart();
                 }
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            //using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
-            //{
-            //    folderDialog.Description = "Seleccione una carpeta";
-            //    folderDialog.ShowNewFolderButton = true;
-
-            //    DialogResult result = folderDialog.ShowDialog();
-            //    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderDialog.SelectedPath))
-            //    {
-            string path = @"C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\Backup\";
-                    bllBackUp.BackUp(1, path);
-            //    }
-            //}
+            try
+            {
+                string path = @"C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\Backup\";
+                bllBackUp.BackUp(1, path);
+            } 
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

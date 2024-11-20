@@ -59,11 +59,13 @@
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanelFotoDePerfil, 0, 0);
+            this.tableLayoutPanel1.ForeColor = System.Drawing.Color.White;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
@@ -143,8 +145,10 @@
             // btnBajaCuenta
             // 
             this.btnBajaCuenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBajaCuenta.BackColor = System.Drawing.Color.Red;
+            this.btnBajaCuenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnBajaCuenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBajaCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.btnBajaCuenta.ForeColor = System.Drawing.Color.Red;
             this.btnBajaCuenta.Location = new System.Drawing.Point(71, 3);
             this.btnBajaCuenta.Name = "btnBajaCuenta";
             this.btnBajaCuenta.Size = new System.Drawing.Size(130, 33);
@@ -276,24 +280,30 @@
             // 
             // btnSubirFoto
             // 
+            this.btnSubirFoto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnSubirFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubirFoto.ForeColor = System.Drawing.Color.Red;
             this.btnSubirFoto.Location = new System.Drawing.Point(3, 306);
             this.btnSubirFoto.Name = "btnSubirFoto";
             this.btnSubirFoto.Size = new System.Drawing.Size(146, 37);
             this.btnSubirFoto.TabIndex = 5;
             this.btnSubirFoto.Tag = "FPSubirFoto";
             this.btnSubirFoto.Text = "Subir Foto";
-            this.btnSubirFoto.UseVisualStyleBackColor = true;
+            this.btnSubirFoto.UseVisualStyleBackColor = false;
             this.btnSubirFoto.Click += new System.EventHandler(this.btnSubirFoto_Click);
             // 
             // btnActualizar
             // 
+            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.ForeColor = System.Drawing.Color.Red;
             this.btnActualizar.Location = new System.Drawing.Point(185, 306);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(146, 37);
             this.btnActualizar.TabIndex = 6;
             this.btnActualizar.Tag = "FPActualizarDatos";
             this.btnActualizar.Text = "Actualizar Datos";
-            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // tableLayoutPanelFotoDePerfil

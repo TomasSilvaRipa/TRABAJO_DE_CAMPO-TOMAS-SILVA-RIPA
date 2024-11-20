@@ -84,6 +84,7 @@ namespace GUI
                 tableLayoutPanelPersonaDeReunion.Controls.Add(l);
                 l.Size = new Size(400,200);
                 l.Anchor = AnchorStyles.None;
+                l.ForeColor = Color.White;  
             }
             
             
@@ -112,7 +113,7 @@ namespace GUI
                     tableLayoutPanelPersonaDeReunion.ColumnStyles.Clear();
                     tableLayoutPanelPersonaDeReunion.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
                     tableLayoutPanelPersonaDeReunion.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-
+                    tableLayoutPanelPersonaDeReunion.ForeColor = Color.White;
                     Panel panelImagen = new Panel();
                     panelImagen.Dock = DockStyle.Fill;
 

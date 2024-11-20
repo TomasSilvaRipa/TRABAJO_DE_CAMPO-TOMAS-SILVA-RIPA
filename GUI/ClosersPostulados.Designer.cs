@@ -45,11 +45,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.flowLayoutPanelPadre);
+            this.MinimumSize = new System.Drawing.Size(818, 497);
             this.Name = "ClosersPostulados";
             this.ShowIcon = false;
             this.Text = "Closers Postulados";
+            this.ResizeEnd += new System.EventHandler(this.ClosersPostulados_ResizeEnd);
+            this.Resize += new System.EventHandler(this.ClosersPostulados_Resize);
             this.ResumeLayout(false);
 
         }

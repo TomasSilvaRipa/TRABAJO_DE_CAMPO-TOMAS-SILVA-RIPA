@@ -64,7 +64,6 @@ namespace MPP
 
         public bool InsertarUsuario(Usuario nuevoUsuario, string clave)
         {
-
             string ClaveEncriptada = Seguridad.Encriptar(clave);
             DateTime fecha = DateTime.Now;
             List<SqlParameter> parameters = new List<SqlParameter>()

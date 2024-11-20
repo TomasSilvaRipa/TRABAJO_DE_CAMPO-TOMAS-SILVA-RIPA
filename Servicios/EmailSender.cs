@@ -18,13 +18,9 @@ namespace Servicios
             {
                 using (SmtpClient smtpClient = new SmtpClient("smtp.gmail.com"))
                 {
-                    // Configuración del cliente SMTP
-                    //SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
-                    //{
                     smtpClient.Port = 587; // El puerto SMTP (587 o 465 generalmente)
                     smtpClient.Credentials = new NetworkCredential(Emisor, "vhcq mrvv beqi yqwy");
                     smtpClient.EnableSsl = true; // Activar SSL si es necesario
-                    //};
 
                     // Crear el correo
                     MailMessage mail = new MailMessage

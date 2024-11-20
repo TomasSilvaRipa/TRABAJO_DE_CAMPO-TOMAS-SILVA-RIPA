@@ -54,6 +54,7 @@
             this.tableLayoutPanelPadre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanelPadre.BackColor = System.Drawing.Color.Black;
             this.tableLayoutPanelPadre.ColumnCount = 2;
             this.tableLayoutPanelPadre.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelPadre.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -64,7 +65,7 @@
             this.tableLayoutPanelPadre.RowCount = 1;
             this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelPadre.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelPadre.Size = new System.Drawing.Size(1217, 544);
+            this.tableLayoutPanelPadre.Size = new System.Drawing.Size(1217, 546);
             this.tableLayoutPanelPadre.TabIndex = 0;
             // 
             // tableLayoutPanelDerecho
@@ -82,7 +83,7 @@
             this.tableLayoutPanelDerecho.RowCount = 2;
             this.tableLayoutPanelDerecho.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.19703F));
             this.tableLayoutPanelDerecho.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.80297F));
-            this.tableLayoutPanelDerecho.Size = new System.Drawing.Size(603, 538);
+            this.tableLayoutPanelDerecho.Size = new System.Drawing.Size(603, 540);
             this.tableLayoutPanelDerecho.TabIndex = 1;
             // 
             // tableLayoutPanelPersonaDeReunion
@@ -98,7 +99,7 @@
             this.tableLayoutPanelPersonaDeReunion.RowCount = 1;
             this.tableLayoutPanelPersonaDeReunion.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelPersonaDeReunion.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelPersonaDeReunion.Size = new System.Drawing.Size(597, 334);
+            this.tableLayoutPanelPersonaDeReunion.Size = new System.Drawing.Size(597, 335);
             this.tableLayoutPanelPersonaDeReunion.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -117,21 +118,26 @@
             this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.richTextBoxCloser, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.numericUpDownCloser, 0, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 343);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 344);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.00826F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.99174F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 72F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(597, 192);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(597, 193);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // numericUpDownCliente
             // 
-            this.numericUpDownCliente.Location = new System.Drawing.Point(301, 122);
+            this.numericUpDownCliente.Location = new System.Drawing.Point(301, 123);
             this.numericUpDownCliente.Maximum = new decimal(new int[] {
             5,
+            0,
+            0,
+            0});
+            this.numericUpDownCliente.Minimum = new decimal(new int[] {
+            1,
             0,
             0,
             0});
@@ -147,7 +153,8 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(301, 101);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(301, 102);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 16);
             this.label4.TabIndex = 5;
@@ -157,7 +164,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 101);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(3, 102);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 16);
             this.label3.TabIndex = 4;
@@ -175,6 +183,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 16);
@@ -185,6 +194,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(301, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 16);
@@ -202,9 +212,14 @@
             // 
             // numericUpDownCloser
             // 
-            this.numericUpDownCloser.Location = new System.Drawing.Point(3, 122);
+            this.numericUpDownCloser.Location = new System.Drawing.Point(3, 123);
             this.numericUpDownCloser.Maximum = new decimal(new int[] {
             5,
+            0,
+            0,
+            0});
+            this.numericUpDownCloser.Minimum = new decimal(new int[] {
+            1,
             0,
             0,
             0});
@@ -222,13 +237,14 @@
             this.dataGridViewReuniones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewReuniones.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.dataGridViewReuniones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewReuniones.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewReuniones.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewReuniones.Name = "dataGridViewReuniones";
             this.dataGridViewReuniones.RowHeadersWidth = 51;
             this.dataGridViewReuniones.RowTemplate.Height = 24;
-            this.dataGridViewReuniones.Size = new System.Drawing.Size(602, 538);
+            this.dataGridViewReuniones.Size = new System.Drawing.Size(602, 540);
             this.dataGridViewReuniones.TabIndex = 0;
             this.dataGridViewReuniones.SelectionChanged += new System.EventHandler(this.dataGridViewReuniones_SelectionChanged);
             // 

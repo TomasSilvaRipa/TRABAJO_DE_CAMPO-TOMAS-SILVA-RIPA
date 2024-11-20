@@ -104,9 +104,8 @@ namespace MPP
             };
             if(acceso.Escribir("DarDeBajaCloserACargo", parameters))
             {
-               Servicios.EmailSender.EnviarMail("Baja de Gestión","Hola " + closer.Nombre + " " + closer.Apellido + " lamentamos informale que se lo removido de la gestión de la vivienda con dirección " + propiedad.Direccion, closer.Mail);
-               return true;
-            
+                Servicios.EmailSender.EnviarMail("Baja de Gestión","Hola " + closer.Nombre + " " + closer.Apellido + " lamentamos informale que se lo removido de la gestión de la vivienda con dirección " + propiedad.Direccion, closer.Mail);
+                return true;
             }
             return false;
         }
