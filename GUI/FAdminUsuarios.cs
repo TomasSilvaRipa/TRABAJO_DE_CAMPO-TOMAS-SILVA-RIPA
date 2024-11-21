@@ -235,7 +235,7 @@ namespace GUI
             Bitacora_ bitacora;
             try
             {
-                if (bllusuario.BajaUsuario(ObtenerUsuarioSeleccionado().NombreDeUsuario))
+                if (bllusuario.BajaUsuario(ObtenerUsuarioSeleccionado()))
                 {
                     bitacora = new Bitacora_(Bitacora_.BitacoraTipo.INFO, Usuario,"El usuario " + ObtenerUsuarioSeleccionado().NombreDeUsuario.Trim() + " fue eliminado");
                     bitacorabll.Add(bitacora);

@@ -84,9 +84,9 @@ namespace BLL
         {
             try
             {
-                if (mppusuario.ComprobarExistencia(nuevoUsuario.NombreDeUsuario))
+                if (mppusuario.ComprobarExistencia(nuevoUsuario))
                 {
-                    throw new Exception("El que se esta intentando crear ya existe");
+                    throw new Exception("El nombre de usuario o mail ya esta siendo usado por otra persona");
                 }
                 if (mppusuario.InsertarUsuario(nuevoUsuario, clave))
                 {
@@ -116,15 +116,15 @@ namespace BLL
             
         }
 
-        public bool BajaUsuario(string Nombre)
+        public bool BajaUsuario(Usuario usuario)
         {
-            if (!mppusuario.ComprobarExistencia(Nombre))
+            if (!mppusuario.ComprobarExistencia(usuario))
             {
                 return false;
             }
             else
             {
-                if (mppusuario.RemoverUsuario(Nombre))
+                if (mppusuario.RemoverUsuario(usuario.NombreDeUsuario))
                 {
                     string DV = mppusuario.LeerDigitoVerificadorVertical("Usuarios");
                     if (DV != null)
@@ -145,7 +145,7 @@ namespace BLL
 
         public bool ActualizarUsuario(Usuario usuario, int opcion)
         {
-            if (!mppusuario.ComprobarExistencia(usuario.NombreDeUsuario))
+            if (!mppusuario.ComprobarExistencia(usuario))
             {
                 return false;
             }

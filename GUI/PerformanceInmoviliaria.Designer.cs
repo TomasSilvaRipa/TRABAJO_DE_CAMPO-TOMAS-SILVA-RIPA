@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PerformanceInmoviliaria));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -141,7 +142,7 @@
             this.tableLayoutPanel6.ColumnCount = 3;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.93357F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.06643F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 128F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 129F));
             this.tableLayoutPanel6.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.btnSerializar, 1, 0);
@@ -160,7 +161,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(289, 3);
+            this.button1.Location = new System.Drawing.Point(288, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(157, 27);
             this.button1.TabIndex = 2;
@@ -258,16 +259,16 @@
             this.chartTratosXMes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Name = "ChartArea1";
-            this.chartTratosXMes.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartTratosXMes.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chartTratosXMes.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartTratosXMes.Legends.Add(legend1);
             this.chartTratosXMes.Location = new System.Drawing.Point(3, 43);
             this.chartTratosXMes.Name = "chartTratosXMes";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Tratos Cerrados";
-            this.chartTratosXMes.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Tratos Cerrados";
+            this.chartTratosXMes.Series.Add(series1);
             this.chartTratosXMes.Size = new System.Drawing.Size(384, 161);
             this.chartTratosXMes.TabIndex = 2;
             this.chartTratosXMes.Text = "chart1";
@@ -370,8 +371,8 @@
             this.ClientSize = new System.Drawing.Size(1181, 549);
             this.Controls.Add(this.tableLayoutPanel1);
             this.ForeColor = System.Drawing.Color.Red;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PerformanceInmoviliaria";
-            this.ShowIcon = false;
             this.Text = "Performance Inmoviliaria";
             this.SizeChanged += new System.EventHandler(this.PerformanceInmoviliaria_SizeChanged);
             this.tableLayoutPanel1.ResumeLayout(false);

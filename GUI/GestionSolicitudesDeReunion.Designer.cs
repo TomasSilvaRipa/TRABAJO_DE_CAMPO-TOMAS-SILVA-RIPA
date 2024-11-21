@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionSolicitudesDeReunion));
             this.tableLayoutPanelPadre = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridViewSolicitudes = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -124,9 +125,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1241, 562);
             this.Controls.Add(this.tableLayoutPanelPadre);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1259, 609);
             this.Name = "GestionSolicitudesDeReunion";
-            this.ShowIcon = false;
             this.Text = "Gestion Solicitudes de Reunion";
             this.ResizeEnd += new System.EventHandler(this.GestionSolicitudesDeReunion_ResizeEnd);
             this.Resize += new System.EventHandler(this.GestionSolicitudesDeReunion_Resize);

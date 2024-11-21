@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminUsuarios));
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.btnAlta = new System.Windows.Forms.Button();
@@ -402,9 +403,9 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1145, 480);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AdminUsuarios";
-            this.ShowIcon = false;
             this.Text = "Gestion de Usuarios";
             this.Load += new System.EventHandler(this.AdminUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();

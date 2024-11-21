@@ -26,8 +26,6 @@ namespace GUI
 
         public void actualizarIdioma()
         {
-
-
             var dict = Sesion.ObtenerSesion().Traduccion;
             BuscarControles(this.Controls);
             foreach (Control c in ListaControles)

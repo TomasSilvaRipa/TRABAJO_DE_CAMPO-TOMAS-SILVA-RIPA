@@ -28,11 +28,13 @@ namespace GUI
             bllIdiomas = new BLLIdiomas();
             labelResidencia.Visible = false;
             tbResicencia.Visible = false;
-            Notificar(this);
+            
+            //Sesion.ObtenerSesion().Traduccion;
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarTablaIdiomas();
+            //Notificar(this); 
             actualizarcbxIdiomas();
-            
+            ConfigDataTimePicker();
         }
         BitacoraBLL bitacorabll;
         BLLUsuario bllusuario;
@@ -48,6 +50,12 @@ namespace GUI
             txtUsuario.Text = "";
             txtContra.Text = "";
         }
+
+        public void ConfigDataTimePicker() 
+        {
+            dateTimePickerFN.MaxDate = DateTime.Now.AddYears(-18);
+        }
+
 
         private void actualizarTablaIdiomas()
         {
@@ -141,10 +149,9 @@ namespace GUI
                     if (rbCliente.Checked)
                     {
                         Cliente clienteCreate = new Cliente(nuevoUsuario,tbNombre.Text, tbApellido.Text, false, dateTimePickerFN.Value);
-                        
                         if (bllusuario.AltaUsuario(clienteCreate, txtContra.Text))
                         {
-                            MessageBox.Show("Cliente: " + nuevoUsuario.NombreDeUsuario + "creado correctamente");
+                            MessageBox.Show("Cliente: " + nuevoUsuario.NombreDeUsuario + " creado correctamente");
                             this.Close();
                         }
                         else

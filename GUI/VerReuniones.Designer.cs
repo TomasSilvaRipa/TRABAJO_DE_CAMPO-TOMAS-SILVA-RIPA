@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerReuniones));
             this.tableLayoutPanelPadre = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelDerecho = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelPersonaDeReunion = new System.Windows.Forms.TableLayoutPanel();
@@ -254,9 +255,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1217, 549);
             this.Controls.Add(this.tableLayoutPanelPadre);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1235, 596);
             this.Name = "VerReuniones";
-            this.ShowIcon = false;
             this.Text = "Ver Reuniones";
             this.Load += new System.EventHandler(this.VerReuniones_Load);
             this.SizeChanged += new System.EventHandler(this.VerReuniones_SizeChanged);

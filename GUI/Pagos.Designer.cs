@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pagos));
             this.btnPagarCuota = new System.Windows.Forms.Button();
             this.dataGridViewCuotas = new System.Windows.Forms.DataGridView();
             this.dataGridViewHistorialPagos = new System.Windows.Forms.DataGridView();
@@ -140,9 +141,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.ClientSize = new System.Drawing.Size(1012, 395);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1030, 442);
             this.Name = "Pagos";
-            this.ShowIcon = false;
             this.Text = "Pagos";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCuotas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHistorialPagos)).EndInit();

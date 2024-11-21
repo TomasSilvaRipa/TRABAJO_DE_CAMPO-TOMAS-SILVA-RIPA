@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IngresosDueño));
             this.dataGridViewCuotas = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -169,8 +170,8 @@
             this.ClientSize = new System.Drawing.Size(1185, 418);
             this.Controls.Add(this.tableLayoutPanel1);
             this.ForeColor = System.Drawing.Color.White;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "IngresosDueño";
-            this.ShowIcon = false;
             this.Text = "Ingresos de Dueño";
             this.Load += new System.EventHandler(this.IngresosDueño_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCuotas)).EndInit();

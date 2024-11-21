@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionDePropiedades));
             this.flowLayoutPanelPadre = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
@@ -50,8 +51,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.flowLayoutPanelPadre);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GestionDePropiedades";
-            this.ShowIcon = false;
             this.Text = "Catalogo de Propiedades";
             this.Load += new System.EventHandler(this.CatalogoDePropiedades_Load);
             this.ResumeLayout(false);

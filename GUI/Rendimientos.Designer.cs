@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Rendimientos));
             this.dataGridViewTratosCerrados = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -264,16 +265,16 @@
             this.chartTratosMensuales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Name = "ChartArea1";
-            this.chartTratosMensuales.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartTratosMensuales.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chartTratosMensuales.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartTratosMensuales.Legends.Add(legend1);
             this.chartTratosMensuales.Location = new System.Drawing.Point(3, 33);
             this.chartTratosMensuales.Name = "chartTratosMensuales";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Tratos Cerrados";
-            this.chartTratosMensuales.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Tratos Cerrados";
+            this.chartTratosMensuales.Series.Add(series1);
             this.chartTratosMensuales.Size = new System.Drawing.Size(403, 188);
             this.chartTratosMensuales.TabIndex = 1;
             this.chartTratosMensuales.Text = "chart1";
@@ -325,8 +326,8 @@
             this.ClientSize = new System.Drawing.Size(1220, 609);
             this.Controls.Add(this.tableLayoutPanel1);
             this.ForeColor = System.Drawing.Color.Red;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Rendimientos";
-            this.ShowIcon = false;
             this.Text = "Ingresos de Closer";
             this.Load += new System.EventHandler(this.Rendimientos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTratosCerrados)).EndInit();

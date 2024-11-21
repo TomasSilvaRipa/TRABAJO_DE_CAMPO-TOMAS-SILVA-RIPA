@@ -51,7 +51,6 @@ namespace MPP
                             usuario.Foto = (byte[])salida.Rows[0][7];
                         }
                         return usuario;
-                    
                 }
                 else
                 {
@@ -137,9 +136,9 @@ namespace MPP
             }
         }
 
-        public bool ComprobarExistencia(string Nombre)
+        public bool ComprobarExistencia(Usuario usuario)
         {
-            return (acceso.Leer("ComprobarExistenciaUsuario", new List<SqlParameter> { new SqlParameter("@nombre", Nombre)})).Rows.Count>0;
+            return (acceso.Leer("ComprobarExistenciaUsuario", new List<SqlParameter> { new SqlParameter("@Nombre", usuario.NombreDeUsuario), new SqlParameter("@Mail",usuario.Mail)})).Rows.Count>0;
         }
 
 

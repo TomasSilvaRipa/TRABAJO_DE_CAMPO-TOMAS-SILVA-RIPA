@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClosersPostulados));
             this.flowLayoutPanelPadre = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
@@ -48,9 +49,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.flowLayoutPanelPadre);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(818, 497);
             this.Name = "ClosersPostulados";
-            this.ShowIcon = false;
             this.Text = "Closers Postulados";
             this.ResizeEnd += new System.EventHandler(this.ClosersPostulados_ResizeEnd);
             this.Resize += new System.EventHandler(this.ClosersPostulados_Resize);

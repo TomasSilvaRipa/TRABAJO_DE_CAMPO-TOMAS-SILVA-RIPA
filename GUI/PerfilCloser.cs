@@ -192,7 +192,7 @@ namespace GUI
         {
             try
             {
-                if (bllUsuario.BajaUsuario(usuario.NombreDeUsuario))
+                if (bllUsuario.BajaUsuario(usuario))
                 {
                     MessageBox.Show("Cuenta dada de baja exitosamente!!");
                     Application.Restart();

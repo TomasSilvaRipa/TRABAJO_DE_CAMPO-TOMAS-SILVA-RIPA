@@ -84,11 +84,7 @@ namespace GUI
                 }
                 else
                 {
-                    Usuario usuarioEntrante = new Usuario()
-                    {
-                        NombreDeUsuario = txtUsuario.Text,
-                        Clave = txtContra.Text,
-                    };
+                    Usuario usuarioEntrante = new Usuario() { NombreDeUsuario = txtUsuario.Text, Clave = txtContra.Text,};
                     if (bllusuario.ObtenerUsuario(usuarioEntrante) != null)
                     {
                         Usuario usuarioIniciar = bllusuario.ObtenerUsuario(usuarioEntrante);
@@ -103,7 +99,6 @@ namespace GUI
                             FMdi fMdi = new FMdi(this, usuarioIniciar.NombreDeUsuario);
                             fMdi.Show();
                         }
-                        
                         Menu menu = new Menu(this);
                         menu.Show();
                         this.Hide();
@@ -124,7 +119,6 @@ namespace GUI
 
         public void Notificar(object Sender)
         {
-
             if (Sender is FTraducciones)
             {
                 actualizarTablaIdiomas();
@@ -133,27 +127,19 @@ namespace GUI
             {
                 actualizarIdioma();
             }
-
         }
 
         private void cbxIdiomas_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-                Sesion.ObtenerSesion().AgregarObservador(this);
-                Sesion.ObtenerSesion().ActualizarDiccionario(Convert.ToInt32(tablaIdioma.Rows[cbxIdiomas.SelectedIndex][0]));
-
+            Sesion.ObtenerSesion().AgregarObservador(this);
+            Sesion.ObtenerSesion().ActualizarDiccionario(Convert.ToInt32(tablaIdioma.Rows[cbxIdiomas.SelectedIndex][0]));
         }
 
-        private void FLogin_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnRegistrase_Click(object sender, EventArgs e)
         {
             Registrarse registrase = new Registrarse();
             registrase.Show();
-            
         }
 
     }

@@ -40,14 +40,6 @@ namespace BE
             Mail = mail;
         }
 
-        //public Usuario(string nombre, string sector, string mail, byte[] foto)
-        //{
-        //    NombreDeUsuario = nombre;
-        //    Sector = sector;
-        //    Mail = mail;
-        //    Foto = foto;
-        //}
-
         public override string ToString()
         {
             return NombreDeUsuario;

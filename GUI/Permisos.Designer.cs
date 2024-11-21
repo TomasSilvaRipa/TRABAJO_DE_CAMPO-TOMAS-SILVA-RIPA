@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Permisos));
             this.treeViewPermisos = new System.Windows.Forms.TreeView();
             this.comboBoxPermisos = new System.Windows.Forms.ComboBox();
             this.txtNombreGrupoPermisos = new System.Windows.Forms.TextBox();
@@ -329,10 +330,10 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1025, 549);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(1043, 596);
             this.Name = "Permisos";
-            this.ShowIcon = false;
             this.Text = "Permisos";
             this.Load += new System.EventHandler(this.Permisos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).EndInit();

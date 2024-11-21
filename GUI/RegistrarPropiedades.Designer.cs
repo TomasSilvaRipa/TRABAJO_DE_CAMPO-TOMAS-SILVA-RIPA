@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrarPropiedades));
             this.tbDireccion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxVivienda = new System.Windows.Forms.ComboBox();
@@ -639,9 +640,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1009, 469);
             this.Controls.Add(this.tableLayoutPanel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1027, 516);
             this.Name = "RegistrarPropiedades";
-            this.ShowIcon = false;
             this.Text = "Registrar Propiedades";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAmbientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPisos)).EndInit();

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registrarse));
             this.btnRegistrase = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.rbCloser = new System.Windows.Forms.RadioButton();
@@ -505,9 +506,9 @@
             this.Controls.Add(this.tableLayoutPanel4);
             this.Controls.Add(this.tableLayoutPanel1);
             this.ForeColor = System.Drawing.Color.Red;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(595, 651);
             this.Name = "Registrarse";
-            this.ShowIcon = false;
             this.Text = "Registrarse";
             this.Load += new System.EventHandler(this.Registrarse_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

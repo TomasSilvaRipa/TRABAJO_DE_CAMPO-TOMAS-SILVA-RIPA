@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestorDeCambios));
             this.dataGridViewHistoricoUsuario = new System.Windows.Forms.DataGridView();
             this.comboBoxUsuarios = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -133,10 +134,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(765, 514);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "GestorDeCambios";
-            this.ShowIcon = false;
             this.Text = "Gestor de Cambios";
             this.Load += new System.EventHandler(this.GestorDeCambios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHistoricoUsuario)).EndInit();
