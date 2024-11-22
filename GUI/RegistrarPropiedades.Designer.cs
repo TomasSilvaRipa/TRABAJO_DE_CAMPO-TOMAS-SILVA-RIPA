@@ -105,6 +105,7 @@
             // comboBoxVivienda
             // 
             this.comboBoxVivienda.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comboBoxVivienda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxVivienda.FormattingEnabled = true;
             this.comboBoxVivienda.Location = new System.Drawing.Point(208, 8);
             this.comboBoxVivienda.Name = "comboBoxVivienda";
@@ -361,6 +362,7 @@
             // comboBoxPatio
             // 
             this.comboBoxPatio.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comboBoxPatio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPatio.FormattingEnabled = true;
             this.comboBoxPatio.Location = new System.Drawing.Point(208, 336);
             this.comboBoxPatio.Name = "comboBoxPatio";
@@ -371,6 +373,7 @@
             // comboBoxPileta
             // 
             this.comboBoxPileta.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comboBoxPileta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPileta.FormattingEnabled = true;
             this.comboBoxPileta.Location = new System.Drawing.Point(413, 336);
             this.comboBoxPileta.Name = "comboBoxPileta";
@@ -416,6 +419,7 @@
             // comboBoxCochera
             // 
             this.comboBoxCochera.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxCochera.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCochera.FormattingEnabled = true;
             this.comboBoxCochera.Location = new System.Drawing.Point(25, 336);
             this.comboBoxCochera.Name = "comboBoxCochera";
@@ -464,13 +468,16 @@
             // buttonSubirImagenes
             // 
             this.buttonSubirImagenes.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.buttonSubirImagenes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonSubirImagenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSubirImagenes.ForeColor = System.Drawing.Color.Red;
             this.buttonSubirImagenes.Location = new System.Drawing.Point(413, 3);
             this.buttonSubirImagenes.Name = "buttonSubirImagenes";
             this.buttonSubirImagenes.Size = new System.Drawing.Size(151, 35);
             this.buttonSubirImagenes.TabIndex = 28;
             this.buttonSubirImagenes.Tag = "FormRPBotonImagenes";
             this.buttonSubirImagenes.Text = "Subir Imagenes";
-            this.buttonSubirImagenes.UseVisualStyleBackColor = true;
+            this.buttonSubirImagenes.UseVisualStyleBackColor = false;
             this.buttonSubirImagenes.Click += new System.EventHandler(this.button1_Click);
             // 
             // imageList1
@@ -485,13 +492,16 @@
             // 
             // btnPublicaPropiedad
             // 
+            this.btnPublicaPropiedad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnPublicaPropiedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPublicaPropiedad.ForeColor = System.Drawing.Color.Red;
             this.btnPublicaPropiedad.Location = new System.Drawing.Point(208, 413);
             this.btnPublicaPropiedad.Name = "btnPublicaPropiedad";
             this.btnPublicaPropiedad.Size = new System.Drawing.Size(155, 40);
             this.btnPublicaPropiedad.TabIndex = 29;
             this.btnPublicaPropiedad.Tag = "FormRPBotonAltaPropiedad";
             this.btnPublicaPropiedad.Text = "Publicar Propiedad";
-            this.btnPublicaPropiedad.UseVisualStyleBackColor = true;
+            this.btnPublicaPropiedad.UseVisualStyleBackColor = false;
             this.btnPublicaPropiedad.Click += new System.EventHandler(this.button2_Click);
             // 
             // tableLayoutPanel1
@@ -555,25 +565,31 @@
             // btnLimpiarImagenes
             // 
             this.btnLimpiarImagenes.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnLimpiarImagenes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnLimpiarImagenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarImagenes.ForeColor = System.Drawing.Color.Red;
             this.btnLimpiarImagenes.Location = new System.Drawing.Point(413, 44);
             this.btnLimpiarImagenes.Name = "btnLimpiarImagenes";
             this.btnLimpiarImagenes.Size = new System.Drawing.Size(151, 35);
             this.btnLimpiarImagenes.TabIndex = 30;
             this.btnLimpiarImagenes.Tag = "FormRPBotonLimpiar";
             this.btnLimpiarImagenes.Text = "Limpiar Imagenes";
-            this.btnLimpiarImagenes.UseVisualStyleBackColor = true;
+            this.btnLimpiarImagenes.UseVisualStyleBackColor = false;
             this.btnLimpiarImagenes.Click += new System.EventHandler(this.btnLimpiarImagenes_Click);
             // 
             // btnModificar
             // 
             this.btnModificar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.ForeColor = System.Drawing.Color.Red;
             this.btnModificar.Location = new System.Drawing.Point(413, 415);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(160, 40);
             this.btnModificar.TabIndex = 31;
             this.btnModificar.Tag = "FormRPBotonModificarPropiedad";
             this.btnModificar.Text = "Modificar Publicacion";
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // tableLayoutPanel2

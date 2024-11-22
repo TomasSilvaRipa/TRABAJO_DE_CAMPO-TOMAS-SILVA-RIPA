@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -14,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using static System.Net.WebRequestMethods;
 
 namespace GUI
 {
@@ -281,6 +283,22 @@ namespace GUI
             }
             catch(Exception){ }
         }
+        public void IdentificarCatalogo()
+        {
+            try
+            {
+                int opcion = 0;
+                if (Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Dueño") { GenerarCatalogo(opcion); }
+                else if (Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Cliente") { opcion = 1; }
+                else if (Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Closer") { opcion = 2; }
+                else if (Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Inmoviliaria") { opcion = 3; }
+                GenerarCatalogo(opcion);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         public void GenerarCatalogo(int opcion)
         {
@@ -381,25 +399,8 @@ namespace GUI
                     Aviso.Dock = DockStyle.None;
                 };
             }
-            
         }
-
-        public void IdentificarCatalogo()
-        {
-            try
-            {
-                int opcion = 0;
-                if (Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Dueño"){ GenerarCatalogo(opcion); }
-                else if(Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Cliente") { opcion = 1; }
-                else if(Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Closer") { opcion = 2; }
-                else if(Sesion.ObtenerSesion().ObtenerUsuario().Sector == "Inmoviliaria") { opcion = 3; }
-                GenerarCatalogo(opcion);
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        
 
         public void GenerarBotones(int opcion,int labelPosY ,Propiedad p,Panel GroupBoxDescripcion)
         {
@@ -683,6 +684,25 @@ namespace GUI
                 viviendasFiltradas = null;
                 IdentificarCatalogo();
             }
+        }
+
+        private void linkLabelManualDeAyuda_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string url;
+            if (Sesion.ObtenerSesion().ObtenerUsuario().Sector != "Inmoviliaria")
+            {
+                 url = "https://publuu.com/flip-book/719083/1598537";
+            }
+            else
+            {
+                 url = "https://publuu.com/flip-book/719083/1597440/page/1";
+            }
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = url,
+                UseShellExecute = true
+            });
+            linkLabelManualDeAyuda.LinkVisited = true;
         }
     }
 }

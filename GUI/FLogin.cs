@@ -20,6 +20,7 @@ namespace GUI
         DataTable tablaIdioma;
         BLLIdiomas bllIdiomas;
         BLLCuota bllCuota;
+        BLLPropiedad bllPropiedad;
         public FLogin()
         {
             InitializeComponent();
@@ -27,12 +28,15 @@ namespace GUI
             bllPermisos = new BLLPermisos();
             bitacorabll = new BitacoraBLL();
             bllusuario = new BLLUsuario();
+            bllPropiedad = new BLLPropiedad();
             bllIdiomas = new BLLIdiomas();
             bllusuario.ValidadDigito(bllusuario.LeerUsuarios());
             bllusuario.ValidarDigitoVertical();
             Sesion.ObtenerSesion().AgregarObservador(this);
             actualizarcbxIdiomas();
+            bllPropiedad.ComprobarAlquileres();
             bllCuota.EmitirCuotas();
+            
         }
         BitacoraBLL bitacorabll;
         BLLUsuario bllusuario;
@@ -142,5 +146,9 @@ namespace GUI
             registrase.Show();
         }
 
+        private void FLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -57,6 +57,8 @@
             this.comboBoxIdiomas = new System.Windows.Forms.ComboBox();
             this.buttonMenuDeGestion = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.linkLabelManualDeAyuda = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanelPadre.SuspendLayout();
             this.tableLayoutPanelBarraMenuDinamica.SuspendLayout();
             this.tableLayoutPanelCatalogoYFiltro.SuspendLayout();
@@ -226,6 +228,7 @@
             // btnCuentaDueño
             // 
             this.btnCuentaDueño.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCuentaDueño.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCuentaDueño.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCuentaDueño.ForeColor = System.Drawing.Color.Red;
             this.btnCuentaDueño.Location = new System.Drawing.Point(836, 4);
@@ -234,7 +237,7 @@
             this.btnCuentaDueño.TabIndex = 1;
             this.btnCuentaDueño.Tag = "FMCuentaDueños";
             this.btnCuentaDueño.Text = "Cuenta";
-            this.btnCuentaDueño.UseVisualStyleBackColor = true;
+            this.btnCuentaDueño.UseVisualStyleBackColor = false;
             this.btnCuentaDueño.Click += new System.EventHandler(this.btnCuentaDueño_Click);
             // 
             // btnRendimientoCloser
@@ -421,11 +424,12 @@
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.92308F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.07692F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 305F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 412F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 212F));
+            this.tableLayoutPanel1.Controls.Add(this.buttonMenuDeGestion, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnLogout, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 2, 0);
             this.tableLayoutPanel1.ForeColor = System.Drawing.Color.BlanchedAlmond;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -443,7 +447,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(191, 78);
+            this.pictureBox1.Size = new System.Drawing.Size(151, 78);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -453,26 +457,28 @@
             this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.comboBoxIdiomas, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.buttonMenuDeGestion, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(536, 3);
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.703704F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 96.2963F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 162F));
+            this.tableLayoutPanel2.Controls.Add(this.linkLabel2, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.comboBoxIdiomas, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.linkLabelManualDeAyuda, 1, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(429, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(299, 78);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(406, 78);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
             // comboBoxIdiomas
             // 
             this.comboBoxIdiomas.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.comboBoxIdiomas.FormattingEnabled = true;
-            this.comboBoxIdiomas.Location = new System.Drawing.Point(175, 27);
+            this.comboBoxIdiomas.Location = new System.Drawing.Point(325, 27);
             this.comboBoxIdiomas.Name = "comboBoxIdiomas";
-            this.comboBoxIdiomas.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxIdiomas.Size = new System.Drawing.Size(78, 24);
             this.comboBoxIdiomas.TabIndex = 8;
             this.comboBoxIdiomas.SelectedIndexChanged += new System.EventHandler(this.comboBoxIdioma_SelectedIndexChanged);
             // 
@@ -480,7 +486,7 @@
             // 
             this.buttonMenuDeGestion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonMenuDeGestion.ForeColor = System.Drawing.Color.Black;
-            this.buttonMenuDeGestion.Location = new System.Drawing.Point(15, 10);
+            this.buttonMenuDeGestion.Location = new System.Drawing.Point(232, 13);
             this.buttonMenuDeGestion.Name = "buttonMenuDeGestion";
             this.buttonMenuDeGestion.Size = new System.Drawing.Size(119, 57);
             this.buttonMenuDeGestion.TabIndex = 9;
@@ -504,6 +510,27 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // linkLabelManualDeAyuda
+            // 
+            this.linkLabelManualDeAyuda.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.linkLabelManualDeAyuda.AutoSize = true;
+            this.linkLabelManualDeAyuda.Location = new System.Drawing.Point(116, 31);
+            this.linkLabelManualDeAyuda.Name = "linkLabelManualDeAyuda";
+            this.linkLabelManualDeAyuda.Size = new System.Drawing.Size(124, 16);
+            this.linkLabelManualDeAyuda.TabIndex = 9;
+            this.linkLabelManualDeAyuda.TabStop = true;
+            this.linkLabelManualDeAyuda.Tag = "FMAyuda";
+            this.linkLabelManualDeAyuda.Text = "¿Necesitas Ayuda?";
+            this.linkLabelManualDeAyuda.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelManualDeAyuda_LinkClicked);
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(3, 0);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(0, 16);
+            this.linkLabel2.TabIndex = 10;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -526,6 +553,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -560,5 +588,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFiltro;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.LinkLabel linkLabelManualDeAyuda;
+        private System.Windows.Forms.LinkLabel linkLabel2;
     }
 }

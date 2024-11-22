@@ -64,6 +64,7 @@ namespace GUI
                 dataGridViewReuniones.Columns["ID_Cliente"].Visible = false;
                 dataGridViewReuniones.Columns["ID_Closer"].Visible = false;
                 dataGridViewReuniones.Columns["ID"].Visible = false;
+                dataGridViewReuniones.Columns["ID_Vivienda"].Visible = false;
             }
         }
 

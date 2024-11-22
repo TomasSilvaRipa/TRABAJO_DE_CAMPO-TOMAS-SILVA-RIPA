@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace GUI
 {
     public partial class FIdiomaActualizable : Form
@@ -40,11 +41,10 @@ namespace GUI
                     {
                         c.Text = dict[c.Tag.ToString()];
                     }
-
                 }
             }
-
         }
+
         List<Control> ListaControles = new List<Control>();
         public void BuscarControles(ICollection controles)
         {

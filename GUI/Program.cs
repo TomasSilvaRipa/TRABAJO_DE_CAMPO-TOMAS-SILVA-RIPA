@@ -16,10 +16,15 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            using (var splash = new SplashScreen())
+            {
+                splash.Show();
+                splash.Refresh();
+                Task.Delay(3000).Wait();
+            }
+
             Application.Run(new FLogin());
-
-           
-
 
         }
     }

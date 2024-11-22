@@ -274,6 +274,11 @@ namespace MPP
             }
         }
 
+        public bool ComprobarAlquileres()
+        {
+            return acceso.Escribir("ComprobarAlquileres");
+        }
+
         
     }
 }

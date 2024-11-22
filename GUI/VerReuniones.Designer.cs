@@ -55,7 +55,7 @@
             this.tableLayoutPanelPadre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanelPadre.BackColor = System.Drawing.Color.Black;
+            this.tableLayoutPanelPadre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.tableLayoutPanelPadre.ColumnCount = 2;
             this.tableLayoutPanelPadre.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelPadre.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -259,7 +259,6 @@
             this.MinimumSize = new System.Drawing.Size(1235, 596);
             this.Name = "VerReuniones";
             this.Text = "Ver Reuniones";
-            this.Load += new System.EventHandler(this.VerReuniones_Load);
             this.SizeChanged += new System.EventHandler(this.VerReuniones_SizeChanged);
             this.tableLayoutPanelPadre.ResumeLayout(false);
             this.tableLayoutPanelDerecho.ResumeLayout(false);

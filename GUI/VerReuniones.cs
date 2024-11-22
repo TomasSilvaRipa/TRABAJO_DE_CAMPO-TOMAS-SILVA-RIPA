@@ -42,7 +42,7 @@ namespace GUI
         DataTable tablaIdioma;
         BLLIdiomas bllIdiomas;
         List<Reunion> reuniones;
-        
+
         private void actualizarTablaIdiomas()
         {
             Sesion.ObtenerSesion().ActualizarIdiomas();
@@ -63,11 +63,6 @@ namespace GUI
 
         }
 
-        private void VerReuniones_Load(object sender, EventArgs e)
-        {
-
-        }
-
         public void CargarReuniones()
         {
             
@@ -76,6 +71,11 @@ namespace GUI
             if(reuniones != null && reuniones.Count > 0)
             {
                 dataGridViewReuniones.DataSource = reuniones;
+                dataGridViewReuniones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridViewReuniones.Columns["ID_Vivienda"].Visible = false;
+                dataGridViewReuniones.Columns["ID"].Visible = false;
+                dataGridViewReuniones.Columns["ID_Cliente"].Visible = false;
+                dataGridViewReuniones.Columns["ID_Closer"].Visible = false;
             }
             else
             {
@@ -143,7 +143,7 @@ namespace GUI
                     int labelAncho = 100;
                     foreach (PropertyInfo propiedad in cliente.GetType().GetProperties())
                     {
-                        if (propiedad.Name != "Foto" && propiedad.Name != "NombreDeUsuario" && propiedad.Name != "DV" && propiedad.Name != "Clave" && propiedad.Name != "Sector" && propiedad.Name != "ID")
+                        if (propiedad.Name != "Inquilino" && propiedad.Name != "ID_Usuario" && propiedad.Name != "Foto" && propiedad.Name != "NombreDeUsuario" && propiedad.Name != "DV" && propiedad.Name != "Clave" && propiedad.Name != "Sector" && propiedad.Name != "ID")
                         {
                             Label labelNombre = new Label();
                             labelNombre.Text = propiedad.Name;
@@ -221,7 +221,7 @@ namespace GUI
         {
             try
             {
-                if( fechaInicio < fechaFin && fechaInicio.Day >= DateTime.Now.Day)
+                if( fechaFin.Date > fechaInicio.Date && fechaInicio.Day >= DateTime.Now.Day)
                 {
                     Reunion reunion = (Reunion)dataGridViewReuniones.CurrentRow.DataBoundItem;
                     Trato trato = new Trato(reunion.ID_Closer, reunion.ID_Cliente, reunion.ID_Vivienda, fechaInicio, fechaFin);

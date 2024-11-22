@@ -44,6 +44,7 @@ namespace GUI
         BLLIdiomas bllIdiomas;
         List<Solicitud> solicitudes;
         List<Opinion> opiniones;
+        
         private void actualizarTablaIdiomas()
         {
             Sesion.ObtenerSesion().ActualizarIdiomas();
@@ -74,7 +75,7 @@ namespace GUI
                 dataGridViewSolicitudes.Columns["ID_Cliente"].Visible = false;
                 dataGridViewSolicitudes.Columns["ID_Vivienda"].Visible = false;
                 dataGridViewSolicitudes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridViewSolicitudes.ForeColor = Color.White;
+                dataGridViewSolicitudes.ForeColor = Color.Black;
             }
             else
             {
@@ -114,20 +115,18 @@ namespace GUI
                     flowLayoutPanelSolicitante.FlowDirection = FlowDirection.LeftToRight;
                     flowLayoutPanelSolicitante.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom;
                     flowLayoutPanelSolicitante.WrapContents = true;
+                    flowLayoutPanelSolicitante.ForeColor = Color.White;
 
                     GroupBox gpadre = new GroupBox();
                     gpadre.Width = flowLayoutPanelSolicitante.Width;
                     gpadre.Height = 300;
                     gpadre.Margin = new Padding(10);
 
-
                     TableLayoutPanel flpImagen = new TableLayoutPanel();
                     flpImagen.Width = (gpadre.Width / 2);
                     flpImagen.Height = gpadre.Height;
                     flpImagen.Dock = DockStyle.Left;
                     flpImagen.AutoScroll = true;
-
-
 
                     Panel gpDescripcion = new Panel();
                     gpDescripcion.Width = gpadre.Width / 2;
@@ -137,8 +136,6 @@ namespace GUI
 
                     int labelPosY = 20;
                     int labelAncho = 100;
-
-
                     foreach (PropertyInfo propiedad in cliente.GetType().GetProperties())
                     {
                         if (propiedad.Name != "Foto")
@@ -191,13 +188,20 @@ namespace GUI
                         }
 
                     }
+                    ComboBox comboBoxHora = new ComboBox();
+                    comboBoxHora.Items.AddRange(new object[] { "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00" });
+                    comboBoxHora.SelectedIndex = 0;
+                    comboBoxHora.DropDownStyle = ComboBoxStyle.DropDownList;
+                    //comboBoxHora.Anchor = AnchorStyles.Top | AnchorStyles.Left; 
+                    comboBoxHora.Location = new Point(10, labelPosY);
+                    labelPosY += 30;
 
                     Button btnAceptar = new Button();
                     btnAceptar.Text = "Aceptar";
                     btnAceptar.Tag = "FGSRAceptar";
                     btnAceptar.Width = 120;
                     btnAceptar.Location = new Point(10, labelPosY);
-                    btnAceptar.Click += (s, e) => AceptarReunion(cliente, solicitud);
+                    btnAceptar.Click += (s, e) => AceptarReunion(cliente, solicitud,comboBoxHora.Text);
                     labelPosY += 30;
 
 
@@ -209,9 +213,12 @@ namespace GUI
                     btnRechazar.Click += (s, e) => RechazarReunion(solicitud);
                     labelPosY += 30;
 
+                    
+
                     gpadre.Controls.Add(flpImagen);
                     gpadre.Controls.Add(gpDescripcion);
                     gpDescripcion.Controls.Add(btnAceptar);
+                    gpDescripcion.Controls.Add(comboBoxHora);
                     gpDescripcion.Controls.Add(btnRechazar);
                     flowLayoutPanelSolicitante.Controls.Add(gpadre);
                     CargarOpiniones(cliente);
@@ -224,11 +231,11 @@ namespace GUI
             }
         }
 
-        public void AceptarReunion(Cliente cliente,Solicitud solicitud)
+        public void AceptarReunion(Cliente cliente,Solicitud solicitud,string Hora)
         {
             try
             {
-                if (bllReunion.AceptarReunion(cliente, solicitud))
+                if (bllReunion.AceptarReunion(cliente, solicitud,Hora))
                 {
                     flowLayoutPanelSolicitante.Controls.Clear();
                     CargarDatagridSolicitantes(propiedadSeleccionada);

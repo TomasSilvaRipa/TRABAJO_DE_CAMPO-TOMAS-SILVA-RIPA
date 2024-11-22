@@ -69,6 +69,7 @@ namespace MPP
                 new SqlParameter("@ID_Cliente",reunion.ID_Cliente),
                 new SqlParameter("@ID_Closer",reunion.ID_Closer),
                 new SqlParameter("@Fecha",reunion.Fecha),
+                new SqlParameter("Hora",reunion.Hora),
             };
             return acceso.Escribir("AceptarReunion", parameters);
             
@@ -91,10 +92,10 @@ namespace MPP
                 foreach (Propiedad propiedad in dueño.listaDeViviendas)
                 {
                     List<SqlParameter> parameters = new List<SqlParameter>()
-                {
-                    new SqlParameter("@ID_Dueño",dueño.ID),
-                    new SqlParameter("@ID_Vivienda",propiedad.ID)
-                };
+                    {
+                        new SqlParameter("@ID_Dueño",dueño.ID),
+                        new SqlParameter("@ID_Vivienda",propiedad.ID)
+                    };
                     DataTable dt = acceso.Leer("LeerReuniones", parameters);
                     if (dt.Rows.Count > 0)
                     {
@@ -106,6 +107,9 @@ namespace MPP
                             reunion.ID_Vivienda = (int)row["ID_Vivienda"];
                             reunion.ID_Closer = (int)row["ID_Closer"];
                             reunion.Fecha = Convert.ToDateTime(row["Fecha"]);
+                            reunion.Direccion = row["Direccion"].ToString();
+                            reunion.NombreCloser = row["Nombre"].ToString() + " " + row["Apellido"].ToString();
+                            reunion.Hora = row["Hora"].ToString() + "hs";
                             reuniones.Add(reunion);
                         }
                     }
@@ -133,6 +137,9 @@ namespace MPP
                     reunion.ID_Cliente = (int)row["ID_Cliente"];
                     reunion.ID_Vivienda = (int)row["ID_Vivienda"];
                     reunion.Fecha = Convert.ToDateTime(row["Fecha"]);
+                    reunion.Direccion = row["Direccion"].ToString();
+                    reunion.NombreCloser = row["Nombre"].ToString() + " " + row["Apellido"].ToString();
+                    reunion.Hora = row["Hora"].ToString() + "hs";
                     reuniones.Add(reunion);
                 }
                 return reuniones;

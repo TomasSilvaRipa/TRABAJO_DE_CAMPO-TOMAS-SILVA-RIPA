@@ -35,11 +35,11 @@ namespace BLL
             return mppReunion.LeerSolicitudesXVivienda(propiedad);
         }
 
-        public bool AceptarReunion(Cliente cliente,Solicitud solicitud)
+        public bool AceptarReunion(Cliente cliente,Solicitud solicitud,string Hora)
         {
             Usuario usuario = Sesion.ObtenerSesion().ObtenerUsuario();
             Closer closer = mppCloser.LeerCloser(usuario.ID, 1);
-            Reunion reunion = new Reunion(solicitud.ID_Vivienda, closer.ID ,solicitud.ID_Cliente, DateTime.Now);
+            Reunion reunion = new Reunion(solicitud.ID_Vivienda, closer.ID ,solicitud.ID_Cliente, DateTime.Now,Hora);
             if (mppReunion.AceptarReunion(reunion))
             {
                 Servicios.EmailSender.EnviarMail("Reunion Acetada", "Su solicitud para ver la vivienda a sido aceptada. Le estaremos mandando la dirección y horario de encuentro a la brevedad." , cliente.Mail);

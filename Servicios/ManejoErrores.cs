@@ -26,7 +26,7 @@ namespace Servicios
 
         public static bool ValidarDireccion(string cadena)
         {
-            return (!string.IsNullOrEmpty(cadena) && Regex.IsMatch(cadena, @"^[a-zA-Z0-9,\-]{1,30}$"));
+            return (!string.IsNullOrEmpty(cadena) && Regex.IsMatch(cadena, @"^[a-zA-Z0-9,\-\s]{1,30}$"));
         }
 
         public static bool ValidarTraduccion(string cadena)

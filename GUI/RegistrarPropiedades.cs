@@ -54,7 +54,6 @@ namespace GUI
 
         public void Notificar(object Sender)
         {
-
             if (Sender is FTraducciones)
             {
                 actualizarTablaIdiomas();
@@ -63,7 +62,6 @@ namespace GUI
             {
                 actualizarIdioma();
             }
-
         }
 
         public RegistrarPropiedades(Propiedad propiedad, Menu menu)
@@ -82,6 +80,9 @@ namespace GUI
             btnPublicaPropiedad.Visible = false;
             ActualizarControlesPorpiedadSeleccionada(propiedad);
             CargarEtiquetas();
+            Sesion.ObtenerSesion().AgregarObservador(this);
+            actualizarTablaIdiomas();
+            Notificar(this);
         }
 
         enum Patio
@@ -156,7 +157,6 @@ namespace GUI
                 CheckBox cb;
                 cb = new CheckBox();
                 cb.Text = e.Nombre;
-                //cb.Tag = "Formchb" + e.Nombre;
                 cb.Tag = "CE"+ e.Nombre;
                 flowLayoutPanelEtiquetas.Controls.Add(cb);
             }
@@ -170,7 +170,11 @@ namespace GUI
                 {
                     if(c is CheckBox)
                     {
-                        return true;
+                        CheckBox cb = (CheckBox)c;
+                        if(cb.Checked == true)
+                        {
+                            return true;
+                        }
                     }
                 }
                 return false;
@@ -221,12 +225,13 @@ namespace GUI
             }
         }
 
-       public List<Etiqueta> ObtenerEtiquetasPorPropiedad()
+        public List<Etiqueta> ObtenerEtiquetasPorPropiedad()
         {
             try
             {
                 List<Etiqueta> EtiquetasVivienda = new List<Etiqueta>();
-                foreach (Etiqueta e in Etiquetas) {
+                foreach (Etiqueta e in Etiquetas)
+                {
                     foreach (Control c in flowLayoutPanelEtiquetas.Controls)
                     {
                         if (c is CheckBox)
@@ -240,70 +245,73 @@ namespace GUI
                                     EtiquetasVivienda.Add(e);
                                 }
                             }
-                            
+
                         }
                     }
                 }
                 return EtiquetasVivienda;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 return null;
             }
         }
 
+        public bool Validaciones()
+        {
+            if (!ManejoErrores.ValidarDireccion(tbDireccion.Text))
+            {
+                MessageBox.Show("Datos de dirección invalidos");
+                return false;
+            }
+            if (numericUpDownST.Value < numericUpDownSC.Value)
+            {
+                MessageBox.Show("La superficie cubierta no puede ser mayor que la total");
+                return false;
+            }
+            else if(numericUpDownAmbientes.Value < numericUpDownHabitaciones.Value)
+            {
+                MessageBox.Show("La cantidad de habitaciones no puede ser mayor que la cantidad de ambientes");
+                return false;
+            }
+            else if(imagenes.Count <= 0)
+            {
+                MessageBox.Show("Seleccione al menos una imagen para la vivienda");
+                return false;
+            }
+            else if (!ValidarCheckBox())
+            {
+                MessageBox.Show("Seleccione al menos una etiqueta para su vivienda");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+
+
         private void button2_Click(object sender, EventArgs e)
         {
             try
             {
-                if (ManejoErrores.ValidarDireccion(tbDireccion.Text))
+                if (Validaciones())
                 {
-                    Propiedad propiedad = new Propiedad(comboBoxVivienda.Text,tbDireccion.Text,(int)numericUpDownAmbientes.Value,Convert.ToString(numericUpDownST.Value) + "m2", Convert.ToString(numericUpDownSC.Value)+"m2",(int)numericUpDownPisos.Value,(int)numericUpDownHabitaciones.Value,(int)numericUpDownBaños.Value,comboBoxCochera.Text,(int)numericUpDownAntiguedad.Value,comboBoxPatio.Text,comboBoxPileta.Text,numericUpDownValorDeCouta.Value);
-                    if(numericUpDownST.Value >= numericUpDownSC.Value)
+                    Propiedad propiedad = new Propiedad(comboBoxVivienda.Text, tbDireccion.Text, (int)numericUpDownAmbientes.Value, Convert.ToString(numericUpDownST.Value) + "m2", Convert.ToString(numericUpDownSC.Value) + "m2", (int)numericUpDownPisos.Value, (int)numericUpDownHabitaciones.Value, (int)numericUpDownBaños.Value, comboBoxCochera.Text, (int)numericUpDownAntiguedad.Value, comboBoxPatio.Text, comboBoxPileta.Text, numericUpDownValorDeCouta.Value);
+                    propiedad.Etiquetas = ObtenerEtiquetasPorPropiedad();
+                    if (bllPropiedad.AltaPropiedad(propiedad, ConvertirImagenesABytes(imagenes)))
                     {
-                        if (numericUpDownAmbientes.Value >= numericUpDownHabitaciones.Value)
-                        {
-                            if (imagenes.Count > 0)
-                            {
-                                if(ValidarCheckBox())
-                                {
-                                    propiedad.Etiquetas = ObtenerEtiquetasPorPropiedad();
-                                    if (bllPropiedad.AltaPropiedad(propiedad, ConvertirImagenesABytes(imagenes)))
-                                    {
-                                        MessageBox.Show("Vivienda Publicada Exitosamente");
-                                        imagenes.Clear();
-                                        menuActivo.IdentificarCatalogo();
-                                        this.Close();
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("No se pudo registrar la vivienda");
-                                    }
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Seleccione al menos una etiqueta para su vivienda");
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Seleccione al menos una imagen para la vivienda");
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("La cantidad de habitaciones no puede ser mayor que la cantidad de ambientes");
-                        }
+                        MessageBox.Show("Vivienda Publicada Exitosamente");
+                        imagenes.Clear();
+                        menuActivo.IdentificarCatalogo();
+                        this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("La superficie cubierta no puede ser mayor que la total");
+                        throw new Exception();
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Datos de dirección invalidos");
                 }
             }
             catch(Exception ex)
@@ -337,54 +345,22 @@ namespace GUI
         {
             try
             {
-                if (ManejoErrores.ValidarDireccion(tbDireccion.Text))
+                if (Validaciones())
                 {
                     Propiedad propiedad = new Propiedad(comboBoxVivienda.Text, tbDireccion.Text, (int)numericUpDownAmbientes.Value, Convert.ToString(numericUpDownST.Value) + "m2", Convert.ToString(numericUpDownSC.Value) + "m2", (int)numericUpDownPisos.Value, (int)numericUpDownHabitaciones.Value, (int)numericUpDownBaños.Value, comboBoxCochera.Text, (int)numericUpDownAntiguedad.Value, comboBoxPatio.Text, comboBoxPileta.Text, numericUpDownValorDeCouta.Value);
                     propiedad.ID = propiedadModificada.ID;
-                    if (numericUpDownST.Value >= numericUpDownSC.Value)
+                    propiedad.Etiquetas = ObtenerEtiquetasPorPropiedad();
+                    if (bllPropiedad.ModificarPropiedad(propiedad, ConvertirImagenesABytes(imagenes)))
                     {
-                        if (numericUpDownAmbientes.Value >= numericUpDownHabitaciones.Value)
-                        {
-                            if (imagenes.Count > 0)
-                            {
-                                if (ValidarCheckBox())
-                                {
-                                    propiedad.Etiquetas = ObtenerEtiquetasPorPropiedad();
-                                    if (bllPropiedad.ModificarPropiedad(propiedad, ConvertirImagenesABytes(imagenes)))
-                                    {
-                                        MessageBox.Show("Vivienda publicada exitosamente");
-                                        imagenes.Clear();
-                                        this.Close();
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("No se pudo registrar la vivienda");
-                                    }
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Seleccione al menos una etiqueta para su vivienda");
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Seleccione al menos una imagen para la vivienda");
-                            }
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("La cantidad de habitaciones no puede ser mayor que la cantidad de ambientes");
-                        }
+                        MessageBox.Show("Vivienda publicada exitosamente");
+                        imagenes.Clear();
+                        menuActivo.IdentificarCatalogo();
+                        this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("La superficie cubierta no puede ser mayor que la total");
+                        throw new Exception();
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Datos de dirección invalidos");
                 }
             }
             catch (Exception ex)
