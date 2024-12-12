@@ -84,6 +84,9 @@ namespace GUI
                 flowLayoutPanelSolicitante.Controls.Add(l);
                 l.Size = new Size(400, 200);
                 l.Anchor = AnchorStyles.None;
+                l.ForeColor = Color.White;
+                l.TextAlign = ContentAlignment.MiddleCenter;
+                l.Font = new Font("Microsoft Sans Serif", 11);
             }
             
         }

@@ -177,6 +177,10 @@ namespace GUI
         {
             try
             {
+                if (clienteActivo.Inquilino)
+                {
+                    throw new Exception("No se puede dar de baja siendo inquilino de una vivienda");
+                }
                 if (bllUsuario.BajaUsuario(usuario))
                 {
                     MessageBox.Show("Cuenta dada de baja exitosamente!!");

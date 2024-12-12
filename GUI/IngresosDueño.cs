@@ -56,13 +56,28 @@ namespace GUI
         public void MostrarCuotas()
         {
             dataGridViewCuotas.DataSource = null;
-            dataGridViewCuotas.DataSource = bllCuota.LeerCuotasXDueño();
+            List<Cuota> cuotas = bllCuota.LeerCuotasXDueño();
+            if (cuotas != null && cuotas.Count > 0)
+            {
+                dataGridViewCuotas.DataSource = cuotas;
+                dataGridViewCuotas.Columns["ID"].Visible = false;
+                dataGridViewCuotas.Columns["ID_Vivienda"].Visible = false;
+                dataGridViewCuotas.Columns["ID_Cliente"].Visible = false;
+                dataGridViewCuotas.ForeColor = Color.Black;
+            }
         }
 
         public void MostrarOpiniones()
         {
             dataGridViewOpiniones.DataSource = null;
-            dataGridViewOpiniones.DataSource = bllOpinion.LeerOpiniones(Sesion.ObtenerSesion().ObtenerUsuario(),1);
+            List<Opinion> opiniones = bllOpinion.LeerOpiniones(Sesion.ObtenerSesion().ObtenerUsuario(), 1);
+            if (opiniones != null && opiniones.Count > 0)
+            {
+                dataGridViewOpiniones.DataSource = opiniones;
+                dataGridViewOpiniones.Columns["ID"].Visible = false;
+                dataGridViewOpiniones.Columns["ID_Usuario"].Visible = false;
+                dataGridViewOpiniones.ForeColor = Color.Black;
+            }
         }
         public void MostrarIngresosTotales()
         {

@@ -18,10 +18,12 @@ namespace MPP
             acceso = new Acceso();
             mppPermisos = new MPPPermisos();
             mppCuenta = new MPPCuenta();
+            mppPropiedad = new MPPPropiedad();
         }
         Acceso acceso;
         MPPPermisos mppPermisos;
         MPPCuenta mppCuenta;
+        MPPPropiedad mppPropiedad;
         public Dueño LeerDueño(int id)
         {
             List<SqlParameter> parameters = new List<SqlParameter>()
@@ -39,6 +41,7 @@ namespace MPP
                     dueño.Apellido = Convert.ToString(row["Apellido"]);
                     dueño.Residencia = Convert.ToString(row["Residencia"]);
                     dueño.Mail = row["Mail"].ToString();
+                    dueño.listaDeViviendas = mppPropiedad.LeerPropiedadesDeDueño(dueño.ID);
                     return dueño;
                 }
             }

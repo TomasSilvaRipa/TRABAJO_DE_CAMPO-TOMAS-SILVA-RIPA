@@ -386,7 +386,7 @@ namespace GUI
                 
                 Aviso.ForeColor = Color.White;
                 Aviso.Font = new Font("Microsoft Sans Serif", 15);
-                Aviso.Text = "No hay Casas Disponibles Por el Momentos";
+                Aviso.Text = "No hay Casas Disponibles Por el Momento";
                 Aviso.TextAlign = ContentAlignment.MiddleCenter;
                 Aviso.Dock = DockStyle.None;
                 flowLayoutPanelCatalogo.Controls.Add(Aviso);
@@ -691,11 +691,11 @@ namespace GUI
             string url;
             if (Sesion.ObtenerSesion().ObtenerUsuario().Sector != "Inmoviliaria")
             {
-                 url = "https://publuu.com/flip-book/719083/1598537";
+                 url = "https://publuu.com/flip-book/748281/1659162";
             }
             else
             {
-                 url = "https://publuu.com/flip-book/719083/1597440/page/1";
+                 url = "https://publuu.com/flip-book/748281/1659179";
             }
             Process.Start(new ProcessStartInfo
             {

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,10 +47,22 @@ namespace GUI
         {
             try
             {
-                string path = @"C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\Backup\";
-                bllBackUp.BackUp(1, path);
-            } 
-            catch(Exception ex)
+                string backupPath = Path.Combine(@"C:\Users\Public", "Backups-RentHub");
+
+                // Crear la carpeta si no existe
+                if (!Directory.Exists(backupPath))
+                {
+                    Directory.CreateDirectory(backupPath);
+                }
+
+                // Generar el archivo de backup
+                string backupFile = System.IO.Path.Combine(backupPath, $"TPGrupal_Backup_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.bak");
+                if (bllBackUp.BackUp(1, backupPath))
+                {
+                    MessageBox.Show("BackUp realizado");
+                }
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

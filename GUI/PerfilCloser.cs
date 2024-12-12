@@ -27,7 +27,7 @@ namespace GUI
             bllCloser = new BLLCloser();
             bllUsuario = new BLLUsuario();
             bllIdiomas = new BLLIdiomas();
-             usuario = Sesion.ObtenerSesion().ObtenerUsuario();
+            usuario = Sesion.ObtenerSesion().ObtenerUsuario();
             closerActivo = bllCloser.LeerCloser(usuario.ID, 1);
             MostrarDatos(usuario, closerActivo);
             Sesion.ObtenerSesion().AgregarObservador(this);
@@ -192,6 +192,10 @@ namespace GUI
         {
             try
             {
+                if(bllCloser.LeerViviendasXCloser(closerActivo).Count > 0)
+                {
+                    throw new Exception("No se puede dar de baja teniendo viviendas bajo su gestion");
+                }
                 if (bllUsuario.BajaUsuario(usuario))
                 {
                     MessageBox.Show("Cuenta dada de baja exitosamente!!");

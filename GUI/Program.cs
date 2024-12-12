@@ -19,9 +19,17 @@ namespace GUI
 
             using (var splash = new SplashScreen())
             {
+                var timer = new System.Windows.Forms.Timer { Interval = 3000 }; // 3 segundos
+                timer.Tick += (s, e) =>
+                {
+                    timer.Stop();
+                    splash.Close();
+                };
+
                 splash.Show();
-                splash.Refresh();
-                Task.Delay(3000).Wait();
+                timer.Start();
+
+                Application.Run(splash);
             }
 
             Application.Run(new FLogin());

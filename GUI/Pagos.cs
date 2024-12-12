@@ -61,6 +61,9 @@ namespace GUI
                 dataGridViewCuotas.DataSource = cuotas;
                 dataGridViewCuotas.Columns["ID_Cliente"].Visible = false;
                 dataGridViewCuotas.Columns["ID"].Visible = false;
+                dataGridViewCuotas.Columns["NombreDeCliente"].Visible = false;
+                dataGridViewCuotas.Columns["Direccion"].Visible = false;
+                dataGridViewCuotas.Columns["ID_Vivienda"].Visible = false;
                 dataGridViewCuotas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
         }
@@ -68,13 +71,15 @@ namespace GUI
         public void CargarPagos()
         {
             dataGridViewHistorialPagos.DataSource = null;
-            //dataGridViewHistorialPagos.DataSource = bllCuota.LeerCuotasXClientePagas();
             List<Cuota> cuotas = bllCuota.LeerCuotasXClientePagas();
             if (cuotas != null && cuotas.Count > 0)
             {
                 dataGridViewHistorialPagos.DataSource = cuotas;
                 dataGridViewHistorialPagos.Columns["ID_Cliente"].Visible = false;
                 dataGridViewHistorialPagos.Columns["ID"].Visible = false;
+                dataGridViewHistorialPagos.Columns["NombreDeCliente"].Visible = false;
+                dataGridViewHistorialPagos.Columns["Direccion"].Visible = false;
+                dataGridViewHistorialPagos.Columns["ID_Vivienda"].Visible = false;
                 dataGridViewHistorialPagos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
         }

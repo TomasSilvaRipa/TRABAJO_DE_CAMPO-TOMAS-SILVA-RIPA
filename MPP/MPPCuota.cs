@@ -41,12 +41,12 @@ namespace MPP
                         cuota.ID = (int)row["ID"];
                         cuota.ID_Cliente = (int)row["ID_Cliente"];
                         cuota.ID_Vivienda = (int)row["ID_Vivienda"];
-                        cuota.Monto = Convert.ToDecimal(row["Monto"]);
+                        cuota.Monto = Math.Round(Convert.ToDecimal(row["Monto"]),3);
                         cuota.FechaDeEmision = Convert.ToDateTime(row["FechaDeEmision"]);
                         cuota.FechaDeVencimiento = Convert.ToDateTime(row["FechaDeVencimiento"]);
                         if(cuota.FechaDeVencimiento < DateTime.Now)
                         {
-                            cuota.Monto += cuota.Monto * 0.33m;
+                            cuota.Monto += Math.Round(cuota.Monto * 0.33m);
                         }
                         cuotasPendientes.Add(cuota);
                     }
@@ -124,6 +124,8 @@ namespace MPP
                             cuota.Monto = Convert.ToDecimal(row["Monto"]);
                             cuota.FechaDeEmision = Convert.ToDateTime(row["FechaDeEmision"]);
                             cuota.FechaDeVencimiento = Convert.ToDateTime(row["FechaDeVencimiento"]);
+                            cuota.NombreDeCliente = row["Nombre"].ToString() +" " + row["Apellido"].ToString();
+                            cuota.Direccion = row["Direccion"].ToString();
                             listaDeCuotas.Add(cuota);
                         }
                     }

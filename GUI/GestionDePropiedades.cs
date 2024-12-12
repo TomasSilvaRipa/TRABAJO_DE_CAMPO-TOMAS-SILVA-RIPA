@@ -12,6 +12,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace GUI
 {
@@ -137,7 +138,17 @@ namespace GUI
                     gpDescripcion.Controls.Add(btnPostularse);
                     flowLayoutPanelPadre.Controls.Add(gpadre);
                 }
-            
+            }
+            else
+            {
+                Label l = new Label();
+                flowLayoutPanelPadre.Controls.Add(l);
+                l.Text = "No tiene casas bajo gestión aún";
+                l.Font = new Font("Microsoft Sans Serif", 8);
+                l.TextAlign = ContentAlignment.MiddleCenter;
+                l.Dock = DockStyle.None;
+                
+                l.Anchor = AnchorStyles.None;
             }
         }
 

@@ -183,6 +183,10 @@ namespace GUI
         {
             try
             {
+                if(dueñoActivo.listaDeViviendas.Count > 0)
+                {
+                    throw new Exception("No se puede dar de baja la cuenta teniendo casas publicadas");
+                }
                 if (bllUsuario.BajaUsuario(usuario))
                 {
                     MessageBox.Show("Cuenta dada de baja exitosamente!!");

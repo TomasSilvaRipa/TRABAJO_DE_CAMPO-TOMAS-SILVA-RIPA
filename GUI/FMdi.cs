@@ -122,29 +122,7 @@ namespace GUI
         {
             txtUsuario.Text = Sesion.ObtenerSesion().ObtenerUsuario().NombreDeUsuario;
         }
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            bitacora.Fecha = DateTime.Now.Date;
-            try
-            {
-                Sesion.Logout();
-                bitacora.Tipo = Bitacora_.BitacoraTipo.INFO;
-                bitacora.Usuario = nombreDeUsuario;
-                bitacora.Mensaje = "Sesion Cerada Exitosamente";
-                bitacorabll.Add(bitacora);
-                this.Hide();
-                MessageBox.Show("Sesión Cerrada Exitosamente");
-                flogin.Show();
-                flogin.Limpiar();
-            }
-            catch (Exception ex) {
-                bitacora.Tipo = Bitacora_.BitacoraTipo.ERROR;
-                bitacora.Usuario = nombreDeUsuario;
-                bitacora.Mensaje = "No se Pudo Cerrar Sesion:" + ex.Message;
-                bitacorabll.Add(bitacora);
-                throw ex;
-            }
-        }
+        
         private void FMdi_FormClosed(object sender, FormClosedEventArgs e)
         {
             

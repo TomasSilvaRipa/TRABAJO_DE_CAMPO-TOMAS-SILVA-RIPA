@@ -14,6 +14,8 @@ namespace BE
         public DateTime FechaDeEmision { get; set; }
         public DateTime FechaDeVencimiento { get; set; }
 
+        public string NombreDeCliente { get; set; }
+        public string Direccion { get; set; }
         public Cuota() { }
 
         public Cuota(int iD_Vivienda, int iD_Cliente, decimal monto, DateTime fechaDeEmision, DateTime fechaDeVencimiento)

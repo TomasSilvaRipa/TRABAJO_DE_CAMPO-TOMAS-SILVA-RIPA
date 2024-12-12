@@ -107,21 +107,68 @@ namespace GUI
         void LlenarGrilla()
         {
             listaUsuarios = bllusuario.LeerUsuarios();
-            dgvUsuarios.DataSource = null;
-            dgvUsuarios.DataSource = listaUsuarios;
-            dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvUsuarios.ReadOnly = true;
-            dgvUsuarios.Columns["ID"].Visible = false;
-            dgvUsuarios.Columns["Clave"].Visible = false;
-            dgvUsuarios.Columns["DV"].Visible = false;
-            dgvUsuarios.Columns["Foto"].Visible = false;
-            dgvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            if (listaUsuarios != null && listaUsuarios.Count > 0)
+            {
+                dgvUsuarios.DataSource = null;
+                dgvUsuarios.DataSource = listaUsuarios;
+                dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dgvUsuarios.ReadOnly = true;
+                dgvUsuarios.Columns["ID"].Visible = false;
+                dgvUsuarios.Columns["Clave"].Visible = false;
+                dgvUsuarios.Columns["DV"].Visible = false;
+                dgvUsuarios.Columns["Foto"].Visible = false;
+                dgvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
         }
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtNombreUsuario.Text = ObtenerUsuarioSeleccionado().NombreDeUsuario.Trim();
             comboBoxSector.Text = ObtenerUsuarioSeleccionado().Sector.Trim();
             txtMail.Text = ObtenerUsuarioSeleccionado().Mail.Trim();
+        }
+
+        public bool ValidarBaja(Usuario usuario)
+        {
+            try
+            {
+                if (usuario.Sector == "Dueño")
+                {
+                    Dueño dueño = bllDueño.LeerDueño(usuario.ID);
+                    if(dueño.listaDeViviendas.Count > 0)
+                    {
+                        throw new Exception("No se puede dar de baja la cuenta de un dueño tiene casas publicadas");
+                    }
+                    return true;
+                }
+                else if (usuario.Sector == "Closer")
+                {
+                    Closer closer = bllCloser.LeerCloser(usuario.ID, 1);
+                    if(bllCloser.LeerViviendasXCloser(closer).Count > 0)
+                    {
+                        throw new Exception("No se puede dar de baja teniendo viviendas bajo su gestion");
+                    }
+                    return true;
+                }
+                else if (usuario.Sector == "Cliente")
+                {
+                    Cliente cliente = bllCliente.LeerCliente(usuario.ID, 1);
+                    if (cliente.Inquilino)
+                    {
+                        throw new Exception("No se puede dar de baja siendo inquilino de una vivienda");
+                    }
+                    return true;
+                }
+                else if (usuario.Sector == "Inmoviliaria")
+                {
+                    throw new Exception("No se puede borrar la cuenta de inmobiliaria");
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
 
         #endregion
@@ -206,20 +253,6 @@ namespace GUI
                 {
                     throw new Exception("Elija un tipo de cuenta para registrase");
                 }
-            
-                //if (bllusuario.AltaUsuario(nuevoUsuario, txtClave.Text))
-                //{
-                //    bitacora = new Bitacora_(Bitacora_.BitacoraTipo.INFO,Usuario,"El usuario " + nuevoUsuario.NombreDeUsuario + " se creo correctamente.");
-                //    bitacorabll.Add(bitacora);
-                //    MessageBox.Show(bitacora.Mensaje);
-                //}
-                //else
-                //{
-                //    bitacora = new Bitacora_(Bitacora_.BitacoraTipo.VALIDACION,Usuario, "Un usuario con el nombre " + nuevoUsuario.NombreDeUsuario + "o con el Mail: " + txtMail.Text + "ya existe!");
-                //    bitacorabll.Add(bitacora);
-                //    MessageBox.Show(bitacora.Mensaje);
-                //    return;
-                //}
                 LlenarGrilla();
             }
             catch(Exception ex)
@@ -235,24 +268,27 @@ namespace GUI
             Bitacora_ bitacora;
             try
             {
-                if (bllusuario.BajaUsuario(ObtenerUsuarioSeleccionado()))
+                if (ValidarBaja(ObtenerUsuarioSeleccionado()))
                 {
-                    bitacora = new Bitacora_(Bitacora_.BitacoraTipo.INFO, Usuario,"El usuario " + ObtenerUsuarioSeleccionado().NombreDeUsuario.Trim() + " fue eliminado");
-                    bitacorabll.Add(bitacora);
-                    MessageBox.Show(bitacora.Mensaje);
-                }
-                else
-                {
-                    bitacora = new Bitacora_(Bitacora_.BitacoraTipo.VALIDACION, Usuario, "El usuario que intenta eliminar no existe");
-                    bitacorabll.Add(bitacora);
-                    MessageBox.Show(bitacora.Mensaje);
-                }
+                    if (bllusuario.BajaUsuario(ObtenerUsuarioSeleccionado()))
+                    {
+                        bitacora = new Bitacora_(Bitacora_.BitacoraTipo.INFO, Usuario, "El usuario " + ObtenerUsuarioSeleccionado().NombreDeUsuario.Trim() + " fue eliminado");
+                        bitacorabll.Add(bitacora);
+                        MessageBox.Show(bitacora.Mensaje);
+                    }
+                    else
+                    {
+                        bitacora = new Bitacora_(Bitacora_.BitacoraTipo.VALIDACION, Usuario, "El usuario que intenta eliminar no existe");
+                        bitacorabll.Add(bitacora);
+                        MessageBox.Show(bitacora.Mensaje);
+                    }
 
-                LlenarGrilla();
+                    LlenarGrilla();
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                bitacora = new Bitacora_(Bitacora_.BitacoraTipo.ERROR, Usuario,"Ha sucedido un Error:" + ex.Message );
+                bitacora = new Bitacora_(Bitacora_.BitacoraTipo.ERROR, Usuario, "Ha sucedido un Error:" + ex.Message);
                 bitacorabll.Add(bitacora);
                 throw ex;
             }
@@ -282,12 +318,8 @@ namespace GUI
                     if (ManejoErrores.ValidarNombre(tbApellido.Text) && bllusuario.ActualizarUsuario(clienteCreate, 0) && bllCliente.ModificarCliente(clienteCreate,usuarioModificar.ID))
                     {
                         MessageBox.Show("Cliente: " + usuarioModificar.NombreDeUsuario + "creado correctamente");
-                      
                     }
-                    else
-                    {
-                        MessageBox.Show("Ha occurido un error");
-                    }
+                    else {  MessageBox.Show("Ha occurido un error");  }
                 }
                 else if (usuarioModificar.Sector == "Dueño")
                 {
@@ -297,62 +329,30 @@ namespace GUI
                         if (bllusuario.ActualizarUsuario(dueño, 0) && bllDueño.ModificarDueño(dueño,usuarioModificar.ID))
                         {
                             MessageBox.Show("Dueño: " + usuarioModificar.NombreDeUsuario + " creado correctamente");
-                            
                         }
-                        else
-                        {
-                            MessageBox.Show("Ha occurido un error");
-                        }
+                        else{ MessageBox.Show("Ha occurido un error"); }
                     }
-                    else
-                    {
-                        MessageBox.Show("Datos en campo residencia invalidos");
-                    }
-
+                    else{ MessageBox.Show("Datos en campo residencia invalidos");  }
                 }
                 else if (usuarioModificar.Sector == "Closer")
                 {
                     Closer closer = new Closer(usuarioModificar, tbNombre.Text, tbApellido.Text);
                     if (ManejoErrores.ValidarNombre(tbApellido.Text) && bllusuario.ActualizarUsuario(closer, 0) && bllCloser.ModificarCloser(closer,usuarioModificar.ID))
                     {
-                        MessageBox.Show("Closer: " + usuarioModificar.NombreDeUsuario + "creado correctamente");
-                       
+                        MessageBox.Show("Closer: " + usuarioModificar.NombreDeUsuario + "creado correctamente");  
                     }
-                    else
-                    {
-                        MessageBox.Show("Ha occurido un error");
-                    }
+                    else {  MessageBox.Show("Ha occurido un error");   }
                 }
                 else if (usuarioModificar.Sector == "Inmoviliaria")
                 {
                     Inmoviliaria inmoviliaria = new Inmoviliaria(usuarioModificar, tbNombre.Text);
                     if (bllusuario.ActualizarUsuario(inmoviliaria, 0) && bllInmoviliaria.ModificarCuentaInmoviliario(inmoviliaria,usuarioModificar.ID))
                     {
-                        MessageBox.Show("Usuario de Inmoviliaria: " + usuarioModificar.NombreDeUsuario + "creada correctamente");
-                        
+                        MessageBox.Show("Usuario de Inmoviliaria: " + usuarioModificar.NombreDeUsuario + "creada correctamente"); 
                     }
-                    else
-                    {
-                        MessageBox.Show("Ha occurido un error");
-                    }
+                    else {  MessageBox.Show("Ha occurido un error");   }
                 }
-                else
-                {
-                    throw new Exception("Elija un tipo de cuenta para registrase");
-                }
-                //if (bllusuario.ActualizarUsuario(usuarioModificar,0))
-                //{
-
-                //    bitacora = new Bitacora_(Bitacora_.BitacoraTipo.INFO,  Usuario, "El usuario se modificó con exito.");
-                //    bitacorabll.Add(bitacora);
-                //    MessageBox.Show(bitacora.Mensaje);
-                //}
-                //else
-                //{
-                //    bitacora = new Bitacora_(Bitacora_.BitacoraTipo.VALIDACION,Usuario, "El usuario que intenta modificar no existe" );
-                //    bitacorabll.Add(bitacora);
-                //    MessageBox.Show(bitacora.Mensaje);
-                //}
+                else { throw new Exception("Elija un tipo de cuenta para registrase"); }
                 LlenarGrilla();
             }
             catch(Exception ex)

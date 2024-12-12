@@ -16,7 +16,7 @@ namespace GUI
         public SplashScreen()
         {
             InitializeComponent();
-            this.Cursor = Cursors.WaitCursor;
+            this.Cursor = Cursors.Default;
             var backgroundImage = Resources.RentHubFinal;
             this.BackgroundImage = backgroundImage;
             this.ClientSize = new Size(backgroundImage.Width, backgroundImage.Height);
@@ -26,22 +26,30 @@ namespace GUI
 
         private void SplashScreen_MouseDown(object sender, MouseEventArgs e)
         {
-            mouseDown = true;
-            lastLocation = e.Location;
+            if (e.Button == MouseButtons.Left)
+            {
+                mouseDown = true;
+                lastLocation = e.Location;
+            }
         }
 
         private void SplashScreen_MouseMove(object sender, MouseEventArgs e)
         {
             if (mouseDown)
             {
-                this.Location = new Point( (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X,
+                    (this.Location.Y - lastLocation.Y) + e.Y);
                 this.Update();
             }
         }
 
         private void SplashScreen_MouseUp(object sender, MouseEventArgs e)
         {
-            mouseDown = false;
+            if (e.Button == MouseButtons.Left)
+            {
+                mouseDown = false;
+            }
         }
 
         private void SplashScreen_Load(object sender, EventArgs e)
