@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using GUI.Properties;
 using Servicios;
 using System;
 using System.Collections.Generic;
@@ -70,19 +71,23 @@ namespace GUI
             tbNombre.Text = dueño.Nombre;
             tbApellido.Text = dueño.Apellido;
             tbResidencia.Text = dueño.Residencia;
+            tableLayoutPanelFotoDePerfil.Controls.Clear();
+            PictureBox pictureBox = new PictureBox();
+            pictureBox.Dock = DockStyle.Fill;
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
             if (usuario.Foto != null)
             {
-                tableLayoutPanelFotoDePerfil.Controls.Clear();
-                PictureBox pictureBox = new PictureBox();
-                pictureBox.Dock = DockStyle.Fill;
-                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-                pictureBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
                 using (MemoryStream ms = new MemoryStream(usuario.Foto))
                 {
                     pictureBox.Image = System.Drawing.Image.FromStream(ms);
-                }
-                tableLayoutPanelFotoDePerfil.Controls.Add(pictureBox);
+                }   
             }
+            else
+            {
+                pictureBox.Image = Resources.UsuarioGenerico;
+            } 
+            tableLayoutPanelFotoDePerfil.Controls.Add(pictureBox);
         }
         public void ActualizarDatos(Usuario usuarioModificar)
         {

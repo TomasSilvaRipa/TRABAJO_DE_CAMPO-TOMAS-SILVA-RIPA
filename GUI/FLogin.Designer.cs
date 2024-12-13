@@ -98,7 +98,7 @@
             this.btnRegistrase.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegistrase.Name = "btnRegistrase";
             this.btnRegistrase.Size = new System.Drawing.Size(180, 56);
-            this.btnRegistrase.TabIndex = 7;
+            this.btnRegistrase.TabIndex = 3;
             this.btnRegistrase.Tag = "FLlabelQuieroRegistrarme";
             this.btnRegistrase.Text = "Quiero Registrarme";
             this.btnRegistrase.UseVisualStyleBackColor = false;

@@ -84,7 +84,6 @@ namespace GUI
                 {
                     pictureBox.Image = Image.FromStream(ms);
                 }
-                
             }
             else
             {

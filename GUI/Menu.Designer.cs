@@ -34,6 +34,7 @@
             this.btnPerformanceInmoviliaria = new System.Windows.Forms.Button();
             this.btnGestorDeReunionesCliente = new System.Windows.Forms.Button();
             this.btnVerCasasGestionadasCloser = new System.Windows.Forms.Button();
+            this.buttonMenuDeGestion = new System.Windows.Forms.Button();
             this.btnIngresosDueño = new System.Windows.Forms.Button();
             this.btnAgregarPropiedad = new System.Windows.Forms.Button();
             this.btnVerReunionesDueño = new System.Windows.Forms.Button();
@@ -53,12 +54,11 @@
             this.flowLayoutPanelFiltro = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBoxIdiomas = new System.Windows.Forms.ComboBox();
-            this.buttonMenuDeGestion = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.linkLabelManualDeAyuda = new System.Windows.Forms.LinkLabel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.comboBoxIdiomas = new System.Windows.Forms.ComboBox();
+            this.linkLabelManualDeAyuda = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanelPadre.SuspendLayout();
             this.tableLayoutPanelBarraMenuDinamica.SuspendLayout();
             this.tableLayoutPanelCatalogoYFiltro.SuspendLayout();
@@ -105,6 +105,7 @@
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnPerformanceInmoviliaria, 0, 3);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnGestorDeReunionesCliente, 0, 2);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnVerCasasGestionadasCloser, 0, 1);
+            this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.buttonMenuDeGestion, 1, 3);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnIngresosDueño, 2, 0);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnAgregarPropiedad, 0, 0);
             this.tableLayoutPanelBarraMenuDinamica.Controls.Add(this.btnVerReunionesDueño, 1, 0);
@@ -167,6 +168,20 @@
             this.btnVerCasasGestionadasCloser.Text = "Casas Bajo Gestion";
             this.btnVerCasasGestionadasCloser.UseVisualStyleBackColor = true;
             this.btnVerCasasGestionadasCloser.Click += new System.EventHandler(this.btnVerCasasGestionadasCloser_Click);
+            // 
+            // buttonMenuDeGestion
+            // 
+            this.buttonMenuDeGestion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonMenuDeGestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMenuDeGestion.ForeColor = System.Drawing.Color.Red;
+            this.buttonMenuDeGestion.Location = new System.Drawing.Point(398, 39);
+            this.buttonMenuDeGestion.Name = "buttonMenuDeGestion";
+            this.buttonMenuDeGestion.Size = new System.Drawing.Size(119, 12);
+            this.buttonMenuDeGestion.TabIndex = 9;
+            this.buttonMenuDeGestion.Tag = "FMenuDeGestion";
+            this.buttonMenuDeGestion.Text = "Menu de Gestion";
+            this.buttonMenuDeGestion.UseVisualStyleBackColor = true;
+            this.buttonMenuDeGestion.Click += new System.EventHandler(this.buttonMenuDeGestion_Click);
             // 
             // btnIngresosDueño
             // 
@@ -426,7 +441,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.07692F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 412F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 212F));
-            this.tableLayoutPanel1.Controls.Add(this.buttonMenuDeGestion, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnLogout, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 2, 0);
@@ -452,49 +466,6 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.703704F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 96.2963F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 162F));
-            this.tableLayoutPanel2.Controls.Add(this.linkLabel2, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.comboBoxIdiomas, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.linkLabelManualDeAyuda, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(429, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(406, 78);
-            this.tableLayoutPanel2.TabIndex = 9;
-            // 
-            // comboBoxIdiomas
-            // 
-            this.comboBoxIdiomas.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.comboBoxIdiomas.FormattingEnabled = true;
-            this.comboBoxIdiomas.Location = new System.Drawing.Point(325, 27);
-            this.comboBoxIdiomas.Name = "comboBoxIdiomas";
-            this.comboBoxIdiomas.Size = new System.Drawing.Size(78, 24);
-            this.comboBoxIdiomas.TabIndex = 8;
-            this.comboBoxIdiomas.SelectedIndexChanged += new System.EventHandler(this.comboBoxIdioma_SelectedIndexChanged);
-            // 
-            // buttonMenuDeGestion
-            // 
-            this.buttonMenuDeGestion.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonMenuDeGestion.ForeColor = System.Drawing.Color.Black;
-            this.buttonMenuDeGestion.Location = new System.Drawing.Point(232, 13);
-            this.buttonMenuDeGestion.Name = "buttonMenuDeGestion";
-            this.buttonMenuDeGestion.Size = new System.Drawing.Size(119, 57);
-            this.buttonMenuDeGestion.TabIndex = 9;
-            this.buttonMenuDeGestion.Tag = "FMenuDeGestion";
-            this.buttonMenuDeGestion.Text = "Menu de Gestion";
-            this.buttonMenuDeGestion.UseVisualStyleBackColor = true;
-            this.buttonMenuDeGestion.Click += new System.EventHandler(this.buttonMenuDeGestion_Click);
-            // 
             // btnLogout
             // 
             this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -510,6 +481,44 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.703704F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 96.2963F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 163F));
+            this.tableLayoutPanel2.Controls.Add(this.linkLabel2, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.comboBoxIdiomas, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.linkLabelManualDeAyuda, 1, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(429, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(406, 78);
+            this.tableLayoutPanel2.TabIndex = 9;
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(3, 0);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(0, 16);
+            this.linkLabel2.TabIndex = 10;
+            // 
+            // comboBoxIdiomas
+            // 
+            this.comboBoxIdiomas.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.comboBoxIdiomas.FormattingEnabled = true;
+            this.comboBoxIdiomas.Location = new System.Drawing.Point(325, 27);
+            this.comboBoxIdiomas.Name = "comboBoxIdiomas";
+            this.comboBoxIdiomas.Size = new System.Drawing.Size(78, 24);
+            this.comboBoxIdiomas.TabIndex = 8;
+            this.comboBoxIdiomas.SelectedIndexChanged += new System.EventHandler(this.comboBoxIdioma_SelectedIndexChanged);
+            // 
             // linkLabelManualDeAyuda
             // 
             this.linkLabelManualDeAyuda.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -522,14 +531,6 @@
             this.linkLabelManualDeAyuda.Tag = "FMAyuda";
             this.linkLabelManualDeAyuda.Text = "¿Necesitas Ayuda?";
             this.linkLabelManualDeAyuda.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelManualDeAyuda_LinkClicked);
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(3, 0);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(0, 16);
-            this.linkLabel2.TabIndex = 10;
             // 
             // Menu
             // 

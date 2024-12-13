@@ -62,7 +62,7 @@
             this.comboBoxUsuarios.Location = new System.Drawing.Point(3, 42);
             this.comboBoxUsuarios.Name = "comboBoxUsuarios";
             this.comboBoxUsuarios.Size = new System.Drawing.Size(187, 24);
-            this.comboBoxUsuarios.TabIndex = 1;
+            this.comboBoxUsuarios.TabIndex = 0;
             this.comboBoxUsuarios.SelectedIndexChanged += new System.EventHandler(this.comboBoxUsuarios_SelectedIndexChanged);
             // 
             // button1
@@ -71,7 +71,7 @@
             this.button1.Location = new System.Drawing.Point(3, 90);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(185, 34);
-            this.button1.TabIndex = 2;
+            this.button1.TabIndex = 1;
             this.button1.Tag = "btnRecuperarInstancia";
             this.button1.Text = "Recuperar Instancia";
             this.button1.UseVisualStyleBackColor = true;

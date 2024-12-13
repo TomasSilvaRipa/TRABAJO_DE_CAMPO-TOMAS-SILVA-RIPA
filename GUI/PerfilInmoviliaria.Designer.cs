@@ -104,7 +104,7 @@
             this.label1.Location = new System.Drawing.Point(3, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 16);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 123;
             this.label1.Tag = "FPNombreDeUsuario";
             this.label1.Text = "Nombre de Usuario";
             // 
@@ -114,7 +114,7 @@
             this.tbNombreDeUsuario.Location = new System.Drawing.Point(3, 53);
             this.tbNombreDeUsuario.Name = "tbNombreDeUsuario";
             this.tbNombreDeUsuario.Size = new System.Drawing.Size(168, 22);
-            this.tbNombreDeUsuario.TabIndex = 9;
+            this.tbNombreDeUsuario.TabIndex = 0;
             // 
             // label2
             // 
@@ -140,7 +140,7 @@
             this.tbNombre.Location = new System.Drawing.Point(177, 53);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(169, 22);
-            this.tbNombre.TabIndex = 3;
+            this.tbNombre.TabIndex = 2;
             // 
             // label5
             // 
@@ -169,7 +169,7 @@
             this.tbMail.Location = new System.Drawing.Point(177, 153);
             this.tbMail.Name = "tbMail";
             this.tbMail.Size = new System.Drawing.Size(169, 22);
-            this.tbMail.TabIndex = 2;
+            this.tbMail.TabIndex = 3;
             // 
             // btnSubirFoto
             // 
@@ -179,7 +179,7 @@
             this.btnSubirFoto.Location = new System.Drawing.Point(3, 253);
             this.btnSubirFoto.Name = "btnSubirFoto";
             this.btnSubirFoto.Size = new System.Drawing.Size(146, 42);
-            this.btnSubirFoto.TabIndex = 6;
+            this.btnSubirFoto.TabIndex = 4;
             this.btnSubirFoto.Tag = "FPSubirFoto";
             this.btnSubirFoto.Text = "Subir Foto";
             this.btnSubirFoto.UseVisualStyleBackColor = false;
@@ -193,7 +193,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(177, 253);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(146, 42);
-            this.btnActualizar.TabIndex = 7;
+            this.btnActualizar.TabIndex = 5;
             this.btnActualizar.Tag = "FPActualizarDatos";
             this.btnActualizar.Text = "Actualizar Datos";
             this.btnActualizar.UseVisualStyleBackColor = false;

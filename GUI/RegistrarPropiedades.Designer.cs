@@ -88,7 +88,7 @@
             this.tbDireccion.Location = new System.Drawing.Point(208, 50);
             this.tbDireccion.Name = "tbDireccion";
             this.tbDireccion.Size = new System.Drawing.Size(150, 22);
-            this.tbDireccion.TabIndex = 0;
+            this.tbDireccion.TabIndex = 1;
             // 
             // label1
             // 
@@ -110,7 +110,7 @@
             this.comboBoxVivienda.Location = new System.Drawing.Point(208, 8);
             this.comboBoxVivienda.Name = "comboBoxVivienda";
             this.comboBoxVivienda.Size = new System.Drawing.Size(150, 24);
-            this.comboBoxVivienda.TabIndex = 4;
+            this.comboBoxVivienda.TabIndex = 0;
             // 
             // label2
             // 
@@ -140,7 +140,7 @@
             0});
             this.numericUpDownAmbientes.Name = "numericUpDownAmbientes";
             this.numericUpDownAmbientes.Size = new System.Drawing.Size(150, 22);
-            this.numericUpDownAmbientes.TabIndex = 6;
+            this.numericUpDownAmbientes.TabIndex = 2;
             this.numericUpDownAmbientes.Value = new decimal(new int[] {
             1,
             0,
@@ -163,7 +163,7 @@
             0});
             this.numericUpDownPisos.Name = "numericUpDownPisos";
             this.numericUpDownPisos.Size = new System.Drawing.Size(150, 22);
-            this.numericUpDownPisos.TabIndex = 7;
+            this.numericUpDownPisos.TabIndex = 4;
             this.numericUpDownPisos.Value = new decimal(new int[] {
             1,
             0,
@@ -186,7 +186,7 @@
             0});
             this.numericUpDownBaños.Name = "numericUpDownBaños";
             this.numericUpDownBaños.Size = new System.Drawing.Size(150, 22);
-            this.numericUpDownBaños.TabIndex = 8;
+            this.numericUpDownBaños.TabIndex = 6;
             this.numericUpDownBaños.Value = new decimal(new int[] {
             1,
             0,
@@ -209,7 +209,7 @@
             0});
             this.numericUpDownHabitaciones.Name = "numericUpDownHabitaciones";
             this.numericUpDownHabitaciones.Size = new System.Drawing.Size(150, 22);
-            this.numericUpDownHabitaciones.TabIndex = 9;
+            this.numericUpDownHabitaciones.TabIndex = 5;
             this.numericUpDownHabitaciones.Value = new decimal(new int[] {
             1,
             0,
@@ -227,7 +227,7 @@
             0});
             this.numericUpDownAntiguedad.Name = "numericUpDownAntiguedad";
             this.numericUpDownAntiguedad.Size = new System.Drawing.Size(154, 22);
-            this.numericUpDownAntiguedad.TabIndex = 10;
+            this.numericUpDownAntiguedad.TabIndex = 8;
             // 
             // numericUpDownST
             // 
@@ -245,7 +245,7 @@
             0});
             this.numericUpDownST.Name = "numericUpDownST";
             this.numericUpDownST.Size = new System.Drawing.Size(150, 22);
-            this.numericUpDownST.TabIndex = 11;
+            this.numericUpDownST.TabIndex = 3;
             this.numericUpDownST.Value = new decimal(new int[] {
             30,
             0,
@@ -268,7 +268,7 @@
             0});
             this.numericUpDownSC.Name = "numericUpDownSC";
             this.numericUpDownSC.Size = new System.Drawing.Size(154, 22);
-            this.numericUpDownSC.TabIndex = 12;
+            this.numericUpDownSC.TabIndex = 7;
             this.numericUpDownSC.Value = new decimal(new int[] {
             30,
             0,
@@ -367,7 +367,7 @@
             this.comboBoxPatio.Location = new System.Drawing.Point(208, 336);
             this.comboBoxPatio.Name = "comboBoxPatio";
             this.comboBoxPatio.Size = new System.Drawing.Size(154, 24);
-            this.comboBoxPatio.TabIndex = 20;
+            this.comboBoxPatio.TabIndex = 10;
             this.comboBoxPatio.SelectedIndexChanged += new System.EventHandler(this.comboBoxPatio_SelectedIndexChanged);
             // 
             // comboBoxPileta
@@ -378,7 +378,7 @@
             this.comboBoxPileta.Location = new System.Drawing.Point(413, 336);
             this.comboBoxPileta.Name = "comboBoxPileta";
             this.comboBoxPileta.Size = new System.Drawing.Size(154, 24);
-            this.comboBoxPileta.TabIndex = 21;
+            this.comboBoxPileta.TabIndex = 11;
             // 
             // label10
             // 
@@ -424,7 +424,7 @@
             this.comboBoxCochera.Location = new System.Drawing.Point(25, 336);
             this.comboBoxCochera.Name = "comboBoxCochera";
             this.comboBoxCochera.Size = new System.Drawing.Size(154, 24);
-            this.comboBoxCochera.TabIndex = 24;
+            this.comboBoxCochera.TabIndex = 9;
             // 
             // label13
             // 
@@ -454,7 +454,7 @@
             0});
             this.numericUpDownValorDeCouta.Name = "numericUpDownValorDeCouta";
             this.numericUpDownValorDeCouta.Size = new System.Drawing.Size(141, 22);
-            this.numericUpDownValorDeCouta.TabIndex = 26;
+            this.numericUpDownValorDeCouta.TabIndex = 14;
             this.numericUpDownValorDeCouta.Value = new decimal(new int[] {
             75000,
             0,
@@ -474,7 +474,7 @@
             this.buttonSubirImagenes.Location = new System.Drawing.Point(413, 3);
             this.buttonSubirImagenes.Name = "buttonSubirImagenes";
             this.buttonSubirImagenes.Size = new System.Drawing.Size(151, 35);
-            this.buttonSubirImagenes.TabIndex = 28;
+            this.buttonSubirImagenes.TabIndex = 12;
             this.buttonSubirImagenes.Tag = "FormRPBotonImagenes";
             this.buttonSubirImagenes.Text = "Subir Imagenes";
             this.buttonSubirImagenes.UseVisualStyleBackColor = false;
@@ -498,7 +498,7 @@
             this.btnPublicaPropiedad.Location = new System.Drawing.Point(208, 413);
             this.btnPublicaPropiedad.Name = "btnPublicaPropiedad";
             this.btnPublicaPropiedad.Size = new System.Drawing.Size(155, 40);
-            this.btnPublicaPropiedad.TabIndex = 29;
+            this.btnPublicaPropiedad.TabIndex = 15;
             this.btnPublicaPropiedad.Tag = "FormRPBotonAltaPropiedad";
             this.btnPublicaPropiedad.Text = "Publicar Propiedad";
             this.btnPublicaPropiedad.UseVisualStyleBackColor = false;
@@ -571,7 +571,7 @@
             this.btnLimpiarImagenes.Location = new System.Drawing.Point(413, 44);
             this.btnLimpiarImagenes.Name = "btnLimpiarImagenes";
             this.btnLimpiarImagenes.Size = new System.Drawing.Size(151, 35);
-            this.btnLimpiarImagenes.TabIndex = 30;
+            this.btnLimpiarImagenes.TabIndex = 13;
             this.btnLimpiarImagenes.Tag = "FormRPBotonLimpiar";
             this.btnLimpiarImagenes.Text = "Limpiar Imagenes";
             this.btnLimpiarImagenes.UseVisualStyleBackColor = false;
@@ -586,7 +586,7 @@
             this.btnModificar.Location = new System.Drawing.Point(413, 415);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(160, 40);
-            this.btnModificar.TabIndex = 31;
+            this.btnModificar.TabIndex = 16;
             this.btnModificar.Tag = "FormRPBotonModificarPropiedad";
             this.btnModificar.Text = "Modificar Publicacion";
             this.btnModificar.UseVisualStyleBackColor = false;

@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using GUI.Properties;
 using Servicios;
 using System;
 using System.Collections.Generic;
@@ -68,19 +69,23 @@ namespace GUI
             tbNombre.Text = cliente.Nombre;
             tbApellido.Text = cliente.Apellido;
             dateTimePickerFN.Value = cliente.FechaNacimiento;
-            if(usuario.Foto != null)
+            tableLayoutPanelFotoDePerfil.Controls.Clear();
+            PictureBox pictureBox = new PictureBox();
+            pictureBox.Dock = DockStyle.Fill;
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
+            if (usuario.Foto != null)
             {
-                tableLayoutPanelFotoDePerfil.Controls.Clear();
-                PictureBox pictureBox = new PictureBox();
-                pictureBox.Dock = DockStyle.Fill;
-                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-                pictureBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
                 using (MemoryStream ms = new MemoryStream(usuario.Foto))
                 {
                     pictureBox.Image = Image.FromStream(ms);
                 }
-                tableLayoutPanelFotoDePerfil.Controls.Add(pictureBox);
             }
+            else
+            {
+                pictureBox.Image = Resources.UsuarioGenerico;
+            }
+            tableLayoutPanelFotoDePerfil.Controls.Add(pictureBox);
         }
 
         public void ActualizarDatos(Usuario usuarioModificar)

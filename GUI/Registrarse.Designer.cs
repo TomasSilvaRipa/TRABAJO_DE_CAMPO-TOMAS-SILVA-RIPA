@@ -80,7 +80,7 @@
             this.btnRegistrase.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegistrase.Name = "btnRegistrase";
             this.btnRegistrase.Size = new System.Drawing.Size(191, 42);
-            this.btnRegistrase.TabIndex = 8;
+            this.btnRegistrase.TabIndex = 10;
             this.btnRegistrase.Tag = "FRbtnRegistrase";
             this.btnRegistrase.Text = "Registrarse";
             this.btnRegistrase.UseVisualStyleBackColor = false;
@@ -106,7 +106,7 @@
             this.rbCloser.Location = new System.Drawing.Point(385, 17);
             this.rbCloser.Name = "rbCloser";
             this.rbCloser.Size = new System.Drawing.Size(67, 20);
-            this.rbCloser.TabIndex = 14;
+            this.rbCloser.TabIndex = 5;
             this.rbCloser.TabStop = true;
             this.rbCloser.Tag = "FRegistrarseRBCloser";
             this.rbCloser.Text = "Closer";
@@ -121,7 +121,7 @@
             this.rbDueño.Location = new System.Drawing.Point(252, 17);
             this.rbDueño.Name = "rbDueño";
             this.rbDueño.Size = new System.Drawing.Size(68, 20);
-            this.rbDueño.TabIndex = 13;
+            this.rbDueño.TabIndex = 4;
             this.rbDueño.TabStop = true;
             this.rbDueño.Tag = "FRegistrarseRBDueño";
             this.rbDueño.Text = "Dueño";
@@ -136,7 +136,7 @@
             this.rbCliente.Location = new System.Drawing.Point(111, 17);
             this.rbCliente.Name = "rbCliente";
             this.rbCliente.Size = new System.Drawing.Size(77, 20);
-            this.rbCliente.TabIndex = 12;
+            this.rbCliente.TabIndex = 3;
             this.rbCliente.TabStop = true;
             this.rbCliente.Tag = "FRegistrarseRBInquilino";
             this.rbCliente.Text = "Inquilino";
@@ -175,7 +175,7 @@
             this.txtContra.Margin = new System.Windows.Forms.Padding(4);
             this.txtContra.Name = "txtContra";
             this.txtContra.Size = new System.Drawing.Size(216, 30);
-            this.txtContra.TabIndex = 17;
+            this.txtContra.TabIndex = 1;
             this.txtContra.UseSystemPasswordChar = true;
             // 
             // label1
@@ -200,7 +200,7 @@
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(216, 30);
-            this.txtUsuario.TabIndex = 16;
+            this.txtUsuario.TabIndex = 0;
             // 
             // label2
             // 
@@ -225,7 +225,7 @@
             this.txtMail.Margin = new System.Windows.Forms.Padding(4);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(216, 30);
-            this.txtMail.TabIndex = 22;
+            this.txtMail.TabIndex = 2;
             // 
             // labelMail
             // 
@@ -404,7 +404,7 @@
             this.tbNombre.Location = new System.Drawing.Point(3, 24);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(185, 22);
-            this.tbNombre.TabIndex = 4;
+            this.tbNombre.TabIndex = 6;
             // 
             // tbResicencia
             // 
@@ -412,7 +412,7 @@
             this.tbResicencia.Location = new System.Drawing.Point(194, 24);
             this.tbResicencia.Name = "tbResicencia";
             this.tbResicencia.Size = new System.Drawing.Size(185, 22);
-            this.tbResicencia.TabIndex = 3;
+            this.tbResicencia.TabIndex = 7;
             // 
             // label6
             // 
@@ -444,7 +444,7 @@
             this.tbApellido.Location = new System.Drawing.Point(385, 24);
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(187, 22);
-            this.tbApellido.TabIndex = 2;
+            this.tbApellido.TabIndex = 8;
             // 
             // tableLayoutPanel5
             // 
@@ -468,7 +468,7 @@
             this.dateTimePickerFN.Location = new System.Drawing.Point(144, 25);
             this.dateTimePickerFN.Name = "dateTimePickerFN";
             this.dateTimePickerFN.Size = new System.Drawing.Size(286, 22);
-            this.dateTimePickerFN.TabIndex = 0;
+            this.dateTimePickerFN.TabIndex = 9;
             // 
             // label7
             // 

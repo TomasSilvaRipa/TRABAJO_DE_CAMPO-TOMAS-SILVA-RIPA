@@ -135,7 +135,7 @@
             this.btnSolicitarReunion.Location = new System.Drawing.Point(116, 287);
             this.btnSolicitarReunion.Name = "btnSolicitarReunion";
             this.btnSolicitarReunion.Size = new System.Drawing.Size(163, 74);
-            this.btnSolicitarReunion.TabIndex = 0;
+            this.btnSolicitarReunion.TabIndex = 3;
             this.btnSolicitarReunion.Tag = "FSRBtnSolicitarReunion";
             this.btnSolicitarReunion.Text = "Solicitar Runión";
             this.btnSolicitarReunion.UseVisualStyleBackColor = false;
@@ -194,7 +194,7 @@
             this.comboBoxDesde.Location = new System.Drawing.Point(3, 34);
             this.comboBoxDesde.Name = "comboBoxDesde";
             this.comboBoxDesde.Size = new System.Drawing.Size(121, 24);
-            this.comboBoxDesde.TabIndex = 2;
+            this.comboBoxDesde.TabIndex = 1;
             // 
             // comboBoxHasta
             // 
@@ -203,7 +203,7 @@
             this.comboBoxHasta.Location = new System.Drawing.Point(3, 123);
             this.comboBoxHasta.Name = "comboBoxHasta";
             this.comboBoxHasta.Size = new System.Drawing.Size(121, 24);
-            this.comboBoxHasta.TabIndex = 3;
+            this.comboBoxHasta.TabIndex = 2;
             // 
             // label2
             // 

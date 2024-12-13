@@ -96,7 +96,7 @@
             this.btnAlta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAlta.Name = "btnAlta";
             this.btnAlta.Size = new System.Drawing.Size(155, 47);
-            this.btnAlta.TabIndex = 3;
+            this.btnAlta.TabIndex = 9;
             this.btnAlta.Tag = "AltaUsuarios";
             this.btnAlta.Text = "Alta";
             this.btnAlta.UseVisualStyleBackColor = true;
@@ -124,7 +124,7 @@
             this.btnMod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMod.Name = "btnMod";
             this.btnMod.Size = new System.Drawing.Size(155, 47);
-            this.btnMod.TabIndex = 5;
+            this.btnMod.TabIndex = 10;
             this.btnMod.Tag = "ModificarUsuarios";
             this.btnMod.Text = "Modificación";
             this.btnMod.UseVisualStyleBackColor = true;
@@ -138,7 +138,7 @@
             this.btnBaja.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBaja.Name = "btnBaja";
             this.btnBaja.Size = new System.Drawing.Size(155, 47);
-            this.btnBaja.TabIndex = 4;
+            this.btnBaja.TabIndex = 11;
             this.btnBaja.Tag = "BajaUsuarios";
             this.btnBaja.Text = "Baja";
             this.btnBaja.UseVisualStyleBackColor = true;
@@ -179,7 +179,7 @@
             this.txtClave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(184, 28);
-            this.txtClave.TabIndex = 2;
+            this.txtClave.TabIndex = 4;
             this.txtClave.Tag = "txtContraseña";
             this.txtClave.UseSystemPasswordChar = true;
             // 
@@ -217,7 +217,7 @@
             this.txtMail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(184, 28);
-            this.txtMail.TabIndex = 14;
+            this.txtMail.TabIndex = 3;
             this.txtMail.Tag = "txtMail";
             // 
             // tableLayoutPanel1
@@ -288,7 +288,7 @@
             this.tbApellido.Location = new System.Drawing.Point(193, 177);
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(184, 28);
-            this.tbApellido.TabIndex = 16;
+            this.tbApellido.TabIndex = 6;
             // 
             // tbNombre
             // 
@@ -296,7 +296,7 @@
             this.tbNombre.Location = new System.Drawing.Point(193, 61);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(184, 28);
-            this.tbNombre.TabIndex = 16;
+            this.tbNombre.TabIndex = 5;
             // 
             // label6
             // 
@@ -332,7 +332,7 @@
             this.tbResicencia.Location = new System.Drawing.Point(193, 293);
             this.tbResicencia.Name = "tbResicencia";
             this.tbResicencia.Size = new System.Drawing.Size(184, 28);
-            this.tbResicencia.TabIndex = 16;
+            this.tbResicencia.TabIndex = 7;
             // 
             // label7
             // 
@@ -354,14 +354,14 @@
             this.comboBoxSector.Location = new System.Drawing.Point(3, 177);
             this.comboBoxSector.Name = "comboBoxSector";
             this.comboBoxSector.Size = new System.Drawing.Size(156, 24);
-            this.comboBoxSector.TabIndex = 17;
+            this.comboBoxSector.TabIndex = 1;
             // 
             // dateTimePickerFN
             // 
             this.dateTimePickerFN.Location = new System.Drawing.Point(193, 409);
             this.dateTimePickerFN.Name = "dateTimePickerFN";
             this.dateTimePickerFN.Size = new System.Drawing.Size(184, 22);
-            this.dateTimePickerFN.TabIndex = 19;
+            this.dateTimePickerFN.TabIndex = 8;
             // 
             // label9
             // 

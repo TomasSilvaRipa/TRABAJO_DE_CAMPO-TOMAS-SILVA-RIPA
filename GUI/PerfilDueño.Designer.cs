@@ -147,7 +147,7 @@
             this.btnBajaCuenta.Location = new System.Drawing.Point(66, 4);
             this.btnBajaCuenta.Name = "btnBajaCuenta";
             this.btnBajaCuenta.Size = new System.Drawing.Size(122, 33);
-            this.btnBajaCuenta.TabIndex = 9;
+            this.btnBajaCuenta.TabIndex = 8;
             this.btnBajaCuenta.Tag = "FPBorrarCuenta";
             this.btnBajaCuenta.Text = "Borrar Cuenta";
             this.btnBajaCuenta.UseVisualStyleBackColor = false;
@@ -181,7 +181,7 @@
             this.label1.Location = new System.Drawing.Point(3, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 16);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 123;
             this.label1.Tag = "FPNombreDeUsuario";
             this.label1.Text = "Nombre de Usuario";
             // 
@@ -205,7 +205,7 @@
             this.tbNombreDeUsuario.Location = new System.Drawing.Point(3, 51);
             this.tbNombreDeUsuario.Name = "tbNombreDeUsuario";
             this.tbNombreDeUsuario.Size = new System.Drawing.Size(124, 22);
-            this.tbNombreDeUsuario.TabIndex = 20;
+            this.tbNombreDeUsuario.TabIndex = 0;
             // 
             // tbApellido
             // 

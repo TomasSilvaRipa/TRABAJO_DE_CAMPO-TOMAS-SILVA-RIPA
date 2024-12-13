@@ -153,7 +153,7 @@
             this.btnBajaCuenta.Location = new System.Drawing.Point(71, 3);
             this.btnBajaCuenta.Name = "btnBajaCuenta";
             this.btnBajaCuenta.Size = new System.Drawing.Size(130, 33);
-            this.btnBajaCuenta.TabIndex = 9;
+            this.btnBajaCuenta.TabIndex = 7;
             this.btnBajaCuenta.Tag = "FPBorrarCuenta";
             this.btnBajaCuenta.Text = "Borrar Cuenta";
             this.btnBajaCuenta.UseVisualStyleBackColor = false;
@@ -175,7 +175,7 @@
             this.label1.Location = new System.Drawing.Point(3, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 16);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 156;
             this.label1.Tag = "FPNombreDeUsuario";
             this.label1.Text = "Nombre de Usuario";
             // 
@@ -185,7 +185,7 @@
             this.tbNombreDeUsuario.Location = new System.Drawing.Point(3, 48);
             this.tbNombreDeUsuario.Name = "tbNombreDeUsuario";
             this.tbNombreDeUsuario.Size = new System.Drawing.Size(124, 22);
-            this.tbNombreDeUsuario.TabIndex = 18;
+            this.tbNombreDeUsuario.TabIndex = 0;
             // 
             // tbApellido
             // 
@@ -201,7 +201,7 @@
             this.label2.Location = new System.Drawing.Point(3, 119);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 16);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 34;
             this.label2.Tag = "FPContraseña";
             this.label2.Text = "Contraseña";
             // 
@@ -238,7 +238,7 @@
             this.label3.Location = new System.Drawing.Point(3, 209);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 16);
-            this.label3.TabIndex = 6;
+            this.label3.TabIndex = 66;
             this.label3.Tag = "FPMail";
             this.label3.Text = "Mail";
             // 

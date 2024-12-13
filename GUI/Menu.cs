@@ -182,7 +182,7 @@ namespace GUI
             Control[] botonesDueño = { btnAgregarPropiedad, btnVerReunionesDueño, btnIngresosDueño, btnCuentaDueño };
             Control[] botonesCloser = { btnRendimientoCloser, btnVerCasasGestionadasCloser, btnCuentaCloser };
             Control[] botonesCliente = { btnGestorDeReunionesCliente, btnPagosCliente, btnCuentaCliente };
-            Control[] botonesInmobiliaria = { btnPerformanceInmoviliaria, btnCuentaInmoviliaria };
+            Control[] botonesInmobiliaria = { btnPerformanceInmoviliaria,buttonMenuDeGestion, btnCuentaInmoviliaria };
 
             ResetTableLayout();
 
@@ -200,7 +200,7 @@ namespace GUI
             }
             else if (TodosHabilitados(botonesInmobiliaria))
             {
-                ConfigurarFilasYColumnas(4, new float[] { 75, 0, 0, 25 }, botonesInmobiliaria);
+                ConfigurarFilasYColumnas(4, new float[] { 37, 37, 0, 25 }, botonesInmobiliaria);
             }
 
             tableLayoutPanelBarraMenuDinamica.Refresh();
